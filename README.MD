@@ -66,6 +66,7 @@ Für den Bootstrap Slider - können den Kategorien Banner zugewiesen werden. Zud
 
 ### Sollten Sie mit einem Problem nicht weiter kommen, finden sich bestimmt Helfer im Modified-Forum
 
+### [Thema: TEMPLATE: Bootstrap5 für Shop 3.x - freies responsive Template](https://www.modified-shop.org/forum/index.php?topic=43328.0)
 
 <br /><br />
 
