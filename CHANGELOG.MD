@@ -2,6 +2,6 @@ UNRELEASED
 
 
 
-1.0.0 [16.10.2023]
+1.0.0 [05.03.2024]
 
 - Übertragung der Dateien zu Github
