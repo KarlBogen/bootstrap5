@@ -1,0 +1,15 @@
+// Lumen 5.3.2
+$min-contrast-ratio: 1.75 !default;
+$table-bg-scale: 0% !default;
+$btn-font-weight: 700 !default;
+$nav-link-color: var(--#{$prefix}link-color) !default;
+$pagination-border-color: var(--#{$prefix}border-color) !default;
+$pagination-hover-color: $pagination-color !default;
+$pagination-active-border-color: darken($primary, 5%) !default;
+$pagination-disabled-color: $gray-600 !default;
+$pagination-disabled-bg: $pagination-bg !default;
+$breadcrumb-padding-y: .375rem !default;
+$breadcrumb-padding-x: .75rem !default;
+$breadcrumb-border-radius: .25rem !default;
+$btn-close-opacity: .4 !default;
+$btn-close-hover-opacity: 1 !default;

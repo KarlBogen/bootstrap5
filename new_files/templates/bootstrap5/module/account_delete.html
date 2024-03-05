@@ -1,0 +1,46 @@
+{config_load file="$language/lang_$language.conf" section="account_delete"}
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="account_delete"}
+<div class="account_checkout_express">
+	{if $BUTTON_CONTINUE}
+		<h1 class="heading bg-h">{#heading_account_deleted#}</h1>
+		<div class="alert alert-success my-4">
+			{#account_deleted#}
+		</div>
+		<div class="d-flex justify-content-end mt-3">
+			{$BUTTON_CONTINUE|replace:'<a':'<a class="btn btn-success"'}
+		</div>
+	{else}
+		<h1 class="heading bg-h">{#heading_delete_account#}</h1>
+		<div class="row my-4">
+			<div class="col-lg-4 d-none d-lg-block">
+				{if isset($smarty.session.customer_id)}
+					{include file="module/account_navigation.html"}
+				{/if}
+			</div>
+			<div class="col-12 col-lg-8">
+				{$FORM_ACTION}
+					{if $error_message}<div class="alert alert-danger">{$error_message}</div>{/if}
+					<div class="contentbox mb-4">
+						<div class="h4">{#title_delete_account#}</div>
+						<p class="mb-4">{#delete_account#}</p>
+						<div class="input-group clearfix mb-4">
+							<button class="togglePw btn btn-sm btn-outline-secondary fa fa-eye px-4" type="button" aria-label="{$smarty.const.BS5_TOGGLE_PWFIELD_SHOW}"></button>
+							{$INPUT_PASSWORD|replace:'<input':'<input class="form-control" aria-label="password"'}
+						</div>
+
+						{*
+						<div class="d-grid gap-2 d-sm-flex justify-content-sm-between mt-3">
+							{$BUTTON_BACK|replace:'<a':'<a class="btn btn-secondary"'}
+							{$BUTTON_SUBMIT|replace:'<button':'<button class="btn btn-success"'}
+						</div>
+						*}
+						<div class="d-flex justify-content-end mt-3">
+							{$BUTTON_SUBMIT|replace:'<button':'<button class="btn btn-success"'}
+						</div>
+					</div>
+				{$FORM_END}
+			</div>
+		</div>
+	{/if}
+</div>

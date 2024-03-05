@@ -1,0 +1,34 @@
+{if isset($module_content)}
+	{config_load file="$language/lang_$language.conf" section="new_products"}
+	{config_load file="$language/lang_$language.conf" section="index"}
+	{config_load file="lang_`$language`.custom"}
+	{config_load file="lang_`$language`.section" section="new_products"}
+	<div id="bs5_TopCarousel" class="new-products-default mb-5">
+		{if $smarty.const.BS5_TOP_PROD_IN_SLIDER != 'true'}
+			<div class="d-flex justify-content-between border-bottom mb-3">
+				<div class="h2">
+					{if #BS5_heading_text_top# != ''}{#BS5_heading_text_top#}{else}{#heading_text#}{/if}
+				</div>
+			</div>
+			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-5 g-2 mb-4">
+				{foreach name=aussen item=module_data from=$module_content}
+					<div class="listingbox col">{include file="module/includes/product_box.html"}</div>
+				{/foreach}
+			</div>
+		{else}
+			<div class="d-flex justify-content-between border-bottom mb-3">
+				<div class="h2">
+					{if #BS5_heading_text_top# != ''}{#BS5_heading_text_top#}{else}{#heading_text#}{/if}
+				</div>
+			</div>
+			<div class="visually-hidden">{#BS5_slider_info#}</div>
+			<div id="topCarousel" class="resCarousel position-relative w-100 it5" data-items="1-2-3-4-5" data-slide="5" data-speed="900">
+				<button type="button" class="resBtn btn btn-light leftRs" tabindex="-1"><i class="fa fa-fw fa-angle-left"></i><span class="visually-hidden">{#BS5_previous#}</span></button>
+				<div class="resCarousel-inner py-1" tabindex="-1">
+					{include file="module/includes/products_include_listing.html"}
+				</div>
+				<button type="button" class="resBtn btn btn-light rightRs" tabindex="-1"><i class="fa fa-fw fa-angle-right"></i><span class="visually-hidden">{#BS5_next#}</span></button>
+			</div>
+		{/if}
+	</div>
+{/if}

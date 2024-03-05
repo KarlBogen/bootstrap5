@@ -1,0 +1,23 @@
+{config_load file="$language/lang_$language.conf" section="index"}
+{config_load file="lang_`$language`.custom"}
+<div id="layout_offline" style="margin-top:50px;">
+	{html_image file="templates/`$smarty.const.CURRENT_TEMPLATE`/`$smarty.const.BS5_SHOP_LOGO`" alt="`$store_name`" class="img-fluid mx-auto d-block"}
+	<div class="mt-4">
+		{$shop_offline_msg}
+	</div>
+	<div id="modal" class="modal modal-xl fade" tabindex="-1" aria-labelledby="title" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 id="title" class="modal-title text-uppercase mx-auto">&nbsp;</h4>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{#BS5_close#}"></button>
+				</div>
+				<div class="modal-body">
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-dark btn-sm" data-bs-dismiss="modal" type="button" title="{#BS5_close#}">{#BS5_close#}</button>
+				</div>
+        	</div>
+	    </div>
+	</div>
+</div>

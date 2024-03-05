@@ -1,0 +1,158 @@
+{* wird nur benötigt, wenn Template Manager nicht aktiv ist *}
+{if !isset($SLIDERSETTINGS)}
+	{assign var=settings value=$smarty.const.BS5_DEFAULT_BANNER_SETTINGS}
+	{assign var=sets value=","|explode:$settings}
+	{assign var=SLIDERSETTINGS value=['bs5_control_position' => $sets[0],'bs5_control_class' => $sets[1],'bs5_control_rounded' => $sets[2],'bs5_indicator_position' => $sets[3],'bs5_indicator_class' => $sets[4],'bs5_indicator_rounded' => $sets[5],'bs5_duration' => $sets[6]]}
+	{assign var=text value="-"|explode:$SLIDERSETTINGS.bs5_control_class}
+	{if $text[0] == 'text'}{append var=SLIDERSETTINGS index=bs5_control_text_class value='text-'}{/if}
+{/if}
+{if $SLIDER|count > 1}
+	<div id="myCarousel" class="carousel slide{if $smarty.const.BS5_CAROUSEL_FADE == 'true'} carousel-fade{/if} mb-5 text-center"{if $SLIDERSETTINGS.bs5_duration != '0'} data-bs-ride="carousel" data-bs-interval="{$SLIDERSETTINGS.bs5_duration|intval}"{/if}>
+		<div class="carousel-inner">
+			{if $SLIDERSETTINGS.bs5_control_position == 'j1'}
+			<div class="{if isset($SLIDERSETTINGS.bs5_control_text_class)}{$SLIDERSETTINGS.bs5_control_text_class}{/if}controls" role="group" aria-label="{#BS5_slider_desc#}">
+				<span class="position-absolute top-50 start-0 ms-3 translate-middle-y z-2">
+					<button class="btn {$SLIDERSETTINGS.bs5_control_class}{if $SLIDERSETTINGS.bs5_control_rounded == 'j'} rounded-5{/if}" data-bs-target="#myCarousel" type="button" data-bs-slide="prev">
+						<i class="fa fa-angle-left" aria-hidden="true"></i>
+						<span class="visually-hidden">{#BS5_previous#}</span>
+					</button>
+				</span>
+				<span class="position-absolute top-50 end-0 me-3 translate-middle-y z-2">
+					<button class="btn {$SLIDERSETTINGS.bs5_control_class}{if $SLIDERSETTINGS.bs5_control_rounded == 'j'} rounded-5{/if}" data-bs-target="#myCarousel" type="button" data-bs-slide="next">
+						<i class="fa fa-angle-right" aria-hidden="true"></i>
+						<span class="visually-hidden">{#BS5_next#}</span>
+					</button>
+				</span>
+			</div>
+			{/if}
+			{if $SLIDERSETTINGS.bs5_indicator_position == 'j1'}
+			<ol class="carousel-indicators">
+				{foreach name=aussen item=slider from=$SLIDER}<li data-bs-target="#myCarousel" data-bs-slide-to="{$smarty.foreach.aussen.iteration - 1}" class="{$SLIDERSETTINGS.bs5_indicator_class}{if $SLIDERSETTINGS.bs5_indicator_rounded == 'j'} rounded-circle{/if}{if $smarty.foreach.aussen.first} active{/if}"></li>{/foreach}
+			</ol>
+			{/if}
+			{foreach name=aussen item=slider from=$SLIDER}
+			<div class="carousel-item{if $smarty.foreach.aussen.first} active{/if}">
+				{if $slider.LINK != ''}
+					{if isset($slider.IMAGE_SRC_MOBILE) && $slider.IMAGE_SRC_MOBILE != ''}
+						<a class="stretched-link d-block" title="{$slider.IMAGE_TITLE}" href="{$slider.LINK}" {$slider.TARGET}></a>
+						<picture>
+							<source media="(max-width:575.98px)" srcset="{$slider.IMAGE_SRC_MOBILE}">
+							<source srcset="{$slider.IMAGE_SRC}">
+							<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
+						</picture>
+						{if $slider.TEXT}
+							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
+						{else}
+							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{$slider.TITLE}</span></div>
+						{/if}
+					{else}
+						<a class="stretched-link d-block" title="{$slider.IMAGE_TITLE}" href="{$slider.LINK}" {$slider.TARGET}></a>
+						<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
+						{if $slider.TEXT}
+							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
+						{else}
+							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{$slider.TITLE}</span></div>
+						{/if}
+					{/if}
+				{elseif $slider.IMAGE_IMG != ''}
+					{if isset($slider.IMAGE_SRC_MOBILE) && $slider.IMAGE_SRC_MOBILE != ''}
+						<picture>
+							<source media="(max-width:575.98px)" srcset="{$slider.IMAGE_SRC_MOBILE}">
+							<source srcset="{$slider.IMAGE_SRC}">
+							<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
+						</picture>
+						{if $slider.TEXT}
+							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
+						{else}
+							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{$slider.TITLE}</span></div>
+						{/if}
+					{else}
+						<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
+						{if $slider.TEXT}
+							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
+						{else}
+							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{$slider.TITLE}</span></div>
+						{/if}
+					{/if}
+				{/if}
+			</div>
+			{/foreach}
+		</div>
+		{if $SLIDERSETTINGS.bs5_control_position == 'j2'}
+		<div class="controls d-flex justify-content-between align-items-center mt-2" role="group" aria-label="{#BS5_slider_desc#}">
+			<a class="control-prev" href="#myCarousel" role="button" data-bs-slide="prev">
+				<span class="btn {$SLIDERSETTINGS.bs5_control_class}{if $SLIDERSETTINGS.bs5_control_rounded == 'j'} rounded-5{/if}"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+				<span class="visually-hidden">Previous</span>
+			</a>
+			{if $SLIDERSETTINGS.bs5_indicator_position == 'j2'}
+			<ol class="carousel-indicators outside">
+				{foreach name=aussen item=slider from=$SLIDER}<li data-bs-target="#myCarousel" data-bs-slide-to="{$smarty.foreach.aussen.iteration - 1}" class="{$SLIDERSETTINGS.bs5_indicator_class}{if $SLIDERSETTINGS.bs5_indicator_rounded == 'j'} rounded-circle{/if}{if $smarty.foreach.aussen.first} active{/if}"></li>{/foreach}
+			</ol>
+			{/if}
+			<a class="control-prev" href="#myCarousel" role="button" data-bs-slide="next">
+				<span class="btn {$SLIDERSETTINGS.bs5_control_class}{if $SLIDERSETTINGS.bs5_control_rounded == 'j'} rounded-5{/if}"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+				<span class="visually-hidden">Next</span>
+			</a>
+		</div>
+		{/if}
+		{if $SLIDERSETTINGS.bs5_control_position != 'j2' && $SLIDERSETTINGS.bs5_indicator_position == 'j2'}
+		<div class="controls d-flex justify-content-center align-items-center mt-2">
+			<ol class="carousel-indicators outside">
+				{foreach name=aussen item=slider from=$SLIDER}<li data-bs-target="#myCarousel" data-bs-slide-to="{$smarty.foreach.aussen.iteration - 1}" class="{$SLIDERSETTINGS.bs5_indicator_class}{if $SLIDERSETTINGS.bs5_indicator_rounded == 'j'} rounded-circle{/if}{if $smarty.foreach.aussen.first} active{/if}"></li>{/foreach}
+			</ol>
+		</div>
+		{/if}
+	</div>
+{else}
+	<div class="carousel{if $smarty.const.BS5_CAROUSEL_SHOW == 'shop'} container{/if} mb-4 text-center">
+		<div class="carousel-inner">
+			{foreach name=aussen item=slider from=$SLIDER}
+			<div class="carousel-item active">
+				{if $slider.LINK != ''}
+					{if isset($slider.IMAGE_SRC_MOBILE) && $slider.IMAGE_SRC_MOBILE != ''}
+						<a class="stretched-link d-block" title="{$slider.IMAGE_TITLE}" href="{$slider.LINK}" {$slider.TARGET}></a>
+						<picture>
+							<source media="(max-width:575.98px)" srcset="{$slider.IMAGE_SRC_MOBILE}">
+							<source srcset="{$slider.IMAGE_SRC}">
+							<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
+						</picture>
+						{if $slider.TEXT}
+							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
+						{else}
+							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{$slider.TITLE}</span></div>
+						{/if}
+					{else}
+						<a class="stretched-link d-block" title="{$slider.IMAGE_TITLE}" href="{$slider.LINK}" {$slider.TARGET}></a>
+						<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
+						{if $slider.TEXT}
+							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
+						{else}
+							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{$slider.TITLE}</span></div>
+						{/if}
+					{/if}
+				{elseif $slider.IMAGE_IMG != ''}
+					{if isset($slider.IMAGE_SRC_MOBILE) && $slider.IMAGE_SRC_MOBILE != ''}
+						<picture>
+							<source media="(max-width:575.98px)" srcset="{$slider.IMAGE_SRC_MOBILE}">
+							<source srcset="{$slider.IMAGE_SRC}">
+							<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
+						</picture>
+						{if $slider.TEXT}
+							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
+						{else}
+							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{$slider.TITLE}</span></div>
+						{/if}
+					{else}
+						<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
+						{if $slider.TEXT}
+							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
+						{else}
+							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{$slider.TITLE}</span></div>
+						{/if}
+					{/if}
+				{/if}
+			</div>
+			{/foreach}
+		</div>
+	</div>
+{/if}

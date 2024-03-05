@@ -1,0 +1,16 @@
+// Pulse 5.3.2
+$min-contrast-ratio: 2.1 !default;
+$enable-rounded: false !default;
+$table-border-color: rgba(0, 0, 0, .05) !default;
+$input-focus-border-color: $primary !default;
+$dropdown-link-hover-color: $white !default;
+$dropdown-link-hover-bg: $primary !default;
+$nav-tabs-border-color: $gray-300 !default;
+$nav-tabs-link-hover-border-color: $primary !default;
+$navbar-padding-y: 1.2rem !default;
+$progress-bg: $gray-300 !default;
+$progress-bar-bg: $primary !default;
+$list-group-hover-bg: lighten($list-group-bg, 10%) !default;
+$list-group-active-color: $white !default;
+$list-group-active-bg: $list-group-bg !default;
+$list-group-disabled-color: lighten($list-group-bg, 30%) !default;

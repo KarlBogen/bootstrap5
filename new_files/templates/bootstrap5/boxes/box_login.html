@@ -1,0 +1,80 @@
+{config_load file="$language/lang_$language.conf" section="boxes"}
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="account"}
+
+{if isset($smarty.session.customer_id)}
+	<div class="list-group list-group-flush border-top border-bottom mb-4">
+		{if isset($IS_CUSTOMER) && $IS_CUSTOMER == true}
+			<a class="list-group-item list-group-item-action" href="{$LINK_ACCOUNT}" title="{#title_nav_account#}">
+				<i class="fa fa-user me-3"></i>{#title_nav_account#}
+			</a>
+			<a class="list-group-item list-group-item-action" href="{$LINK_EDIT}" title="{#title_nav_account_edit#}">
+				<i class="fa fa-user-pen me-3"></i>{#title_nav_account_edit#}
+			</a>
+			<a class="list-group-item list-group-item-action" href="{$LINK_ADDRESS}" title="{#title_nav_address_book#}">
+				<i class="fa fa-address-card me-3"></i>{#title_nav_address_book#}
+			</a>
+			<a class="list-group-item list-group-item-action" href="{$LINK_PASSWORD}" title="{#title_nav_password#}">
+				<i class="fa fa-key me-3"></i>{#title_nav_password#}
+			</a>
+			<a class="list-group-item list-group-item-action" href="{$LINK_ORDERS}" title="{#title_nav_orders#}">
+				<i class="fa fa-cart-shopping me-3"></i>{#title_nav_orders#}
+			</a>
+      {if isset($LINK_DELETE)}
+				<a class="list-group-item list-group-item-action" href="{$LINK_DELETE}" title="{#title_nav_account_delete#}">
+					<i class="fa fa-trash me-3"></i>{#title_nav_account_delete#}
+				</a>
+      {/if}    
+      {if isset($LINK_EXPRESS)}
+				<a class="list-group-item list-group-item-action" href="{$LINK_EXPRESS}" title="{#title_nav_checkout_express#}">
+					<i class="fa fa-truck-fast me-3"></i>{#title_nav_checkout_express#}
+				</a>
+      {/if}    
+		{/if}
+    {if isset($LINK_NEWSLETTER)}
+			<a class="list-group-item list-group-item-action" href="{$LINK_NEWSLETTER}" title="{#title_nav_newsletter#}">
+				<i class="fa fa-envelope me-3"></i>{#title_nav_newsletter#}
+			</a>
+    {/if}
+		<a class="list-group-item list-group-item-action" href="{$LINK_LOGOFF}" title="{#title_nav_logoff#}">
+			<i class="fa fa-right-from-bracket me-3"></i>{#title_nav_logoff#}
+		</a>
+	</div>
+{else}
+	{if isset($FORM_ACTION) && $FORM_ACTION != ''}
+    {$FORM_ACTION}
+			<div class="box_login list-group list-group-flush mb-4">
+				<h5 class="list-group-item">{#heading_login#}</h5>
+				<div class="list-group-item">
+					<div class="mb-2">
+						<label for="email" class="form-label small">{#text_email#}:</label>
+						{$FIELD_EMAIL|replace:"type=\"text\"":"type=\"email\""}
+					</div>
+					<div class="mb-3">
+						<label for="pw" class="form-label small">{#text_pwd#}:</label>
+						<div class="input-group">
+							{$FIELD_PWD}
+							<button class="togglePw btn btn-outline-secondary fa fa-eye px-3" type="button" aria-label="{$smarty.const.BS5_TOGGLE_PWFIELD_SHOW}"></button>
+						</div>
+					</div>
+					<div class="d-grid mb-3">
+						{$BUTTON|replace:'<button':'<button class="btn btn-secondary"'}
+					</div>
+				</div>
+			</div>
+		{$FORM_END}
+		<div class="list-group list-group-flush border-top border-bottom mb-4">
+			<a class="list-group-item list-group-item-action" href="{$LINK_CREATE_ACCOUNT}" title="{#title_accountbox_create#}">
+				<i class="fa fa-user-shield me-3"></i>{#title_accountbox_create#}
+			</a>
+      {if $smarty.const.ACCOUNT_OPTIONS == 'both' or $smarty.const.ACCOUNT_OPTIONS == 'guest'}
+				<a class="list-group-item list-group-item-action" href="{$LINK_CREATE_GUEST_ACCOUNT}" title="{#title_accountbox_create_guest#}">
+					<i class="fa fa-user me-3"></i>{#title_accountbox_create_guest#}
+				</a>
+			{/if}
+			<a class="list-group-item list-group-item-action" href="{$LINK_LOST_PASSWORD}" title="{#title_accountbox_password_forgotten#}">
+				<i class="fa fa-key me-3"></i>{#title_accountbox_password_forgotten#}
+			</a>
+		</div>
+	{/if}
+{/if}

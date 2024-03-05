@@ -1,0 +1,66 @@
+{if isset($BOX_CONTENT) && count($BOX_CONTENT) > 0}
+  {config_load file="$language/lang_$language.conf" section="boxes"}
+  {config_load file="lang_`$language`.custom"}
+  {config_load file="lang_`$language`.section" section="boxes"}
+	<div class="cat_show mb-5">
+		<div class="d-flex justify-content-between border-bottom mb-3">
+			<div class="h2">
+				{#BS5_catlist_title#}
+			</div>
+		</div>
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xxl-5 g-2 mb-3">
+		{foreach name=aussen item=module_data from=$BOX_CONTENT}
+			<div class="cat col">
+				<div class="card h-100 text-center">
+					<div class="card-body">
+						<div class="cat_image w-100">
+							{if $module_data.CATEGORY_IMAGE != '' || (isset($module_data.CATEGORY_IMAGE_LIST) && $module_data.CATEGORY_IMAGE_LIST != '')}
+									{assign var=sizeimg value=$module_data.CATEGORY_IMAGE|imgsize}
+								{if isset($module_data.CATEGORY_IMAGE_LIST) && $module_data.CATEGORY_IMAGE_LIST != ''}
+										{assign var=sizeimglist value=$module_data.CATEGORY_IMAGE_LIST|imgsize}
+									<img class="lazyload img-fluid" data-src="{$module_data.CATEGORY_IMAGE_LIST}" alt="{#BS5_catlist_imgalt#}" title="{$module_data.CATEGORY_NAME|onlytext}" {$sizeimglist}>
+								{else}
+									<img class="lazyload img-fluid" data-src="{$module_data.CATEGORY_IMAGE}" alt="{#BS5_catlist_imgalt#}" title="{$module_data.CATEGORY_NAME|onlytext}" {$sizeimg}>
+								{/if}
+							{/if}
+						</div>
+					</div>
+					<div class="card-footer">
+						<a class="stretched-link lb_title fs-5 text-secondary-emphasis mb-0 d-block" href="{$module_data.CATEGORY_LINK}" title="{$module_data.CATEGORY_NAME}">{if $module_data.CATEGORY_HEADING_TITLE != ''}{$module_data.CATEGORY_HEADING_TITLE}{else}{$module_data.CATEGORY_NAME}{/if}</a>
+					</div>
+				</div>
+			</div>
+		{/foreach}
+		{if $smarty.const.BS5_SPECIALS_CATEGORIES == 'true'}
+			{if $smarty.const.SPECIALS_EXISTS === true}
+				<div class="cat col">
+					<div class="card h-100 text-center">
+						<div class="card-body">
+							<div class="cat_image w-100">
+								<img class="lazyload img-fluid" data-src="{$tpl_path}img/specials_{$language}.png" alt="{#BS5_catlist_imgalt#}" title="{#heading_specials#}" width="200" height="200">
+							</div>
+						</div>
+						<div class="card-footer">
+							<a class="stretched-link lb_title fs-5 text-secondary-emphasis mb-0 d-block" href="{$smarty.const.FILENAME_SPECIALS|xtc_href_link}" title="{#heading_specials#}">{#heading_specials#}</a>
+						</div>
+					</div>
+				</div>
+			{/if}
+		{/if}
+		{if $smarty.const.BS5_WHATSNEW_CATEGORIES == 'true'}
+			<div class="cat col">
+				<div class="card h-100 text-center">
+					<div class="card-body">
+						<div class="cat_image w-100">
+							<img class="lazyload img-fluid" data-src="{$tpl_path}img/whatsnew_{$language}.png" alt="{#BS5_catlist_imgalt#}" title="{#heading_whatsnew#}" width="200" height="200">
+						</div>
+					</div>
+					<div class="card-footer">
+						<a class="stretched-link lb_title fs-5 text-secondary-emphasis mb-0 d-block" href="{$smarty.const.FILENAME_PRODUCTS_NEW|xtc_href_link}" title="{#heading_whatsnew#}">{#heading_whatsnew#}</a>
+					</div>
+				</div>
+			</div>
+		{/if}
+		</div>
+	</div>
+{/if}

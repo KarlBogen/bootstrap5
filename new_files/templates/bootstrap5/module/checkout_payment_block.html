@@ -1,0 +1,50 @@
+{foreach name=outer item=gift_data from=$module_gift}
+	<div class="d-flex border mb-3">
+		<div class="py-2 px-3 bg-body-secondary"><i class="fa fa-gift fa-lg"></i></div>
+		<div class="p-2 flex-grow-1 clearfix">
+			<div class="border-bottom pb-2">{$gift_data.module|onlytext}<span class="float-end">{$gift_data.credit_amount}</span></div>
+			<div class="py-3 position-relative clearfix">
+				<div class="form-check">
+					{$gift_data.selection|replace:'checkbox"':'checkbox" id="gift" class="form-check-input"'}
+					<label class="form-check-label stretched-link" for="gift">{if $gift_data.description != ''}{$gift_data.description}{/if}</label>
+				</div>
+			</div>
+			{$credit_amount_payment_info|replace:"message":"message small"}
+		</div>
+	</div>
+{/foreach}
+
+	<div id="accordion" class="accordion clearfix mb-2">
+	{foreach name=outer item=module_data from=$module_content}
+		<div class="payment accordion-item">
+			<div class="accordion-header" id="acc{$smarty.foreach.outer.iteration}">
+					<span class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#acc_{$smarty.foreach.outer.iteration}" aria-expanded="false" aria-controls="acc_{$smarty.foreach.outer.iteration}">
+							<label class="form-check w-100 m-0">
+								{$module_data.selection|replace:'<input':'<input class="form-check-input"'}
+								&nbsp;{$module_data.module|onlytext}
+								<span class="float-end">{$module_data.module_cost}&nbsp;&nbsp;</span>
+							</label>
+					</span>
+			</div>
+			<div id="acc_{$smarty.foreach.outer.iteration}" class="accordion-collapse collapse" data-bs-parent="#accordion" aria-labelledby="acc{$smarty.foreach.outer.iteration}">
+				<div class="accordion-body">
+					{if $module_data.description}{$module_data.description}<br>{/if}
+					{if $module_data.error != ''}
+						{$module_data.error}<br>
+					{elseif $module_data.fields}
+						<div class="paymentmoduledata mb-2">
+							{foreach name=inner item=method_data from=$module_data.fields}
+								<div class="mb-2 d-flex">
+									<div class="me-auto pe-2 title small"><strong>{$method_data.title}</strong></div>
+									<div class="field small">{$method_data.field|replace:'<input':'<input class="form-control"'|replace:'<textarea':'<textarea class="form-control"'|replace:'<select':'<select class="form-select"'}
+									</div>
+								</div>
+							{/foreach}
+						</div>
+					{/if}
+				</div>
+			</div>
+		</div>
+	{/foreach}
+</div>
+<div class="pp-message"></div>

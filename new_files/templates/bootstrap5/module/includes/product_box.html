@@ -1,0 +1,68 @@
+<div class="card focus-ring h-100" tabindex="0" aria-label="{$module_data.PRODUCTS_NAME}">
+  <div class="card-body pb-2 flex-fill d-flex flex-column text-center">
+    {if $smarty.const.BS5_FLAG_SPECIAL_SHOW == 'true' && $module_data.PRODUCTS_PRICE_ARRAY.0.PRODUCTS_PRICE_SAVE_PERCENT != ''}<div class="ribbon bg-danger text-white shadow-sm">{#BS5_special#}</div>
+    {elseif $smarty.const.BS5_FLAG_TOP_SHOW == 'true' && $module_data.PRODUCTS_STARTPAGE == '1'}<div class="ribbon bg-primary text-white shadow-sm">{#BS5_top#}</div>
+    {elseif $smarty.const.BS5_FLAG_NEW_SHOW == 'true' && isset($module_data.PRODUCTS_FLAG_NEW) && ($module_data.PRODUCTS_FLAG_NEW == 1)}<div class="ribbon bg-success text-white shadow-sm">{#BS5_new#}</div>{/if}
+    <div class="lb_image w-100 img_container mx-auto">
+      <div class="prod_image mb-auto">
+        {if $module_data.PRODUCTS_IMAGE != ''}
+          <img class="img-fluid lazyload" data-src="{$module_data.PRODUCTS_IMAGE}" alt="{$module_data.PRODUCTS_NAME|onlytext}" title="{$module_data.PRODUCTS_NAME|onlytext}">
+        {/if}
+      </div>
+    </div>
+    <div class="lb_title fs-5 text-secondary-emphasis mt-2 mb-0{if $smarty.const.BS5_PRODBOX_NAME_LINES != 0}  line-clamp lc-{$smarty.const.BS5_PRODBOX_NAME_LINES}{/if}">{$module_data.PRODUCTS_NAME}</div>
+  </div>
+  <div class="p-1 text-center">
+    {if $smarty.const.BS5_AWIDSRATINGBREAKDOWN == 'true' && ((isset($module_data.BS5_AWIDS_PRODUCTS_SUM_REVIEWS) && $module_data.BS5_AWIDS_PRODUCTS_SUM_REVIEWS > 0 || $smarty.const.BS5_AWIDSRATINGBREAKDOWN_SHOW_NULL_REVIEWS == 'true') && $smarty.const.BS5_AWIDSRATINGBREAKDOWN_PRODLIST == 'true')}
+      <div class="lb_ratings mb-3 small">
+        {if $module_data.BS5_AWIDS_PRODUCTS_SUM_REVIEWS > 0}
+          <a class="bs5_avg_container link-secondary" href="#" tabindex="-1" data-pid="{$module_data.PRODUCTS_ID}" data-class="list" title="{$smarty.const.BS5_AWIDSRATINGBREAKDOWN_ARROW_TITLE}">
+            <span class="visually-hidden">{#info_review#}: {$smarty.const.TEXT_OF_5_STARS|sprintf:$module_data.BS5_AWIDS_PRODUCTS_AVERAGE}</span>
+            <span class="ratings">
+              <span class="fas empty-stars"></span><span class="fas full-stars" style="width: {$module_data.BS5_AWIDS_PRODUCTS_AVERAGE_PERCENT}%"></span>
+            </span>&nbsp;({$module_data.BS5_AWIDS_PRODUCTS_SUM_REVIEWS}<span class="visually-hidden">&nbsp;{#info_reviews#}</span>)
+            <i class="fa fa-chevron-down ms-1"></i>
+          </a>
+        {else}
+          <span class="ratings">
+            <span class="fas empty-stars"></span><span class="fas full-stars" style="width:0%"></span>
+            <span class="text-secondary-emphasis">&nbsp;(0<span class="visually-hidden">&nbsp;{#info_reviews#}</span>)</span>
+          </span>
+        {/if}
+      </div>
+    {elseif isset($module_data.PRODUCTS_REVIEWS_COUNT)}
+      <div class="lb_ratings mb-3 small">
+        <span class="visually-hidden">{#info_review#}: {$smarty.const.TEXT_OF_5_STARS|sprintf:$module_data.PRODUCTS_REVIEWS_AVERAGE}</span>
+        <span class="ratings">
+          <span class="fas empty-stars"></span><span class="fas full-stars" style="width:{math equation = "x * 20" x = $module_data.PRODUCTS_REVIEWS_AVERAGE|intval}%"></span>
+        </span>&nbsp;({$module_data.PRODUCTS_REVIEWS_COUNT}<span class="visually-hidden">&nbsp;{#info_reviews#}</span>)
+      </div>
+    {/if}
+    <div class="lb_buttons mb-2">{if $module_data.PRODUCTS_BUTTON_BUY_NOW || ($module_data.PRODUCTS_FSK18 != '0' && $smarty.const.SHOW_BUTTON_BUY_NOW != 'false')}{$module_data.PRODUCTS_BUTTON_BUY_NOW|replace:'<a':'<a class="btn btn-cart btn-outline-secondary btn-sm" aria-label="buy now" tabindex="-1"'}&nbsp;&nbsp;{/if}{if $module_data.PRODUCTS_LINK_WISHLIST_NOW}<a class="btn btn-wish btn-outline-info btn-sm" href="{$module_data.PRODUCTS_LINK_WISHLIST_NOW}" title="{$smarty.const.TEXT_TO_WISHLIST}" tabindex="-1"><i class="fa fa fa-heart"></i></a>&nbsp;&nbsp;{/if}<a class="stretched-link btn btn-info btn-sm" href="{$module_data.PRODUCTS_LINK}"><i class="fa fa-eye"></i>{$smarty.const.TEXT_INFO_DETAILS}</a></div>
+  </div>
+  <div class="card-footer">
+    {if $module_data.PRODUCTS_SHIPPING_NAME}<div class="lb_shipping small mb-1"><i class="fa fa-truck-fast me-2"></i>{#text_shippingtime_box#} {if $module_data.PRODUCTS_SHIPPING_IMAGE}<span class="lb_shipping_image"><img class="img-fluid" src="{$module_data.PRODUCTS_SHIPPING_IMAGE}" alt="{$module_data.PRODUCTS_SHIPPING_NAME|onlytext}"></span>{/if}{$module_data.PRODUCTS_SHIPPING_NAME_LINK|replace:'<a':'<a tabindex="-1"'}</div>{/if}
+    {if isset($module_data.PRODUCTS_DATE) && ($module_data.PRODUCTS_DATE != '')}
+      {* only upcoming products *}
+      <div class="lb_date text-center mb-2">
+        <div class="badge text-wrap lh-sm text-bg-primary">{#text_upcomming_prod#}<i class="fa fa-calendar-days mx-2"></i>{$module_data.PRODUCTS_DATE}</div>
+      </div>
+    {elseif $smarty.const.BS5_TRAFFIC_LIGHTS == 'true' && $smarty.const.BS5_TRAFFIC_LIGHTS_PRODLISTING != 'false'}
+      <div class="lb_stock mb-2 small">{traffic_light stock=$module_data.PRODUCTS_QUANTITY modul='listing'}</div>
+    {/if}
+    <div class="lb_price text-end mb-1">
+      {foreach name=inner item=price_data from=$module_data.PRODUCTS_PRICE_ARRAY}
+        {include file="module/includes/price_box.html"}
+      {/foreach}
+      {if $module_data.PRODUCTS_PRICE_ARRAY.0.PRODUCTS_PRICE_FLAG != 'NotAllowed'}
+        {if $module_data.PRODUCTS_VPE}<div class="lb_vpe text-secondary-emphasis small">{$module_data.PRODUCTS_VPE}</div>{/if}
+      {/if}
+    </div>
+    {if $module_data.PRODUCTS_PRICE_ARRAY.0.PRODUCTS_PRICE_FLAG != 'NotAllowed'}
+      <div class="lb_tax text-end text-secondary-emphasis small mb-1"><span class="small">{$module_data.PRODUCTS_TAX_INFO}</span>{$module_data.PRODUCTS_SHIPPING_LINK|replace:'<a':'<a tabindex="-1"'}</div>
+      {if $module_data.PRODUCTS_PRICE_EXPIRES_DATE|strtotime > 0}        
+        <div class="lb_expires_date text-center text-danger small mb-1">{#text_expires_date#} {$module_data.PRODUCTS_PRICE_EXPIRES_DATE|xtc_date_short}</div>
+      {/if}
+    {/if}
+  </div>
+</div>

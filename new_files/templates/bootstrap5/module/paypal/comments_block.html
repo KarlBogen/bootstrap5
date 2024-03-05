@@ -1,0 +1,58 @@
+{config_load file="$language/lang_$language.conf" section="checkout_paypal"}
+{config_load file="$language/lang_$language.conf" section="checkout_payment"}
+<div class="contentbox">
+  <div class="my-3">
+    <div class="h4 border-bottom">{#title_comments_short#}</div>
+    <label class="visually-hidden" for="comments">{#title_comments_short#}</label>
+    {$COMMENTS|replace:'<textarea':'<textarea class="form-control"'}
+  </div>
+  {if isset($ADR_checkbox)}
+		<div class="mb-3 p-2 bg-warning-subtle position-relative clearfix">
+      <div class="form-check">
+        {$ADR_checkbox|replace:'<input':'<input class="form-check-input"'}
+        <label class="form-check-label stretched-link" for="address">{#text_accept_adr#}</label>
+      </div>
+    </div>
+  {/if}
+  {if $smarty.const.DISPLAY_CONDITIONS_ON_CHECKOUT == 'true'}
+    {if defined($smarty.const.SIGN_CONDITIONS_ON_CHECKOUT)}
+			<div class="mb-3 p-2 bg-warning-subtle position-relative clearfix">
+        {if $smarty.const.SIGN_CONDITIONS_ON_CHECKOUT == 'true'}
+          <div class="form-check">
+            {$AGB_checkbox|replace:'<input':'<input class="form-check-input"'}
+            <label class="form-check-label stretched-link" for="conditions">{#text_accept_agb#}</label>&nbsp;{$AGB_LINK|replace:'iframe':'iframe z-2 position-relative'}
+          </div>
+        {else}
+          {#text_accept_agb#}&nbsp;{$AGB_LINK}
+        {/if}
+      </div>
+    {else}
+			<div class="mb-3 p-2 bg-warning-subtle position-relative clearfix">
+				<div class="form-check">
+					{$AGB_checkbox|replace:'<input':'<input class="form-check-input"'}
+					<label class="form-check-label stretched-link" for="conditions">{#text_accept_agb#}</label>&nbsp;{$AGB_LINK|replace:'iframe':'iframe z-2 position-relative'}
+				</div>
+      </div>
+    {/if}
+  {/if}
+	{if isset($PRIVACY_LINK)}
+		<div class="mb-3 p-2 bg-warning-subtle position-relative clearfix">
+			{if $PRIVACY_checkbox}
+				<div class="form-check">
+					{$PRIVACY_checkbox|replace:'<input':'<input class="form-check-input"'}
+					<label class="form-check-label stretched-link" for="privacy">{#text_privacy_accept#}</label>&nbsp;{$PRIVACY_LINK|replace:'iframe':'iframe z-2 position-relative'}
+				</div>
+			{else}
+				{#text_privacy_notice#}&nbsp;{$PRIVACY_LINK}
+			{/if}
+		</div>
+	{/if}
+	{if isset($REVOCATION_checkbox)}
+		<div class="mb-3 p-2 bg-warning-subtle position-relative clearfix">
+			<div class="form-check">
+				{$REVOCATION_checkbox|replace:'<input':'<input class="form-check-input"'}
+				<label class="form-check-label stretched-link" for="revocation">{#text_accept_revocation#}</label>&nbsp;{$REVOCATION_LINK|replace:'iframe':'iframe z-2 position-relative'}
+			</div>
+		</div>
+	{/if}
+</div>

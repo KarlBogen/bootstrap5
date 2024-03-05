@@ -1,0 +1,26 @@
+// Cosmo 5.3.2
+// Bootswatch
+
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+// Indicators
+
+.badge {
+  &.bg-light {
+    color: $dark;
+  }
+}
+
+// Progress bars
+
+.progress {
+  @include box-shadow(none);
+
+  .progress-bar {
+    font-size: 8px;
+    line-height: 8px;
+  }
+}

@@ -1,0 +1,99 @@
+{config_load file="$language/lang_$language.conf" section="address_book_process"}
+{config_load file="$language/lang_$language.conf" section="checkout_new_address"}
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="address_book_process"}
+{config_load file="lang_`$language`.section" section="checkout_new_address"}
+<div class="checkout_new_address">
+	<div class="h4 border-bottom">{if isset($smarty.get.action) && $smarty.get.action == 'edit'}{#title_edit_address#}{else}{#title_new_address#}{/if}</div>
+	<p class="small mb-2">({#text_must#})</p>
+	{if !isset($smarty.get.action) || $smarty.get.action == 'new'}<div class="small">{#text_new_address#}</div>{/if}
+	<div class="row my-3">
+		<div class="col-md-6">
+			{if $gender == '1'}
+			<div class="mb-2 stern clearfix">
+				<label class="form-label" for="gender">{#text_gender#}</label>
+				{$INPUT_GENDER|replace:'<select':'<select id="gender" class="form-select"'}
+			</div>
+		{/if}
+		<div class="row clearfix">
+			<div class="col-sm-5 col-lg-4 mb-2">
+				<div class="stern">
+					<label class="form-label" for="firstname">{#text_firstname#}</label>
+					{$INPUT_FIRSTNAME|replace:'<input':'<input id="firstname" class="form-control"'}
+				</div>
+			</div>
+			<div class="col-sm-7 col-lg-8 mb-2">
+				<div class="stern">
+					<label class="form-label" for="lastname">{#text_lastname#}</label>
+					{$INPUT_LASTNAME|replace:'<input':'<input id="lastname" class="form-control"'}
+				</div>
+			</div>
+		</div>
+		{if $company == '1'}
+			<div class="mb-2 stern clearfix">
+				<label class="form-label" for="company">{#text_company#}</label>
+				{$INPUT_COMPANY|replace:'<input':'<input id="company" class="form-control"'}
+			</div>
+		{/if}
+
+		</div>
+		<div class="col-md-6">
+			<div class="mb-2 stern clearfix">
+				<label class="form-label" for="street">{#text_street#}</label>
+				{$INPUT_STREET|replace:'<input':'<input id="street" class="form-control" autocomplete="on"'}
+			</div>
+			{if $suburb == '1'}
+				<div class="mb-2 stern clearfix">
+					<label class="form-label" for="suburb">{#text_suburb#}</label>
+					{$INPUT_SUBURB|replace:"Nur":" Nur"|replace:'<input':'<input id="suburb" class="form-control"'}
+				</div>
+			{/if}
+			<div class="row clearfix">
+				<div class="col-sm-5 col-lg-4 mb-2">
+					<div class="stern">
+						<label class="form-label" for="postcode">{#text_code#}</label>
+						{$INPUT_CODE|replace:'<input':'<input id="postcode" class="form-control"'}
+					</div>
+				</div>
+				<div class="col-sm-7 col-lg-8 mb-2">
+					<div class="stern">
+						<label class="form-label" for="city">{#text_city#}</label>
+						{$INPUT_CITY|replace:'<input':'<input id="city" class="form-control"'}
+					</div>
+				</div>
+			</div>
+			<div class="mb-2 stern clearfix">
+				<label class="form-label" for="country">{#text_country#}</label>
+				{$SELECT_COUNTRY|replace:'<select':'<select id="country" class="form-select" autocomplete="on"'}
+			</div>
+			{if $state == '1'}
+				<div class="mb-2 form-state stern clearfix">
+					<label class="form-label" for="state">{#text_state#}</label>
+					{$INPUT_STATE|replace:'name="state"':'id="state" name="state"'}
+				</div>
+			{/if}
+			{if $new == '1'}
+				<div class="my-3 p-2 bg-warning-subtle position-relative clearfix">
+					<div class="form-check">
+						{$CHECKBOX_PRIMARY|replace:'<input':'<input id="primary" class="form-check-input"'}
+						<label class="form-check-label stretched-link" for="primary">{#text_standard#}</label>
+					</div>
+				</div>
+			{/if}
+			{if isset($CHECKBOX_EDIT_ADDRESS)}
+				<div class="my-3 p-2 bg-warning-subtle position-relative clearfix">
+					<div class="form-check">
+						{$CHECKBOX_EDIT_ADDRESS|replace:'<input':'<input class="form-check-input"'}
+						<label class="form-check-label stretched-link" for="edit_address_book_id">{#text_edit_address_note#}</label>
+					</div>
+				</div>
+			{/if}
+			{if isset($MAX_ADDRESS_NOTE)}
+				<div class="alert alert-warning small">
+					{$MAX_ADDRESS_NOTE}
+				</div>
+			{/if}
+		</div>
+	</div>
+	{if isset($PARAMS)}{$PARAMS}{/if}
+</div>

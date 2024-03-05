@@ -1,0 +1,110 @@
+BS5_top1 = '<i class="fa fa-user-group fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Consultation +49 00 00 / 00 00 00'
+BS5_top2 = '<i class="fa fa-truck-fast fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Fast delivery'
+BS5_top3 = '<i class="fa fa-truck fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Free Shipping - from 50$'
+BS5_top4 = '<i class="fa fa-rotate-left fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;30 Days return policy'
+
+BS5_skip_nav = 'Skipnavigation'
+BS5_skip_to_content = 'Skip to main content'
+BS5_skip_to_nav = 'Skip to main navigation
+BS5_skip_to_login = 'Skip to login button'
+BS5_skip_to_sets = 'Skip to settings button'
+BS5_skip_to_footer = 'Skip to general information'
+
+BS5_catlist_title = 'Our offer'
+BS5_catlist_imgalt = 'category image'
+BS5_manu_imgalt = 'manufacturers image'
+
+BS5_heading_settingbox = 'Settings'
+BS5_text_wishlistbox = 'products on the wishlist'
+BS5_back_to_shop = 'Back to shop'
+BS5_back_to_cart = 'Back to shopping cart'
+
+BS5_slider_desc = 'Carouselcontrols - you can change the images using the following back and forward buttons.'
+BS5_slider_info = 'A product slider follows - navigate to the individual items using the Tab key.'
+BS5_prod_carousel = 'Product carousel'
+BS5_prod_carousel_info = 'The product carousel can contain one or more information sections depending on the screen width. You can use the "Previous" and "Next" buttons to navigate between sections.'
+BS5_img_carousel = 'Image carousel'
+BS5_img_carousel_info = 'If there is more than one product image, you can use the "Previous" and "Next" buttons to navigate between the images. For a larger view click on the image.'
+BS5_zoomtext = 'For a larger view click on the image!'
+
+BS5_alert_qty_wanted = 'requested'
+BS5_alert_qty_available = 'available'
+
+BS5_subcats_heading = 'Categories'
+BS5_heading_text_top = 'TOP-Articles'
+
+BS5_special = 'Sale'
+BS5_top = 'Top'
+BS5_new = 'New'
+
+BS5_previous = 'Previous'
+BS5_next = 'Next'
+BS5_close = 'Close'
+BS5_price = 'Price information'
+
+BS5_noscript = '<strong>JavaScript is disabled!</strong> Not all shop functions are available. Please check your browser settings.'
+BS5_heading_responsivemenu = 'Menu'
+BS5_checkout_express_infolinktext = 'My quick purchase'
+
+heading_flyout_cart = 'Show shopping cart'
+heading_flyout_checkout = 'Got to checkout'
+heading_flyout_wishlist = 'Show wishlist'
+
+text_shippingtime_box = 'Delivery time:'
+
+products_desc = 'Products description'
+products_fsk18_check = 'This article can be purchased only after age verification.'
+products_manufacturer_model = 'MPN:'
+products_tags = 'Features'
+heading_products_tags = 'Product Features'
+
+first = '&laquo; first'
+back = '&laquo; back'
+overview = 'Overview'
+next = 'next &raquo;'
+last = 'last &raquo;'
+
+heading_miscellaneous = 'Payment methods'
+
+# Box Newsletter #
+subfooter_newsletter_headline = 'Subscribe to our newsletter'
+subfooter_newsletter_text = 'Free exclusive offers and new products by email'
+subfooter_newsletter_disclaim = 'Our newsletter is free of charge and can be canceled at any time here or in your customer account.'
+subfooter_text_email = 'Your e-mail address ...'
+
+footer_heading_payment = 'Payment methods'
+footer_heading_social = 'Social Media'
+footer_heading_contact = 'Contact'
+footer_text_contact = 'Demoshop modified eCommerce Shopsoftware<br>Musterstr. 123<br>12345 Musterstadt<br><br>Telefon: 01234 56789<br>Mail: demo@modified-shop.org'
+
+ab_admin = 'Adminarea'
+ab_orders = 'Orders'
+ab_contentmanager = 'Content Manager'
+ab_customers = 'Customers'
+ab_category = 'Category/Products'
+ab_logoff = 'Logoff'
+ab_news = 'News'
+ab_offline = 'Shop Offline'
+ab_update = 'Update'
+ab_support = 'Support'
+ab_shop = 'Shop'
+ab_caching = 'Caching'
+
+ab_edit_content = 'Edit content'
+ab_edit_product = 'Edit product'
+ab_edit_attributes = 'Edit product attributes'
+ab_edit_category = 'Edit category'
+ab_edit_xsell = 'Edit cross selling'
+ab_edit_tags = 'Product features'
+
+info_reviews = 'Reviews'
+info_review = 'Review'
+
+heading_trustedshops = 'Trusted Shops'
+
+text_search_again = 'Sorry, we could not find a product matching your search request'
+
+listing_listview = 'List view'
+listing_boxview = 'Box view'
+text_expires_date = 'Special offer valid until:'
+text_upcomming_prod = 'Available from:'

@@ -1,0 +1,50 @@
+    {if $FREE_SHIPPING}
+		<div class="card">
+			<div class="card-header">
+				<div class="h4 m-0">
+					{$FREE_SHIPPING_TITLE|onlytext}
+				</div>
+			</div>
+			<div class="card-body">
+				<div>{$FREE_SHIPPING_DESCRIPTION}</div>
+			</div>
+		</div>
+    {else}
+		<div id="accordion" class="accordion clearfix">
+		{foreach name=outer item=module_data from=$module_content}
+        	{if $module_data.error != ''}
+			<div class="accordion-item">
+				<div class="accordion-header" id="acc{$smarty.foreach.outer.iteration}">
+					<span class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#acc_{$smarty.foreach.outer.iteration}" aria-expanded="false" aria-controls="acc_{$smarty.foreach.outer.iteration}">
+							<span class="w-100 m-0">
+									{$module_data.module|onlytext}
+						</span>
+				</div>
+				<div id="acc_{$smarty.foreach.outer.iteration}" class="accordion-collapse collapse" data-bs-parent="#accordion" aria-labelledby="acc{$smarty.foreach.outer.iteration}">
+					<div class="accordion-body">
+						<div>{$module_data.error}</div>
+					</div>
+				</div>
+			</div>
+        	{else}
+				{foreach name=inner item=method_data from=$module_data.methods}
+				<div class="shipping accordion-item">
+					<div class="accordion-header" id="acc{$smarty.foreach.outer.iteration}-{$smarty.foreach.inner.iteration}">
+						<span class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#acc_{$smarty.foreach.outer.iteration}-{$smarty.foreach.inner.iteration}" aria-expanded="false" aria-controls="acc_{$smarty.foreach.outer.iteration}-{$smarty.foreach.inner.iteration}">
+							<label class="form-check w-100 m-0">
+										{$method_data.radio_field|replace:'<input':'<input class="form-check-input"'}
+										&nbsp;{$module_data.module}
+										<span class="float-end">{$method_data.price}&nbsp;&nbsp;</span>
+							</label>
+					</div>
+					<div id="acc_{$smarty.foreach.outer.iteration}-{$smarty.foreach.inner.iteration}" class="accordion-collapse collapse" data-bs-parent="#accordion" aria-labelledby="acc{$smarty.foreach.outer.iteration}-{$smarty.foreach.inner.iteration}">
+						<div class="accordion-body">
+							<div>{$module_data.icon} {$method_data.title}</div>
+						</div>
+					</div>
+				</div>
+          		{/foreach}
+        	{/if}
+		{/foreach}
+		</div>
+    {/if}

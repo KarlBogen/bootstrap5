@@ -1,0 +1,86 @@
+{if $ACTIVATE_GIFT == 'true'}
+	{config_load file="$language/lang_$language.conf" section="gift_cart"}
+	{config_load file="lang_`$language`.custom"}
+	{config_load file="lang_`$language`.section" section="gift_cart"}
+
+	{if $D_FLAG == 'checkout'}
+		<div class="giftbox_confirmation py-4 bg-body-tertiary border-bottom">  
+			{$FORM_ACTION}
+				{if $coupon_message}<div class="alert alert-danger small">{$coupon_message}</div>{/if}
+				{if $success_message}<div class="alert alert-success small">{$success_message}</div>{/if}
+				<div class="visually-hidden">                                                                                                      
+					{if isset($COUPON_HELP_LINK)}
+						{#cart_coupon#} {$COUPON_HELP_LINK|replace:"<a":"<a title=\"{#cart_coupon_info#|onlytext}\""}<i class="fa fa-circle-info mx-2"></i></a>
+					{else}
+						<strong>{#text_heading_gift#}</strong>
+					{/if}
+				</div>
+				<div class="d-flex">
+					<div class="flex-grow-1">
+						<label class="visually-hidden" for="gv_redeem_code">{#text_code#}</label>
+						{$INPUT_CODE|replace:"<input":"<input class=\"form-control\" id=\"gv_redeem_code\" placeholder=\"{#text_code#}\""}
+					</div>
+					<div class="ps-2">{$BUTTON_SUBMIT|replace:'<button':'<button class="btn btn-secondary"'}</div>
+				</div>
+			{$FORM_END}  
+		</div>  
+	{else}
+		<div class="giftbox bg-body-tertiary border small mb-3">  
+			<div class="visually-hidden">{#text_heading_gift#}</div>
+			{if $coupon_message}<div class="alert alert-danger small">{$coupon_message}</div>{/if}
+			{if $success_message}<div class="alert alert-info small">{$success_message}</div>{/if}
+			{if $C_FLAG == 'true'}
+				<div class="gift_item d-flex align-items-end p-2">
+					<div class="flex-grow-1">
+						<label class="form-label" for="gv_redeem_code">{#text_code#}</label>
+						{$INPUT_CODE|replace:"<input":"<input class=\"form-control\" id=\"gv_redeem_code\""}
+					</div>
+					<div class="ps-2">{$BUTTON_SUBMIT|replace:'<button':'<button class="btn btn-secondary"'}</div>
+				</div>
+				{if isset($GV_AMOUNT) && $GV_AMOUNT > 0}
+					<div class="gift_row p-2">
+						{#voucher_info_text#} <strong>{$GV_AMOUNT}</strong>
+						<a class="inline" title="{#voucher_heading_text_popup#}" href="#/" data-bs-toggle="modal" data-bs-target="#inline_gift"><i class="fa fa-circle-info mx-2"></i></a>
+						<div class="modal modal-xl fade" id="inline_gift" tabindex="-1" aria-labelledby="gifttinfoLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title up mx-auto" id="giftinfoLabel">{#voucher_heading_text_popup#}</h4>
+										<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{#BS5_close#}"></button>
+									</div>
+									<div class="modal-body">
+										<p>{#text_info#}<br>{#voucher_balance#} <strong>{$GV_AMOUNT}</strong></p>
+										<p>{#text_send_to_friend#} <a href="{$GV_SEND_TO_FRIEND_LINK}">{#box_send_to_friend#}</a></p>
+									</div>
+									<div class="modal-footer">
+										<button class="btn btn-dark btn-sm" data-bs-dismiss="modal" type="button" title="{#BS5_close#}">{#BS5_close#}</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				{/if}
+				{if isset($COUPON_AMOUNT2) && $COUPON_AMOUNT2 > 0}
+					<div class="gift_row p-2">
+						<div>{#voucher_redeemed#}</div>
+						<div>{$COUPON_AMOUNT2}</div>
+					</div>
+				{/if}
+				{if isset($COUPON_HELP_LINK)}
+					<div class="gift_row p-2">
+						{if isset($D_FLAG)}
+							{#cart_coupon#} {$COUPON_HELP_LINK|replace:"<a":"<a title=\"{#cart_coupon_info#|onlytext}\""}<i class="fa fa-circle-info mx-2"></i></a>
+						{else}
+							<div class="alert alert-success small">{$smarty.const.REDEEMED_COUPON} {$COUPON_HELP_LINK} {#cart_coupon_info#}</a></div>
+						{/if}
+					</div>                                                                                                                        
+				{/if}
+			{else}
+				<div class="gift_row p-2">
+					<div>{#create_account#}</div>
+					<div><a class="link-body-emphasis" href="{$LINK_ACCOUNT}"><i class="fa fa-arrow-right me-2"></i>{#text_create_account#}</a></div>
+				</div>
+			{/if}
+		</div>
+	{/if}
+{/if}

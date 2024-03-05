@@ -1,0 +1,36 @@
+{if isset($categories_content) && $categories_content != '' && $TR_COLS > 0}
+	{config_load file="$language/lang_$language.conf" section="categorie_listing"}
+	{config_load file="lang_`$language`.custom"}
+	{config_load file="lang_`$language`.section" section="categorie_listing"}
+	<div class="listing-subcats mb-2">
+		<div class="heading bg-h h4">{#heading_more_categories#}</div>
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2 mb-3">
+			{foreach name=aussen item=categories_data from=$categories_content key=spalten}
+				{if !isset($categories_data.CATEGORIES_PRODUCTS) || (isset($categories_data.CATEGORIES_PRODUCTS) && $categories_data.CATEGORIES_PRODUCTS > 0)}
+					<div class="subcat col">
+						<div class="card h-100 text-center">
+							<div class="card-body flex-fill d-flex flex-column">
+								<div class="w-100 mb-auto">
+								{if $categories_data.CATEGORIES_IMAGE != '' || (isset($categories_data.CATEGORIES_IMAGE_LIST) && $categories_data.CATEGORIES_IMAGE_LIST != '')}
+									{assign var=sizeimg value=$categories_data.CATEGORIES_IMAGE|imgsize}
+									{if isset($categories_data.CATEGORIES_IMAGE_LIST) && $categories_data.CATEGORIES_IMAGE_LIST != ''}
+										{assign var=sizeimglist value=$categories_data.CATEGORIES_IMAGE_LIST|imgsize}
+										<img class="lazyload img-fluid d-block mx-auto" data-src="{$categories_data.CATEGORIES_IMAGE_LIST}" alt="{#BS5_catlist_imgalt#}" {$sizeimglist}>
+									{else}
+										<img class="lazyload img-fluid" data-src="{$categories_data.CATEGORIES_IMAGE}" alt="{#BS5_catlist_imgalt#}" {$sizeimg}>
+									{/if}
+									<noscript><img class="img-fluid" src="{$categories_data.CATEGORIES_IMAGE}" alt="{#BS5_catlist_imgalt#}" {$sizeimg}></noscript>
+								{/if}
+								</div>
+								<div class="mt-2">
+									<a class="stretched-link link-secondary" href="{$categories_data.CATEGORIES_LINK}" title="{$categories_data.CATEGORIES_NAME}">{$categories_data.CATEGORIES_NAME}</a>
+									{* <p class="subcat_desc small">{$categories_data.CATEGORIES_DESCRIPTION|onlytext|truncate:55:"...":true}</p> *}
+								</div>
+							</div>
+						</div>
+					</div>
+				{/if}
+			{/foreach}
+		</div>
+	</div>
+{/if}

@@ -1,0 +1,10 @@
+{if isset($BOX_CONTENT) && $BOX_CONTENT != ''}
+	{config_load file="$language/lang_$language.conf" section="boxes"}
+	{config_load file="lang_`$language`.custom"}
+	<div class="box-info">
+		<div class="box-heading w-100 navbar-brand border-bottom mb-2">{#heading_infobox#}</div>
+		<ul class="navbar-nav flex-column">
+		{$BOX_CONTENT}
+		</ul>
+	</div>
+{/if}

@@ -1,0 +1,94 @@
+{config_load file="$language/lang_$language.conf" section="boxes"}
+{config_load file="lang_`$language`.custom"}
+<div class="nav-item cart text-center">
+  {if $empty == 'false'}
+	  {if $deny_cart != 'true'}<button id="toggle_cart" data-bs-toggle="offcanvas" data-bs-target="#canvas_cart" aria-controls="canvas_cart"{else}<a href="{$LINK_CART}"{/if} class="nav-link {$smarty.const.BS5_LOGOBAR_TEXT} px-2" title="{#heading_cart#}">
+	    <span class="icon"><i class="fa fa-cart-shopping fa-lg fa-fw" aria-hidden="true"></i></span><span class="badge-corner badge rounded-pill bg-danger">{$PRODUCTS}</span>
+	    {if $smarty.const.BS5_SHOW_ICON_WITH_NAMES != 'false'}<span class="d-none d-lg-block small">{#heading_cart#}</span>{/if}
+	  {if $deny_cart != 'true'}</button>{else}</a>{/if}
+  {else}
+	  {if $deny_cart != 'true'}<button id="toggle_cart" data-bs-toggle="offcanvas" data-bs-target="#canvas_cart" aria-controls="canvas_cart"{else}<a href="{$LINK_CART}"{/if} class="nav-link {$smarty.const.BS5_LOGOBAR_TEXT}" title="{#heading_cart#}">
+	    <span class="icon"><i class="fa fa-cart-shopping fa-lg fa-fw" aria-hidden="true"></i></span>
+	    {if $smarty.const.BS5_SHOW_ICON_WITH_NAMES != 'false'}<span class="d-none d-lg-block small">{#heading_cart#}</span>{/if}
+	  {if $deny_cart != 'true'}</button>{else}</a>{/if}
+  {/if}
+	<div id="canvas_cart" class="offcanvas offcanvas-start" tabindex="-1">
+		<div class="offcanvas-header bg-secondary-subtle">
+			<h5 class="offcanvas-title">{#heading_cart#}</h5>
+			<button type="button" class="btn btn-dark fa fa-xmark" data-bs-dismiss="offcanvas" data-bs-target="#canvas_cart" aria-label="{#BS5_close#}"></button>
+		</div>
+		<div class="offcanvas-body">
+			{if $deny_cart != 'true'}
+				{if $empty == 'false'}
+					<div class="list-group mb-2"><div class="list-group-item list-group-item-secondary"><strong>{$PRODUCTS} {#text_products#}</strong></div></div>
+					<div class="list-group list-group-flush border-top border-bottom my-4">
+					{if $error_message}<div class="list-group-item bg-danger-subtle text-danger">{$error_message}</div>{/if}
+					{foreach name=aussen item=products_data from=$products}
+						<div class="list-group-item">
+							<div class="row position-relative">
+								<div class="col-2">
+									{if $products_data.IMAGE}
+										<div class="prod_image">
+											{if $smarty.const.PICTURESET_ACTIVE === true}
+												<img class="lazyload img-fluid" data-src="{$products_data.IMAGE|replace:"thumbnail_":"mini_"}" alt="{$products_data.NAME|onlytext}" title="{$products_data.NAME|onlytext}">
+											{else}
+												<img class="lazyload img-fluid" data-src="{$products_data.IMAGE}" alt="{$products_data.NAME|onlytext}" title="{$products_data.NAME|onlytext}">
+											{/if}
+										</div>
+									{/if}
+								</div>
+								<div class="col-8 text-start">
+									<a class="d-block stretched-link" href="{$products_data.LINK}">{$products_data.NAME}</a>
+									<span class="small">{$smarty.const.HEADER_QTY}: {$products_data.QTY} {$products_data.MARK_STOCK}</span>
+								</div>
+								<div class="col-2">{$products_data.BUTTON_DELETE|replace:'<a':'<a class="z-2 position-relative btn btn-danger btn-sm"'}</div>
+							</div>
+						</div>
+					{/foreach}
+					</div>
+					{if $ACTIVATE_GIFT == 'true'}
+						{if isset($GV_AMOUNT)}
+							<div class="list-group mb-4">
+								<div class="list-group-item list-group-item-info">
+									<i class="fa fa-gift fa-lg me-2"></i>
+									<strong>{#voucher_balance#}</strong>&nbsp;{$GV_AMOUNT}
+								</div>
+							</div>
+						{/if}
+					{/if}
+					<a class="btn btn-success btn-block my-2" href="{$LINK_CART}" title="{#heading_flyout_cart#}">{#heading_flyout_cart#}<i class="fa fa-angle-double-right ms-2"></i></a>
+					<a class="btn btn-outline-success btn-block" href="{$LINK_CHECKOUT}" title="{#heading_flyout_checkout#}">{#heading_flyout_checkout#}<i class="fa fa-angle-double-right ms-2"></i></a>
+				{else}
+					<div class="list-group mb-4">
+						<div class="list-group-item list-group-item-light">
+							<strong>{#text_empty_cart#}</strong>
+						</div>
+					</div>
+					{if $ACTIVATE_GIFT == 'true'}
+						{if isset($GV_AMOUNT)}
+							<div class="list-group mb-4">
+								<div class="list-group-item list-group-item-info">
+									<i class="fa fa-gift fa-lg me-2"></i>
+									<strong>{#voucher_balance#}</strong>&nbsp;{$GV_AMOUNT}
+								</div>
+							</div>
+						{/if}
+					{/if}
+					<a class="btn btn-success btn-block" href="{$LINK_CART}" title="{#heading_flyout_cart#}">{#heading_flyout_cart#}<i class="fa fa-angle-double-right ms-2"></i></a>
+				{/if}
+			{/if}
+			{if $smarty.const.BS5_SHOW_BOX_ADD_QUICKIE == 'true'}
+				<div class="border-top border-3 mt-5">
+					<h5 class="offcanvas-title py-3">{#heading_add_a_quickie#}</h5>
+					{$FORM_ACTION}
+					<label for="input_quick_add" class="small">{#text_quickie#}</label>
+						<div class="input-group">
+							{$INPUT_FIELD}
+							{$SUBMIT_BUTTON|replace:'<button':'<button class="btn btn-secondary px-4"'}
+						</div>
+					{$FORM_END}
+				</div>
+			{/if}
+		</div>
+	</div>
+</div>

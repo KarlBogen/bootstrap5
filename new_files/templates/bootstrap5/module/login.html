@@ -1,0 +1,72 @@
+{config_load file="$language/lang_$language.conf" section="login"}
+{config_load file="$language/lang_$language.conf" section="newsletter"}
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="login"}
+<div class="login">
+	<h1 class="heading bg-h">{#heading_login#}</h1>
+
+	{if $error_message}<div class="alert alert-danger">{$error_message}</div>{/if}
+	{if $success_message}<div class="alert alert-info">{$success_message}</div>{/if}
+
+	<div class="row my-4">
+		<div class="col-12 col-md-6 mb-5">
+  		<div class="contentbox">
+				<div class="h5 border-bottom">{#title_returning#}</div>
+				{$FORM_ACTION}
+					<div class="small py-2">
+						<div class="mb-2">{#text_returning#}</div>
+						<div class="mb-3">{#text_after_login#}</div>
+					</div>
+					<div class="mb-2 stern clearfix">
+						<label class="form-label" for="mail">{#text_email#}</label>
+						{$INPUT_MAIL|replace:"type=\"text\"":"type=\"email\""|replace:'<input':'<input id="mail" class="form-control"'}<span class="inputRequirement">*</span>
+					</div>
+					<div class="mb-3 stern clearfix">
+						<label class="form-label" for="pw">{#text_password#}</label>
+						<div class="input-group">
+							{$INPUT_PASSWORD|replace:'<input':'<input id="pw" class="form-control"'}<span class="inputRequirement">*</span>
+							<button class="togglePw btn btn-outline-secondary" type="button" aria-label="{$smarty.const.BS5_TOGGLE_PWFIELD_SHOW}"><i class="fa fa-eye mx-2"></i></button>
+						</div>
+					</div>
+					{if $VVIMG}
+						<div class="vvcode_img mb-2 stern clearfix">
+							<label class="form-label">{#text_sec_code#}</label><br>
+							{$VVIMG}
+						</div>
+					{/if}
+					{if $INPUT_CODE}
+						<div class="vvcode_sec mb-2 stern clearfix">
+							<label class="form-label" for="code">{#text_sec_code#}</label>
+							{$INPUT_CODE|replace:'<input':'<input id="code" class="form-control"'}<span class="inputRequirement">*</span>
+						</div>
+					{/if}
+					<div class="d-grid d-sm-flex py-3">
+						{$BUTTON_LOGIN|replace:'<button':'<button class="btn btn-secondary px-5"'}
+					</div>
+					<div class=""><a class="link-secondary" href="{$LINK_LOST_PASSWORD}"><i class="fa fa-arrow-right me-2"></i>{#text_lost_password#}</a></div>
+				{$FORM_END}
+			</div>
+		</div>
+
+		<div class="col-12 col-md-6 order-md-first">
+			{if $account_option == 'account' or $account_option == 'both'}
+				<div class="contentbox mb-5">
+					<div class="h5 border-bottom">{#title_new#}</div>
+					<div class="small py-2">{#text_new#}</div>
+					<div class="d-grid d-sm-flex my-3">
+						{$BUTTON_NEW_ACCOUNT|replace:'<a':'<a class="btn btn-secondary px-5"'}
+					</div>
+				</div>
+			{/if}
+			{if $account_option == 'both' or $account_option == 'guest'}
+				<div class="contentbox">
+					<div class="h5 border-bottom">{#title_guest#}</div>
+					<div class="small py-2">{#text_guest#}</div>
+					<div class="d-grid d-sm-flex my-3">
+						{$BUTTON_GUEST|replace:'<a':'<a class="btn btn-secondary px-5"'}
+					</div>
+				</div>
+			{/if}
+		</div>
+	</div>
+</div>

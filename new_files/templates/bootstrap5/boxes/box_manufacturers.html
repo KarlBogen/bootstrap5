@@ -1,0 +1,9 @@
+{if isset($box_content) && count($box_content) > 0}
+	{config_load file="$language/lang_$language.conf" section="boxes"}
+	{config_load file="lang_`$language`.custom"}
+	{foreach name=aussen item=module_data from=$box_content}
+		<li class="navbar-nav col level_manu{if $module_data.SELECTED == 1} Selected active{/if}">
+			<a class="nav-link {if $module_data.SELECTED == 1} active{/if}" href="{$module_data.LINK}" title="{$module_data.NAME}">{$module_data.NAME}</a>
+		</li>
+	{/foreach}
+{/if}
