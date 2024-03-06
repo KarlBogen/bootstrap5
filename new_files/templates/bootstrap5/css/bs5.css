@@ -183,13 +183,13 @@ input[type=submit].btn-block {
   padding: 0px 1px;
 }
 .show_rating > label:before {
-  font-family: 'Font Awesome 6 Free';
+  font-family: 'bs5_awesome';
   font-weight:900;
   font-size:24px;
   line-height:24px;
   position: relative;
   display: block;
-  content: "\f005";
+  content: "\e839";
   color: transparent;
   background: var(--bs-tertiary-color);
   -webkit-background-clip: text;
