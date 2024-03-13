@@ -95,6 +95,7 @@
 	defined('BS5_PRODBOX_NAME_LINES') or define('BS5_PRODBOX_NAME_LINES', 0); // Anzahl der Zeilen, die der Artikelname in allen Produktboxen maximal belegen soll (0 = auto)
 
 	// default classes
+	defined('BS5_THEME') or define('BS5_THEME', ''); // BS Themes , mögliche Werte '','default','blue','darkblue','darkcyan','darkgreen','darkmagenta','darkred','gold','green','orange','red'
 	defined('BS5_TOP1_BG') or define('BS5_TOP1_BG', 'bg-body-tertiary');
 	defined('BS5_TOP1_TEXT') or define('BS5_TOP1_TEXT', 'text-body-secondary');
 	defined('BS5_LOGOBAR_TEXT') or define('BS5_LOGOBAR_TEXT', 'text-secondary-emphasis');

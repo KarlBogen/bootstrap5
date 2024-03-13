@@ -27,10 +27,10 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 	            $data = $_POST['data'];
 	            $bs5->set_add('font', $_POST['configuration']['BS5_FONTS_NAME'], 'addfontdef');
 	            $bs5->set_add('font', $_POST['add_font'], 'addfont');
-				if(isset($_POST['custom1_add']) && $_POST['custom1_add'] != ''){
+				if(isset($_POST['custom1_add'])){
 		            $bs5->set_add('custom1', $_POST['custom1_add']);
 				}
-				if(isset($_POST['custom2_add']) && $_POST['custom2_add'] != ''){
+				if(isset($_POST['custom2_add'])){
 		            $bs5->set_add('custom2', $_POST['custom2_add']);
 				}
 				break;
@@ -275,7 +275,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 								if (count($bs5_custom1['custom1']) > 0){
 	                                for($i=0; $i < count($bs5_custom1['custom1']); $i++){
 										foreach($bs5_custom1['custom1'][$i] as $k => $v){
-											if ($i < 21 || ($i > 43 && $i < 57) || ($i > 56 && $i < 65)){
+											if ($i < 23 || ($i > 45 && $i < 59) || ($i > 58 && $i < 67)|| ($i > 68 && $i < 71)){
 								?>
 												<tr>
 									                <td class="dataTableConfig col-left"><?php echo defined('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) ? constant('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) : TEXT_BS5_TPL_MANAGER_THEME_COLOR; echo defined('COLOR_'.$i) ? constant('COLOR_'.$i) : ''; echo '<small>'.TEXT_BS5_TPL_MANAGER_THEME_VAR.$k.'</small>'; ?></td>
@@ -284,7 +284,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 												</tr>
 								<?php
 											}
-											if (($i > 20 && $i < 31) || $i == 34 || $i == 43 || ($i > 64 && $i < 69)){
+											if (($i > 22 && $i < 33) || $i == 36 || ($i > 66 && $i < 69)){
 								?>
 												<tr>
 									                <td class="dataTableConfig col-left"><?php echo defined('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) ? constant('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) : ''; echo '<small>'.TEXT_BS5_TPL_MANAGER_THEME_VAR.$k.'</small>'; ?></td>
@@ -293,7 +293,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 												</tr>
 								<?php
 											}
-											if ($i == 32 || $i == 33 || ($i > 36 && $i < 43)){
+											if ($i == 34 || $i == 35 || ($i > 38 && $i < 45)){
 								?>
 												<tr>
 									                <td class="dataTableConfig col-left"><?php echo defined('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) ? constant('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) : ''; echo '<small>'.TEXT_BS5_TPL_MANAGER_THEME_VAR.$k.'</small>'; ?></td>
@@ -302,7 +302,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 												</tr>
 								<?php
 											}
-											if ($i == 31 || $i == 35 || $i == 36){
+											if ($i == 33 || $i == 37 || $i == 38){
 								?>
 												<tr>
 									                <td class="dataTableConfig col-left"><?php echo defined('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) ? constant('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) : ''; echo '<small>'.TEXT_BS5_TPL_MANAGER_THEME_VAR.$k.'</small>'; ?></td>
@@ -311,7 +311,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 												</tr>
 								<?php
 											}
-											if ($i == 43){
+											if ($i == 45){
 								?>
 												<tr>
 									                <td class="dataTableConfig col-left"><?php echo defined('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) ? constant('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) : ''; echo '<small>'.TEXT_BS5_TPL_MANAGER_THEME_VAR.$k.'</small>'; ?></td>
@@ -360,7 +360,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 								if (count($bs5_custom2['custom2']) > 0){
 	                                for($i=0; $i < count($bs5_custom2['custom2']); $i++){
 										foreach($bs5_custom2['custom2'][$i] as $k => $v){
-											if ($i < 21 || ($i > 43 && $i < 57) || ($i > 56 && $i < 65)){
+											if ($i < 23 || ($i > 45 && $i < 59) || ($i > 58 && $i < 67)|| ($i > 68 && $i < 71)){
 								?>
 												<tr>
 									                <td class="dataTableConfig col-left"><?php echo defined('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) ? constant('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) : TEXT_BS5_TPL_MANAGER_THEME_COLOR; echo defined('COLOR_'.$i) ? constant('COLOR_'.$i) : ''; echo '<small>'.TEXT_BS5_TPL_MANAGER_THEME_VAR.$k.'</small>'; ?></td>
@@ -369,7 +369,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 												</tr>
 								<?php
 											}
-											if (($i > 20 && $i < 31) || $i == 34 || $i == 43 || ($i > 64 && $i < 69)){
+											if (($i > 22 && $i < 33) || $i == 36 || ($i > 66 && $i < 69)){
 								?>
 												<tr>
 									                <td class="dataTableConfig col-left"><?php echo defined('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) ? constant('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) : ''; echo '<small>'.TEXT_BS5_TPL_MANAGER_THEME_VAR.$k.'</small>'; ?></td>
@@ -378,7 +378,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 												</tr>
 								<?php
 											}
-											if ($i == 32 || $i == 33 || ($i > 36 && $i < 43)){
+											if ($i == 34 || $i == 35 || ($i > 38 && $i < 45)){
 								?>
 												<tr>
 									                <td class="dataTableConfig col-left"><?php echo defined('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) ? constant('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) : ''; echo '<small>'.TEXT_BS5_TPL_MANAGER_THEME_VAR.$k.'</small>'; ?></td>
@@ -387,7 +387,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 												</tr>
 								<?php
 											}
-											if ($i == 31 || $i == 35 || $i == 36){
+											if ($i == 33 || $i == 37 || $i == 38){
 								?>
 												<tr>
 									                <td class="dataTableConfig col-left"><?php echo defined('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) ? constant('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) : ''; echo '<small>'.TEXT_BS5_TPL_MANAGER_THEME_VAR.$k.'</small>'; ?></td>
@@ -396,7 +396,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 												</tr>
 								<?php
 											}
-											if ($i == 43){
+											if ($i == 45){
 								?>
 												<tr>
 									                <td class="dataTableConfig col-left"><?php echo defined('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) ? constant('TEXT_BS5_TPL_MANAGER_THEME_FIELD_'.$i) : ''; echo '<small>'.TEXT_BS5_TPL_MANAGER_THEME_VAR.$k.'</small>'; ?></td>

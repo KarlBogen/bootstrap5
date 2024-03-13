@@ -1,0 +1,35 @@
+$focus-ring-color: rgba($custom-color, .25);
+$custom-darkcolor: darken($custom-color, 10%);
+#top.top, #layout_footer {
+  background-color: var(--bs-custom-bg) !important;
+  color: rgb(var(--bs-custom-darkcolor-rgb)) !important;
+}
+#container1, #newsletter {
+  background-color: rgba(var(--bs-custom-bg-rgb),.05) !important;
+}
+#nav_container {
+  background-color: var(--bs-custom-bg) !important;
+}
+#layout_footer .navbar {
+  --bs-navbar-color: rgb(var(--bs-custom-darkcolor-rgb));
+  --bs-navbar-brand-color: rgb(var(--bs-custom-darkcolor-rgb));
+  --bs-navbar-brand-hover-color: rgb(var(--bs-custom-darkcolor-rgb));
+  --bs-navbar-hover-color:rgba(var(--bs-custom-darkcolor-rgb),.8);
+  --bs-navbar-active-color:rgba(var(--bs-custom-darkcolor-rgb),.8);
+}
+#toggle_cart .bg-danger, #toggle_wishlist .bg-danger {
+  background-color: rgba(var(--bs-custom-bg-rgb), .9) !important;
+}
+.btn-outline-secondary {
+  --bs-btn-color: var(--bs-custom-color) !important;
+  --bs-btn-border-color: var(--bs-custom-color) !important;
+}
+.accordion-button:not(.collapsed) {
+  --bs-accordion-active-bg: rgba(var(--bs-custom-bg-rgb),.25) !important;
+}
+.link-secondary {
+  --bs-secondary-rgb: var(--bs-custom-color-rgb);
+}
+.copyright, .copyright a {
+  color: rgb(var(--bs-custom-darkcolor-rgb)) !important;
+}

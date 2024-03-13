@@ -14,7 +14,7 @@ defined( '_VALID_XTC' ) or die( 'Direct Access to this location is not allowed.'
 	require_once "scssphp/scss.inc.php";
 	require_once "scssphp/server/Server.php";
 	use ScssPhp\ScssPhp\Compiler;
-    use ScssPhp\ScssPhp\OutputStyle;
+	use ScssPhp\ScssPhp\OutputStyle;
 	use ScssPhp\Server\Server;
 
 class Bs5TplManager {
@@ -30,7 +30,8 @@ class Bs5TplManager {
 
 		try {
 			$scss = new Compiler();
-			$scss->setOutputStyle(OutputStyle::COMPRESSED);
+
+			$scss->setOutputStyle(OutputStyle::COMPRESSED); //EXPANDED
 
 			$server = new Server('includes/bs5_template_manager/themes', null, $scss);
 
@@ -449,6 +450,16 @@ class Bs5TplManager {
     public function get_themes($plus = false) {
 		$themes_array = array(
 			array('id' => 'default', 'text' => 'Bootstrap Default'),
+			array('id' => 'bs5-blue', 'text' => 'BS5 blau - blue'),
+			array('id' => 'bs5-darkblue', 'text' => 'BS5 dunkelblau - darkblue'),
+			array('id' => 'bs5-darkcyan', 'text' => 'BS5 dunkelcyan - darkcyan'),
+			array('id' => 'bs5-darkgreen', 'text' => 'BS5 dunkelgr&uuml;n - darkgreen'),
+			array('id' => 'bs5-darkmagenta', 'text' => 'BS5 dunkelmagenta - darkmagenta'),
+			array('id' => 'bs5-darkred', 'text' => 'BS5 dunkelrot - darkred'),
+			array('id' => 'bs5-gold', 'text' => 'BS5 gold - gold'),
+			array('id' => 'bs5-green', 'text' => 'BS5 gr&uuml;n - green'),
+			array('id' => 'bs5-orange', 'text' => 'BS5 orange - orange'),
+			array('id' => 'bs5-red', 'text' => 'BS5 rot - red'),
 			array('id' => 'cerulean', 'text' => 'Cerulean'),
 			array('id' => 'cosmo', 'text' => 'Cosmo'),
 			array('id' => 'cyborg', 'text' => 'Cyborg'),
@@ -482,29 +493,49 @@ class Bs5TplManager {
 		return $themes_array;
     }
 
+    public function get_bs5_themes() {
+		$bs5_themes_array = array(
+			array('id' => '', 'text' => 'Bootstrap (bootstrap.min.css)'),
+			array('id' => 'default', 'text' => 'BS5 standard - default'),
+			array('id' => 'blue', 'text' => 'BS5 blau - blue'),
+			array('id' => 'darkblue', 'text' => 'BS5 dunkelblau - darkblue'),
+			array('id' => 'darkcyan', 'text' => 'BS5 dunkelcyan - darkcyan'),
+			array('id' => 'darkgreen', 'text' => 'BS5 dunkelgr&uuml;n - darkgreen'),
+			array('id' => 'darkmagenta', 'text' => 'BS5 dunkelmagenta - darkmagenta'),
+			array('id' => 'darkred', 'text' => 'BS5 dunkelrot - darkred'),
+			array('id' => 'gold', 'text' => 'BS5 gold - gold'),
+			array('id' => 'green', 'text' => 'BS5 gr&uuml;n - green'),
+			array('id' => 'orange', 'text' => 'BS5 orange - orange'),
+			array('id' => 'red', 'text' => 'BS5 rot - red'),
+		);
+		return $bs5_themes_array;
+    }
+
 	public function get_color_vars($plus = false) {
 		$color_vars = array(
-			array('id' => '$white', 'text' => '$white '.COLOR_0),
-			array('id' => '$gray-100', 'text' => '$gray-100 '.COLOR_1),
-			array('id' => '$gray-200', 'text' => '$gray-200 '.COLOR_2),
-			array('id' => '$gray-300', 'text' => '$gray-300 '.COLOR_3),
-			array('id' => '$gray-400', 'text' => '$gray-400 '.COLOR_4),
-			array('id' => '$gray-500', 'text' => '$gray-500 '.COLOR_5),
-			array('id' => '$gray-600', 'text' => '$gray-600 '.COLOR_6),
-			array('id' => '$gray-700', 'text' => '$gray-700 '.COLOR_7),
-			array('id' => '$gray-800', 'text' => '$gray-800 '.COLOR_8),
-			array('id' => '$gray-900', 'text' => '$gray-900 '.COLOR_9),
-			array('id' => '$black', 'text' => '$black '.COLOR_10),
-			array('id' => '$blue', 'text' => '$blue '.COLOR_11),
-			array('id' => '$indigo', 'text' => '$indigo '.COLOR_12),
-			array('id' => '$purple', 'text' => '$purple '.COLOR_13),
-			array('id' => '$pink', 'text' => '$pink '.COLOR_14),
-			array('id' => '$red', 'text' => '$red '.COLOR_15),
-			array('id' => '$orange', 'text' => '$orange '.COLOR_16),
-			array('id' => '$yellow', 'text' => '$yellow '.COLOR_17),
-			array('id' => '$green', 'text' => '$green '.COLOR_18),
-			array('id' => '$teal', 'text' => '$teal '.COLOR_19),
-			array('id' => '$cyan', 'text' => '$cyan '.COLOR_20),
+			array('id' => '$white', 'text' => '$white '.COLOR_2),
+			array('id' => '$gray-100', 'text' => '$gray-100 '.COLOR_3),
+			array('id' => '$gray-200', 'text' => '$gray-200 '.COLOR_4),
+			array('id' => '$gray-300', 'text' => '$gray-300 '.COLOR_5),
+			array('id' => '$gray-400', 'text' => '$gray-400 '.COLOR_6),
+			array('id' => '$gray-500', 'text' => '$gray-500 '.COLOR_7),
+			array('id' => '$gray-600', 'text' => '$gray-600 '.COLOR_8),
+			array('id' => '$gray-700', 'text' => '$gray-700 '.COLOR_9),
+			array('id' => '$gray-800', 'text' => '$gray-800 '.COLOR_10),
+			array('id' => '$gray-900', 'text' => '$gray-900 '.COLOR_11),
+			array('id' => '$black', 'text' => '$black '.COLOR_12),
+			array('id' => '$blue', 'text' => '$blue '.COLOR_13),
+			array('id' => '$indigo', 'text' => '$indigo '.COLOR_14),
+			array('id' => '$purple', 'text' => '$purple '.COLOR_15),
+			array('id' => '$pink', 'text' => '$pink '.COLOR_16),
+			array('id' => '$red', 'text' => '$red '.COLOR_17),
+			array('id' => '$orange', 'text' => '$orange '.COLOR_18),
+			array('id' => '$yellow', 'text' => '$yellow '.COLOR_19),
+			array('id' => '$green', 'text' => '$green '.COLOR_20),
+			array('id' => '$teal', 'text' => '$teal '.COLOR_21),
+			array('id' => '$cyan', 'text' => '$cyan '.COLOR_22),
+			array('id' => '$custom-bg', 'text' => '$custom-bg '.COLOR_0),
+			array('id' => '$custom-color', 'text' => '$custom-color '.COLOR_1),
 			array('id' => 'null', 'text' => 'null ohne')
 		);
 		if ($plus != false) {

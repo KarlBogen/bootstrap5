@@ -11,17 +11,17 @@
 // Zusatzmodul Billiger gesehen
 if (defined('BS5_CHEAPLY_SEE') && BS5_CHEAPLY_SEE == 'true') {
 	if ($request_type == 'NONSSL') {
-		$info_smarty->assign('PRODUCTS_CHEAPLY', '<a class="btn btn-sm btn-outline-primary btn-block" title="'.TEXT_PRODUCTS_CHEAPLY.'" rel="nofollow" href="'.xtc_href_link(BS5_FILENAME_CHEAPLY_SEE, 'pID='.$product->data['products_id'].'&'.xtc_product_link($product->data['products_id'],$product->data['products_name']).'&view=nonssl').'"><span><span class="fa fa-envelope me-2"></span><span>'.TEXT_PRODUCTS_CHEAPLY.'</span></span></a>');
+		$info_smarty->assign('PRODUCTS_CHEAPLY', '<a class="btn btn-sm btn-outline-secondary btn-block" title="'.TEXT_PRODUCTS_CHEAPLY.'" rel="nofollow" href="'.xtc_href_link(BS5_FILENAME_CHEAPLY_SEE, 'pID='.$product->data['products_id'].'&'.xtc_product_link($product->data['products_id'],$product->data['products_name']).'&view=nonssl').'"><span><span class="fa fa-envelope me-2"></span><span>'.TEXT_PRODUCTS_CHEAPLY.'</span></span></a>');
 	} else {
-		$info_smarty->assign('PRODUCTS_CHEAPLY', '<a class="iframe btn btn-sm btn-outline-primary btn-block" title="'.TEXT_PRODUCTS_CHEAPLY.'" href="'.xtc_href_link(BS5_FILENAME_CHEAPLY_SEE, 'pID='.$product->data['products_id'].'&'.xtc_product_link($product->data['products_id'],$product->data['products_name'])).'"><span><span class="fa fa-envelope me-2"></span><span>'.TEXT_PRODUCTS_CHEAPLY.'</span></span></a>');
+		$info_smarty->assign('PRODUCTS_CHEAPLY', '<a class="iframe btn btn-sm btn-outline-secondary btn-block" title="'.TEXT_PRODUCTS_CHEAPLY.'" href="'.xtc_href_link(BS5_FILENAME_CHEAPLY_SEE, 'pID='.$product->data['products_id'].'&'.xtc_product_link($product->data['products_id'],$product->data['products_name'])).'"><span><span class="fa fa-envelope me-2"></span><span>'.TEXT_PRODUCTS_CHEAPLY.'</span></span></a>');
 	}
 }
 // Zusatzmodul Frage zum Produkt
 if (defined('BS5_PRODUCT_INQUIRY') && BS5_PRODUCT_INQUIRY == 'true') {
 	if ($request_type == 'NONSSL') {
-		$info_smarty->assign('PRODUCT_INQUIRY', '<a class="btn btn-sm btn-outline-primary btn-block" title="'.TEXT_PRODUCT_INQUIRY.'" rel="nofollow" href="'.xtc_href_link(BS5_FILENAME_PRODUCT_INQUIRY, 'pID='.$product->data['products_id'].'&'.xtc_product_link($product->data['products_id'],$product->data['products_name']).'&view=nonssl').'"><span><span class="fa fa-envelope me-2"></span><span>'.TEXT_PRODUCT_INQUIRY.'</span></span></a>');
+		$info_smarty->assign('PRODUCT_INQUIRY', '<a class="btn btn-sm btn-outline-secondary btn-block" title="'.TEXT_PRODUCT_INQUIRY.'" rel="nofollow" href="'.xtc_href_link(BS5_FILENAME_PRODUCT_INQUIRY, 'pID='.$product->data['products_id'].'&'.xtc_product_link($product->data['products_id'],$product->data['products_name']).'&view=nonssl').'"><span><span class="fa fa-envelope me-2"></span><span>'.TEXT_PRODUCT_INQUIRY.'</span></span></a>');
 	} else {
-		$info_smarty->assign('PRODUCT_INQUIRY', '<a class="iframe btn btn-sm btn-outline-primary btn-block" title="'.TEXT_PRODUCT_INQUIRY.'" href="'.xtc_href_link(BS5_FILENAME_PRODUCT_INQUIRY, 'pID='.$product->data['products_id'].'&'.xtc_product_link($product->data['products_id'],$product->data['products_name'])).'"><span><span class="fa fa-envelope me-2"></span><span>'.TEXT_PRODUCT_INQUIRY.'</span></span></a>');
+		$info_smarty->assign('PRODUCT_INQUIRY', '<a class="iframe btn btn-sm btn-outline-secondary btn-block" title="'.TEXT_PRODUCT_INQUIRY.'" href="'.xtc_href_link(BS5_FILENAME_PRODUCT_INQUIRY, 'pID='.$product->data['products_id'].'&'.xtc_product_link($product->data['products_id'],$product->data['products_name'])).'"><span><span class="fa fa-envelope me-2"></span><span>'.TEXT_PRODUCT_INQUIRY.'</span></span></a>');
 	}
 }
 /* ------------------------------------------------------------

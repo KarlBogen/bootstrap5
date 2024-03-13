@@ -36,6 +36,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 	$superfish_level = 	$bs5->get_superfish_level();
 	$carousel_show = 	$bs5->get_carousel_show();
 	$fade_slide = 		$bs5->get_fade_slide();
+	$bs5_themes =		$bs5->get_bs5_themes();
 	$bg_classes =		$bs5->get_bg_classes();
 	$border_classes =		$bs5->get_border_classes();
 	$navbar_classes =   $bs5->get_navbar_classes();
@@ -45,12 +46,12 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 	// tabs
 	$tabs_array = array();
 	$tabs_array[] = array('id' => 'start', 'name' => 'Bootstrap 5');
+	$tabs_array[] = array('id' => 'classes', 'name' => TEXT_BS5_TPL_MANAGER_CONFIG_TAB_CLASSES);
 	$tabs_array[] = array('id' => 'header', 'name' => TEXT_BS5_TPL_MANAGER_CONFIG_TAB_HEADER);
 	$tabs_array[] = array('id' => 'superfish', 'name' => TEXT_BS5_TPL_MANAGER_CONFIG_TAB_SUPERFISH);
 	$tabs_array[] = array('id' => 'slider', 'name' => TEXT_BS5_TPL_MANAGER_CONFIG_TAB_SLIDER);
 	$tabs_array[] = array('id' => 'boxes', 'name' => TEXT_BS5_TPL_MANAGER_CONFIG_TAB_BOXES);
 	$tabs_array[] = array('id' => 'views', 'name' => TEXT_BS5_TPL_MANAGER_CONFIG_TAB_VIEWS);
-	$tabs_array[] = array('id' => 'classes', 'name' => TEXT_BS5_TPL_MANAGER_CONFIG_TAB_CLASSES);
 	$tabs_array[] = array('id' => 'modules', 'name' => TEXT_BS5_TPL_MANAGER_CONFIG_TAB_MODULES);
 	$tabs_array[] = array('id' => 'mixed', 'name' => TEXT_BS5_TPL_MANAGER_CONFIG_TAB_MIXED);
 
@@ -107,9 +108,9 @@ require_once (DIR_WS_INCLUDES.'head.php');
 			<!-- body_text //-->
 			<td class="boxCenter">
 				<?php // updateinfo
-//					if ($bs5_conf['BS5_STARTPAGE_BOX_SHIPPING_COUNTRY'] == '') {
-//						echo '<div class="messageStackWarning"><h3>' . TEXT_BS5_TPL_MANAGER_CONFIG_UPDATE_SYSTEMMODULE_WARNING .'<a class="button but_red" href="'. xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=bs5_tpl_manager') . '">Bootstrap 5 Template-Manager</a></h3></div><br />';
-//					}
+					if (!isset($bs5_conf['BS5_THEME'])) {
+						echo '<div class="messageStackWarning"><h3>' . TEXT_BS5_TPL_MANAGER_CONFIG_UPDATE_SYSTEMMODULE_WARNING .'<a class="button but_red" href="'. xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=bs5_tpl_manager') . '">Bootstrap 5 Template-Manager</a></h3></div><br />';
+					}
 				?>
 				<div class="pageHeadingImage"><?php echo xtc_image(DIR_WS_ICONS.'heading/icon_configuration.png', TEXT_BS5_TPL_MANAGER_CONFIG_HEADING_TITLE); ?></div>
 				<div class="flt-l">
@@ -160,6 +161,87 @@ require_once (DIR_WS_INCLUDES.'head.php');
 					</div>
 					<?php
 									break;
+
+								case 'classes':
+					?>
+					<div class="admincol_left">
+			            <table class="clear tableConfig">
+							<tr>
+								<td class="txta-r" colspan="3" style="border:none;">
+									<input type="submit" class="button" name="submit" value="<?php echo BUTTON_UPDATE; ?>">
+              	</td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig" colspan="3"><h3>Themes</h3></td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_BS5_THEME; ?></td>
+				                <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_THEME]', $bs5_themes, $bs5_conf['BS5_THEME']); ?></td>
+				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_BS5_THEME_INFO; ?></td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig" colspan="3"><h3><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CLASSES; ?></h3></td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_BG; ?></td>
+				                <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_TOP1_BG]', $bg_classes, $bs5_conf['BS5_TOP1_BG']); ?></td>
+				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_BG_INFO; ?></td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_TEXT; ?></td>
+				                <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_TOP1_TEXT]', $text_classes, $bs5_conf['BS5_TOP1_TEXT']); ?></td>
+				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_TEXT_INFO; ?></td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig" colspan="3">&nbsp;</td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_LOGOBAR_TEXT; ?></td>
+				                <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_LOGOBAR_TEXT]', $text_classes, $bs5_conf['BS5_LOGOBAR_TEXT']); ?></td>
+				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_LOGOBAR_TEXT_INFO; ?></td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig" colspan="3">&nbsp;</td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_TOP2_NAVBAR; ?></td>
+				                <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_TOP2_NAVBAR]', $navbar_classes, $bs5_conf['BS5_TOP2_NAVBAR']); ?></td>
+				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_TOP2_NAVBAR_INFO; ?></td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_TOP2_BG; ?></td>
+				                <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_TOP2_BG]', $bg_classes, $bs5_conf['BS5_TOP2_BG']); ?></td>
+				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_TOP2_BG_INFO; ?></td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig" colspan="3">&nbsp;</td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_FOOTER_NAVBAR; ?></td>
+				                <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_FOOTER_NAVBAR]', $navbar_classes, $bs5_conf['BS5_FOOTER_NAVBAR']); ?></td>
+				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_FOOTER_NAVBAR_INFO; ?></td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_FOOTER_BG; ?></td>
+				                <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_FOOTER_BG]', $bg_classes, $bs5_conf['BS5_FOOTER_BG']); ?></td>
+				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_FOOTER_BG_INFO; ?></td>
+							</tr>
+							<tr>
+				                <td class="txta-r" colspan="3" style="border:none;">
+									<input type="submit" class="button" name="submit" value="<?php echo BUTTON_UPDATE; ?>">
+				                </td>
+							</tr>
+			            </table>
+					</div>
+					<div class="admincol_right">
+						<div class="admin_contentbox">
+							<div class="img_box">
+								<?php echo xtc_image(DIR_WS_INCLUDES.'bs5_template_manager/assets/img/bs5_classes_'.$lang_code.'.png', 'Information'); ?>
+							</div>
+						</div>
+					</div>
+						<?php
+								break;
 
 								case 'header':
 					?>
@@ -526,76 +608,6 @@ require_once (DIR_WS_INCLUDES.'head.php');
 					</div>
 					<?php
 									break;
-
-								case 'classes':
-					?>
-					<div class="admincol_left">
-			            <table class="clear tableConfig">
-							<tr>
-								<td class="txta-r" colspan="3" style="border:none;">
-									<input type="submit" class="button" name="submit" value="<?php echo BUTTON_UPDATE; ?>">
-              	</td>
-							</tr>
-							<tr>
-				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_BG; ?></td>
-				                <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_TOP1_BG]', $bg_classes, $bs5_conf['BS5_TOP1_BG']); ?></td>
-				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_BG_INFO; ?></td>
-							</tr>
-							<tr>
-				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_TEXT; ?></td>
-				                <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_TOP1_TEXT]', $text_classes, $bs5_conf['BS5_TOP1_TEXT']); ?></td>
-				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_TEXT_INFO; ?></td>
-							</tr>
-							<tr>
-				                <td class="dataTableConfig" colspan="3">&nbsp;</td>
-							</tr>
-							<tr>
-				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_LOGOBAR_TEXT; ?></td>
-				                <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_LOGOBAR_TEXT]', $text_classes, $bs5_conf['BS5_LOGOBAR_TEXT']); ?></td>
-				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_LOGOBAR_TEXT_INFO; ?></td>
-							</tr>
-							<tr>
-				                <td class="dataTableConfig" colspan="3">&nbsp;</td>
-							</tr>
-							<tr>
-				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_TOP2_NAVBAR; ?></td>
-				                <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_TOP2_NAVBAR]', $navbar_classes, $bs5_conf['BS5_TOP2_NAVBAR']); ?></td>
-				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_TOP2_NAVBAR_INFO; ?></td>
-							</tr>
-							<tr>
-				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_TOP2_BG; ?></td>
-				                <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_TOP2_BG]', $bg_classes, $bs5_conf['BS5_TOP2_BG']); ?></td>
-				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_TOP2_BG_INFO; ?></td>
-							</tr>
-							<tr>
-				                <td class="dataTableConfig" colspan="3">&nbsp;</td>
-							</tr>
-							<tr>
-				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_FOOTER_NAVBAR; ?></td>
-				                <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_FOOTER_NAVBAR]', $navbar_classes, $bs5_conf['BS5_FOOTER_NAVBAR']); ?></td>
-				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_FOOTER_NAVBAR_INFO; ?></td>
-							</tr>
-							<tr>
-				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_FOOTER_BG; ?></td>
-				                <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_FOOTER_BG]', $bg_classes, $bs5_conf['BS5_FOOTER_BG']); ?></td>
-				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_FOOTER_BG_INFO; ?></td>
-							</tr>
-							<tr>
-				                <td class="txta-r" colspan="3" style="border:none;">
-									<input type="submit" class="button" name="submit" value="<?php echo BUTTON_UPDATE; ?>">
-				                </td>
-							</tr>
-			            </table>
-					</div>
-					<div class="admincol_right">
-						<div class="admin_contentbox">
-							<div class="img_box">
-								<?php echo xtc_image(DIR_WS_INCLUDES.'bs5_template_manager/assets/img/bs5_classes_'.$lang_code.'.png', 'Information'); ?>
-							</div>
-						</div>
-					</div>
-						<?php
-								break;
 
 								case 'modules':
                     ?>

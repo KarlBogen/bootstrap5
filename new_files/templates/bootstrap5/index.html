@@ -4,7 +4,7 @@
 {if isset($box_ADMIN)}{$box_ADMIN}{/if}
 
 {* BEGINN Hauptcontainer innerhalb body *}
-<div id="container">
+<div id="container" class="{$smarty.const.BS5_BOOTSTRAP_THEME}">
 
 	{if $display_mode != 'checkout'} 
 
@@ -37,15 +37,17 @@
 		{/if}
 		{* ENDE Topleiste *}
 		{* BEGINN Maincontainer 1 *}
-		<div id="container1" class="container-xxl">
-			{* BEGINN Javascript-Hinweis *}
-			{if $smarty.const.BS5_SHOW_JS_DISABLED == 'true'}
-				<noscript><div class="alert alert-warning my-2">{#BS5_noscript#}</div></noscript>
-			{/if}
-			{* ENDE Javascript-Hinweis *}
-			{* BEGINN Logo, Sprache, Account, Merkliste, Warenkorb und Suche *}
-			{include file="module/includes/logobar.html"}
-			{* ENDE Logo, Sprache, Account, Merkliste, Warenkorb und Suche *}
+		<div id="container1">
+			<div class="container-xxl">
+				{* BEGINN Javascript-Hinweis *}
+				{if $smarty.const.BS5_SHOW_JS_DISABLED == 'true'}
+					<noscript><div class="alert alert-warning my-2">{#BS5_noscript#}</div></noscript>
+				{/if}
+				{* ENDE Javascript-Hinweis *}
+				{* BEGINN Logo, Sprache, Account, Merkliste, Warenkorb und Suche *}
+				{include file="module/includes/logobar.html"}
+				{* ENDE Logo, Sprache, Account, Merkliste, Warenkorb und Suche *}
+			</div>
 		</div>
 		{* ENDE Maincontainer 1 *}
 		{* BEGINN Topnavcontainer *}
@@ -81,21 +83,23 @@
 	{else}
 
 		{* BEGINN Maincontainer 1 *}
-		<div id="container1" class="container-xxl">
-			{* BEGINN Javascript-Hinweis *}
-			{if $smarty.const.BS5_SHOW_JS_DISABLED == 'true'}
-				<noscript><div class="alert alert-warning my-2">{#BS5_noscript#}</div></noscript>
-			{/if}
-			{* ENDE Javascript-Hinweis *}
-			<div id="checkout_logobar" class="my-3 border-bottom">
-				<div class="d-sm-flex justify-content-between align-items-center mb-3">
-					{html_image file="templates/`$smarty.const.CURRENT_TEMPLATE`/`$smarty.const.BS5_SHOP_LOGO`" alt="`$store_name`" class="img-fluid"}
-					<div class="col_logo_back my-2 text-end">
-						{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_CHECKOUT_SUCCESS) !== false}
-							<a class="btn btn-outline-secondary btn-sm" href="{$index}" title="{#link_index#} &bull; {$store_name}">{#BS5_back_to_shop#}<i class="fa fa-arrow-right ms-2"></i></a>
-						{else}
-							<a class="btn btn-outline-secondary btn-sm" href="{$smarty.const.FILENAME_SHOPPING_CART|xtc_href_link}" title="{#BS5_back_to_cart#}">{#BS5_back_to_cart#}<i class="fa fa-arrow-right ms-2"></i></a>
-						{/if} 
+		<div id="container1">
+			<div class="container-xxl">
+				{* BEGINN Javascript-Hinweis *}
+				{if $smarty.const.BS5_SHOW_JS_DISABLED == 'true'}
+					<noscript><div class="alert alert-warning my-2">{#BS5_noscript#}</div></noscript>
+				{/if}
+				{* ENDE Javascript-Hinweis *}
+				<div id="checkout_logobar" class="pt-3 mb-3 border-bottom">
+					<div class="d-sm-flex justify-content-between align-items-center mb-3">
+						{html_image file="templates/`$smarty.const.CURRENT_TEMPLATE`/`$smarty.const.BS5_SHOP_LOGO`" alt="`$store_name`" class="img-fluid"}
+						<div class="col_logo_back my-2 text-end">
+							{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_CHECKOUT_SUCCESS) !== false}
+								<a class="btn btn-outline-secondary btn-sm" href="{$index}" title="{#link_index#} &bull; {$store_name}">{#BS5_back_to_shop#}<i class="fa fa-arrow-right ms-2"></i></a>
+							{else}
+								<a class="btn btn-outline-secondary btn-sm" href="{$smarty.const.FILENAME_SHOPPING_CART|xtc_href_link}" title="{#BS5_back_to_cart#}">{#BS5_back_to_cart#}<i class="fa fa-arrow-right ms-2"></i></a>
+							{/if} 
+						</div>
 					</div>
 				</div>
 			</div>
@@ -247,9 +251,11 @@
 	{/if}
 
 	{if isset($box_NEWSLETTER) && $display_mode != 'checkout' && $display_mode != 'newsletter'}
-		<div class="container-xxl border-top py-4">
-			<div class="col-md-8 col-lg-6 mx-auto">
-				{$box_NEWSLETTER}
+		<div id="newsletter" class="border-top py-4">
+			<div class="container-xxl">
+				<div class="col-md-8 col-lg-6 mx-auto">
+					{$box_NEWSLETTER}
+				</div>
 			</div>
 		</div>
 	{/if}

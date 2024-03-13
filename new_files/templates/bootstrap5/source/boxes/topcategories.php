@@ -24,7 +24,7 @@
   
     $bs5_categories_string = '';
 		if (BS5_SHOW_HOMEBUTTON_IN_TOPCATMENU == 'true'){
-			$bs5_categories_string .= '<li class="nav-item home"><a class="nav-link" href="' . xtc_href_link(FILENAME_DEFAULT) . '" aria-label="home"><span class="fa fa-house fa-lg"></span></a></li>'."\n";
+			$bs5_categories_string .= '<li class="nav-item home level1"><a class="nav-link" href="' . xtc_href_link(FILENAME_DEFAULT) . '" aria-label="home"><span class="fa fa-house fa-lg"></span></a></li>'."\n";
 		}
     $category_tree_array = xtc_get_category_tree_array();
 

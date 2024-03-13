@@ -79,10 +79,10 @@
 					{$MODULE_gift_cart}
 	
 					<div class="button_row">
-						{$BUTTON_CHECKOUT|replace:'<button':'<button class="btn btn-checkout btn-success w-100"'}
+						{$BUTTON_CHECKOUT|replace:'<button':'<button class="btn btn-checkout btn-secondary w-100"'}
 						{if (isset($BUTTON_CHECKOUT_EXPRESS) || isset($ACTIVATE_EXPRESS_LINK)) && !$PAYPALPLAN}
 							<div class="hstack text-secondary justify-content-center"><hr class="w-25"><span class="up small mx-3">{#text_cart_or#}</span><hr class="w-25"></div>
-							{$BUTTON_CHECKOUT_EXPRESS|replace:'<a':'<a class="btn btn-outline-secondary w-100 text-secondary-emphasis"'}
+							{$BUTTON_CHECKOUT_EXPRESS|replace:'<a':'<a class="btn btn-outline-secondary w-100"'}
 							{if isset($ACTIVATE_EXPRESS_LINK)}
 								<a class="btn btn-link link-secondary w-100" href="{$ACTIVATE_EXPRESS_LINK}">{#checkout_express_activate#}<i class="fa fa-arrow-right ms-3"></i></a>
 							{/if}

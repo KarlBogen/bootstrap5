@@ -43,6 +43,35 @@ $lang_array = array(
 		<strong><u>Banner Images - "content width"</u></strong><br>
 		<strong>Banner Images: </strong>1360 x 500<br><strong>Banner Images Mobile: </strong>530 x 320<br><strong>Note: </strong>Generated images should have the correct width.<br><br>',
 
+	'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_CLASSES' => 'BS5 Themes / Color classes',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_BS5_THEME' => 'BS5 Themes:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_BS5_THEME_INFO' => 'Here you can set one of the ready-made themes!<br>
+		<strong>Note:</strong><br>
+		Custom themes created in the “BS5 Theme Manager” are only loaded with the “Bootstrap (bootstrap.min.css)” setting.',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CLASSES' => 'CSS-Classes (Settings only have an effect on the “Bootstrap” and “BS5 default” themes)',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_BG' => 'TOP1 background:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_BG_INFO' => 'Background class of the top navbar!<br>
+		You will find more information under "Docs->Utilitis->Background" on the page "https://getbootstrap.com"<br>
+		Default: bg-body-tertiary',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_TEXT' => 'TOP1 font color:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_TEXT_INFO' => 'Font color class of the top navbar!<br>
+		Default: text-body-secondary',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_LOGOBAR_TEXT' => 'Logobar font color:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_LOGOBAR_TEXT_INFO' => 'Font color class of the navigation to the right of the logo!<br>
+		Default: text-secondary-emphasis',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP2_NAVBAR' => 'Main Navbar:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP2_NAVBAR_INFO' => 'Class of the main navbar / the superfish menu!<br>
+		Default: none',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP2_BG' => 'Main background:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP2_BG_INFO' => 'Background class of the main navbar / the superfish menu!<br>
+		Default: bg-body-tertiary',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_FOOTER_NAVBAR' => 'Footer Navbar:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_FOOTER_NAVBAR_INFO' => 'Class of the footer navigation!<br>
+		Default: none',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_FOOTER_BG' => 'Footer background:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_FOOTER_BG_INFO' => 'Background class of the footer navigation!<br>
+		Default: bg-body-tertiary',
+
 	'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_HEADER' => 'Header',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP1' => 'Top1:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_INFO' => 'Should Topbar with Top1 be displayed?<br><br>
@@ -200,30 +229,6 @@ $lang_array = array(
 	'TEXT_BS5_TPL_MANAGER_CONFIG_PRODBOXES_LINES' => 'Products view - boxes',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_PRODBOXES_NAME_LINES' => 'Product boxes:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_PRODBOXES_NAME_LINES_INFO' => '<strong>Setting applies to all product boxes.</strong><br>Number of lines that the article name should max occupy (0 = auto).',
-
-	'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_CLASSES' => 'Classes',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_BG' => 'TOP1 background:',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_BG_INFO' => 'Background class of the top navbar!<br>
-		You will find more information under "Docs->Utilitis->Background" on the page "https://getbootstrap.com"<br>
-		Default: bg-body-tertiary',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_TEXT' => 'TOP1 font color:',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_TEXT_INFO' => 'Font color class of the top navbar!<br>
-		Default: text-body-secondary',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_LOGOBAR_TEXT' => 'Logobar font color:',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_LOGOBAR_TEXT_INFO' => 'Font color class of the navigation to the right of the logo!<br>
-		Default: text-secondary-emphasis',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP2_NAVBAR' => 'Main Navbar:',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP2_NAVBAR_INFO' => 'Class of the main navbar / the superfish menu!<br>
-		Default: none',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP2_BG' => 'Main background:',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_TOP2_BG_INFO' => 'Background class of the main navbar / the superfish menu!<br>
-		Default: bg-body-tertiary',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_FOOTER_NAVBAR' => 'Footer Navbar:',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_FOOTER_NAVBAR_INFO' => 'Class of the footer navigation!<br>
-		Default: none',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_FOOTER_BG' => 'Footer background:',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_FOOTER_BG_INFO' => 'Background class of the footer navigation!<br>
-		Default: bg-body-tertiary',
 
 	'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_MODULES' => 'Modules',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND' => 'Customer remind:',

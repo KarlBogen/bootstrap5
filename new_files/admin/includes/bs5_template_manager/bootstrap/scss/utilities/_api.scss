@@ -1,9 +1,7 @@
 // Loop over each breakpoint
-@each $breakpoint in map-keys($grid-breakpoints) {
-
   // Generate media query if needed
-  @include media-breakpoint-up($breakpoint) {
-    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+  @include media-breakpoint-up(xs) {
+    $infix: breakpoint-infix(xs);
 
     // Loop over each utility property
     @each $key, $utility in $utilities {
@@ -14,6 +12,45 @@
       }
     }
   }
+  @include media-breakpoint-up(sm) {
+    $infix: breakpoint-infix(sm);
+
+    // Loop over each utility property
+    @each $key, $utility in $utilities {
+      // The utility can be disabled with `false`, thus check if the utility is a map first
+      // Only proceed if responsive media queries are enabled or if it's the base media query
+      @if type-of($utility) == "map" and (map-get($utility, responsive) or $infix == "") {
+        @include generate-utility($utility, $infix);
+      }
+    }
+  }
+  @include media-breakpoint-up(md) {
+    $infix: breakpoint-infix(md);
+
+    // Loop over each utility property
+    @each $key, $utility in $utilities {
+      // The utility can be disabled with `false`, thus check if the utility is a map first
+      // Only proceed if responsive media queries are enabled or if it's the base media query
+      @if type-of($utility) == "map" and (map-get($utility, responsive) or $infix == "") {
+        @include generate-utility($utility, $infix);
+      }
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    $infix: breakpoint-infix(lg);
+
+    // Loop over each utility property
+    @each $key, $utility in $utilities {
+      // The utility can be disabled with `false`, thus check if the utility is a map first
+      // Only proceed if responsive media queries are enabled or if it's the base media query
+      @if type-of($utility) == "map" and (map-get($utility, responsive) or $infix == "") {
+        @include generate-utility($utility, $infix);
+      }
+    }
+  }
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+
 }
 
 // RFS rescaling
@@ -36,12 +73,3 @@
 
 
 // Print utilities
-@media print {
-  @each $key, $utility in $utilities {
-    // The utility can be disabled with `false`, thus check if the utility is a map first
-    // Then check if the utility needs print styles
-    @if type-of($utility) == "map" and map-get($utility, print) == true {
-      @include generate-utility($utility, "-print");
-    }
-  }
-}

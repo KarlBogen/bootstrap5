@@ -32,6 +32,7 @@
   float: left;
   width: 100%;
   margin-right: -100%;
+	-webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   @include transition($carousel-transition);
 }
@@ -132,14 +133,6 @@
   background-size: 100% 100%;
 }
 
-/* rtl:options: {
-  "autoRename": true,
-  "stringMap":[ {
-    "name"    : "prev-next",
-    "search"  : "prev",
-    "replace" : "next"
-  } ]
-} */
 .carousel-control-prev-icon {
   background-image: escape-svg($carousel-control-prev-icon-bg);
 }

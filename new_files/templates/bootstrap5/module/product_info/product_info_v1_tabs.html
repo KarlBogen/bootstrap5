@@ -156,12 +156,12 @@
 								</div>
 							</div>
 							<div class="col-sm-7 col-xl-9 d-grid gap-2">
-								{$ADD_CART_BUTTON|replace:'<button':'<button class="btn btn-cart btn-success"'}
+								{$ADD_CART_BUTTON|replace:'<button':'<button class="btn btn-cart btn-secondary"'}
 								{* Ausblenden der Links, wenn Modul Kundenerinnerung aktiviert und Lagerbestand kleiner 0 ist *}
 								{if $PRODUCTS_QUANTITY > 0 || ($PRODUCTS_QUANTITY <= 0 && $smarty.const.BS5_CUSTOMERS_REMIND != 'true')}
 									{if (isset($ADD_CART_BUTTON_EXPRESS)) || $ADD_CART_BUTTON_PAYPAL}
 										{if isset($ADD_CART_BUTTON_EXPRESS) && !$PAYPALPLAN}
-											{$ADD_CART_BUTTON_EXPRESS|replace:'<button':'<button class="btn btn-outline-secondary text-secondary-emphasis"'}
+											{$ADD_CART_BUTTON_EXPRESS|replace:'<button':'<button class="btn btn-outline-secondary"'}
 										{/if}
 										{if $ADD_CART_BUTTON_PAYPAL && !$PAYPALPLAN}
 											{$ADD_CART_BUTTON_PAYPAL}
@@ -180,18 +180,18 @@
 				{if $PAYPAL_INSTALLMENT && !$PAYPALPLAN}<div class="py-2">{$PAYPAL_INSTALLMENT}</div>{/if}
 				{if $PAYPALPLAN}<div class="py-2">{$PAYPALPLAN}</div>{/if}
 				<div class="row">
-					{*if $ADD_CART_BUTTON_WISHLIST}<div class="col-sm-6 mb-2">{$ADD_CART_BUTTON_WISHLIST|replace:'<button':'<button class="btn btn-sm btn-btn-outline-primary"'}</div>{/if*}
+					{*if $ADD_CART_BUTTON_WISHLIST}<div class="col-sm-6 mb-2">{$ADD_CART_BUTTON_WISHLIST|replace:'<button':'<button class="btn btn-sm btn-btn-outline-secondary"'}</div>{/if*}
           {if isset($PRODUCTS_CHEAPLY)}<div class="col-sm-6 mb-2">{$PRODUCTS_CHEAPLY}</div>{/if}
           {if isset($PRODUCT_INQUIRY)}<div class="col-sm-6 mb-2">{$PRODUCT_INQUIRY}</div>{/if}
 					{if $smarty.session.customers_status.customers_status_write_reviews == 1}
-						{if isset($PRODUCTS_WRITE_REVIEW)}<div class="col-sm-6 mb-2">{$PRODUCTS_WRITE_REVIEW|replace:'<a':'<a class="btn btn-outline-primary btn-sm btn-block"'|replace:'">':'"><span class="fa fa-pen-to-square me-2"></span>'}</div>{/if}
+						{if isset($PRODUCTS_WRITE_REVIEW)}<div class="col-sm-6 mb-2">{$PRODUCTS_WRITE_REVIEW|replace:'<a':'<a class="btn btn-outline-secondary btn-sm btn-block"'|replace:'">':'"><span class="fa fa-pen-to-square me-2"></span>'}</div>{/if}
 					{/if}
-          {if isset($PRODUCTS_PRINT_LAYER)}<div class="col-sm-6 mb-2">{$PRODUCTS_PRINT_LAYER|replace:'"iframe':'"iframe btn btn-outline-primary btn-sm btn-block'|replace:'">':'"><span class="fa fa-print me-2"></span>'}</div>{/if}
+          {if isset($PRODUCTS_PRINT_LAYER)}<div class="col-sm-6 mb-2">{$PRODUCTS_PRINT_LAYER|replace:'"iframe':'"iframe btn btn-outline-secondary btn-sm btn-block'|replace:'">':'"><span class="fa fa-print me-2"></span>'}</div>{/if}
 					{if $ACTIVATE_EXPRESS_LINK}
 						{if isset($EXPRESS_LINK)}
-							<div class="col-sm-6 mb-2">{$EXPRESS_LINK|replace:'"iframe':'"iframe btn btn-btn-outline-primary btn-sm btn-block'|replace:'">':'"><span class="fa fa-circle-info me-2"></span>'}</div>
+							<div class="col-sm-6 mb-2">{$EXPRESS_LINK|replace:'"iframe':'"iframe btn btn-btn-outline-secondary btn-sm btn-block'|replace:'">':'"><span class="fa fa-circle-info me-2"></span>'}</div>
 						{/if}
-						<div class="col-sm-6 mb-2"><a class="btn btn-btn-outline-primary btn-sm btn-block" href="{$ACTIVATE_EXPRESS_LINK}" title="{#checkout_express_activate#}">{#checkout_express_activate#}</a></div>
+						<div class="col-sm-6 mb-2"><a class="btn btn-btn-outline-secondary btn-sm btn-block" href="{$ACTIVATE_EXPRESS_LINK}" title="{#checkout_express_activate#}">{#checkout_express_activate#}</a></div>
 					{/if}
 				</div>
 				{if $EASYCREDIT && !$PAYPALPLAN}<div class="mb-2">{$EASYCREDIT}</div>{/if}

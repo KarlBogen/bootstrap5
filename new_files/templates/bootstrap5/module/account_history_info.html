@@ -121,7 +121,7 @@
                    	<div class="of_qty mx-3">{$order_values.PRODUCTS_QTY}</div>
                    	<div class="of_btn">
                      	{if isset($order_values.BUTTON_CART_EXPRESS)}{$order_values.BUTTON_CART_EXPRESS|replace:'<a':'<a class="btn btn-express btn-outline-secondary"'}{/if}
-                     	{$order_values.BUTTON_CART|replace:'<a':'<a class="btn btn-incart btn-success"'}
+                     	{$order_values.BUTTON_CART|replace:'<a':'<a class="btn btn-incart btn-secondary"'}
                    	</div>            
 									</div>
                  	<div class="of_total small">
@@ -154,10 +154,10 @@
 	
 			</div>
 			<div class="btn_row d-grid gap-2 d-sm-flex justify-content-sm-between mt-3">
-				{$BUTTON_PRINT_LAYER|replace:'"iframe':'"iframe btn btn-secondary'|replace:'" />':'">'}
-				{$BUTTON_CART|replace:'<a':'<a class="btn btn-cart btn-success"'}
+				{$BUTTON_PRINT_LAYER|replace:'"iframe':'"iframe btn btn-outline-secondary'|replace:'" />':'">'}
+				{$BUTTON_CART|replace:'<a':'<a class="btn btn-cart btn-secondary"'}
 				{if isset($BUTTON_CART_EXPRESS)}
-					{$BUTTON_CART_EXPRESS|replace:'<a':'<a class="btn btn-outline-secondary text-secondary-emphasis"'}
+					{$BUTTON_CART_EXPRESS|replace:'<a':'<a class="btn btn-outline-secondary"'}
 				{/if}
 			</div>
 		</div>

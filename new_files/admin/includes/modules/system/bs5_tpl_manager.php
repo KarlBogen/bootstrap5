@@ -22,7 +22,7 @@ class bs5_tpl_manager {
 
 	public function __construct() {
 		$this->code = 'bs5_tpl_manager';
-		$this->title = MODULE_BS5_TPL_MANAGER_TEXT_TITLE . ' © by <a href="https://github.com/KarlBogen" target="_blank" style="color: #e67e22; font-weight: bold;">Karl</a> - Version: 1.0.0';
+		$this->title = MODULE_BS5_TPL_MANAGER_TEXT_TITLE . ' © by <a href="https://github.com/KarlBogen" target="_blank" style="color: #e67e22; font-weight: bold;">Karl</a> - Version: 1.0.1';
 		$this->description = '';
 		if (defined('MODULE_BS5_TPL_MANAGER_STATUS')) $this->description .= '<a class="button btnbox but_green" style="text-align:center;" onclick="this.blur();" href="' . xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=' . $this->code . '&action=update') . '">Update</a><br /><br />';
         $bs5_tpl = defined('BS5_CURRENT_TEMPLATE') && BS5_CURRENT_TEMPLATE != '' ? BS5_CURRENT_TEMPLATE : 'bootstrap5';
@@ -129,7 +129,7 @@ class bs5_tpl_manager {
 
 		$result = true;
 		// Systemmodule deinstallieren
-		if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS == 'true') {
+		if (defined('MODULE_BS5_TPL_MANAGER_STATUS')) {
 			$messageStack->add_session(MODULE_BS5_TPL_MANAGER_START_DELETE_TABLES, 'success');
 			if(!$this->remove()){
 				$result = false;
@@ -298,13 +298,14 @@ class bs5_tpl_manager {
 			$values_config[] = "('BS5_FONTS_NAME', 'Open Sans')";
 			$values_config[] = "('BS5_THEMEMODEL_CUSTOM1', 'default')";
 			$values_config[] = "('BS5_THEMEMODEL_CUSTOM2', 'default')";
-			$values_config[] = "('BS5_TOP1_BG', 'bg-body-tertiary')";
+			$values_config[] = "('BS5_THEME', '')";
+			$values_config[] = "('BS5_TOP1_BG', 'body-tertiary')";
 			$values_config[] = "('BS5_TOP1_TEXT', 'text-body-secondary')";
 			$values_config[] = "('BS5_LOGOBAR_TEXT', 'text-secondary-emphasis')";
 			$values_config[] = "('BS5_TOP2_NAVBAR', '')";
 			$values_config[] = "('BS5_TOP2_BG', 'body-tertiary')";
 			$values_config[] = "('BS5_FOOTER_NAVBAR', '')";
-			$values_config[] = "('BS5_FOOTER_BG', 'bg-body-tertiary')";
+			$values_config[] = "('BS5_FOOTER_BG', 'body-tertiary')";
 			$values_config[] = "('BS5_CUSTOMERS_REMIND', 'false')";
 			$values_config[] = "('BS5_CUSTOMERS_REMIND_SENDMAIL', 'false')";
 			$values_config[] = "('BS5_CHEAPLY_SEE', 'false')";
@@ -698,18 +699,18 @@ class bs5_tpl_manager {
 				xtc_db_query("DROP TABLE " . TABLE_BS5_TPL_MANAGER_THEME);
 				$messageStack->add_session(MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_REMOVED.TABLE_BS5_TPL_MANAGER_THEME, 'success');
 			case $x > 0:
-				xtc_db_query("DROP TABLE " . TABLE_BS5_TPL_MANAGER_CONFIG);
-				$messageStack->add_session(MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_REMOVED.TABLE_BS5_TPL_MANAGER_CONFIG, 'success');
-
-				// Zusatzmodule entfernen
-				xtc_db_query("DROP TABLE " . TABLE_BS5_CUSTOMERS_REMIND);
-				$messageStack->add_session(MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_REMOVED.TABLE_BS5_CUSTOMERS_REMIND, 'success');
 				xtc_db_query("DELETE FROM " . TABLE_CONTENT_MANAGER . " WHERE content_group = ". BS5_CHEAPLY_SEE_CONTENT_GROUP);
 				$messageStack->add_session(MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_ENTRY_REMOVED.TABLE_CONTENT_MANAGER, 'success');
 				xtc_db_query("DELETE FROM " . TABLE_CONTENT_MANAGER . " WHERE content_group = ". BS5_PRODUCT_INQUIRY_CONTENT_GROUP);
 				$messageStack->add_session(MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_ENTRY_REMOVED.TABLE_CONTENT_MANAGER, 'success');
 				// später hinzugefügte Datenbankeinträge löschen
 				$this->remove_updates_and_news();
+				xtc_db_query("DROP TABLE " . TABLE_BS5_TPL_MANAGER_CONFIG);
+				$messageStack->add_session(MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_REMOVED.TABLE_BS5_TPL_MANAGER_CONFIG, 'success');
+
+				// Zusatzmodule entfernen
+				xtc_db_query("DROP TABLE " . TABLE_BS5_CUSTOMERS_REMIND);
+				$messageStack->add_session(MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_REMOVED.TABLE_BS5_CUSTOMERS_REMIND, 'success');
 		}
 		return true;
 	}

@@ -1,0 +1,41 @@
+$focus-ring-color: rgba(lighten($custom-bg,20%), .5);
+#top.top, #layout_footer {
+  background-color: var(--bs-custom-bg) !important;
+  color: var(--bs-custom-color) !important;
+}
+#container1, #newsletter {
+  background-color: rgba(var(--bs-custom-bg-rgb),.05) !important;
+}
+#nav_container {
+  background-color: var(--bs-custom-bg) !important;
+}
+#navbar .navbar-nav li.level1 {
+    --bs-nav-link-color: rgb(var(--bs-custom-color-rgb));
+    --bs-nav-link-hover-color:rgba(var(--bs-custom-color-rgb),.8);
+}
+#navbar .navbar-nav li.level1 > a.active {
+    color: rgba(var(--bs-custom-color-rgb),.8);
+}
+#layout_footer .navbar {
+	--bs-navbar-color: rgb(var(--bs-custom-color-rgb));
+	--bs-navbar-brand-color: rgb(var(--bs-custom-color-rgb));
+	--bs-navbar-brand-hover-color: rgb(var(--bs-custom-color-rgb));
+	--bs-navbar-hover-color:rgba(var(--bs-custom-color-rgb),.8);
+	--bs-navbar-active-color:rgba(var(--bs-custom-color-rgb),.8);
+}
+#toggle_cart .bg-danger, #toggle_wishlist .bg-danger {
+  background-color: rgba(var(--bs-custom-bg-rgb), .7) !important;
+}
+.btn.btn-outline-secondary {
+  background-color: rgba(var(--bs-custom-bg-rgb),.1);
+}
+.accordion-button:not(.collapsed) {
+  --bs-accordion-active-bg: rgba(var(--bs-custom-bg-rgb),.2) !important;
+}
+#layout_footer .btn-outline-secondary {
+  --bs-btn-color: var(--bs-custom-color);
+  --bs-btn-border-color: var(--bs-custom-color);
+}
+.copyright, .copyright a {
+  color: var(--bs-custom-color) !important;
+}

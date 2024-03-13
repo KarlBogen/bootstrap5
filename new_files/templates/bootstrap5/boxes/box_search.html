@@ -6,7 +6,7 @@
 		<div class="input-group">
 			{if isset($CATEGORIES) && $smarty.const.BS5_SEARCHFIELD_ONE_ROW == 'true'}{$CATEGORIES}{/if}
 			{$INPUT_SEARCH}
-			{$BUTTON_SUBMIT|replace:'<button':'<button class="btn btn-outline-secondary text-secondary-emphasis search_button"'}
+			{$BUTTON_SUBMIT|replace:'<button':'<button class="btn btn-outline-secondary search_button"'}
 		</div>
 	{$FORM_END}
 </div>

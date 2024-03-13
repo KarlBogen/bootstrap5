@@ -25,18 +25,3 @@
 //
 // Figures
 //
-
-.figure {
-  // Ensures the caption's text aligns with the image.
-  display: inline-block;
-}
-
-.figure-img {
-  margin-bottom: $spacer * .5;
-  line-height: 1;
-}
-
-.figure-caption {
-  @include font-size($figure-caption-font-size);
-  color: $figure-caption-color;
-}

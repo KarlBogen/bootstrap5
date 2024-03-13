@@ -26,11 +26,23 @@
 	$css_array = array();
 
 	// include bootstrap
-	$css_array[] = DIR_TMPL_CSS.'bootstrap/bootstrap.min.css';
+  if (BS5_THEME != '') {
+    $css_array[] = DIR_TMPL_CSS.'bootstrap/bootstrap-'.BS5_THEME.'.min.css';
+  } else {
+	  $css_array[] = DIR_TMPL_CSS.'bootstrap/bootstrap.min.css';
+  }
 
-	$css_array[] = DIR_TMPL_CSS.'bs5.css';
-
-	$css_array[] = DIR_TMPL.'stylesheet.css';
+  // minify bs5.css
+  $bs5_min = DIR_TMPL_CSS.'bs5.min.css';
+  $bs5_f_time = filemtime(DIR_FS_CATALOG.DIR_TMPL_CSS.'bs5.css');
+  $bs5_min_ts = is_writeable(DIR_FS_CATALOG.$bs5_min) ? filemtime(DIR_FS_CATALOG.$bs5_min) : false;
+  if ($bs5_f_time > $bs5_min_ts) {
+    require_once(DIR_TMPL.'source/external/compactor/compactor.php');
+    $compactor = new BS5_Compactor(array('strip_php_comments' => true, 'compress_css' => $compress_css));
+    $compactor->add(DIR_FS_CATALOG.DIR_TMPL_CSS.'bs5.css');
+    $compactor->save(DIR_FS_CATALOG.$bs5_min, true);
+  }
+  $css_array[] = DIR_TMPL_CSS.'bs5.min.css';
 
   if (is_file(DIR_FS_CATALOG.DIR_TMPL_CSS.'tpl_custom.css')) {
     array_push($css_array, DIR_TMPL_CSS.'tpl_custom.css');

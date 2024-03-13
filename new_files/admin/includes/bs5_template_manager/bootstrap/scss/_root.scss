@@ -2,6 +2,18 @@
 [data-bs-theme="light"] {
   // Note: Custom variable values only support SassScript inside `#{}`.
 
+// Karl Custom-Colors
+
+		--#{$prefix}custom-bg: #{$custom-bg};
+		--#{$prefix}custom-color: #{$custom-color};
+
+		--#{$prefix}custom-bg-rgb: #{to-rgb($custom-bg)};
+		--#{$prefix}custom-color-rgb: #{to-rgb($custom-color)};
+
+	  @if (variable-exists(custom-darkcolor) and $custom-darkcolor != null) {
+	    --#{$prefix}custom-darkcolor-rgb: #{to-rgb($custom-darkcolor)};
+	  }
+
   // Colors
   //
   // Generate palettes for full colors, grays, and theme colors.

@@ -31,7 +31,6 @@ $add_contents[BOX_HEADING_CONFIGURATION2][MENU_BS5_TPL_MANAGER_MAIN][] = array(
     'ssl' => ''
   );
 
-/* todo vorübergehend auskommentiert bis SCSS-Dateien aktualisiert sind
 $add_contents[BOX_HEADING_CONFIGURATION2][MENU_BS5_TPL_MANAGER_MAIN][] = array(
     'admin_access_name' => 'bs5_tpl_manager_theme',
     'filename' => FILENAME_BS5_TPL_MANAGER_THEME,
@@ -39,7 +38,6 @@ $add_contents[BOX_HEADING_CONFIGURATION2][MENU_BS5_TPL_MANAGER_MAIN][] = array(
     'parameters' => '',
     'ssl' => ''
   );
-*/
 
 $add_contents[BOX_HEADING_CONFIGURATION2][MENU_BS5_TPL_MANAGER_MAIN][] = array(
     'admin_access_name' => 'bs5_banner_manager',

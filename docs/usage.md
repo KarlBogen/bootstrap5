@@ -46,8 +46,18 @@ Voraussetzung: Dateien sind aktuell - System Modul "Bootstrap 5 Template-Manager
 
 *Hinweis: Die bisher gemachten Einstellungen werden nicht überschrieben, es werden nur neue Funktionen mit den Standardwerten hinzugefügt.<br />
 
-## BS5 Theme Manager
-Diese Funktion ist momentan noch stillgelegt, es wird daran gearbeitet.
+## BS5 Theme-Einstellungen (Kurzanleitung)
+
+Hier können bestehende Theme-Vorlagen geladen, verändert und kompiliert werden.
+Installiert ist ein PHP-basierter Sass-Compiler, der Bootstrap-Sass-Variablen in eine CSS-Datei umwandelt.
+Mit wenigen Änderungen ist ein komplett verändertes Aussehen zu schaffen.
+
+- Pfad zum BS5 Template wählen
+- Pfad zum BS5 Theme wählen z.B. "eigenes Theme 1" - "Aktualisieren" drücken
+- Tab "eigenes Theme 1" - Vorlage wählen und Button "Vorlage laden" klicken => Vorschau wird geladen
+- Änderungen machen und "Aktualisieren"
+- Zurück zu Tab "Allgemeines" und "Fertig - Theme ins Template übernehmen" klicken
+- Caches löschen und Shop Frontend aktualisieren
 
 ## BS5 Banner Manager
 Unter dem Menüpunkt **Erw. Konfiguration - Bootstrap 5 Template Manager** ist der **BS5 Banner Manager** zu finden.<br />

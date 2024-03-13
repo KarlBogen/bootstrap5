@@ -152,7 +152,7 @@ if (file_exists($css_file))	$time = filemtime($css_file);
 										</select>
 										<input type="hidden" name="inc_subcat" value="1">
 										<input type="text" name="keywords" placeholder="Suchen" id="inputString" class="form-control" aria-label="search keywords" maxlength="30" autocomplete="off">
-										<button class="btn btn-outline-secondary text-secondary-emphasis search_button" id="inputStringSubmit" type="submit" title="Suchen"><span class="mx-3">Suchen</span></button>
+										<button class="btn btn-outline-secondary search_button" id="inputStringSubmit" type="submit" title="Suchen"><span class="mx-3">Suchen</span></button>
 									</div>
 								</form>
 							</div>
@@ -175,7 +175,7 @@ if (file_exists($css_file))	$time = filemtime($css_file);
 									<button id="toggle_wishlist" data-bs-toggle="offcanvas" data-bs-target="#canvas_wish" aria-controls="canvas_wish" class="nav-link" title="Merkzettel"><span class="icon"><i class="fa fa-heart fa-lg fa-fw" aria-hidden="true"></i></span><span class="d-block small">Merkzettel</span></button>
 								</div>
 								<div class="nav-item cart text-center">
-									<button id="toggle_cart" data-bs-toggle="offcanvas" data-bs-target="#canvas_cart" aria-controls="canvas_cart" class="nav-link" title="Warenkorb"><span class="icon"><i class="fa fa-cart-shopping fa-lg fa-fw" aria-hidden="true"></i></span><span class="d-block small">Warenkorb</span></button>
+									<button id="toggle_cart" data-bs-toggle="offcanvas" data-bs-target="#canvas_cart" aria-controls="canvas_cart" class="nav-link" title="Warenkorb"><span class="icon"><i class="fa fa-cart-shopping fa-lg fa-fw" aria-hidden="true"></i></span><span class="badge-corner badge rounded-pill bg-danger">3</span><span class="d-block small">Warenkorb</span></button>
 								</div>
 								<div class="nav-item">
 									<button id="mmopener" class="text-center nav-link" title="Responsive Menü"><span class="icon"><i class="fa fa-bars fa-lg"></i></span><span class="d-block small">Menü</span></button>
@@ -188,7 +188,7 @@ if (file_exists($css_file))	$time = filemtime($css_file);
 			<nav id="nav_container" class="container-fluid border-top border-bottom mb-3">
 				<div id="navbar" class="container-xxl top2 navbar navbar-expand">
 					<ul id="main" class="navbar-nav d-flex flex-wrap me-auto">
-						<li class="nav-item home">
+						<li class="nav-item home level1">
 							<a class="nav-link" href="#" aria-label="home"><span class="fa fa-house fa-lg"></span></a>
 						</li>
 						<li id="li1" class="level1 nav-item kk-mega">
@@ -451,8 +451,8 @@ if (file_exists($css_file))	$time = filemtime($css_file);
 										</div>
 										<div class="lb_buttons mb-2">
 											<a class="btn btn-cart btn-outline-secondary btn-sm" aria-label="buy now" tabindex="-1" href="#"><span title="1 x 'Testartikel 84' bestellen"><span class="fa fa-cart-shopping"></span></span></a>&nbsp;&nbsp;
-											<a class="btn btn-wish btn-outline-info btn-sm" href="#" title="Auf den Merkzettel" tabindex="-1"><i class="fa fa fa-heart"></i></a>&nbsp;&nbsp;
-											<a class="stretched-link btn btn-info btn-sm" href="#"><i class="fa fa-eye"></i> Details</a>
+											<a class="btn btn-wish btn-outline-secondary btn-sm" href="#" title="Auf den Merkzettel" tabindex="-1"><i class="fa fa fa-heart"></i></a>&nbsp;&nbsp;
+											<a class="stretched-link btn btn-secondary btn-sm" href="#"><i class="fa fa-eye"></i> Details</a>
 										</div>
 									</div>
 									<div class="card-footer">
@@ -491,8 +491,8 @@ if (file_exists($css_file))	$time = filemtime($css_file);
 										</div>
 										<div class="lb_buttons mb-2">
 											<a class="btn btn-cart btn-outline-secondary btn-sm" aria-label="buy now" tabindex="-1" href="#"><span title="1 x 'Testartikel 13' bestellen"><span class="fa fa-cart-shopping"></span></span></a>&nbsp;&nbsp;
-											<a class="btn btn-wish btn-outline-info btn-sm" href="#" title="Auf den Merkzettel" tabindex="-1"><i class="fa fa fa-heart"></i></a>&nbsp;&nbsp;
-											<a class="stretched-link btn btn-info btn-sm" href="#"><i class="fa fa-eye"></i> Details</a>
+											<a class="btn btn-wish btn-outline-secondary btn-sm" href="#" title="Auf den Merkzettel" tabindex="-1"><i class="fa fa fa-heart"></i></a>&nbsp;&nbsp;
+											<a class="stretched-link btn btn-secondary btn-sm" href="#"><i class="fa fa-eye"></i> Details</a>
 										</div>
 									</div>
 									<div class="card-footer">
@@ -530,8 +530,8 @@ if (file_exists($css_file))	$time = filemtime($css_file);
 										</div>
 										<div class="lb_buttons mb-2">
 											<a class="btn btn-cart btn-outline-secondary btn-sm" aria-label="buy now" tabindex="-1" href="#"><span title="1 x 'Testartikel 1 mit Attributen' bestellen"><span class="fa fa-cart-shopping"></span></span></a>&nbsp;&nbsp;
-											<a class="btn btn-wish btn-outline-info btn-sm" href="#" title="Auf den Merkzettel" tabindex="-1"><i class="fa fa fa-heart"></i></a>&nbsp;&nbsp;
-											<a class="stretched-link btn btn-info btn-sm" href="#"><i class="fa fa-eye"></i> Details</a>
+											<a class="btn btn-wish btn-outline-secondary btn-sm" href="#" title="Auf den Merkzettel" tabindex="-1"><i class="fa fa fa-heart"></i></a>&nbsp;&nbsp;
+											<a class="stretched-link btn btn-secondary btn-sm" href="#"><i class="fa fa-eye"></i> Details</a>
 										</div>
 									</div>
 									<div class="card-footer">
@@ -662,20 +662,20 @@ if (file_exists($css_file))	$time = filemtime($css_file);
 												</div>
 											</div>
 											<div class="col-sm-7 col-xl-9 d-grid gap-2">
-												<button class="btn btn-cart btn-success" type="submit" title="In den Warenkorb"><span class="fa fa-cart-shopping"></span><span class="mx-3">In den Warenkorb</span></button>
+												<button class="btn btn-cart btn-secondary" type="submit" title="In den Warenkorb"><span class="fa fa-cart-shopping"></span><span class="mx-3">In den Warenkorb</span></button>
 												<button class="btn btn-wish btn-outline-secondary" name="wishlist" type="submit" title="Auf den Merkzettel"><span class="fa fa-heart"></span><span class="mx-3">Auf den Merkzettel</span></button>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-6 mb-2">
-											<a class="iframe btn btn-sm btn-outline-primary btn-block" title="Billiger gesehen?" href="#" data-src="#" data-bs-toggle="modal" data-bs-target="#modal"><span><span class="fa fa-envelope me-2"></span><span>Billiger gesehen?</span></span></a>
+											<a class="iframe btn btn-sm btn-outline-secondary btn-block" title="Billiger gesehen?" href="#" data-src="#" data-bs-toggle="modal" data-bs-target="#modal"><span><span class="fa fa-envelope me-2"></span><span>Billiger gesehen?</span></span></a>
 										</div>
 										<div class="col-sm-6 mb-2">
-											<a class="iframe btn btn-sm btn-outline-primary btn-block" title="Frage zum Artikel" href="#" data-src="#" data-bs-toggle="modal" data-bs-target="#modal"><span><span class="fa fa-envelope me-2"></span><span>Frage zum Artikel</span></span></a>
+											<a class="iframe btn btn-sm btn-outline-secondary btn-block" title="Frage zum Artikel" href="#" data-src="#" data-bs-toggle="modal" data-bs-target="#modal"><span><span class="fa fa-envelope me-2"></span><span>Frage zum Artikel</span></span></a>
 										</div>
 										<div class="col-sm-6 mb-2">
-											<a class="iframe btn btn-outline-primary btn-sm btn-block" target="_blank" rel="nofollow" href="#" title="Artikeldatenblatt drucken" data-src="#" data-bs-toggle="modal" data-bs-target="#modal"><span class="fa fa-print me-2"></span>Artikeldatenblatt drucken</a>
+											<a class="iframe btn btn-outline-secondary btn-sm btn-block" target="_blank" rel="nofollow" href="#" title="Artikeldatenblatt drucken" data-src="#" data-bs-toggle="modal" data-bs-target="#modal"><span class="fa fa-print me-2"></span>Artikeldatenblatt drucken</a>
 										</div>
 									</div>
 								</div>
@@ -836,7 +836,7 @@ if (file_exists($css_file))	$time = filemtime($css_file);
 								</div>
 							</div>
 							<div class="nav col-12 justify-content-around justify-content-sm-end align-items-end">
-								<div class="nav-item home">
+								<div class="nav-item home level1">
 									<a class="text-center nav-link" title="Startseite" href="#"><span class="icon"><i class="fa fa-house fa-lg"></i></span><span class="d-block small">Startseite</span></a>
 								</div>
 								<div class="nav-item">
@@ -1121,8 +1121,8 @@ if (file_exists($css_file))	$time = filemtime($css_file);
 									</div>
 									<div class="lb_buttons mb-2">
 										<a class="btn btn-cart btn-outline-secondary btn-sm" aria-label="buy now" tabindex="-1" href="#"><span title="1 x 'Testarticle 84' order"><span class="fa fa-cart-shopping"></span></span></a>&nbsp;&nbsp;
-										<a class="btn btn-wish btn-outline-info btn-sm" href="#" title="Add to wishlist" tabindex="-1"><i class="fa fa fa-heart"></i></a>&nbsp;&nbsp;
-										<a class="stretched-link btn btn-info btn-sm" href="#"><i class="fa fa-eye"></i> Details</a>
+										<a class="btn btn-wish btn-outline-secondary btn-sm" href="#" title="Add to wishlist" tabindex="-1"><i class="fa fa fa-heart"></i></a>&nbsp;&nbsp;
+										<a class="stretched-link btn btn-secondary btn-sm" href="#"><i class="fa fa-eye"></i> Details</a>
 									</div>
 								</div>
 								<div class="card-footer">
@@ -1161,8 +1161,8 @@ if (file_exists($css_file))	$time = filemtime($css_file);
 									</div>
 									<div class="lb_buttons mb-2">
 										<a class="btn btn-cart btn-outline-secondary btn-sm" aria-label="buy now" tabindex="-1" href="#"><span title="1 x 'Testarticle 13' order"><span class="fa fa-cart-shopping"></span></span></a>&nbsp;&nbsp;
-										<a class="btn btn-wish btn-outline-info btn-sm" href="#" title="Add to wishlist" tabindex="-1"><i class="fa fa fa-heart"></i></a>&nbsp;&nbsp;
-										<a class="stretched-link btn btn-info btn-sm" href="#"><i class="fa fa-eye"></i> Details</a>
+										<a class="btn btn-wish btn-outline-secondary btn-sm" href="#" title="Add to wishlist" tabindex="-1"><i class="fa fa fa-heart"></i></a>&nbsp;&nbsp;
+										<a class="stretched-link btn btn-secondary btn-sm" href="#"><i class="fa fa-eye"></i> Details</a>
 									</div>
 								</div>
 								<div class="card-footer">
@@ -1200,8 +1200,8 @@ if (file_exists($css_file))	$time = filemtime($css_file);
 									</div>
 									<div class="lb_buttons mb-2">
 										<a class="btn btn-cart btn-outline-secondary btn-sm" aria-label="buy now" tabindex="-1" href="#"><span title="1 x 'Testarticle 1' order"><span class="fa fa-cart-shopping"></span></span></a>&nbsp;&nbsp;
-										<a class="btn btn-wish btn-outline-info btn-sm" href="#" title="Add to wishlist" tabindex="-1"><i class="fa fa fa-heart"></i></a>&nbsp;&nbsp;
-										<a class="stretched-link btn btn-info btn-sm" href="#"><i class="fa fa-eye"></i> Details</a>
+										<a class="btn btn-wish btn-outline-secondary btn-sm" href="#" title="Add to wishlist" tabindex="-1"><i class="fa fa fa-heart"></i></a>&nbsp;&nbsp;
+										<a class="stretched-link btn btn-secondary btn-sm" href="#"><i class="fa fa-eye"></i> Details</a>
 									</div>
 								</div>
 								<div class="card-footer">
@@ -1329,20 +1329,20 @@ if (file_exists($css_file))	$time = filemtime($css_file);
 												</div>
 											</div>
 											<div class="col-sm-7 col-xl-9 d-grid gap-2">
-												<button class="btn btn-cart btn-success" type="submit" title="Add to cart"><span class="fa fa-cart-shopping"></span><span class="mx-3">Add to cart</span></button>
+												<button class="btn btn-cart btn-secondary" type="submit" title="Add to cart"><span class="fa fa-cart-shopping"></span><span class="mx-3">Add to cart</span></button>
 												<button class="btn btn-wish btn-outline-secondary" name="wishlist" type="submit" title="Add to wishlist"><span class="fa fa-heart"></span><span class="mx-3">Add to wishlist</span></button>
 											</div>
 										</div>
 									</div>
 									<div class="row">
 										<div class="col-sm-6 mb-2">
-											<a class="iframe btn btn-sm btn-outline-primary btn-block" title="More cheaply seen?" href="#" data-src="#" data-bs-toggle="modal" data-bs-target="#modal"><span><span class="fa fa-envelope me-2"></span><span>More cheaply seen?</span></span></a>
+											<a class="iframe btn btn-sm btn-outline-secondary btn-block" title="More cheaply seen?" href="#" data-src="#" data-bs-toggle="modal" data-bs-target="#modal"><span><span class="fa fa-envelope me-2"></span><span>More cheaply seen?</span></span></a>
 										</div>
 										<div class="col-sm-6 mb-2">
-											<a class="iframe btn btn-sm btn-outline-primary btn-block" title="Question to article" href="#" data-src="#" data-bs-toggle="modal" data-bs-target="#modal"><span><span class="fa fa-envelope me-2"></span><span>Question to article</span></span></a>
+											<a class="iframe btn btn-sm btn-outline-secondary btn-block" title="Question to article" href="#" data-src="#" data-bs-toggle="modal" data-bs-target="#modal"><span><span class="fa fa-envelope me-2"></span><span>Question to article</span></span></a>
 										</div>
 										<div class="col-sm-6 mb-2">
-											<a class="iframe btn btn-outline-primary btn-sm btn-block" target="_blank" rel="nofollow" href="#" title="Print datasheet" data-src="#" data-bs-toggle="modal" data-bs-target="#modal"><span class="fa fa-print me-2"></span>Print datasheet</a>
+											<a class="iframe btn btn-outline-secondary btn-sm btn-block" target="_blank" rel="nofollow" href="#" title="Print datasheet" data-src="#" data-bs-toggle="modal" data-bs-target="#modal"><span class="fa fa-print me-2"></span>Print datasheet</a>
 										</div>
 									</div>
 								</div>

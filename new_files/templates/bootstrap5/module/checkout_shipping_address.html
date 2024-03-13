@@ -27,8 +27,8 @@
 						{$module_data.FORM_ACTION}
 								<div class="border-top border-bottom p-2{if $module_data.SELECTED == 1} bg-primary-subtle active{/if} clearfix">
 									<div class="float-end mb-2">
-										{if isset($module_data.BUTTON_EDIT)}<span class="me-2">{$module_data.BUTTON_EDIT|replace:'<a':'<a class="btn btn-secondary btn-sm"'}</span>{/if}
-										{if isset($module_data.BUTTON_CONTINUE)}{$module_data.BUTTON_CONTINUE|replace:'<button':'<button class="btn btn-success btn-sm"'}{/if}
+										{if isset($module_data.BUTTON_EDIT)}<span class="me-2">{$module_data.BUTTON_EDIT|replace:'<a':'<a class="btn btn-outline-secondary btn-sm"'}</span>{/if}
+										{if isset($module_data.BUTTON_CONTINUE)}{$module_data.BUTTON_CONTINUE|replace:'<button':'<button class="btn btn-secondary btn-sm"'}{/if}
 									</div>
 									<div class="fw-bold py-1">{$module_data.FIRSTNAME} {$module_data.LASTNAME}</div>
 									<div class="py-1">{$module_data.ADDRESS_LABEL|replace:"<br>":", "}</div>
@@ -39,8 +39,8 @@
 			{/foreach}
 		</div>
 		<div class="d-grid gap-2 d-sm-flex justify-content-sm-between">
-			{$BUTTON_BACK|replace:'<a':'<a class="btn btn-secondary px-4"'}
-			{$BUTTON_NEW|replace:'<a':'<a class="btn btn-outline-success px-4"'}
+			{$BUTTON_BACK|replace:'<a':'<a class="btn btn-outline-secondary px-4"'}
+			{$BUTTON_NEW|replace:'<a':'<a class="btn btn-secondary px-4"'}
 		</div>
 	{else}
 		{$FORM_ACTION}
@@ -48,8 +48,8 @@
 				{$MODULE_new_address}
 			{/if}
 			<div class="d-grid gap-2 d-sm-flex justify-content-sm-between">
-				{$BUTTON_BACK|replace:'<a':'<a class="btn btn-secondary px-4"'}
-				{$BUTTON_CONTINUE|replace:'<button':'<button class="btn btn-success px-4"'}
+				{$BUTTON_BACK|replace:'<a':'<a class="btn btn-outline-secondary px-4"'}
+				{$BUTTON_CONTINUE|replace:'<button':'<button class="btn btn-secondary px-4"'}
 			</div>
 		{$FORM_END}
 	{/if}

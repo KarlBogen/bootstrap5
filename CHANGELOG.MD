@@ -1,5 +1,15 @@
 UNRELEASED
 
+
+
+
+1.0.1 [13.03.2024]
+
+- BS5 Theme - Vorlagen ergänzt (alle Themes sind auf barrierefreie Farbkontraste getestet)
+- BS5 Theme-Einstellungen überarbeitet
+- BS5 Konfiguration aktualisiert
+- bs5.css wird minimiert zu bs5.min.css
+- alle Button im Template auf eine Bootstrap-CSS-Klasse umgestellt
 - Sterne in Ansicht "Rezension schreiben" wurden nicht angzeigt
 
 
