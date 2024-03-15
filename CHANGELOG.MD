@@ -1,5 +1,6 @@
 UNRELEASED
 
+- Mailversand in "Kundenerinnerung", "Billiger gesehen" und "Frage zum Artikel" geändert - Fehlermeldung bei IONOS
 - Weisse Seite bei Sub-Kategorielisting, wenn Kategoriebild leer, aber Listingbild belegt - behoben
 
 

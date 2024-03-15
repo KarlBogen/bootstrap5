@@ -36,6 +36,7 @@ if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 
 	require_once(DIR_FS_INC . 'xtc_get_products_name.inc.php');
 	require_once(DIR_FS_INC . 'xtc_validate_email.inc.php');
+	require_once (DIR_FS_INC.'secure_form.inc.php');
 
 	$smarty = new Smarty();
 
@@ -56,29 +57,48 @@ if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 
 		if (isset($_POST['action']) && $_POST['action'] == 'add_remind') {
 			// Postcheck
-			if (strlen($_POST['customers_input_firstname']) < ENTRY_FIRST_NAME_MIN_LENGTH) {
+			$valid_params = array(
+		    'customers_input_firstname',
+		    'customers_input_lastname',
+		    'customers_input_email',
+		    'customers_input_st',
+		  );
+
+		  // prepare variables
+		  foreach ($_POST as $key => $value) {
+		    if ((!isset(${$key}) || !is_object(${$key})) && in_array($key , $valid_params)) {
+		      ${$key} = xtc_db_prepare_input($value);
+		    }
+		  }
+
+			if (strlen($customers_input_firstname) < ENTRY_FIRST_NAME_MIN_LENGTH) {
 				$error = true;
 				$messageStack->add('customers_remind', ENTRY_FIRST_NAME_ERROR);
 			}
-			if (strlen($_POST['customers_input_lastname']) < ENTRY_LAST_NAME_MIN_LENGTH) {
+			if (strlen($customers_input_lastname) < ENTRY_LAST_NAME_MIN_LENGTH) {
 				$error = true;
 				$messageStack->add('customers_remind', ENTRY_LAST_NAME_ERROR);
 			}
-			if (strlen($_POST['customers_input_email']) < ENTRY_EMAIL_ADDRESS_MIN_LENGTH) {
+			if (strlen($customers_input_email) < ENTRY_EMAIL_ADDRESS_MIN_LENGTH) {
 				$error = true;
 				$messageStack->add('customers_remind', ENTRY_EMAIL_ADDRESS_ERROR);
-			} elseif (xtc_validate_email($_POST['customers_input_email']) == false) {
+			} elseif (xtc_validate_email($customers_input_email) == false) {
 				$error = true;
 				$messageStack->add('customers_remind', ENTRY_EMAIL_ADDRESS_CHECK_ERROR);
 			}
-			$_POST['customers_input_st'] = intval($_POST['customers_input_st']);
-			if ($_POST['customers_input_st'] < 1) {
-				$_POST['customers_input_st'] = 1;
+			$customers_input_st = intval($customers_input_st);
+			if ($customers_input_st < 1) {
+				$customers_input_st = 1;
 			}
 			if (DISPLAY_PRIVACY_CHECK == 'true' && empty($privacy)) {
 				$error = true;
 				$messageStack->add('customers_remind', ENTRY_PRIVACY_ERROR);
 			}
+		  if (check_secure_form($_POST) === false) {
+		    $error = true;
+		    $messageStack->add('customers_remind', ENTRY_TOKEN_ERROR);
+		  }
+
 			// Fehlermeldung anzeigen
 			if ($messageStack->size('customers_remind') > 0) {
 				$smarty->assign('error', $messageStack->output('customers_remind'));
@@ -97,11 +117,11 @@ if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 				'products_model' => $product->data['products_model'],
 				'products_image' => $product->data['products_image'],
 				'customers_gender' => $_SESSION['customer_gender'],
-				'customers_firstname' => xtc_db_prepare_input($_POST['customers_input_firstname']),
-				'customers_lastname' => xtc_db_prepare_input($_POST['customers_input_lastname']),
-				'customers_email_address' => xtc_db_prepare_input($_POST['customers_input_email']),
+				'customers_firstname' => $customers_input_firstname,
+				'customers_lastname' => $customers_input_lastname,
+				'customers_email_address' => $customers_input_email,
 				'customers_language' => xtc_db_prepare_input($_POST['language_input']),
-				'customers_st' => xtc_db_prepare_input($_POST['customers_input_st']),
+				'customers_st' => $customers_input_st,
 				'mail_head1' => xtc_db_prepare_input($_POST['mail_input_head1']),
 				'remind_date_added' => 'now()'
 			);
@@ -113,7 +133,7 @@ if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 
 				$create_html_body = '<h3>' . STORE_NAME . '</h3>';
 				$create_html_body .= '<h4>' . CUSTOMERS_REMIND_EMAIL_HEADING . '</h4>';
-				$create_html_body .= strip_tags($_POST['customers_input_firstname']) . "  " . strip_tags($_POST['customers_input_lastname']) . " [" . $_SESSION['customer_id'] . "]<br>";
+				$create_html_body .= $customers_input_firstname . "  " . $customers_input_lastname . " [" . $_SESSION['customer_id'] . "]<br>";
 				$create_html_body .= CUSTOMERS_REMIND_EMAIL_1 . "<br><br>";
 				$create_html_body .= HEADER_ARTICLE . ": " . $product->data['products_name'] . "<br>";
 				$create_html_body .= HEADER_MODEL . ": " . $product->data['products_model'] . "<br><br>";
@@ -121,7 +141,7 @@ if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 
 				$create_text_body = STORE_NAME . "\n\n";
 				$create_text_body .= CUSTOMERS_REMIND_EMAIL_HEADING . ":\n--------------------\n";
-				$create_text_body .= strip_tags($_POST['customers_input_firstname']) . "  " . strip_tags($_POST['customers_input_lastname']) . " [" . $_SESSION['customer_id'] . "]\n";
+				$create_text_body .= $customers_input_firstname . "  " . $customers_input_lastname . " [" . $_SESSION['customer_id'] . "]\n";
 				$create_text_body .= CUSTOMERS_REMIND_EMAIL_1 . "\n\n";
 				$create_text_body .= HEADER_ARTICLE . ": " . $product->data['products_name'] . "\n";
 				$create_text_body .= HEADER_MODEL . ": " . $product->data['products_model'] . "\n\n";
@@ -150,7 +170,7 @@ if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 			} else {
 				$idStr = '<input type="hidden" name="products_id" value="' . $products_id . '"/><input type="hidden" name="action" value="add_remind"/>';
 
-				$smarty->assign('FORM_ACTION_REMIND', xtc_draw_form('customers_remind', xtc_href_link(BS5_FILENAME_CUSTOMERS_REMIND, xtc_get_all_get_params(array('action')), 'SSL')) . $idStr);
+				$smarty->assign('FORM_ACTION_REMIND', xtc_draw_form('customers_remind', xtc_href_link(BS5_FILENAME_CUSTOMERS_REMIND, xtc_get_all_get_params(array('action')), 'SSL')).$idStr.secure_form('customers_remind'));
 
 				$smarty->assign('CUSTOMERS_FIRSTNAME_INPUT', xtc_draw_input_field('customers_input_firstname', isset($_POST['customers_input_firstname']) ? xtc_db_prepare_input($_POST['customers_input_firstname']) : $_SESSION["customer_first_name"], 'id="firstname" class="form-control"'));
 				$smarty->assign('CUSTOMERS_LASTNAME_INPUT', xtc_draw_input_field('customers_input_lastname', isset($_POST['customers_input_lastname']) ? xtc_db_prepare_input($_POST['customers_input_lastname']) : $_SESSION["customer_last_name"], 'id="lastname" class="form-control"'));

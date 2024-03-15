@@ -34,6 +34,7 @@ defined('MODULE_CAPTCHA_LOGGED_IN') or define('MODULE_CAPTCHA_LOGGED_IN', 'True'
 
 require_once(DIR_FS_INC . 'xtc_validate_email.inc.php');
 require_once(DIR_FS_INC . 'get_customers_gender.inc.php');
+require_once (DIR_FS_INC.'secure_form.inc.php');
 
 $smarty = new Smarty();
 
@@ -80,23 +81,41 @@ $smarty->assign('PRODUCTS_IMAGE', $image);
 //-- FEHLERMELDUNG ERZEUGEN ----------------------------------------------------------------------------------
 $privacy = isset($_POST['privacy']) && $_POST['privacy'] == 'privacy' ? true : false;
 $error = false;
-if (isset($_GET['action']) && ($_GET['action'] == 'send')) {
-	if (strlen($_POST['firstname']) < ENTRY_FIRST_NAME_MIN_LENGTH) {
+if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
+
+	$valid_params = array(
+    'gender',
+    'firstname',
+    'lastname',
+    'email',
+    'phone',
+    'subject',
+    'message_body',
+  );
+
+  // prepare variables
+  foreach ($_POST as $key => $value) {
+    if ((!isset(${$key}) || !is_object(${$key})) && in_array($key , $valid_params)) {
+      ${$key} = xtc_db_prepare_input($value);
+    }
+  }
+
+	if (strlen($firstname) < ENTRY_FIRST_NAME_MIN_LENGTH) {
 		$error = true;
 		$messageStack->add('product_inquiry', ENTRY_FIRST_NAME_ERROR);
 	}
-	if (strlen($_POST['lastname']) < ENTRY_LAST_NAME_MIN_LENGTH) {
+	if (strlen($lastname) < ENTRY_LAST_NAME_MIN_LENGTH) {
 		$error = true;
 		$messageStack->add('product_inquiry', ENTRY_LAST_NAME_ERROR);
 	}
-	if (strlen($_POST['email']) < ENTRY_EMAIL_ADDRESS_MIN_LENGTH) {
+	if (strlen($email) < ENTRY_EMAIL_ADDRESS_MIN_LENGTH) {
 		$error = true;
 		$messageStack->add('product_inquiry', ENTRY_EMAIL_ADDRESS_ERROR);
-	} elseif (xtc_validate_email($_POST['email']) == false) {
+	} elseif (xtc_validate_email($email) == false) {
 		$error = true;
 		$messageStack->add('product_inquiry', ENTRY_EMAIL_ADDRESS_CHECK_ERROR);
 	}
-	if (strlen($_POST['message_body']) == '') {
+	if (strlen($message_body) == '') {
 		$error = true;
 		$messageStack->add('product_inquiry', ENTRY_MESSAGE_BODY_ERROR);
 	}
@@ -110,11 +129,16 @@ if (isset($_GET['action']) && ($_GET['action'] == 'send')) {
 			$error = true;
 			$messageStack->add('product_inquiry', ENTRY_VVCODE_CHECK_ERROR);
 		}
+
 	}
+  if (check_secure_form($_POST) === false) {
+    $error = true;
+    $messageStack->add('product_inquiry', ENTRY_TOKEN_ERROR);
+  }
+
 	if ($error === false) {
 
-		$gender = '';
-		$post_gender = strip_tags($_POST['gender']);
+		$post_gender = $gender;
 		if ($post_gender == 'm') {
 			$gender = MALE;
 		} elseif ($post_gender == 'f') {
@@ -124,45 +148,45 @@ if (isset($_GET['action']) && ($_GET['action'] == 'send')) {
 		}
 
 		// Email bilden
-		$create_name = strip_tags($_POST['firstname']) . ' ' . strip_tags($_POST['lastname']);
-		$create_subject = strip_tags($_POST['subject']);
+		$create_name = $firstname . ' ' . $lastname;
+		$create_subject = $subject;
 		$products_link = xtc_href_link(FILENAME_PRODUCT_INFO, xtc_product_link($product->data['products_id'], $product->data['products_name']));
 
 		$create_html_body = '<h3>' . STORE_NAME . '</h3>';
 		$create_html_body .= '<h4>' . TEXT_PRODUCT_INQUIRY . '</h4>';
 		$create_html_body .= $gender . "<br>";
 		$create_html_body .= $create_name . "<br>";
-		$create_html_body .= BS5_EMAIL . strip_tags($_POST['email']) . "<br>";
-		$create_html_body .= BS5_PHONE . strip_tags($_POST['phone']) . "<br><br>";
+		$create_html_body .= BS5_EMAIL . $email . "<br>";
+		$create_html_body .= BS5_PHONE . $phone . "<br><br>";
 		$create_html_body .= HEADER_ARTICLE . ": " . $products->data['products_name'] . "<br>";
 		$create_html_body .= HEADER_MODEL . ": " . $products->data['products_model'] . "<br>";
 		$create_html_body .= "Link: " . $products_link . "<br><br>";
 		$create_html_body .= BS5_SUBJECT . $create_subject . "<br><br>";
-		$create_html_body .= nl2br(strip_tags($_POST['message_body'])) . "<br><br>";
+		$create_html_body .= nl2br($message_body) . "<br><br>";
 
 		$create_text_body = STORE_NAME . "\n\n";
 		$create_text_body .= TEXT_PRODUCT_INQUIRY . ":\n--------------------\n";
 		$create_text_body .= $gender . "\n";
 		$create_text_body .= $create_name . "\n";
-		$create_text_body .= BS5_EMAIL . strip_tags($_POST['email']) . "\n";
-		$create_text_body .= BS5_PHONE . strip_tags($_POST['phone']) . "\n\n";
+		$create_text_body .= BS5_EMAIL . $email . "\n";
+		$create_text_body .= BS5_PHONE . $phone . "\n\n";
 		$create_text_body .= HEADER_ARTICLE . ": " . $products->data['products_name'] . "\n";
 		$create_text_body .= HEADER_MODEL . ": " . $products->data['products_model'] . "\n";
 		$create_text_body .= "Link: " . $products_link . "\n\n";
 		$create_text_body .= BS5_SUBJECT . $create_subject . "\n\n";
-		$create_text_body .= "\n--------------------\n" . strip_tags($_POST['message_body']) . "\n\n";
+		$create_text_body .= "\n--------------------\n" . $message_body . "\n\n";
 
 		// EMAIL GENERIEREN
 		xtc_php_mail(
-			$_POST['email'], //von emailadresse
-			$create_name, //von emailname
+			CONTACT_US_EMAIL_ADDRESS, //von emailadresse
+			CONTACT_US_NAME, //von emailname
 			CONTACT_US_EMAIL_ADDRESS,  //an emailadresse
 			CONTACT_US_NAME, //an emailname
 			CONTACT_US_FORWARDING_STRING, //bcc
-			$_POST['email'], //antwortadresse
+			$email, //antwortadresse
 			$create_name, //antwortname
 			'', //anhang 1
-			'', //antwortname
+			'', //anhang 2
 			$create_subject, //emailbetreff
 			$create_html_body, // htmlnachricht
 			$create_text_body // textnachricht
@@ -186,7 +210,7 @@ $view = '';
 if (isset($_GET['view'])) {
 	$view = '&view=ssl';
 }
-$smarty->assign('FORM_ACTION', xtc_draw_form('product_inquiry', xtc_href_link(BS5_FILENAME_PRODUCT_INQUIRY, 'action=send&pID=' . $products->data['products_id'] . '&' . xtc_product_link($products->data['products_id'], $products->data['products_name']) . $view, 'SSL'), 'post', 'class="form-horizontal"'));
+$smarty->assign('FORM_ACTION', xtc_draw_form('product_inquiry', xtc_href_link(BS5_FILENAME_PRODUCT_INQUIRY, 'pID=' . $products->data['products_id'] . '&' . xtc_product_link($products->data['products_id'], $products->data['products_name']) . $view, 'SSL'), 'post', 'class="form-horizontal"').xtc_draw_hidden_field('action', 'send').secure_form('product_inquiry'));
 if (!isset($_SESSION['customer_id']) || MODULE_CAPTCHA_LOGGED_IN == 'True') {
 	$smarty->assign('VVIMG', $mod_captcha->get_image_code());
 	$smarty->assign('INPUT_CODE', xtc_draw_input_field('vvcode', '', 'id="code" class="form-control" maxlength="6"', 'text', false));

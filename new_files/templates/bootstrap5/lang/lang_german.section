@@ -210,6 +210,7 @@ BS5_customers_remind_box_info = 'Bitte geben Sie Ihre Gew&uuml;nschte St&uuml;ck
 BS5_customers_remind_box_guest = 'Aus Datenschutzgr&uuml;nden k&ouml;nnen sich leider nur angemeldete Kunden f&uuml;r diesen Service registrieren.'
 BS5_customers_remind_box_success = 'Sie sind bereits eingetragen!'
 BS5_customers_remind_added = '<h1>Vielen Dank!</h1><p>Ihre E-Mail-Adresse wurden erfolgreich eingetragen!</p>'
+bs5_text_privacy_accept = 'Ich habe die Datenschutzrichtlinien zur Kenntnis genommen.'
 
 [bs5_cheaply_inquiry]
 BS5_text_firstname = 'Vorname:'
