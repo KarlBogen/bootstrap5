@@ -12,14 +12,13 @@
 							<div class="card-body flex-fill d-flex flex-column">
 								<div class="w-100 mb-auto">
 								{if $categories_data.CATEGORIES_IMAGE != '' || (isset($categories_data.CATEGORIES_IMAGE_LIST) && $categories_data.CATEGORIES_IMAGE_LIST != '')}
-									{assign var=sizeimg value=$categories_data.CATEGORIES_IMAGE|imgsize}
 									{if isset($categories_data.CATEGORIES_IMAGE_LIST) && $categories_data.CATEGORIES_IMAGE_LIST != ''}
 										{assign var=sizeimglist value=$categories_data.CATEGORIES_IMAGE_LIST|imgsize}
 										<img class="lazyload img-fluid d-block mx-auto" data-src="{$categories_data.CATEGORIES_IMAGE_LIST}" alt="{#BS5_catlist_imgalt#}" {$sizeimglist}>
 									{else}
+										{assign var=sizeimg value=$categories_data.CATEGORIES_IMAGE|imgsize}
 										<img class="lazyload img-fluid" data-src="{$categories_data.CATEGORIES_IMAGE}" alt="{#BS5_catlist_imgalt#}" {$sizeimg}>
 									{/if}
-									<noscript><img class="img-fluid" src="{$categories_data.CATEGORIES_IMAGE}" alt="{#BS5_catlist_imgalt#}" {$sizeimg}></noscript>
 								{/if}
 								</div>
 								<div class="mt-2">

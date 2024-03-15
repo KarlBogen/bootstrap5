@@ -15,11 +15,11 @@
 					<div class="card-body">
 						<div class="cat_image w-100">
 							{if $module_data.CATEGORY_IMAGE != '' || (isset($module_data.CATEGORY_IMAGE_LIST) && $module_data.CATEGORY_IMAGE_LIST != '')}
-									{assign var=sizeimg value=$module_data.CATEGORY_IMAGE|imgsize}
 								{if isset($module_data.CATEGORY_IMAGE_LIST) && $module_data.CATEGORY_IMAGE_LIST != ''}
-										{assign var=sizeimglist value=$module_data.CATEGORY_IMAGE_LIST|imgsize}
+									{assign var=sizeimglist value=$module_data.CATEGORY_IMAGE_LIST|imgsize}
 									<img class="lazyload img-fluid" data-src="{$module_data.CATEGORY_IMAGE_LIST}" alt="{#BS5_catlist_imgalt#}" title="{$module_data.CATEGORY_NAME|onlytext}" {$sizeimglist}>
 								{else}
+									{assign var=sizeimg value=$module_data.CATEGORY_IMAGE|imgsize}
 									<img class="lazyload img-fluid" data-src="{$module_data.CATEGORY_IMAGE}" alt="{#BS5_catlist_imgalt#}" title="{$module_data.CATEGORY_NAME|onlytext}" {$sizeimg}>
 								{/if}
 							{/if}

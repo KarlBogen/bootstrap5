@@ -1,6 +1,6 @@
 UNRELEASED
 
-
+- Weisse Seite bei Sub-Kategorielisting, wenn Kategoriebild leer, aber Listingbild belegt - behoben
 
 
 1.0.1 [13.03.2024]
