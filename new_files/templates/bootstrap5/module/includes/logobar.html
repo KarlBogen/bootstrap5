@@ -10,7 +10,7 @@
 						{if $smarty.const.BS5_SHOW_ICON_WITH_NAMES != 'false'}<span class="d-none d-lg-block small">{#link_index#}</span>{/if}
 					</a>
 				</div>
-				{if isset($box_SHIPPING_COUNTRY) || (isset($box_LANGUAGES) && $box_LANGUAGES != '') || isset($box_CURRENCIES)}
+				{if (isset($box_CURRENCIES) && $box_CURRENCIES != '') || (isset($box_SHIPPING_COUNTRY) && $box_SHIPPING_COUNTRY != '') || (isset($box_LANGUAGES) && $box_LANGUAGES != '')}
 					<div class="nav-item">
 						<button id="setbtn" class="text-center nav-link {$smarty.const.BS5_LOGOBAR_TEXT}" title="{#BS5_heading_settingbox#}" data-bs-toggle="offcanvas" data-bs-target="#settings" aria-controls="settings">
 							<span class="icon"><i class="fa fa-gear fa-lg"></i></span>

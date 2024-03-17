@@ -285,18 +285,19 @@
 	<a href="#" class="go2top btn btn-secondary" aria-label="go to top"><i class="fa fa-chevron-up"></i></a>
 
 	{if $display_mode != 'checkout'}
-
-		<div id="settings" class="offcanvas offcanvas-start" tabindex="-1">
-			<div class="offcanvas-header bg-secondary-subtle">
-				<h4 class="offcanvas-title">{#BS5_heading_settingbox#}</h4>
-				<button type="button" class="btn btn-dark fa fa-xmark" data-bs-dismiss="offcanvas" data-bs-target="#settings" aria-label="{#BS5_close#}"></button>
+    {if (isset($box_CURRENCIES) && $box_CURRENCIES != '') || (isset($box_SHIPPING_COUNTRY) && $box_SHIPPING_COUNTRY != '') || (isset($box_LANGUAGES) && $box_LANGUAGES != '')}
+			<div id="settings" class="offcanvas offcanvas-start" tabindex="-1">
+				<div class="offcanvas-header bg-secondary-subtle">
+					<h4 class="offcanvas-title">{#BS5_heading_settingbox#}</h4>
+					<button type="button" class="btn btn-dark fa fa-xmark" data-bs-dismiss="offcanvas" data-bs-target="#settings" aria-label="{#BS5_close#}"></button>
+				</div>
+				<div class="offcanvas-body">
+					{if isset($box_SHIPPING_COUNTRY)}{$box_SHIPPING_COUNTRY}{/if}
+					{if isset($box_LANGUAGES) && $box_LANGUAGES != ''}{$box_LANGUAGES}{/if}
+					{if isset($box_CURRENCIES)}{$box_CURRENCIES}{/if}
+				</div>
 			</div>
-			<div class="offcanvas-body">
-				{if isset($box_SHIPPING_COUNTRY)}{$box_SHIPPING_COUNTRY}{/if}
-				{if isset($box_LANGUAGES) && $box_LANGUAGES != ''}{$box_LANGUAGES}{/if}
-				{if isset($box_CURRENCIES)}{$box_CURRENCIES}{/if}
-			</div>
-		</div>
+		{/if}
 		<div id="account" class="offcanvas offcanvas-start" tabindex="-1">
 			<div class="offcanvas-header bg-secondary-subtle">
 				<h4 class="offcanvas-title">{#link_account#}</h4>
