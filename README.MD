@@ -1,5 +1,9 @@
 # Bootstrap5 für Modified Shop 3.x - freies responsive Template
 
+#### Ab Version 1.1.0 steht ein zweites Template zur Auswahl
+Template "bootstrap5a" hat wieder eine linke Spalte mit Menü. Unterkategorien werden per Ajax nachgeladen.
+
+
 Das Template basiert auf dem Bootstrap-Framework 5 und wird getestet mit der, zum Zeitpunkt des Erscheinens eines neuen Releases, aktuellen Shopversion.
 
 ![](images/screenshot_1.png)
