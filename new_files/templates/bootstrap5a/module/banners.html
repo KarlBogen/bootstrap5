@@ -1,0 +1,33 @@
+{if $banner_data.TEXT != ''}
+  {$banner_data.TEXT}
+{elseif $banner_data.LINK != ''}
+	{assign var=sizeimg value=$banner_data.IMAGE_SRC|imgsize}
+  {if isset($banner_data.IMAGE_SRC_MOBILE) && $banner_data.IMAGE_SRC_MOBILE != ''}
+		{assign var=sizeimgmob value=$banner_data.IMAGE_SRC_MOBILE|imgsize}
+    <a title="{$banner_data.IMAGE_TITLE|onlytext}" href="{$banner_data.LINK}" {$banner_data.TARGET}>
+      <picture>
+				<source media="(max-width:575.98px)" srcset="{$banner_data.IMAGE_SRC_MOBILE}" {$sizeimgmob}>
+				<source srcset="{$banner_data.IMAGE_SRC}">
+				<img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}>
+      </picture>
+    </a>
+  {else}
+    <a title="{$banner_data.IMAGE_TITLE|onlytext}" href="{$banner_data.LINK}" {$banner_data.TARGET}>
+			<img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}>
+			<noscript><img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}></noscript>
+		</a>
+  {/if}
+{elseif $banner_data.IMAGE_IMG != ''}
+	{assign var=sizeimg value=$banner_data.IMAGE_SRC|imgsize}
+  {if isset($banner_data.IMAGE_SRC_MOBILE) && $banner_data.IMAGE_SRC_MOBILE != ''}
+		{assign var=sizeimgmob value=$banner_data.IMAGE_SRC_MOBILE|imgsize}
+    <picture>
+			<source media="(max-width:575.98px)" srcset="{$banner_data.IMAGE_SRC_MOBILE}" {$sizeimgmob}>
+			<source srcset="{$banner_data.IMAGE_SRC}">
+			<img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}>
+    </picture>
+  {else}
+		<img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}>
+		<noscript><img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}></noscript>
+  {/if}
+{/if}

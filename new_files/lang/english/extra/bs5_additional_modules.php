@@ -112,3 +112,4 @@ define('BS5_METATAG_NEWPRODS_KEYWORDS','New, latest, news');
 define('BS5_PAGINATION_LABEL', 'Page navigation');
 define('BS5_PAGINATION_SCROLLTOP', 'Scroll to first product');
 define('BS5_PAGINATION_SCROLLBOTTOM', 'Scroll to last product');
+define('BS5_SHOW_MORE_CATEGORIES', 'Show subcategories!');

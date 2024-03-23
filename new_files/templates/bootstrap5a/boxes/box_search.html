@@ -1,0 +1,17 @@
+{config_load file="$language/lang_$language.conf" section="boxes"}
+{config_load file="lang_`$language`.custom"}
+<div class="search col-12 col-lg-8 position-relative">
+	{$FORM_ACTION}
+		{if isset($CATEGORIES) && $smarty.const.BS5_SEARCHFIELD_ONE_ROW != 'true'}<div class="mb-1">{$CATEGORIES}</div>{/if}
+		<div class="input-group">
+			{if isset($CATEGORIES) && $smarty.const.BS5_SEARCHFIELD_ONE_ROW == 'true'}{$CATEGORIES}{/if}
+			{$INPUT_SEARCH}
+			{$BUTTON_SUBMIT|replace:'<button':'<button class="btn btn-outline-secondary search_button"'}
+		</div>
+	{$FORM_END}
+</div>
+		<div class="suggestionsBox card{if isset($CATEGORIES) && $smarty.const.BS5_SEARCHFIELD_ONE_ROW != 'true'} mmtop{/if}" id="suggestions" style="display:none;">
+			<div class="card-body px-2">
+				<div class="suggestionList" id="autoSuggestionsList">&nbsp;</div>
+			</div>
+		</div>

@@ -1,0 +1,10 @@
+{if $smarty.const.BS5_SHOW_TOP1 == 'true'}
+<div id="top" class="top bg-{$smarty.const.BS5_TOP1_BG} {$smarty.const.BS5_TOP1_TEXT} border-bottom border-light-subtle d-none d-sm-block py-2">
+	<div class="d-flex justify-content-around w-100 py-3">
+       	<div class="text-nowrap">{#BS5_top1#}</div>
+       	{if $smarty.const.BS5_SHOW_TOP2 == 'true'}<div class="text-nowrap d-none d-sm-block">{#BS5_top2#}</div>{/if}
+       	{if $smarty.const.BS5_SHOW_TOP3 == 'true'}<div class="text-nowrap d-none d-md-block">{#BS5_top3#}</div>{/if}
+       	{if $smarty.const.BS5_SHOW_TOP4 == 'true'}<div class="text-nowrap d-none d-lg-block">{#BS5_top4#}</div>{/if}
+	</div>
+</div>
+{/if}

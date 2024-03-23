@@ -1,0 +1,59 @@
+{config_load file="$language/lang_$language.conf" section="reviews"}
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="reviews"}
+<div class="reviews">
+	<h1 class="h3 bg-h">{#heading_reviews#}</h1>
+	{if isset($REVIEWS_NOTE)}<div class="my-3">{$REVIEWS_NOTE|replace:'class="':'class="btn btn-outline-secondary btn-sm '}</div>{/if}
+	{if $error_message}<div class="alert alert-danger">{$error_message}</div>{/if}
+	{if $success_message}<div class="alert alert-success">{$success_message}</div>{/if}
+	<div class="row clearfix mb-4">
+		{foreach name=aussen item=module_data from=$module_content}
+			<div class="col-lg-6 mb-2">
+	  		<div class="card h-100">
+					<div class="card-header small d-flex flex-wrap gap-2">
+						<div>
+							<span class="fw-bold">{#text_rating#} </span>
+							<span class="text-nowrap">
+								{if isset($module_data.RATING_VOTE)}
+									<span class="visually-hidden">{#info_review#}: {$smarty.const.TEXT_OF_5_STARS|sprintf:$module_data.RATING_VOTE}</span>
+									<span class="ratings">
+										<span class="fas empty-stars"></span><span class="fas full-stars" style="width:{math equation = "x * 20" x = $module_data.RATING_VOTE|intval}%"></span>
+									</span>
+								{else}
+									{$module_data.RATING|replace:".gif":".png"}
+								{/if}
+							</span>
+						</div>
+						<div class="vr"></div>
+						<div><span class="fw-bold">{#text_author#}</span><span class="text-nowrap"> {$module_data.AUTHOR}</span></div>
+						<div class="vr"></div>
+						<div><span class="fw-bold">{#title_date#}:</span><span class="text-nowrap"> {$module_data.DATE}</span></div>
+					</div>
+					<div class="card-body">
+						<div class="row g-2">
+							<div class="col-sm-3">
+								{if $module_data.PRODUCTS_IMAGE != ''}
+									<a href="{$module_data.PRODUCTS_LINK}">
+										{if $smarty.const.PICTURESET_ACTIVE === true}
+											<img class="lazyload img-fluid" data-src="{$module_data.PRODUCTS_IMAGE|replace:"thumbnail_":"mini_"}" alt="{$module_data.PRODUCTS_NAME|onlytext}" title="{$module_data.PRODUCTS_NAME|onlytext}">
+										{else}
+											<img class="lazyload img-fluid" data-src="{$module_data.PRODUCTS_IMAGE}" alt="{$module_data.PRODUCTS_NAME|onlytext}" title="{$module_data.PRODUCTS_NAME|onlytext}">
+										{/if}
+									</a>
+								{/if}
+							</div>
+							<div class="col-sm-9">
+								<div><a class="link-secondary mb-2" href="{$module_data.PRODUCTS_LINK}">{$module_data.PRODUCTS_NAME}</a></div>
+								<div class="small">
+									<span class="fw-bold">{#text_text#}</span>
+									{$module_data.TEXT_PLAIN|onlytext}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{/foreach}
+		<div>{$PAGINATION}</div>
+	</div>
+</div>

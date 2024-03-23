@@ -1,5 +1,12 @@
 UNRELEASED
 
+
+
+
+1.1.0 [23.03.2024]
+
+- Template "bootstrap5a" mit geänderter Navigation hinzugefügt
+- Icon-Fehler bei Passwort anzeigen - behoben
 - Link "Einstellungen" wird angezeigt, obwohl nur eine Sprache und ein Land aktiv ist - behoben
 - Mailversand in "Kundenerinnerung", "Billiger gesehen" und "Frage zum Artikel" geändert - Fehlermeldung bei IONOS
 - Weisse Seite bei Sub-Kategorielisting, wenn Kategoriebild leer, aber Listingbild belegt - behoben

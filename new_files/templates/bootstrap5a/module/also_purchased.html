@@ -1,0 +1,23 @@
+{if isset($module_content)}
+	{config_load file="$language/lang_$language.conf" section="also_purchased"}
+	{config_load file="$language/lang_$language.conf" section="index"}
+	{config_load file="lang_`$language`.custom"}
+	{config_load file="lang_`$language`.section" section="also_purchased"}
+	<div class="also_purchased mb-4">
+		<div class="d-flex justify-content-between border-bottom mb-3">
+			<div class="h3">
+				{#heading_text#}
+			</div>
+		</div>
+		<div class="visually-hidden">{#BS5_slider_info#}</div>
+		<div id="apCarousel" class="resCarousel position-relative w-100{if $smarty.const.BS5_PRODUCT_INFO_BOX == 'true'} it5" data-items="1-2-3-4-5" data-slide="5"{else}" data-items="1-1-1-1-1" data-slide="1"{/if} data-speed="900" aria-label="{#heading_text#}">
+			<button type="button" class="resBtn btn btn-light leftRs" tabindex="-1"><i class="fa fa-fw fa-angle-left"></i><span class="visually-hidden">{#BS5_previous#}</span></button>
+			<div class="resCarousel-inner py-1" tabindex="-1">
+				{foreach name=aussen item=module_data from=$module_content}
+    			<div class="item">{include file="module/includes/products_include_info.html"}</div>
+				{/foreach}
+			</div>
+			<button type="button" class="resBtn btn btn-light rightRs" tabindex="-1"><i class="fa fa-fw fa-angle-right"></i><span class="visually-hidden">{#BS5_next#}</span></button>
+		</div>
+	</div>
+{/if}

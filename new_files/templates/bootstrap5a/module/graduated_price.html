@@ -1,0 +1,28 @@
+{if isset($module_content)}
+	{config_load file="$language/lang_$language.conf" section="graduated_price"}
+	{config_load file="lang_`$language`.custom"}
+	{config_load file="lang_`$language`.section" section="graduated_price"}
+	<div class="graduated_prices border-bottom mb-3">
+	  <div class="fw-bold border-bottom">{#heading_text#}</div>
+	<div class="row py-3 g-3 small">
+	  {foreach name=aussen item=module_data from=$module_content}
+	    <div class="col-4 col-lg-3">
+	      <div class="fw-bold">{$module_data.FROM_QUANTITY} {$module_data.PLAIN_QUANTITY} {#unit#}</div>
+	      <div class="gp_price">{#pieces#} {$module_data.PRICE}</div>
+	      {if $module_data.VPE != ''}<div class="small text-secondary-emphasis">({$module_data.VPE})</div>{/if}
+	    </div>
+	  {if $smarty.foreach.aussen.first}
+	    {assign var=maxPrice value=$module_data.PLAIN_PRICE}
+	  {elseif $smarty.foreach.aussen.last}
+	    {assign var=minPrice value=$module_data.PLAIN_PRICE}
+	  {/if}
+	  {/foreach}
+	</div>
+	  <div itemprop="PriceSpecification" itemscope itemtype="http://schema.org/PriceSpecification">
+	    <meta itemprop="priceCurrency" content="{$smarty.session.currency}">
+	    <meta itemprop="price" content="{$maxPrice}">
+	    <meta itemprop="minPrice" content="{$minPrice}">
+	    <meta itemprop="maxPrice" content="{$maxPrice}">
+	  </div>
+	</div>
+{/if}

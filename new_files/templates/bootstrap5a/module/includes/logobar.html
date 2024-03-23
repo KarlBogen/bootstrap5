@@ -1,0 +1,48 @@
+<div id="logobar" class="row text-center text-md-start py-3">
+	<a class="nav-logo col-12 col-md-3" href="{$index}" title="{#link_index#} &bull; {$store_name}">{html_image file="templates/`$smarty.const.CURRENT_TEMPLATE`/`$smarty.const.BS5_SHOP_LOGO`" alt="`$store_name`" class="img-fluid"}</a>
+	<div class="logos col-12 col-md-9 position-relative">
+		<div class="row justify-content-end">
+			{if isset($box_SEARCH)}{$box_SEARCH}{/if}
+			<div class="nav col-12 justify-content-around justify-content-sm-end align-items-end">
+				<div class="nav-item home">
+					<a class="text-center nav-link {$smarty.const.BS5_LOGOBAR_TEXT}" title="{#link_index#}" href="{$index}">
+						<span class="icon"><i class="fa fa-house fa-lg"></i></span>
+						{if $smarty.const.BS5_SHOW_ICON_WITH_NAMES != 'false'}<span class="d-none d-lg-block small">{#link_index#}</span>{/if}
+					</a>
+				</div>
+				{if (isset($box_CURRENCIES) && $box_CURRENCIES != '') || (isset($box_SHIPPING_COUNTRY) && $box_SHIPPING_COUNTRY != '') || (isset($box_LANGUAGES) && $box_LANGUAGES != '')}
+					<div class="nav-item">
+						<button id="setbtn" class="text-center nav-link {$smarty.const.BS5_LOGOBAR_TEXT}" title="{#BS5_heading_settingbox#}" data-bs-toggle="offcanvas" data-bs-target="#settings" aria-controls="settings">
+							<span class="icon"><i class="fa fa-gear fa-lg"></i></span>
+							{if $smarty.const.BS5_SHOW_ICON_WITH_NAMES != 'false'}<span class="d-none d-lg-block small">{#BS5_heading_settingbox#}</span>{/if}
+						</button>
+					</div>
+        {/if}
+				{if isset($box_LOGIN) || isset($box_INFOBOX)}
+					<div class="nav-item">
+						<button id="login" class="text-center nav-link {$smarty.const.BS5_LOGOBAR_TEXT}" title="{#link_account#}" data-bs-toggle="offcanvas" data-bs-target="#account" aria-controls="account">
+							<span class="icon"><i class="fa fa-user fa-lg"></i></span>
+							{if $smarty.const.BS5_SHOW_ICON_WITH_NAMES != 'false'}<span class="d-none d-lg-block small">{#link_account#}</span>{/if}
+						</button>
+					</div>
+        {/if}
+				{if isset($smarty.session.customer_id)}
+					<div class="nav-item d-none d-sm-block">
+						<a class="text-center nav-link {$smarty.const.BS5_LOGOBAR_TEXT}" title="{#link_logoff#}" href="{$logoff}">
+							<span class="icon"><i class="fa fa-right-from-bracket fa-lg"></i></span>
+							{if $smarty.const.BS5_SHOW_ICON_WITH_NAMES != 'false'}<span class="d-none d-lg-block small">{#link_logoff#}</span>{/if}
+						</a>
+					</div>
+				{/if}
+				{if isset($box_WISHLIST)}{$box_WISHLIST}{/if}
+				{if isset($box_CART)}{$box_CART}{/if}
+				<div class="nav-item">
+					<button id="resmenu" class="text-center nav-link {$smarty.const.BS5_LOGOBAR_TEXT}" title="Responsive {#BS5_heading_responsivemenu#}" type="button" data-bs-toggle="offcanvas" data-bs-target="#resnav" aria-controls="resnav">
+						<span class="icon"><i class="fa fa-bars fa-lg"></i></span>
+						{if $smarty.const.BS5_SHOW_ICON_WITH_NAMES != 'false'}<span class="d-none d-lg-block small">{#BS5_heading_responsivemenu#}</span>{/if}
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

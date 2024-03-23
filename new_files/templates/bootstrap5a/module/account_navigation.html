@@ -1,0 +1,42 @@
+{config_load file="$language/lang_$language.conf" section="index"}
+{config_load file="$language/lang_$language.conf" section="account"}
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="account"}
+
+<div class="list-group">
+  <a class="list-group-item list-group-item-action{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_ACCOUNT) !== false} active" aria-current="true{/if}" href="{$smarty.const.FILENAME_ACCOUNT|xtc_href_link}" title="{#title_nav_account#}">
+    <i class="fa fa-user me-2"></i>{#title_nav_account#}
+  </a>
+  <a class="list-group-item list-group-item-action{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_ACCOUNT_EDIT) !== false} active" aria-current="true{/if}" href="{$smarty.const.FILENAME_ACCOUNT_EDIT|xtc_href_link}" title="{#title_nav_account_edit#}">
+    <i class="fa fa-user-pen me-2"></i>{#title_nav_account_edit#}
+  </a>
+  <a class="list-group-item list-group-item-action{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_ADDRESS_BOOK) !== false} active" aria-current="true{elseif strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_ADDRESS_BOOK_PROCESS) == true} active" aria-current="true{/if}" href="{$smarty.const.FILENAME_ADDRESS_BOOK|xtc_href_link}" title="{#title_nav_address_book#}">
+    <i class="fa fa-address-card me-2"></i>{#title_nav_address_book#}
+  </a>
+  <a class="list-group-item list-group-item-action{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_ACCOUNT_PASSWORD) !== false} active" aria-current="true{/if}" href="{$smarty.const.FILENAME_ACCOUNT_PASSWORD|xtc_href_link}" title="{#title_nav_password#}">
+    <i class="fa fa-key me-2"></i>{#title_nav_password#}
+  </a>
+  <a class="list-group-item list-group-item-action{if (strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_ACCOUNT_HISTORY) !== false) || (strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_ACCOUNT_HISTORY_INFO) == true)} active" aria-current="true{/if}" href="{$smarty.const.FILENAME_ACCOUNT_HISTORY|xtc_href_link}" title="{#title_nav_orders#}">
+    <i class="fa fa-cart-shopping me-2"></i>{#title_nav_orders#}
+  </a>
+  {if $smarty.session.customer_id != 1}
+    <a class="list-group-item list-group-item-action{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_ACCOUNT_DELETE) !== false} active" aria-current="true{/if}" href="{$smarty.const.FILENAME_ACCOUNT_DELETE|xtc_href_link}" title="{#title_nav_account_delete#}">
+      <i class="fa fa-trash-can me-2"></i>{#title_nav_account_delete#}
+    </a>
+  {/if}
+  {if 'MODULE_CHECKOUT_EXPRESS_STATUS'|defined && $smarty.const.MODULE_CHECKOUT_EXPRESS_STATUS == 'true'}
+    <a class="list-group-item list-group-item-action{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_ACCOUNT_CHECKOUT_EXPRESS) !== false} active" aria-current="true{/if}" href="{$smarty.const.FILENAME_ACCOUNT_CHECKOUT_EXPRESS|xtc_href_link}" title="{#title_nav_checkout_express#}">
+      <i class="fa fa-truck-fast me-2"></i>{#title_nav_checkout_express#}
+    </a>
+  {/if}
+{*
+  {if $smarty.const.MODULE_NEWSLETTER_STATUS == 'true'}
+    <a class="list-group-item list-group-item-action" href="{$smarty.const.FILENAME_NEWSLETTER|xtc_href_link}" title="{#title_nav_newsletter#}">
+      <i class="fa fa-envelope me-2"></i>{#title_nav_newsletter#}
+    </a>
+  {/if}  
+  <a class="list-group-item list-group-item-action" href="{$smarty.const.FILENAME_LOGOFF|xtc_href_link}" title="{#title_nav_logoff#}">
+    <i class="fa fa-right-from-bracket me-2"></i>{#title_nav_logoff#}
+  </a>
+*}
+</div>

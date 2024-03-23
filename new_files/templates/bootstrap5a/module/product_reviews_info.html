@@ -1,0 +1,50 @@
+{config_load file="$language/lang_$language.conf" section="reviews"}
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="reviews"}
+<div class="product_reviews_info">
+	<h1 class="h3 bg-h">{#heading_product_reviews#} {$PRODUCTS_NAME}</h1>
+	{if isset($REVIEWS_NOTE)}<div class="my-3">{$REVIEWS_NOTE|replace:'class="':'class="btn btn-outline-secondary btn-sm '}</div>{/if}
+	{if $error_message}<div class="alert alert-danger">{$error_message}</div>{/if}
+	<div class="d-flex flex-wrap flex-md-nowrap gap-2">
+		{if $PRODUCTS_IMAGE != ''}
+			<div class="col-auto mw-100">
+				<a class="cbimages d-block text-center" title="{$PRODUCTS_NAME|onlytext}" href="#/" data-bs-toggle="modal" data-title="{$PRODUCTS_NAME|onlytext}" data-image="{$PRODUCTS_IMAGE}" data-bs-target="#modal">
+					<img class="lazyload img-thumbnail" data-src="{$PRODUCTS_IMAGE|replace:"info_":"thumbnail_"}" alt="{$PRODUCTS_NAME|onlytext}" title="{$PRODUCTS_NAME|onlytext}">
+				</a>
+			</div>
+		{/if}
+		<div class="flex-grow-md-1">
+				<div class="small mb-2">
+		  		<div class="card h-100">
+						<div class="card-header d-flex flex-wrap gap-2">
+							<div>
+								<span class="fw-bold">{#text_rating#} </span>
+								<span class="text-nowrap">
+									{if isset($RATING_VOTE)}
+										<span class="visually-hidden">{#info_review#}: {$smarty.const.TEXT_OF_5_STARS|sprintf:$RATING_VOTE}</span>
+										<span class="ratings">
+											<span class="fas empty-stars"></span><span class="fas full-stars" style="width:{math equation = "x * 20" x = $RATING_VOTE|intval}%"></span>
+										</span>
+									{else}
+										{$RATING|replace:".gif":".png"}
+									{/if}
+								</span>
+							</div>
+							<div class="vr"></div>
+							<div><span class="fw-bold">{#text_author#}</span><span class="text-nowrap"> {$AUTHOR}</span></div>
+							<div class="vr"></div>
+							<div><span class="fw-bold">{#title_date#}:</span><span class="text-nowrap"> {$DATE}</span></div>
+						</div>
+						<div class="card-body">
+							<div class="fw-bold mb-2">{#heading_product_reviews#} {$PRODUCTS_NAME}</div>
+							{$REVIEWS_TEXT}
+						</div>
+					</div>
+					<div class="d-grid gap-2 d-sm-flex justify-content-sm-between mt-3">
+						{$BUTTON_BACK|replace:'<a':'<a class="btn btn-outline-secondary px-5"'}
+						{$PRODUCTS_BUTTON_DETAILS|replace:'<a':'<a class="btn btn-secondary px-5"'}
+					</div>
+				</div>
+		</div>
+	</div>
+</div>

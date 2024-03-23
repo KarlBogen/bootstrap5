@@ -1,0 +1,44 @@
+{config_load file="$language/lang_$language.conf" section="checkout_shipping"}
+{config_load file="$language/lang_$language.conf" section="checkout_navigation"}
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="checkout_shipping"}
+{config_load file="lang_`$language`.section" section="checkout_navigation"}
+<div class="checkout_shipping mb-4">
+
+	<div id="checkoutnavigation" class="mb-5">
+		<div class="row row-cols-2 row-cols-lg-auto justify-content-around g-2">
+			<div class="col" aria-current="step"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary">1</span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_shipping#}</span><span class="d-none d-sm-block small">{#desc_shipping#}</span></div></div></div>
+			<div class="col opacity-50"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary">2</span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_payment#}</span><span class="d-none d-sm-block small">{#desc_payment#}</span></div></div></div>
+			<div class="col opacity-50"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary">3</span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_confirmation#}</span><span class="d-none d-sm-block small">{#desc_confirmation#}</span></div></div></div>
+			<div class="col opacity-50"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary">4</span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_success#}</span><span class="d-none d-sm-block small">{#desc_success#}</span></div></div></div>
+		</div>
+	</div>
+
+	<h1 class="visually-hidden heading bg-h mb-4">{#heading_shipping#}</h1>
+	{if $error_message}<div class="alert alert-danger">{$error_message}</div>{/if}
+	{if $success_message}<div class="alert alert-success">{$success_message}</div>{/if}
+
+	{$FORM_ACTION}
+		<div class="row">
+			<div class="checkout_action col-12 col-lg-9 mb-4">
+					<div class="p-lg-2">
+					<div class="h4 border-bottom">{#title_shipping#}</div>
+					<div class="small">{#text_shipping#}</div>
+					<div class="my-3">{$SHIPPING_BLOCK}</div>
+				</div>
+			</div>
+
+			<div class="col-12 col-lg-3 order-lg-first mb-4">
+				<div class="bg-body-tertiary p-2">
+					<div class="h4 border-bottom">{#title_address#}</div>
+					<div class="small mb-2">{$ADDRESS_LABEL}</div>
+					<a class="btn btn-outline-secondary btn-sm" title="{#checkout_edit_address#}" href="{$smarty.const.FILENAME_CHECKOUT_SHIPPING_ADDRESS|xtc_href_link}"><i class="fa fa-pen-to-square me-2"></i>{#checkout_edit_address#}</a>
+				</div>
+			</div>
+		</div>
+		<div class="d-grid gap-2 d-sm-flex justify-content-sm-between">
+			{$BUTTON_CHECKOUT_STEP2|replace:'<button':'<button class="btn btn-secondary px-5"'}
+			<a class="btn btn-outline-secondary order-sm-first" href="{$smarty.const.FILENAME_SHOPPING_CART|xtc_href_link}" title="{#BS5_back_to_cart#}"><i class="fa fa-arrow-left me-2"></i>{#BS5_back_to_cart#}</a>
+		</div>
+	{$FORM_END}
+</div>

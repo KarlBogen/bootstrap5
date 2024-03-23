@@ -1,0 +1,65 @@
+{config_load file="$language/lang_$language.conf" section="index"}
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="index"}
+<div class="prod-listing mb-2 clearfix">
+	{if isset($SLIDER)}
+		{include file="module/includes/slider.html"}
+	{/if}
+	<h1 class="cat heading bg-h">{$LIST_TITLE}</h1>
+	{if (isset($CATEGORIES_DESCRIPTION) && $CATEGORIES_DESCRIPTION != '')
+		|| (isset($CATEGORIES_IMAGE) && $CATEGORIES_IMAGE != '')
+		|| (isset($CATEGORIES_IMAGE_MOBILE) && $CATEGORIES_IMAGE_MOBILE != '')
+	}
+	<div class="cat_description my-4 clearfix">
+		{if isset($CATEGORIES_IMAGE) && $CATEGORIES_IMAGE != ''}
+		<div class="d-inline-block col-12 mb-3{if (isset($CATEGORIES_DESCRIPTION) && $CATEGORIES_DESCRIPTION != '') && ($smarty.const.CATEGORIES_IMAGE_WIDTH < 900 || $listing_mode == 'manufacturer')}{if $listing_mode != 'manufacturer'} col-md-3{else} col-md-auto{/if} text-center float-md-start me-md-3{/if}">
+			{assign var=sizeimg value=$CATEGORIES_IMAGE|imgsize}
+			{if isset($CATEGORIES_IMAGE_MOBILE) && $CATEGORIES_IMAGE_MOBILE != ''}
+				{assign var=sizeimgmob value=$CATEGORIES_IMAGE_MOBILE|imgsize}
+				<picture>
+					<source media="(max-width:575.98px)" srcset="{$CATEGORIES_IMAGE_MOBILE}" {$sizeimgmob}>
+					<source srcset="{$CATEGORIES_IMAGE}">
+					<img class="cat_image lazyload img-fluid" src="{$CATEGORIES_IMAGE}" title="{$CATEGORIES_NAME|onlytext}" alt="{$CATEGORIES_NAME|onlytext}" {$sizeimg}>
+				</picture>
+			{else}
+				<img class="cat_image lazyload img-fluid" src="{$CATEGORIES_IMAGE}" alt="{$CATEGORIES_NAME|onlytext}" {$sizeimg}>
+			{/if}
+		</div>
+		{/if}
+	  {if (isset($CATEGORIES_DESCRIPTION) && $CATEGORIES_DESCRIPTION != '')}<div>{$CATEGORIES_DESCRIPTION}</div>{/if}
+	</div>
+	{/if}
+</div>
+
+{if isset($CATEGORIES_LISTING)}{$CATEGORIES_LISTING}{/if}
+
+<div class="listing">
+
+	<div class="filter_pagination_bar mb-3">
+		{$LISTING_FILTER}
+		<div class="pag_top">{$PAGINATION}</div>
+	</div>
+	
+	<div class="listingcontainer_full">
+		{include file="module/includes/products_include_listing.html"}
+	</div>
+
+	<div class="pag_bot">{$PAGINATION}</div>
+</div>      
+
+{if (isset($MANUFACTURER_DESCRIPTION) && $MANUFACTURER_DESCRIPTION != '')
+    || (isset($MANUFACTURER_IMAGE) && $MANUFACTURER_IMAGE != '')
+    || (isset($MANUFACTURER_NAME) && $MANUFACTURER_NAME != '')}
+<div class="manufacturer mb-2 clearfix">
+	<div class="h4 heading bg-h">{$MANUFACTURER_NAME}</div>
+	<div class="manu_description my-4">
+		{if $MANUFACTURER_IMAGE}
+			<div{if (isset($MANUFACTURER_DESCRIPTION) && $MANUFACTURER_DESCRIPTION != '')} class="col-4"{/if}>
+				<img class="lazyload manu_image img-fluid float-start mb-2 me-4" data-src="{$MANUFACTURER_IMAGE}" alt="{$MANUFACTURER_NAME|onlytext}">
+				<noscript><img class="manu_image img-fluid float-start mb-2 me-4" src="{$MANUFACTURER_IMAGE}" alt="{$MANUFACTURER_NAME|onlytext}"></noscript>
+			</div>
+		{/if}
+		{if $MANUFACTURER_DESCRIPTION}{$MANUFACTURER_DESCRIPTION}{/if}
+	</div>
+</div>
+{/if}

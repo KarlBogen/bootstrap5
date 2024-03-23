@@ -1,0 +1,9 @@
+{if $SHIPPING_BLOCK}
+  {$FORM_SHIPPING_ACTION}
+  {$SHIPPING_BLOCK}
+
+  {if $BUTTON_CONTINUE}
+    <div class="d-flex justify-content-start mt-3">{$BUTTON_CONTINUE|replace:'<button':'<button class="btn btn-secondary"'}</div>
+  {/if}
+  {$FORM_END}
+{/if}

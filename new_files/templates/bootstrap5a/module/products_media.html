@@ -1,0 +1,31 @@
+{if isset($module_content)}
+	{config_load file="$language/lang_$language.conf" section="products_media"}
+	{config_load file="lang_`$language`.custom"}
+	{config_load file="lang_`$language`.section" section="products_media"}
+	<h2 class="h3 detailbox">{#file#}</h2>
+	{foreach name=aussen item=module_data from=$module_content}
+		<div class="row row-cols-3 g-3 py-2 my-2 border-bottom">
+			<div class="col-auto">
+				{if isset($module_data.ICON)}
+					{if strpos($module_data.ICON, 'pdf') !== false}
+						<i class="fa fa-file-pdf fa-lg"></i>
+					{elseif strpos($module_data.ICON, 'link') !== false}
+						<i class="fa fa-arrow-up-right-from-square fa-lg"></i>
+					{elseif strpos($module_data.ICON, 'jpg') !== false || strpos($module_data.ICON, 'png') !== false}
+						<i class="fa fa-file-video fa-lg"></i>
+					{else}  
+						<i class="fa fa-file-zipper fa-lg"></i>
+					{/if}
+				{/if}
+			</div>
+			<div class="col flex-fill">
+				<div class="row mb-2">
+					<div class="col-auto flex-fill">{$module_data.FILENAME|replace:"<a href":"<a rel=\"noopener noreferrer\" href"}</div>
+					<div class="col-auto d-none d-sm-block"><em>{$module_data.FILESIZE}</em></div>
+					{if $module_data.DESCRIPTION != ''}<div class="col-12 mt-2">{$module_data.DESCRIPTION}</div>{/if}
+				</div>
+			</div>
+			{if $module_data.BUTTON != ''}<div class="col-12 col-sm-auto">{$module_data.BUTTON|replace:'<a':'<a class="btn btn-outline-secondary px-4 w-100"'}</div>{/if}
+		</div>
+	{/foreach}
+{/if}

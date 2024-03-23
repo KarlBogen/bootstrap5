@@ -1,0 +1,20 @@
+{if isset($TRAIL) && count($TRAIL) > 0}
+  <ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+    {foreach name=aussen item=breadcrumb from=$TRAIL}
+        {if !$smarty.foreach.aussen.last}
+          <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a class="link-secondary" itemprop="item" href="{$breadcrumb.link}">
+              <span itemprop="name">{$breadcrumb.title|onlytext}&nbsp;</span>
+            </a>
+            <meta itemprop="position" content="{$smarty.foreach.aussen.iteration}" />
+          </li>
+        {else}
+          <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <meta itemprop="item" content="{$breadcrumb.link}" />
+            <span class="current" itemprop="name">{$breadcrumb.title|onlytext}</span>
+            <meta itemprop="position" content="{$smarty.foreach.aussen.iteration}" />
+          </li>
+        {/if}
+    {/foreach}
+  </ol>
+{/if}

@@ -1,0 +1,63 @@
+{config_load file="$language/lang_$language.conf" section="checkout_payment_address"}
+{config_load file="$language/lang_$language.conf" section="checkout_navigation"}
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="checkout_payment_address"}
+{config_load file="lang_`$language`.section" section="checkout_navigation"}
+<div class="checkout_payment_address">
+	<div id="checkoutnavigation" class="mb-5">
+	  {if isset($NO_SHIPPING)}
+			<div class="row row-cols-2 row-cols-lg-auto justify-content-around g-2">
+				<div class="col" aria-current="step"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary">1</span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_payment#}</span><span class="d-none d-sm-block small">{#desc_payment#}</span></div></div></div>
+				<div class="col opacity-50"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary">2</span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_confirmation#}</span><span class="d-none d-sm-block small">{#desc_confirmation#}</span></div></div></div>
+				<div class="col opacity-50"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary">3</span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_success#}</span><span class="d-none d-sm-block small">{#desc_success#}</span></div></div></div>
+			</div>
+		{else}
+			<div class="row row-cols-2 row-cols-lg-auto justify-content-around g-2">
+				<div class="col opacity-50"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary"><i class="fa fa-check"></i></span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_shipping#}</span><span class="d-none d-sm-block small">{#desc_shipping#}</span></div></div></div>
+				<div class="col" aria-current="step"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary">2</span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_payment#}</span><span class="d-none d-sm-block small">{#desc_payment#}</span></div></div></div>
+				<div class="col opacity-50"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary">3</span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_confirmation#}</span><span class="d-none d-sm-block small">{#desc_confirmation#}</span></div></div></div>
+				<div class="col opacity-50"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary">4</span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_success#}</span><span class="d-none d-sm-block small">{#desc_success#}</span></div></div></div>
+			</div>
+		{/if}
+	</div>
+
+	<h1 class="visually-hidden heading bg-h mb-4">{#heading_address#}</h1>
+	{if $error_message}<div class="alert alert-danger">{$error_message}</div>{/if}
+
+	{if !isset($NEW_ADDRESS)}
+		<div class="h4 border-bottom">{#title_old_addresses#}</div>
+		<div class="small">{#text_old_addresses#}</div>
+		<div class="row row-cols-1 row-cols-lg-2 g-3 my-3">
+			{foreach item=module_data from=$BLOCK_ADDRESS_ARRAY}
+				<div class="col">
+					<div class="border-top border-bottom h-100">
+						{$module_data.FORM_ACTION}
+							<div class="p-2{if $module_data.SELECTED == 1} bg-primary-subtle active{/if} clearfix">
+								<div class="float-end mb-2">
+									{if isset($module_data.BUTTON_EDIT)}<span class="me-2">{$module_data.BUTTON_EDIT|replace:'<a':'<a class="btn btn-outline-secondary btn-sm"'}</span>{/if}
+									{if isset($module_data.BUTTON_CONTINUE)}{$module_data.BUTTON_CONTINUE|replace:'<button':'<button class="btn btn-secondary btn-sm"'}{/if}
+								</div>
+								<div class="fw-bold py-1">{$module_data.FIRSTNAME} {$module_data.LASTNAME}</div>
+								<div class="py-1">{$module_data.ADDRESS_LABEL|replace:"<br>":", "}</div>
+							</div>
+						{$module_data.FORM_END}
+					</div>
+				</div>
+			{/foreach}
+		</div>
+		<div class="d-grid gap-2 d-sm-flex justify-content-sm-between">
+			{$BUTTON_BACK|replace:'<a':'<a class="btn btn-outline-secondary px-4"'}
+			{$BUTTON_NEW|replace:'<a':'<a class="btn btn-secondary px-4"'}
+		</div>
+	{else}
+		{$FORM_ACTION}
+			{if $MODULE_new_address}
+				{$MODULE_new_address}
+			{/if}
+			<div class="d-grid gap-2 d-sm-flex justify-content-sm-between">
+				{$BUTTON_BACK|replace:'<a':'<a class="btn btn-outline-secondary px-4"'}
+				{$BUTTON_CONTINUE|replace:'<button':'<button class="btn btn-secondary px-4"'}
+			</div>
+		{$FORM_END}
+	{/if}
+</div>

@@ -112,7 +112,7 @@
 
 		{* BEGINN Slider Karusell gesamte Breite *}
 		{if isset($SLIDER)}
-			<div id="slider" class="{if ($smarty.const.BS5_CAROUSEL_SHOW != 'screen')}container-xxl {/if}">
+			<div id="slider"{if ($smarty.const.BS5_CAROUSEL_SHOW != 'screen')} class="container-xxl"{/if}>
 				{include file="module/includes/slider.html"}
 			</div>
 		{/if}
@@ -298,17 +298,18 @@
 				</div>
 			</div>
 		{/if}
-		<div id="account" class="offcanvas offcanvas-start" tabindex="-1">
-			<div class="offcanvas-header bg-secondary-subtle">
-				<h4 class="offcanvas-title">{#link_account#}</h4>
-				<button type="button" class="btn btn-dark fa fa-xmark" data-bs-dismiss="offcanvas" data-bs-target="#account" aria-label="{#BS5_close#}"></button>
+		{if isset($box_LOGIN) || isset($box_INFOBOX)}
+			<div id="account" class="offcanvas offcanvas-start" tabindex="-1">
+				<div class="offcanvas-header bg-secondary-subtle">
+					<h4 class="offcanvas-title">{#link_account#}</h4>
+					<button type="button" class="btn btn-dark fa fa-xmark" data-bs-dismiss="offcanvas" data-bs-target="#account" aria-label="{#BS5_close#}"></button>
+				</div>
+				<div class="offcanvas-body">
+					{if isset($box_LOGIN)}<div class="mb-5">{$box_LOGIN}</div>{/if}
+					{if isset($box_INFOBOX)}{$box_INFOBOX}{/if}
+				</div>
 			</div>
-			<div class="offcanvas-body">
-				{if isset($box_LOGIN)}<div class="mb-5">{$box_LOGIN}</div>{/if}
-				{if isset($box_INFOBOX)}{$box_INFOBOX}{/if}
-			</div>
-		</div>
-
+		{/if}
     {if isset($box_CATEGORIES)}
       <div id="mmenu">
         <ul class="mmenu">

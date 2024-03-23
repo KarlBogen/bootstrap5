@@ -1,0 +1,110 @@
+BS5_top1 = '<i class="fa fa-user-group fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Beratung +49 00 00 / 00 00 00'
+BS5_top2 = '<i class="fa fa-truck-fast fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Schnelle Lieferung'
+BS5_top3 = '<i class="fa fa-truck fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;Kostenloser Versand - ab 50€'
+BS5_top4 = '<i class="fa fa-rotate-left fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;30 Tage R&uuml;ckgaberecht'
+
+BS5_skip_nav = 'Sprungnavigation'
+BS5_skip_to_content = 'Springe zum Inhalt'
+BS5_skip_to_nav = 'Springe zur Navigation'
+BS5_skip_to_login = 'Springe zum Login-Button'
+BS5_skip_to_sets = 'Springe zum Button f&uuml;r Einstellungen'
+BS5_skip_to_footer = 'Springe zu den allgemeinen Informationen'
+
+BS5_catlist_title = 'Unser Angebot'
+BS5_catlist_imgalt = 'Kategoriebild'
+BS5_manu_imgalt = 'Herstellerbild'
+
+BS5_heading_settingbox = 'Einstellungen'
+BS5_text_wishlistbox = 'Artikel auf dem Merkzettel'
+BS5_back_to_shop = 'Zur&uuml;ck zum Shop'
+BS5_back_to_cart = 'Zur&uuml;ck zum Warenkorb'
+
+BS5_slider_desc = 'Bilderkarussellsteuerung - mit den folgenden Zur&uuml;ck- und Vor-Button k&ouml;nnen Sie die Bilder wechseln.'
+BS5_slider_info = 'Es folgt ein Produktslider - navigieren Sie mit der Tab-Taste zu den einzelnen Artikeln.'
+BS5_prod_carousel = 'Produktkarusell'
+BS5_prod_carousel_info = 'Das Produktkarusell kann abh&auml;ngig von der Bildschirmbreite ein oder mehrere Informationsabschnitte beinhalten. Sie k&ouml;nnen die "Zur&uuml;ck-" und "Vor-Button" nutzen, um zwischen den Abschnitten zu navigieren.'
+BS5_img_carousel = 'Bilderkarusell'
+BS5_img_carousel_info = 'Wenn mehr als ein Produktbild exitiert, k&ouml;nnen Sie die "Zur&uuml;ck-" und "Vor-Button" nutzen, um zwischen den Bildern zu navigieren. Zum Vergr&ouml;&szlig;ern klicken Sie auf das Bild.'
+BS5_zoomtext = 'F&uuml;r eine gr&ouml;&szlig;ere Ansicht klicken Sie auf das Bild!'
+
+BS5_alert_qty_wanted = 'gew&uuml;nscht'
+BS5_alert_qty_available = 'verf&uuml;gbar'
+
+BS5_subcats_heading = 'Kategorien'
+BS5_heading_text_top = 'TOP-Artikel'
+
+BS5_special = 'Angebot'
+BS5_top = 'Top'
+BS5_new = 'Neu'
+
+BS5_previous = 'zur&uuml;ck'
+BS5_next = 'vor'
+BS5_close = 'Schließen'
+BS5_price = 'Preisangaben'
+
+BS5_noscript = '<strong>JavaScript ist deaktiviert!</strong> Es stehen Ihnen nicht alle Shopfunktionen zur Verf&uuml;gung. Bitte &uuml;berpr&uuml;fen Sie Ihre Browsereinstellungen.'
+BS5_heading_responsivemenu = 'Men&uuml;'
+BS5_checkout_express_infolinktext = 'Mein Schnellkauf'
+
+heading_flyout_cart = 'Warenkorb anzeigen'
+heading_flyout_checkout = 'Weiter zur Kasse'
+heading_flyout_wishlist = 'Merkzettel anzeigen'
+
+text_shippingtime_box = 'Lieferzeit:'
+
+products_desc = 'Produktbeschreibung'
+products_fsk18_check = 'Dieser Artikel kann erst nach erfolgter Altersverifikation gekauft werden.'
+products_manufacturer_model = 'HAN:'
+products_tags = 'Eigenschaften'
+heading_products_tags = 'Produkteigenschaften'
+
+first = '&laquo; Erster'
+back = '&laquo; vorheriger'
+overview = '&Uuml;bersicht'
+next = 'n&auml;chster &raquo;'
+last = 'Letzter &raquo;'
+
+heading_miscellaneous = 'Zahlungsmethoden'
+
+# Box Newsletter #
+subfooter_newsletter_headline = 'Abonnieren Sie unseren Newsletter'
+subfooter_newsletter_text = 'Kostenlose exklusive Angebote und Produktneuheiten per E-Mail'
+subfooter_newsletter_disclaim = 'Der Newsletter ist kostenlos und kann jederzeit hier oder in Ihrem Kundenkonto wieder abbestellt werden.'
+subfooter_text_email = 'Ihre E-Mail-Adresse ...'
+
+footer_heading_payment = 'Zahlungsmethoden'
+footer_heading_social = 'Social Media'
+footer_heading_contact = 'Kontakt'
+footer_text_contact = 'Demoshop modified eCommerce Shopsoftware<br>Musterstr. 123<br>12345 Musterstadt<br><br>Telefon: 01234 56789<br>Mail: demo@modified-shop.org'
+
+ab_admin = 'Adminbereich'
+ab_orders = 'Bestellungen'
+ab_contentmanager = 'Content Manager'
+ab_customers = 'Kunden'
+ab_category = 'Kategorien/Artikel'
+ab_logoff = 'Abmelden'
+ab_news = 'News'
+ab_offline = 'Shop Offline'
+ab_update = 'Update'
+ab_support = 'Support'
+ab_shop = 'Shop'
+ab_caching = 'Caching'
+
+ab_edit_content = 'Content bearbeiten'
+ab_edit_product = 'Artikel bearbeiten'
+ab_edit_attributes = 'Attribute editieren'
+ab_edit_category = 'Kategorie bearbeiten'
+ab_edit_xsell = 'Cross Selling bearbeiten'
+ab_edit_tags = 'Artikeleigenschaften'
+
+info_reviews = 'Bewertungen'
+info_review = 'Bewertung'
+
+heading_trustedshops = 'Trusted Shops'
+
+text_search_again = 'Die Suche ergab keine genauen Treffer'
+
+listing_listview = 'Listenansicht'
+listing_boxview = 'Boxansicht'
+text_expires_date = 'Sonderangebot g&uuml;ltig bis:'
+text_upcomming_prod = 'verf&uuml;gbar ab:'

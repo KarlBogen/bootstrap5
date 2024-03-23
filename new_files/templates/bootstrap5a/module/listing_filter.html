@@ -1,0 +1,48 @@
+{config_load file="$language/lang_$language.conf" section="filter"}
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="filter"}
+<div id="filterBar" class="filter_bar card bg-custom p-2 mb-2 clearfix">
+	<div class="sort_bar row row-cols-auto g-2 clearfix{if count($FILTER_TAG) > 0} mb-2{/if}">
+		<div class="visually-hidden">{#listing_desc_sort#}</div>
+		{if count($FILTER_TAG) < 1 && $FILTER_MANUFACTURER != ''}<div class="col">{$FILTER_MANUFACTURER|replace:'<select':'<select class="form-select"'}</div>{/if}
+		<div class="col">
+			{$FILTER_SORT|replace:'<select':'<select class="form-select"'}
+		</div>
+		<div class="col">
+			{$FILTER_SET|replace:'<select':'<select class="form-select"'}
+		</div>
+		<div class="view-buttons col ms-auto">
+			<a  class="view_box btn btn-outline-secondary{if $smarty.const.BS5_PRODUCT_LIST_BOX == 'true'} disabled" tabindex="-1{/if}" href="{$LINK_DISPLAY_BOX}#filterBar" title="{#listing_boxview#}"><span class="fa fa-table-cells"></span></a>&nbsp;&nbsp;
+			<a  class="view_list btn btn-outline-secondary{if $smarty.const.BS5_PRODUCT_LIST_BOX != 'true'} disabled" tabindex="-1{/if}" href="{$LINK_DISPLAY_LIST}#filterBar" title="{#listing_listview#}"><span class="fa fa-table-list"></span></a>
+		</div>
+	</div>
+	{if count($FILTER_TAG) > 0}
+	<div class="tags_bar border-top pt-2">
+		<div class="visually-hidden">{#listing_desc_filter#}</div>
+		<div class="small mb-3 clearfix">
+			<strong>{#text_filter_options#}</strong>
+			<a rel="nofollow" class="float-end" href="{$LINK_FILTER_RESET}#filterBar" title="Reset">{#text_filter_reset#}</a>
+		</div>
+		<div class="tags_bar_row row row-cols-auto g-2">
+			{if $FILTER_MANUFACTURER != ''}
+			<div class="col">
+				{$FILTER_MANUFACTURER|replace:'<select':'<select class="filter form-select"'}
+			</div>
+			{/if}
+			{foreach name=aussen item=filter from=$FILTER_TAG}
+			<div class="col">
+				{$filter|replace:'<select':'<select class="filter form-select"'}
+			</div>
+			{/foreach}
+		</div>
+	</div>
+	{/if}
+	{if isset($FILTER_SELECTED) && count($FILTER_SELECTED) > 0}
+  <div class="listing_filter_selected mt-1">
+  {foreach name=aussen item=filter_data from=$FILTER_SELECTED}
+    <a class="badge text-bg-primary fw-normal me-2" title="{#listing_filter_text_delete#}" href="{$filter_data.LINK}"><i class="fa fa-xmark me-2"></i><span>{$filter_data.NAME}</span></a>
+  {/foreach}
+  </div>
+{/if}  
+
+</div>

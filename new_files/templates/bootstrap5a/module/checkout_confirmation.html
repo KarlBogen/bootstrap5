@@ -1,0 +1,237 @@
+{config_load file="$language/lang_$language.conf" section="checkout_confirmation"}
+{config_load file="$language/lang_$language.conf" section="checkout_navigation"}
+{config_load file="$language/lang_$language.conf" section="duty_info"}
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="checkout_confirmation"}
+{config_load file="lang_`$language`.section" section="checkout_navigation"}
+<div class="checkout_confirmation">
+
+	<div id="checkoutnavigation" class="mb-5">
+	  {if isset($NO_SHIPPING)}
+			<div class="row row-cols-2 row-cols-lg-auto justify-content-around g-2">
+				<div class="col opacity-50"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary"><i class="fa fa-check"></i></span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_payment#}</span><span class="d-none d-sm-block small">{#desc_payment#}</span></div></div></div>
+				<div class="col" aria-current="step"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary">2</span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_confirmation#}</span><span class="d-none d-sm-block small">{#desc_confirmation#}</span></div></div></div>
+				<div class="col opacity-50"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary">3</span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_success#}</span><span class="d-none d-sm-block small">{#desc_success#}</span></div></div></div>
+			</div>
+		{else}
+			<div class="row row-cols-2 row-cols-lg-auto justify-content-around g-2">
+				<div class="col opacity-50"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary"><i class="fa fa-check"></i></span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_shipping#}</span><span class="d-none d-sm-block small">{#desc_shipping#}</span></div></div></div>
+				<div class="col opacity-50"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary"><i class="fa fa-check"></i></span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_payment#}</span><span class="d-none d-sm-block small">{#desc_payment#}</span></div></div></div>
+				<div class="col" aria-current="step"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary">3</span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_confirmation#}</span><span class="d-none d-sm-block small">{#desc_confirmation#}</span></div></div></div>
+				<div class="col opacity-50"><div class="d-flex align-items-center"><div class="h4 m-0"><span class="badge text-secondary-emphasis bg-body-secondary border border-2 border-secondary">4</span></div><div class="px-2 flex-grow-1 small"><span class="d-block fw-bold">{#title_success#}</span><span class="d-none d-sm-block small">{#desc_success#}</span></div></div></div>
+			</div>
+		{/if}
+	</div>
+
+	<h1 class="visually-hidden heading bg-h mb-4">{#heading_confirmation#}</h1>
+	{if $error_message}<div class="alert alert-danger">{$error_message}</div>{/if}
+
+	<div class="row">
+
+		<div class="col-12 col-lg-3 mb-4">
+			<div class="bg-body-tertiary p-2">
+
+				<p class="small">{#text_information#|sprintf:$HEADQUARTER}</p>
+				{if $TEXT_AGB_CHECKOUT}<p class="small">{$TEXT_AGB_CHECKOUT}</p>{/if}
+
+				{if isset($EXPRESS)}
+					<div class="mb-3">
+						<div class="h6 border-bottom">{#heading_checkout_express#}</div>
+						{if isset($success_message)}
+							<div class="alert alert-success small">{$success_message}</div>
+						{else}
+							{$FORM_ACTION}
+								<div class="d-flex">
+									<div class="flex-grow-1 small">
+										{#text_express_checkout_information#} {if isset($EXPRESS_LINK)}{$EXPRESS_LINK}{/if}
+									</div>
+									<div class="ps-2">{$BUTTON_SUBMIT|replace:"title=\"":"class=\"btn btn-secondary\" title=\"{#heading_checkout_express#} - "}</div>
+								</div>
+							{$FORM_END}
+						{/if}
+					</div>
+				{/if}
+			
+				<div class="row row-cols-1 row-cols-md-2 row-cols-lg-1 g-3 mb-3">
+					{if $DELIVERY_LABEL}
+						<div class="col">
+							<div class="h-100 small">
+									<div class="h6 border-bottom">{if isset($SHIPPING_CLASS) && strpos($SHIPPING_CLASS, 'selfpickup') !== false}{#text_pickup_address#}{else}{#text_shipping_address#} <a class="link-secondary" title="{#text_shipping_address#} {#text_edit#}" href="{$SHIPPING_ADDRESS_EDIT}">{#text_edit#}</a>{/if}</div>
+									{$DELIVERY_LABEL}
+							</div>
+						</div>
+					{/if}
+					{if $BILLING_LABEL}
+						<div class="col">
+							<div class="h-100 small">
+									<div class="h6 border-bottom">{#text_payment_address#} <a class="link-secondary" title="{#text_payment_address#} {#text_edit#}" href="{$BILLING_ADDRESS_EDIT}">{#text_edit#}</a></div>
+									{$BILLING_LABEL}
+							</div>
+						</div>
+					{/if}
+					{if $SHIPPING_METHOD}
+						<div class="col">
+							<div class="h-100 small">
+									<div class="h6 border-bottom">{#text_shipping_method#}{if isset($SHIPPING_EDIT)} <a class="link-secondary" title="{#text_shipping_method#} {#text_edit#}" href="{$SHIPPING_EDIT}">{#text_edit#}</a>{/if}</div>
+									{$SHIPPING_METHOD}
+							</div>
+						</div>
+					{/if}
+					{if $PAYMENT_METHOD != ''}
+						<div class="col">
+							<div class="h-100 small">
+									<div class="h6 border-bottom">{#text_payment_method#}{if isset($PAYMENT_EDIT)} <a class="link-secondary" title="{#text_payment_method#} {#text_edit#}" href="{$PAYMENT_EDIT}">{#text_edit#}</a>{/if}</div>
+									{$PAYMENT_METHOD}
+									{if $PAYMENT_INFORMATION != ''} <a class="inline" title="{#text_payment_info#}" href="#/" data-bs-toggle="modal" data-bs-target="#paymentinfoModal">({#text_payment_info_layertext#})</a>{/if}
+    
+									{if $PAYMENT_INFORMATION != ''}
+										<div class="modal modal-xl fade" id="paymentinfoModal" tabindex="-1" aria-labelledby="paymentinfoLabel" aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h4 class="modal-title up mx-auto" id="paymentinfoLabel">{#text_payment_info#}</h4>
+														<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{#BS5_close#}"></button>
+													</div>
+													<div class="modal-body">
+														<table class="table paymentinfotable">
+															{foreach name=aussen item=data from=$PAYMENT_INFORMATION}
+																<tr>
+																	{if $data.title != ''}<td>{$data.title|stripslashes}</td>{/if}
+																	{if $data.field != ''}<td>{$data.field|stripslashes}</td>{/if}
+																</tr>
+															{/foreach}
+														</table>
+													</div>
+													<div class="modal-footer">
+														<button class="btn btn-dark btn-sm" data-bs-dismiss="modal" type="button" title="{#BS5_close#}">{#BS5_close#}</button>
+													</div>
+												</div>
+											</div>
+										</div>
+									{/if}
+							</div>
+						</div>
+					{/if}
+				</div>
+				{if $ORDER_COMMENTS != ''}
+					<div class="mb-3">
+						<div class="h6 border-bottom">{#text_comments#}{if isset($PAYMENT_EDIT)} <a class="link-secondary" title="{#text_comments#} {#text_edit#}" href="{$PAYMENT_EDIT}">{#text_edit#}</a>{/if}</div>
+						<div class="small">{$ORDER_COMMENTS}</div>
+					</div>
+				{/if}
+				{if $IP_LOG == 'true'}
+					<div class="small">{#text_ip#}&nbsp;<strong>{$CUSTOMERS_IP}</strong></div>
+				{/if}
+			</div>
+		</div>
+
+		<div class="checkout_action col-12 col-lg-9 mb-4">
+			<div class="of_head row border-top border-bottom py-2">
+				<div class="d-flex justify-content-between fw-bold">
+					<div class="col-md-9 pe-3">{$smarty.const.HEADER_ARTICLE}</div>
+					<div class="col-md-3 ps-3">
+						<div class="d-flex justify-content-between">
+							<div class="d-none d-md-block">{$smarty.const.HEADER_QTY}</div>
+							<div>{$smarty.const.HEADER_TOTAL}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{foreach name=aussen item=data from=$PRODUCTS_ARRAY}    
+			<div class="of_prod_row row border-bottom py-2">
+				<div class="col-12 col-md-9 small">
+					<div class="row">
+						{if $smarty.const.CHECKOUT_SHOW_PRODUCTS_IMAGES == 'true'}
+							<div class="col-3 col-lg-2">
+								<div class="of_img">
+									<div class="prod_image">
+										{$data.image|replace:'<a':'<a tabindex="-1"'|replace:'class="image':'class="image img-fluid'}
+									</div>
+								</div>
+							</div>
+						{/if}
+						<div class="{if $smarty.const.CHECKOUT_SHOW_PRODUCTS_IMAGES == 'true'}col-9 col-lg-10{else}col-12{/if}">
+							<div class="of_prod mb-2">
+								{if isset($data.link_more)}<span class="fw-bold">{$data.name}</span> {$data.link_more}{else}{$data.link}{/if}
+							</div>        
+							{if $data.order_description}
+								<div class="of_desc line-clamp lc-4 mb-2">
+									{$data.order_description}
+								</div>
+							{/if}
+							{if isset($data.products_tags)}
+								<div class="of_attr mb-2">
+									{foreach item=module_data from=$data.products_tags}
+											<strong>{$module_data.OPTIONS_NAME}</strong>:       
+											{foreach name=inner item=item_data from=$module_data.DATA}
+												{$item_data.VALUES_NAME}{if $smarty.foreach.inner.last}{else}, {/if}
+											{/foreach}
+									{/foreach} 
+								</div>
+							{/if}
+							{if $data.model || $data.shipping_time}
+								<div class="of_info mb-2">
+									{if $data.model}<div class="of_infoline"><strong>{$smarty.const.HEADER_MODEL}:</strong> {$data.model}</div>{/if}
+									{if $data.shipping_time}<div class="of_infoline"><strong>{$smarty.const.SHIPPING_TIME}</strong> {$data.shipping_time}</div>{/if}
+								</div>
+							{/if}
+							{if is_array($data.attributes) && count($data.attributes) > 0}
+								<div class="of_attr mb-2">
+									{foreach key=a_data item=attrib_data from=$data.attributes}
+										<div><strong>{$attrib_data.option}:</strong> {$attrib_data.value}</div>
+									{/foreach}
+								</div>
+							{/if}
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-md-3">
+					<div class="d-block d-md-none border-top w-100 mb-2"></div>
+					<div class="d-flex justify-content-between">
+						<div class="d-flex align-items-center">
+							<div class="of_qty_head d-block d-md-none fw-bold small">{$smarty.const.HEADER_QTY}</div>
+							<div class="of_qty mx-3">{$data.qty}</div>
+						</div>
+						<div class="of_total small">
+							{$data.final_price_formated}
+							{if $data.qty > 1}
+								 <div class="of_singleprice">{#order_text_each#} {$data.price_formated}</div>
+							{/if}
+							{if $ORDER_TAX_GROUPS > 1}
+								<div class="of_total_singleprice">{$data.tax_info}</div>
+							{/if}
+						</div>
+					</div>
+				</div>
+			</div>
+		 {/foreach}
+
+		 <div class="ot-nocart row small">
+			{if sizeof($TOTAL_BLOCK_ARRAY) > 0}
+				{foreach name=aussen item=order_total_values from=$TOTAL_BLOCK_ARRAY}
+					<div class="d-flex justify-content-between border-bottom py-3{if $order_total_values.text|strpos:'-'} text-danger{/if}">
+						<div class="ot_title">{$order_total_values.title}</div>
+						<div class="ot_text fw-bold text-nowrap">{$order_total_values.text|replace:'<b>':''|replace:'</b>':''}</div>
+					</div>
+				{/foreach}
+			{/if}
+			{if $MODULE_gift_cart}
+				{$MODULE_gift_cart}
+			{/if}
+			{if $DELIVERY_DUTY_INFO == true}
+				<div class="px-2 my-3">
+					<div class="alert alert-info small">{#text_duty_info#}</div>
+				</div>
+			{/if}
+		</div>    
+
+		<div class="clearfix my-4 text-end">
+			{$CHECKOUT_FORM}
+				{if $MODULE_BUTTONS != ''}{$MODULE_BUTTONS}{/if}
+				<div class="d-grid gap-2 col-sm-8 col-md-6 ms-auto mt-3">{$CHECKOUT_BUTTON|replace:"</form>":""}</div>
+			</form>
+		</div>
+		</div>
+	</div>
+</div>

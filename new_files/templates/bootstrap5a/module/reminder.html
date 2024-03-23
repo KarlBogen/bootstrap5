@@ -1,0 +1,78 @@
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="bs5_customers_remind"}
+<div{if !isset($full)} class="container"{/if}>
+	<div class="row mb-3">
+		<div class="col-12">
+			{if isset($error_message) && $error_message!=''}<div class="alert alert-danger">{$error_message}</div>{/if}
+			{if isset($error) && $error!=''}<div class="alert alert-danger">{$error}</div>{/if}
+			{if isset($smarty.session.customer_id)}
+				{if $SUCCESS_MESSAGE == '0'}
+					{if isset($full)}<h1 class="heading bg-h">{$PRODUCTS_NAME}</h1>{else}<h3>{$PRODUCTS_NAME}</h3>{/if}
+					<div class="mb-2">{#BS5_customers_remind_box_heading#}</div>
+					<div class="fs-5 mb-2">{#BS5_customers_remind_box_heading2#}</div>
+					{$FORM_ACTION_REMIND}
+						<input type="hidden" name="mail_input_head1" value='{#BS5_customers_remind_box_email_head1#}{$PRODUCTS_NAME}{#BS5_customers_remind_box_email_head2#}'/>
+						<input type="hidden" name="language_input" value='{$language}'/>
+						<div class="mb-2">
+							<label class="form-label" for="firstname">{#BS5_customers_remind_box_firstname#}&nbsp;*</label>
+							<div>{$CUSTOMERS_FIRSTNAME_INPUT}</div>
+						</div>
+						<div class="mb-2">
+							<label class="form-label" for="lastname">{#BS5_customers_remind_box_lastname#}&nbsp;*</label>
+							<div>{$CUSTOMERS_LASTNAME_INPUT}</div>
+						</div>
+						<div class="mb-2">
+							<label class="form-label" for="email">{#BS5_customers_remind_box_mail#}&nbsp;*</label>
+							<div>{$CUSTOMERS_MAIL_INPUT}</div>
+						</div>
+						<div class="mb-2">
+							<label class="form-label" for="qty">{#BS5_customers_remind_box_st#}</label>
+       						<div>{$CUSTOMERS_INPUT_ST}</div>
+						</div>
+						{if isset($PRIVACY_CHECKBOX)}
+						<div class="mb-3 p-2 bg-body-tertiary position-relative small clearfix">
+							{$PRIVACY_CHECKBOX|replace:'<input':'<input class="form-check-input"'}
+							<label class="form-check-label stretched-link" for="privacy">{#bs5_text_privacy_accept#}</label>&nbsp;{$PRIVACY_LINK|replace:'iframe':'iframe z-2 position-relative'}
+						</div>
+					{/if}
+					<div class="d-grid gap-2 d-sm-flex justify-content-sm-between my-3">
+						{$BUTTON_BACK|replace:'<a':'<a class="btn btn-outline-secondary"'}
+						{$BUTTON_SUBMIT_REMIND|replace:'<button':'<button class="btn btn-secondary"'}
+					</div>
+					{$FORM_END_REMIND}
+   				{/if}
+   				{if $SUCCESS_MESSAGE == '1'}
+					<h3 class="text-success">{#BS5_customers_remind_box_success#}</h3>
+					<div class="d-grid d-sm-flex  my-3">
+						{$BUTTON_BACK|replace:'<a':'<a class="btn btn-secondary"'}
+					</div>
+   				{/if}
+   				{if $SUCCESS_MESSAGE == '2'}
+					<div class="text-success">{#BS5_customers_remind_added#}</div>
+					<div class="d-grid d-sm-flex my-3">
+						{$BUTTON_BACK|replace:'<a':'<a class="btn btn-secondary"'}
+					</div>
+   				{/if}
+			{else}
+				<div class="alert alert-danger">{#BS5_customers_remind_box_guest#}</div>
+			{/if}
+		</div>
+	</div>
+</div>
+{if !isset($full)}
+	<div id="modal" class="modal modal-xl fade" tabindex="-1" aria-labelledby="title" aria-hidden="true">
+    	<div class="modal-dialog">
+        	<div class="modal-content">
+            	<div class="modal-header">
+                	<h4 id="title" class="modal-title up mx-auto">&nbsp;</h4>
+                	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{#BS5_close#}"></button>
+            	</div>
+            	<div class="modal-body">
+            	</div>
+            	<div class="modal-footer">
+								<button class="btn btn-dark btn-sm" data-bs-dismiss="modal" type="button" title="{#BS5_close#}">{#BS5_close#}</button>
+            	</div>
+        	</div>
+	    </div>
+	</div>
+{/if}

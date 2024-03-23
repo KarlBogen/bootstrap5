@@ -1,0 +1,28 @@
+<div class="shopcontent">
+	{if isset($CONTENT_HEADING)}
+		<h1 class="heading bg-h">{$CONTENT_HEADING}</h1>
+		{if $error_message && !isset($file)}<div class="alert alert-danger">{$error_message}</div>{/if}
+	{/if}
+
+	{if isset($file)}
+		<div class="content my-4 clearfix">            
+			{$CONTENT_BODY}
+			{$file}
+		</div>
+	{else}
+		<div class="content my-4 clearfix">
+			{if isset($SUB_CONTENT_LISTING) && $SUB_CONTENT_LISTING != ''}
+				<div class="subcontent mb-4 clearfix">
+					{$SUB_CONTENT_LISTING}
+				</div>
+			{/if}
+			{$CONTENT_BODY}
+		</div>  
+	{/if}
+
+	{if isset($MODULE_content_manager_media) && $MODULE_content_manager_media != ''}
+		<div class="content_box my-4">
+			{$MODULE_content_manager_media}
+		</div>
+	{/if}
+</div>

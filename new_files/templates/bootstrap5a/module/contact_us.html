@@ -1,0 +1,111 @@
+{config_load file="$language/lang_$language.conf" section="newsletter"}
+{config_load file="$language/lang_$language.conf" section="create_account"}
+{config_load file="$language/lang_$language.conf" section="contact_us"}
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="contact_us"}
+<div class="contact_us">
+	{if $success != '1'}
+
+		<h1 class="heading bg-h">{$CONTACT_HEADING}</h1>
+		{if $error_message}<div class="alert alert-danger">{$error_message}</div>{/if}
+
+		<div class="row my-4">
+			<div class="col-12 col-md-6">
+				<div class="contentbox mb-4">
+					{$FORM_ACTION}
+						<div class="h4 border-bottom">{#text_data#}</div>
+						<p class="small mb-4">({#text_hint#})</p>
+						<div class="mb-4">
+							<div class="mb-2 stern clearfix">
+								<label class="form-label" for="name">{#text_name#}</label>
+								{$INPUT_NAME|replace:'<input':'<input id="name" class="form-control"'}
+							</div>
+							<div class="mb-2 stern clearfix">
+								<label class="form-label" for="mail">{#text_email#}</label>
+								{$INPUT_EMAIL|replace:'<input':'<input id="mail" class="form-control"'|replace:"type=\"text\"":"type=\"email\""}<span class="inputRequirement">*</span>
+							</div>
+							<div class="mb-2 stern clearfix">
+								<label class="form-label" for="phone">{#text_phone#}</label>
+								{$INPUT_PHONE|replace:'<input':'<input id="phone" class="form-control"'|replace:"type=\"text\"":"type=\"tel\""}
+							</div>
+							{*
+								<div class="mb-2 stern clearfix">
+									<label class="form-label" for="fax">{#text_fax#}</label>
+									{$INPUT_FAX|replace:'<input':'<input id="fax" class="form-control"'|replace:"type=\"text\"":"type=\"tel\""}
+								</div>
+								<div class="mb-2 stern clearfix">
+									<label class="form-label" for="street">{#text_street#}</label>
+									{$INPUT_STREET|replace:'<input':'<input id="street" class="form-control"'}
+								</div>
+								<div class="mb-2 stern clearfix">
+									<label class="form-label" for="postcode">{#text_postcode#}</label>
+									{$INPUT_POSTCODE|replace:'<input':'<input id="postcode" class="form-control"'}
+								</div>
+								<div class="mb-2 stern clearfix">
+									<label class="form-label" for="city">{#text_city#}</label>
+									{$INPUT_CITY|replace:'<input':'<input id="city" class="form-control"'}
+								</div>
+								<div class="mb-2 stern clearfix">
+									<label class="form-label" for="company">{#text_company#}</label>
+									{$INPUT_COMPANY|replace:'<input':'<input id="company" class="form-control"'}
+								</div>
+							*}
+							{if $VVIMG}
+								<div class="vvcode_img mb-2 stern clearfix">
+									<label class="form-label">{#text_sec_code#}</label><br>
+									{$VVIMG}
+								</div>
+							{/if}
+							{if $INPUT_CODE}
+								<div class="vvcode_sec mb-2 stern clearfix">
+									<label class="form-label" for="code">{#text_inp_code#}</label>
+									{$INPUT_CODE|replace:'<input':'<input id="code" class="form-control"'}<span class="inputRequirement">*</span>
+								</div>
+							{/if}
+							<div class="mb-2 stern clearfix">
+								<label class="form-label" for="message">{#text_message#}</label>
+								{$INPUT_TEXT|replace:'<textarea':'<textarea id="message" class="form-control"'}<span class="inputRequirement">*</span>
+							</div>
+							{if "SIGN_CONDITIONS_ON_CHECKOUT"|defined}
+								<div class="mb-3 p-2 bg-body-tertiary position-relative small clearfix">
+									{if $PRIVACY_CHECKBOX}
+										<div class="form-check">
+											{$PRIVACY_CHECKBOX|replace:'<input':'<input class="form-check-input"'}
+											<label class="form-check-label stretched-link" for="privacy">{#text_privacy_accept#|sprintf:$smarty.const.STORE_OWNER_EMAIL_ADDRESS}</label>&nbsp;{$PRIVACY_LINK|replace:'iframe':'iframe z-2 position-relative'}
+										</div>
+									{else}
+										{#text_privacy_accept#|sprintf:$smarty.const.STORE_OWNER_EMAIL_ADDRESS} {$PRIVACY_LINK}
+									{/if}
+								</div>
+							{else}
+								{if $PRIVACY_CHECKBOX}
+									<div class="mb-3 p-2 bg-body-tertiary position-relative small clearfix">
+										{$PRIVACY_checkbox|replace:'<input':'<input class="form-check-input"'}
+										<label class="form-check-label stretched-link" for="privacy">{#text_privacy_accept#|sprintf:$smarty.const.STORE_OWNER_EMAIL_ADDRESS}</label>&nbsp;{$PRIVACY_LINK|replace:'iframe':'iframe z-2 position-relative'}
+									</div>
+								{/if}
+							{/if}
+						</div>
+						<div class="d-grid d-sm-flex">
+							{$BUTTON_SUBMIT|replace:'<button':'<button class="btn btn-secondary px-5"'}
+						</div>
+					{$FORM_END}
+				</div>
+			</div>
+			<div class="col-12 col-md-6">
+				<div class="contentbox mb-4">
+					<div class="h4 border-bottom">{#text_contact_us#}</div>
+					<div class="pt-3">
+						{$CONTACT_CONTENT}
+					</div>
+				</div>
+			</div>
+		</div>
+	{else}
+		<h1 class="heading bg-h">{#text_thanks#}</h1>
+		<div class="alert alert-success my-4">{#text_success#}</div>
+		<div class="d-grid d-sm-flex">
+			{$BUTTON_CONTINUE|replace:'<a':'<a class="btn btn-secondary px-5"'}
+		</div>
+	{/if}
+</div>

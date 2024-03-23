@@ -1,0 +1,49 @@
+{if isset($module_content)}
+	{config_load file="$language/lang_$language.conf" section="product_navigator"}
+	{config_load file="lang_`$language`.custom"}
+	{config_load file="lang_`$language`.section" section="product_navigator"}
+	<div class="productnavigator">
+		<div class="p-3 text-center">
+			<span class="visually-hidden">{#text_navigator#}</span>
+			<p class="small">{#product#}&nbsp;<strong>{$ACTUAL_PRODUCT}&nbsp;{#of#}&nbsp;{$PRODUCTS_COUNT}</strong>&nbsp;{#total#}</p>
+			<div class="d-flex justify-content-around">
+				<div>
+					{if $FIRST != ''}
+						<a class="d-inline-block" href="{$FIRST}" title="{#first#|replace:'&laquo; ':''}"><span class="fa fa-backward-fast"></span><span class="d-none d-md-block">{#first#|replace:'&laquo; ':''}</span></a>
+					{else}
+						<span class="text-secondary-emphasis"><span class="fa fa-backward-fast"></span><span class="d-none d-md-block">{#first#|replace:'&laquo; ':''}</span></span>
+					{/if}
+				</div>
+				<div>
+					{if $PREVIOUS != ''}
+						<a class="d-inline-block" href="{$PREVIOUS}" title="{#back#|replace:'&laquo; ':''}"><span class="fa fa-backward"></span><span class="d-none d-md-block">{#back#|replace:'&laquo; ':''}</span></a>
+					{else}
+						<span class="text-secondary-emphasis"><span class="fa fa-backward"></span><span class="d-none d-md-block">{#back#|replace:'&laquo; ':''}</span></span>
+					{/if}
+				</div>
+				<div>
+					{if $OVERVIEW != ''}
+						<a class="d-inline-block" href="{$OVERVIEW}" title="{#overview#}"><span class="fa fa-list"></span><span class="d-none d-md-block">{#overview#}</span></a>
+					{else}
+						<span class="text-secondary-emphasis"><span class="fa fa-list"></span><span class="d-none d-md-block">{#overview#}</span></span>
+					{/if}
+				</div>
+				<div>
+					{if $NEXT != ''}
+						<a class="d-inline-block" href="{$NEXT}" title="{#next#|replace:' &raquo;':''}"><span class="fa fa-forward"></span><span class="d-none d-md-block">{#next#|replace:' &raquo;':''}</span></a>
+					{else}
+						<span class="text-secondary-emphasis"><span class="fa fa-forward"></span><span class="d-none d-md-block">{#next#|replace:' &raquo;':''}</span></span>
+					{/if}
+				</div>
+				<div>
+					{if $LAST != ''}
+						<a class="d-inline-block" href="{$LAST}" title="{#last#|replace:' &raquo;':''}"><span class="fa fa-forward-fast"></span><span class="d-none d-md-block">{#last#|replace:' &raquo;':''}</span></a>
+					{else}
+						<span class="text-secondary-emphasis"><span class="fa fa-forward-fast"></span><span class="d-none d-md-block">{#last#|replace:' &raquo;':''}</span></span>
+					{/if}
+				</div>
+
+		</div>
+		</div>
+	</div>
+{/if}

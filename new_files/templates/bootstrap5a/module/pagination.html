@@ -1,0 +1,34 @@
+<nav class="d-flex flex-wrap justify-content-around justify-content-sm-between gap-2 my-3" aria-label="{$smarty.const.BS5_PAGINATION_LABEL}">
+	<div class="count text-nowrap align-self-center"><span class="small">{$DISPLAY_COUNT}</span></div>
+	<div class="d-flex flex-wrap">
+		<div class="pagination mb-0">
+			{if isset($DISPLAY_LINKS.previous_data)}
+				<span class="page-item"><a class="page-link" href="{$DISPLAY_LINKS.previous_data.LINK}" title="{$DISPLAY_LINKS.previous_data.TITLE}">{$DISPLAY_LINKS.previous_data.TEXT|replace:"&laquo;":"<i class=\"fa fa-chevron-left\"></i>"}</a></span>
+			{/if}
+			{if isset($DISPLAY_LINKS.previouspages_data)}
+				<span class="page-item"><a class="page-link" href="{$DISPLAY_LINKS.previouspages_data.LINK}" title="{$DISPLAY_LINKS.previouspages_data.TITLE}">{$DISPLAY_LINKS.previouspages_data.TEXT|replace:"...":"<i class=\"fa fa-ellipsis\"></i>"}</a></span>
+			{/if}
+			{if isset($DISPLAY_LINKS.pages_data)}
+				{foreach key="keys" name="outer" item="pages" from=$DISPLAY_LINKS.pages_data}
+					{if $pages.CURRENT == 1}
+						<span class="page-item active" aria-current="page"><span class="page-link">{$pages.TEXT}</span></span>
+					{else}
+						<span class="page-item"><a class="page-link" href="{$pages.LINK}" title="{$pages.TITLE}">{$pages.TEXT}</a></span>
+					{/if}
+				{/foreach}
+			{/if}
+			{if isset($DISPLAY_LINKS.nextpages_data)}
+				<span class="page-item"><a class="page-link" href="{$DISPLAY_LINKS.nextpages_data.LINK}" title="{$DISPLAY_LINKS.nextpages_data.TITLE}">{$DISPLAY_LINKS.nextpages_data.TEXT|replace:"...":"<i class=\"fa fa-ellipsis\"></i>"}</a></span>
+			{/if}
+			{if isset($DISPLAY_LINKS.next_data)}
+				<span class="page-item"><a class="page-link" href="{$DISPLAY_LINKS.next_data.LINK}" title="{$DISPLAY_LINKS.next_data.TITLE}">{$DISPLAY_LINKS.next_data.TEXT|replace:"&raquo;":"<i class=\"fa fa-chevron-right\"></i>"}</a></span>
+			{/if}
+		</div>
+			<div class="pagination lt_scroll ms-1 mb-0">
+				<span class="page-item"><a class="page-link listing_topscroll" href="#/" title="{$smarty.const.BS5_PAGINATION_SCROLLTOP}"><i class="fa fa-arrow-up"></i></a></span>
+			</div>
+			<div class="pagination lb_scroll ms-1 mb-0">
+				<span class="page-item"><a class="page-link listing_bottomscroll" href="#/" title="{$smarty.const.BS5_PAGINATION_SCROLLBOTTOM}"><i class="fa fa-arrow-down"></i></a></span>
+			</div>
+	</div>
+</nav>

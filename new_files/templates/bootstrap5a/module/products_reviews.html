@@ -1,0 +1,72 @@
+{if isset($MODULE_TS_PRODUCT_STICKER)}
+	{$MODULE_TS_PRODUCT_STICKER}
+{elseif isset($module_content)}
+	{config_load file="$language/lang_$language.conf" section="reviews"}
+	{config_load file="lang_`$language`.custom"}
+	{config_load file="lang_`$language`.section" section="reviews"}
+  <div class="products_reviews">
+		<h2 class="h3 detailbox">{#heading_reviews#}{if $reviews_count > 0}<span class="badge text-bg-secondary fs-6 ms-3">{$reviews_count}</span>{/if}</h2>
+		{if isset($reviews_note)}<div class="my-3">{$reviews_note|replace:'class="':'class="btn btn-outline-secondary btn-sm '}</div>{/if}
+		{if $reviews_count > 0}
+			<div class="d-flex flex-wrap flex-md-nowrap justify-content-center gap-2">
+				<div class="col col-md-auto text-center px-4 mw-100">
+					<div class="fs-5 py-2 border-bottom">
+						{#text_reviews_avg#}: {$reviews_avg} 
+					</div>
+					<span class="ratings my-3">
+						<span class="fas empty-stars"></span><span class="fas full-stars" style="width:{math equation = "x * 20" x = $reviews_avg|intval}%"></span>
+					</span>
+					<div class="mb-3">
+						{#text_reviews_based#} {$reviews_count} {if $reviews_count == 1}{#text_single_review#}{else}{#text_multiple_review#}{/if}
+					</div>
+					{if $reviews_count > $smarty.const.PRODUCT_REVIEWS_VIEW}
+						<div class="mb-3">
+							<a class="link-secondary" href="{FILENAME_PRODUCT_REVIEWS|xtc_href_link:"products_id=`$smarty.get.products_id`"}">
+								<i class="fa fa-arrow-right me-2"></i>{#text_review_show_1#} {$reviews_count} {#text_review_show_2#}
+							</a>
+						</div>    
+					{/if}    
+				</div>
+				<div class="flex-grow-md-1">
+					<div class="small mb-2">
+						{foreach name=aussen item=module_data from=$module_content}
+							<div class="card mb-2" itemprop="review" itemscope itemtype="http://schema.org/Review">
+								<div class="card-header d-flex flex-wrap gap-2">
+									<div>
+										<span class="fw-bold">{#text_rating#} </span>
+										<span class="text-nowrap">
+											{if isset($module_data.RATING_VOTE)}
+												<span class="visually-hidden">{#info_review#}: {$smarty.const.TEXT_OF_5_STARS|sprintf:$module_data.RATING_VOTE}</span>
+												<span class="ratings" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+													<span class="fas empty-stars"></span><span class="fas full-stars" style="width:{math equation = "x * 20" x = $module_data.RATING_VOTE|intval}%"></span>
+													<meta itemprop="worstRating" content="1">
+													<meta itemprop="ratingValue" content="{$module_data.RATING_VOTE}">
+													<meta itemprop="bestRating" content="5">
+												</span>
+											{else}
+												{$module_data.RATING|replace:".gif":".png"}
+											{/if}
+										</span>
+									</div>
+									<div class="vr"></div>
+									<div itemprop="author" itemtype="http://schema.org/Person" itemscope><span class="fw-bold">{#text_author#}</span><span class="text-nowrap" itemprop="name"> {$module_data.AUTHOR}</span></div>
+									<div class="vr"></div>
+									<div>
+										<span class="fw-bold">{#title_date#}:</span><span class="text-nowrap"> {$module_data.DATE}</span>
+										<meta itemprop="datePublished" content="{$module_data.DATE}" />
+									</div>
+								</div>
+								<div class="card-body" itemprop="description">
+									{$module_data.TEXT}
+								</div>
+							</div>
+						{/foreach}
+					</div>
+				</div>
+			</div>
+		{else}
+			<div>{#text_write_first_review#}</div>
+		{/if}
+		<div class="my-3">{$BUTTON_WRITE|replace:'<a':'<a class="btn btn-secondary"'}</div>
+	</div>
+{/if}

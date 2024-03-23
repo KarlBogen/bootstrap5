@@ -1,0 +1,48 @@
+{config_load file="$language/lang_$language.conf" section="reviews"}
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="reviews"}
+<div class="product_reviews">
+	<h1 class="h3 bg-h">{#heading_reviews#} {$PRODUCTS_NAME}</h1>
+	{if isset($REVIEWS_NOTE)}<div class="my-3">{$REVIEWS_NOTE|replace:'class="':'class="btn btn-outline-secondary btn-sm '}</div>{/if}
+	{if $error_message}<div class="alert alert-danger">{$error_message}</div>{/if}
+	{if $success_message}<div class="alert alert-success">{$success_message}</div>{/if}
+	<div class="d-flex flex-wrap flex-md-nowrap gap-2">
+		{if $module_content.0.PRODUCTS_IMAGE != ''}
+			<div class="col-auto mw-100">
+				<img class="lazyload img-thumbnail" data-src="{$module_content.0.PRODUCTS_IMAGE}" alt="{$module_content.0.PRODUCTS_NAME|onlytext}" title="{$module_content.0.PRODUCTS_NAME|onlytext}">
+			</div>
+		{/if}
+		<div class="flex-grow-md-1">
+			{foreach name=aussen item=module_data from=$module_content}
+				<div class="small mb-2">
+		  		<div class="card h-100">
+						<div class="card-header d-flex flex-wrap gap-2">
+							<div>
+								<span class="fw-bold">{#text_rating#} </span>
+								<span class="text-nowrap">
+									{if isset($module_data.RATING_VOTE)}
+										<span class="visually-hidden">{#info_review#}: {$smarty.const.TEXT_OF_5_STARS|sprintf:$module_data.RATING_VOTE}</span>
+										<span class="ratings">
+											<span class="fas empty-stars"></span><span class="fas full-stars" style="width:{math equation = "x * 20" x = $module_data.RATING_VOTE|intval}%"></span>
+										</span>
+									{else}
+										{$module_data.RATING|replace:".gif":".png"}
+									{/if}
+								</span>
+							</div>
+							<div class="vr"></div>
+							<div><span class="fw-bold">{#text_author#}</span><span class="text-nowrap"> {$module_data.AUTHOR}</span></div>
+							<div class="vr"></div>
+							<div><span class="fw-bold">{#title_date#}:</span><span class="text-nowrap"> {$module_data.DATE}</span></div>
+						</div>
+						<div class="card-body">
+							<div class="fw-bold">{#text_text#}</div>
+							{$module_data.TEXT_PLAIN|onlytext}
+						</div>
+					</div>
+				</div>
+			{/foreach}
+		</div>
+	</div>
+	<div class="py-2">{$PAGINATION}</div>
+</div>

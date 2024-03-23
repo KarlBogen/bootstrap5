@@ -1,0 +1,61 @@
+{if isset($BOX_CONTENT) && count($BOX_CONTENT) > 0}
+  {config_load file="$language/lang_$language.conf" section="reviews"}
+  {config_load file="$language/lang_$language.conf" section="boxes"}
+  {config_load file="lang_`$language`.custom"}
+  {config_load file="lang_`$language`.section" section="reviews"}
+	<div class="box_reviews mb-5">
+		<div class="d-flex justify-content-between flex-wrap border-bottom mb-3">
+			<div class="h2">
+				{#heading_reviews#}
+			</div>
+			<div>
+				<a class="btn btn-outline-secondary btn-sm" href="{$REVIEWS_LINK}" title="{#heading_reviews#}">{#show_all#}<i class="fa fa-arrow-right ms-3"></i></a>
+			</div>
+		</div>
+    {if isset($REVIEWS_NOTE)}
+      <div class="small my-2"><i class="fa fa-circle-info fa-lg text-primary me-2"></i>{$REVIEWS_NOTE}</div>
+    {/if}
+		<div class="visually-hidden">{#BS5_slider_info#}</div>
+		<div id="revCarousel" class="resCarousel position-relative w-100 it2" data-items="1-1-2-2-2" data-slide="2" data-speed="900">
+			<button type="button" class="resBtn btn btn-light leftRs" tabindex="-1"><i class="fa fa-fw fa-angle-left"></i><span class="visually-hidden">{#BS5_previous#}</span></button>
+			<div class="resCarousel-inner py-1" tabindex="-1">
+				{foreach name="aussen" item=box_data from=$BOX_CONTENT}
+					<div class="item">
+						<div class="card focus-ring h-100 text-center" tabindex="0">
+							<div class="card-body">
+								<div class="row clearfix">
+									<div class="col-sm-3 mb-2">
+										{if $box_data.PRODUCTS_IMAGE != ''}
+											{if $smarty.const.PICTURESET_ACTIVE === true}
+												<img class="lazyload img-fluid" data-src="{$box_data.PRODUCTS_IMAGE|replace:"thumbnail_":"mini_"}" alt="{$box_data.PRODUCTS_NAME|onlytext}" title="{$box_data.PRODUCTS_NAME|onlytext}">
+											{else}
+												<img class="lazyload img-fluid" data-src="{$box_data.PRODUCTS_IMAGE}" alt="{$box_data.PRODUCTS_NAME|onlytext}" title="{$box_data.PRODUCTS_NAME|onlytext}">
+											{/if}
+										{/if}
+									</div>
+									<div class="col-sm-9">
+										<a class="stretched-link d-block lb_title fs-5 text-secondary-emphasis" href="{$box_data.PRODUCTS_LINK}" title="{#text_review_show#}">
+											{$box_data.PRODUCTS_NAME}
+										</a>
+										<div class="ratings my-2">
+											<span class="fas empty-stars"></span><span class="fas full-stars" style="width:{math equation = "x * 20" x = $box_data.REVIEWS_VOTE|intval}%"></span>
+										</div>
+										<div class="small">
+											<div class="mb-2">
+												<strong>{#text_date#}</strong> {$box_data.DATE} &nbsp;|&nbsp; <strong>{#text_author#}</strong> {$box_data.AUTHOR}
+											</div>
+											<div class="text-start">
+												{$box_data.REVIEWS|onlytext|truncate:200:"...":true}
+											</div>
+										</div>
+									</div>        
+								</div>
+							</div>
+						</div>
+					</div>
+				{/foreach}
+			</div>
+			<button type="button" class="resBtn btn btn-light rightRs" tabindex="-1"><i class="fa fa-fw fa-angle-right"></i><span class="visually-hidden">{#BS5_next#}</span></button>
+		</div>
+	</div>
+{/if}

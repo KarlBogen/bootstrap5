@@ -1,0 +1,321 @@
+{config_load file="$language/lang_$language.conf" section="create_account"}
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="create_account"}
+<div class="create_account">
+
+	<h1 class="heading bg-h">{#heading_create_account#}</h1>
+	<p class="small mb-4">({#text_must#})</p>
+	{if $error_message}
+		<div class="alert alert-danger">{$error_message}</div>
+	{elseif is_array($formerrs) && count($formerrs) > 0}
+		<div class="alert alert-danger">{$smarty.const.ENTRY_TOKEN_ERROR}</div>
+	{/if}
+
+	{$FORM_ACTION}
+		<div class="row mb-3">
+			<div class="col-md-6">
+   			<div class="h4 border-bottom">{#title_personal#}</div>
+				{if $gender == '1'}
+					<div class="mb-2 stern clearfix">
+						<label class="form-label" for="gender">{#text_gender#}</label>
+						{if isset($formerrs.gender)}
+							{$INPUT_GENDER|replace:'<select':'<select id="gender" class="form-select is-invalid" aria-describedby="validationGenderFeedback"'}
+							<div id="validationGenderFeedback" class="invalid-feedback">
+								{$formerrs.gender}
+							</div>
+						{else}
+							{$INPUT_GENDER|replace:'<select':'<select id="gender" class="form-select"'}
+						{/if}
+					</div>
+				{/if}
+				<div class="row clearfix">
+					<div class="col-sm-5 col-lg-4 mb-2">
+						<div class="stern">
+							<label class="form-label" for="firstname">{#text_firstname#}</label>
+							{if isset($formerrs.firstname)}
+								{$INPUT_FIRSTNAME|replace:'<input':'<input id="firstname" class="form-control is-invalid" aria-describedby="validationFirstnameFeedback"'}
+								<div id="validationFirstnameFeedback" class="invalid-feedback">
+									{$formerrs.firstname}
+								</div>
+							{else}
+								{$INPUT_FIRSTNAME|replace:'<input':'<input id="firstname" class="form-control"'}
+							{/if}
+						</div>
+					</div>
+					<div class="col-sm-7 col-lg-8 mb-2">
+						<div class="stern">
+							<label class="form-label" for="lastname">{#text_lastname#}</label>
+							{if isset($formerrs.lastname)}
+								{$INPUT_LASTNAME|replace:'<input':'<input id="lastname" class="form-control is-invalid" aria-describedby="validationLastnameFeedback"'}
+								<div id="validationLastnameFeedback" class="invalid-feedback">
+									{$formerrs.lastname}
+								</div>
+							{else}
+								{$INPUT_LASTNAME|replace:'<input':'<input id="lastname" class="form-control"'}
+							{/if}
+						</div>
+					</div>
+				</div>
+				{if $birthdate == '1'}
+					<div class="mb-2 stern clearfix">
+						<label class="form-label" for="birthday">{#text_birthdate#}</label>
+						{if isset($formerrs.dob)}
+							{$INPUT_DOB|replace:'<input':'<input id="birthday" class="form-control is-invalid" aria-describedby="validationDobFeedback"'}
+							<div id="validationDobFeedback" class="invalid-feedback">
+								{$formerrs.dob}
+							</div>
+						{else}
+							{$INPUT_DOB|replace:'<input':'<input id="birthday" class="form-control" aria-describedby="dateHelp"'}
+							<small id="dateHelp" class="form-text">{$TEXT_DOB_NOTE}</small>
+						{/if}
+					</div>
+				{/if}
+				<div class="mb-2 stern clearfix">
+					<label class="form-label" for="mail">{#text_email#}</label>
+					{if isset($formerrs.email_address)}
+						{$INPUT_EMAIL|replace:'<input':'<input id="mail" class="form-control is-invalid" aria-describedby="validationEmailFeedback"'|replace:"type=\"text\"":"type=\"email\""}
+						<div id="validationEmailFeedback" class="invalid-feedback">
+							{$formerrs.email_address}
+						</div>
+					{else}
+						{$INPUT_EMAIL|replace:'<input':'<input id="mail" class="form-control"'|replace:"type=\"text\"":"type=\"email\""}
+					{/if}
+				</div>
+				<div class="mb-2 stern clearfix">
+					<label class="form-label" for="confirm_email">{#text_confirm_email#}</label>
+					{if isset($formerrs.confirm_email_address)}
+						{$INPUT_CONFIRM_EMAIL|replace:'<input':'<input id="confirm_email" class="form-control is-invalid" aria-describedby="validationConfirmemailFeedback"'|replace:"type=\"text\"":"type=\"email\""}
+						<div id="validationConfirmemailFeedback" class="invalid-feedback">
+							{$formerrs.confirm_email_address}
+						</div>
+					{else}
+						{$INPUT_CONFIRM_EMAIL|replace:'<input':'<input id="confirm_email" class="form-control"'|replace:"type=\"text\"":"type=\"email\""}
+					{/if}
+				</div>
+				<div class="mb-2 stern clearfix">
+					<label class="form-label" for="phone">{#text_tel#}</label>
+					{if isset($formerrs.telephone)}
+						{$INPUT_TEL|replace:'<input':'<input id="phone" class="form-control is-invalid" aria-describedby="validationTelephoneFeedback" autocomplete="on"'|replace:"type=\"text\"":"type=\"tel\""}
+						<div id="validationTelephoneFeedback" class="invalid-feedback">
+							{$formerrs.telephone}
+						</div>
+					{else}
+						{$INPUT_TEL|replace:'<input':'<input id="phone" class="form-control" autocomplete="on"'|replace:"type=\"text\"":"type=\"tel\""}
+					{/if}
+				</div>
+				<div class="mb-2 stern clearfix">
+					<label class="form-label" for="fax">{#text_fax#}</label>
+					{if isset($formerrs.fax)}
+						{$INPUT_FAX|replace:'<input':'<input id="fax" class="form-control is-invalid" aria-describedby="validationFaxFeedback"'|replace:"type=\"text\"":"type=\"tel\""}
+						<div id="validationFaxFeedback" class="invalid-feedback">
+							{$formerrs.fax}
+						</div>
+					{else}
+						{$INPUT_FAX|replace:'<input':'<input id="fax" class="form-control"'|replace:"type=\"text\"":"type=\"tel\""}
+					{/if}
+				</div>
+		    {if $company == '1'}
+					<div class="my-4">
+						<div class="h4 border-bottom mt-3">{#title_company#}</div>
+						<div class="mb-2 stern clearfix">
+							<label class="form-label" for="company">{#text_company#}</label>
+							{if isset($formerrs.company)}
+								{$INPUT_COMPANY|replace:'<input':'<input id="company" class="form-control is-invalid" aria-describedby="validationCompanyFeedback" autocomplete="on"'}
+								<div id="validationCompanyFeedback" class="invalid-feedback">
+									{$formerrs.company}
+								</div>
+							{else}
+								{$INPUT_COMPANY|replace:'<input':'<input id="company" class="form-control" autocomplete="on"'}
+							{/if}
+						</div>
+						{if $vat == '1'}
+							<div class="mb-3 stern clearfix">
+								<label class="form-label" for="ust_id">{#text_ustid#}</label>
+								{if isset($formerrs.vat)}
+									{$INPUT_VAT|replace:'<input':'<input id="ust_id" class="form-control is-invalid" aria-describedby="validationVatFeedback"'}
+									<div id="validationVatFeedback" class="invalid-feedback">
+										{$formerrs.vat}
+									</div>
+								{else}
+									{$INPUT_VAT|replace:'<input':'<input id="ust_id" class="form-control" aria-describedby="vatHelp"'}
+									<small id="vatHelp" class="form-text">{$TEXT_VAT_NOTE}</small>
+								{/if}
+							</div>
+						{/if}
+					</div>
+		    {/if}
+			</div>
+			<div class="col-md-6">
+				<div class="h4 border-bottom">{#title_address#}</div>
+				<div class="mb-2 stern clearfix">
+					<label class="form-label" for="street">{#text_street#}</label>
+					{if isset($formerrs.street_address)}
+						{$INPUT_STREET|replace:'<input':'<input id="street" class="form-control is-invalid" aria-describedby="validationStreetFeedback" autocomplete="on"'}
+						<div id="validationStreetFeedback" class="invalid-feedback">
+							{$formerrs.street_address}
+						</div>
+					{else}
+						{$INPUT_STREET|replace:'<input':'<input id="street" class="form-control" autocomplete="on"'}
+					{/if}
+				</div>
+				{if $suburb == '1'}
+					<div class="mb-2 stern clearfix">
+						<label class="form-label" for="suburb">{#text_suburb#}</label>
+						{$INPUT_SUBURB|replace:"Nur":" Nur"|replace:'<input':'<input id="suburb" class="form-control"'}
+					</div>
+				{/if}
+				<div class="row clearfix">
+					<div class="col-sm-5 col-lg-4 mb-2">
+						<div class="stern">
+							<label class="form-label" for="postcode">{#text_code#}</label>
+							{if isset($formerrs.postcode)}
+								{$INPUT_CODE|replace:'<input':'<input id="postcode" class="form-control is-invalid" aria-describedby="validationPostcodeFeedback"'}
+								<div id="validationPostcodeFeedback" class="invalid-feedback">
+									{$formerrs.postcode}
+								</div>
+							{else}
+								{$INPUT_CODE|replace:'<input':'<input id="postcode" class="form-control"'}
+							{/if}
+						</div>
+					</div>
+					<div class="col-sm-7 col-lg-8 mb-2">
+						<div class="stern">
+							<label class="form-label" for="city">{#text_city#}</label>
+							{if isset($formerrs.city)}
+								{$INPUT_CITY|replace:'<input':'<input id="city" class="form-control is-invalid" aria-describedby="validationCityFeedback"'}
+								<div id="validationCityFeedback" class="invalid-feedback">
+									{$formerrs.city}
+								</div>
+							{else}
+								{$INPUT_CITY|replace:'<input':'<input id="city" class="form-control"'}
+							{/if}
+						</div>
+					</div>
+				</div>
+				<div class="mb-2 stern clearfix">
+					<label class="form-label" for="country">{#text_country#}</label>
+					{if isset($formerrs.country)}
+						{$SELECT_COUNTRY|replace:'<select':'<select id="country" class="form-select is-invalid" aria-describedby="validationCountryFeedback" autocomplete="on"'}
+						<div id="validationCountryFeedback" class="invalid-feedback">
+							{$formerrs.country}
+						</div>
+					{else}
+						{$SELECT_COUNTRY|replace:'<select':'<select id="country" class="form-select" autocomplete="on"'}
+					{/if}
+				</div>
+				{if $state == '1'}
+					<div class="mb-2 form-state stern clearfix">
+						<label class="form-label" for="state">{#text_state#}</label>
+						{if isset($formerrs.state)}
+							{$INPUT_STATE|replace:'name="state"':'id="state" name="state"'|replace:'class="':'aria-describedby="validationStateFeedback" class="is-invalid '}
+							<div id="validationStateFeedback" class="invalid-feedback">
+								{$formerrs.state}
+							</div>
+						{else}
+							{$INPUT_STATE|replace:'name="state"':'id="state" name="state"'}
+						{/if}
+					</div>
+				{/if}
+				<div class="my-4">
+					<div class="h4 border-bottom">{#title_password#}</div>
+					<p>{#text_password_policy#|sprintf:$smarty.const.ENTRY_PASSWORD_MIN_LENGTH}</p>
+					<div class="mb-2 stern clearfix">
+						<label class="form-label" for="password">{#text_password#}</label>
+						<div class="input-group{if isset($formerrs.password)} has-validation{/if}">
+							{if isset($formerrs.password)}
+								{$INPUT_PASSWORD|replace:'<input':'<input id="password" class="form-control is-invalid" aria-describedby="validationPasswordFeedback"'}
+								<button class="togglePw btn btn-outline-secondary" type="button" aria-label="{$smarty.const.BS5_TOGGLE_PWFIELD_SHOW}"><i class="fa fa-eye mx-2"></i></button>
+								<div id="validationPasswordFeedback" class="invalid-feedback">
+									{$formerrs.password}
+								</div>
+							{else}
+								{$INPUT_PASSWORD|replace:'<input':'<input id="password" class="form-control"'}
+								<button class="togglePw btn btn-outline-secondary" type="button" aria-label="{$smarty.const.BS5_TOGGLE_PWFIELD_SHOW}"><i class="fa fa-eye mx-2"></i></button>
+							{/if}
+						</div>
+					</div>
+					<div class="mb-2 stern clearfix">
+						<label class="form-label" for="confirm_password">{#text_confirmation#}</label>
+						<div class="input-group">
+							{if isset($formerrs.confirmation)}
+								{$INPUT_CONFIRMATION|replace:'<input':'<input id="confirm_password" class="form-control is-invalid" aria-describedby="validationConfirmationFeedback"'}
+								<button class="togglePw btn btn-outline-secondary" type="button" aria-label="{$smarty.const.BS5_TOGGLE_PWFIELD_SHOW}"><i class="fa fa-eye mx-2"></i></button>
+								<div id="validationConfirmationFeedback" class="invalid-feedback">
+									{$formerrs.confirmation}
+								</div>
+							{else}
+								{$INPUT_CONFIRMATION|replace:'<input':'<input id="confirm_password" class="form-control"'}
+								<button class="togglePw btn btn-outline-secondary" type="button" aria-label="{$smarty.const.BS5_TOGGLE_PWFIELD_SHOW}"><i class="fa fa-eye mx-2"></i></button>
+							{/if}
+						</div>
+					</div>
+				</div>
+				<div class="my-4">
+					{if $VVIMG}
+						<div class="vvcode_img mb-2 stern clearfix">
+							<span class="form-label d-inline-block">{#text_sec_code#}</span><br>
+							{$VVIMG}
+						</div>
+					{/if}
+					{if $INPUT_VVCODE}
+						<div class="vvcode_sec mb-3 stern clearfix">
+							<label class="form-label" for="code">{#text_sec_code#}</label>
+							{if isset($formerrs.vvcode)}
+								{$INPUT_VVCODE|replace:'<input':'<input id="code" class="form-control is-invalid" aria-describedby="validationVvcodeFeedback"'}
+								<div id="validationVvcodeFeedback" class="invalid-feedback">
+									{$formerrs.vvcode}
+								</div>
+							{else}
+								{$INPUT_VVCODE|replace:'<input':'<input id="code" class="form-control"'}
+							{/if}
+						</div>
+					{/if}
+					{if $CHECKBOX_NEWSLETTER}
+						<div class="mb-3 form-check position-relative clearfix">
+							{$CHECKBOX_NEWSLETTER|replace:'<input':'<input id="newsletter" class="form-check-input"'}
+							<label class="form-check-label stretched-link small" for="newsletter">{#text_newsletter#}</label>
+						</div>
+					{/if}
+					{if "SIGN_CONDITIONS_ON_CHECKOUT"|defined}
+						<div class="mb-2 p-2 bg-warning-subtle position-relative clearfix">
+							<div class="form-check">
+								{if $PRIVACY_CHECKBOX}
+									{if isset($formerrs.privacy)}
+										{$PRIVACY_CHECKBOX|replace:'<input':'<input id="privacy" class="form-check-input is-invalid" aria-describedby="validationPrivacyFeedback"'}
+										<label class="form-check-label stretched-link fw-bold" for="privacy">{if $PRIVACY_CHECKBOX}{#text_privacy_accept#}{else}{#text_privacy_notice#}{/if} {$PRIVACY_LINK|replace:'iframe':'iframe z-2 position-relative'}</label>
+										<div id="validationPrivacyFeedback" class="invalid-feedback">
+											{$formerrs.privacy}
+										</div>
+									{else}
+										{$PRIVACY_CHECKBOX|replace:'<input':'<input id="privacy" class="form-check-input"'}
+										<label class="form-check-label stretched-link fw-bold" for="privacy">{if $PRIVACY_CHECKBOX}{#text_privacy_accept#}{else}{#text_privacy_notice#}{/if} {$PRIVACY_LINK|replace:'iframe':'iframe z-2 position-relative'}</label>
+									{/if}
+								{/if}
+							</div>
+						</div>
+					{else}
+						{if $PRIVACY_CHECKBOX}
+							<div class="mb-2 p-2 bg-warning-subtle position-relative clearfix">
+								<div class="form-check">
+									{if isset($formerrs.privacy)}
+										{$PRIVACY_CHECKBOX|replace:'<input':'<input id="privacy" class="form-check-input is-invalid" aria-describedby="validationPrivacyFeedback"'}
+										<label class="form-check-label stretched-link fw-bold" for="privacy">{#text_privacy_accept#} {$PRIVACY_LINK|replace:'iframe':'iframe z-2 position-relative'}</label>
+										<div id="validationPrivacyFeedback" class="invalid-feedback">
+											{$formerrs.privacy}
+										</div>
+									{else}
+										{$PRIVACY_CHECKBOX|replace:'<input':'<input id="privacy" class="form-check-input"'}
+										<label class="form-check-label stretched-link fw-bold" for="privacy">{#text_privacy_accept#} {$PRIVACY_LINK|replace:'iframe':'iframe z-2 position-relative'}</label>
+									{/if}
+								</div>
+							</div>
+						{/if}
+					{/if}
+				</div>
+			</div>
+		</div>
+		<div class="d-grid d-sm-flex justify-content-sm-end">
+			{$BUTTON_SUBMIT|replace:'<button':'<button class="btn btn-secondary px-5"'}
+		</div>
+	{$FORM_END}
+</div>

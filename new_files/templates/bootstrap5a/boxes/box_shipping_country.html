@@ -1,0 +1,10 @@
+{if isset($BOX_CONTENT) && $BOX_CONTENT != ''}
+	{config_load file="$language/lang_$language.conf" section="boxes"}
+	{config_load file="lang_`$language`.custom"}
+	<div class="box_shipping_country list-group list-group-flush mb-4">
+		<h5 class="list-group-item">{#heading_shipping_country#}</h5>
+		<div class="list-group-item">
+			{$BOX_CONTENT}
+		</div>
+	</div>
+{/if}

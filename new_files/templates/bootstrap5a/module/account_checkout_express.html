@@ -1,0 +1,81 @@
+{config_load file="$language/lang_$language.conf" section="account_checkout_express"}
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="account_checkout_express"}
+<div class="account_checkout_express">
+	<h1 class="heading bg-h">{#heading_checkout_express#}</h1>
+	<div class="row my-4">
+		<div class="col-lg-4 d-none d-lg-block">
+			{if isset($smarty.session.customer_id)}
+				{include file="module/account_navigation.html"}
+			{/if}
+		</div>
+		<div class="col-12 col-lg-8">
+			<div class="contentbox mb-4">
+				<div class="mb-3">{#text_checkout_express_info#}</div>
+				{$FORM_ACTION}
+				<div class="h4">{#heading_shipping#}</div>
+				{if isset($module_shipping_error)}<div class="alert alert-danger">{$module_shipping_error}</div>{/if}
+				<div class="list-group mb-4">
+					{foreach name=aussen item=shipping from=$module_shipping}
+						<div class="list-group-item">
+							{$shipping.FIELD|replace:'<input':'<input class="form-check-input me-1"'}
+							<label class="form-check-label stretched-link" for="shipping_{$shipping.ID}">{$shipping.NAME}</label>
+						</div>
+					{/foreach}
+				</div>
+
+				<div class="h4">{#heading_payment#}</div>
+				{if isset($module_payment_error)}<div class="alert alert-danger">{$module_payment_error}</div>{/if}
+				<div class="list-group mb-4">
+					{foreach name=aussen item=payment from=$module_payment}
+						<div class="list-group-item">
+							{$payment.FIELD|replace:'<input':'<input class="form-check-input me-1"'}
+							<label class="form-check-label stretched-link" for="payment_{$payment.ID}">{$payment.NAME}</label>
+						</div>
+					{/foreach}
+				</div>
+
+				<div class="h4">{#heading_shipping_address#}</div>
+				{if isset($module_shipping_address_error)}<div class="alert alert-danger">{$module_shipping_address_error}</div>{/if}
+				<p>{#text_choose_shipping_address#}</p>
+				<div class="list-group mb-4">
+					{foreach name=aussen item=shipping_address from=$module_shipping_address}
+						<div class="list-group-item">
+							{$shipping_address.FIELD|replace:'<input':'<input class="form-check-input me-1"'}
+							<label class="form-check-label stretched-link" for="shipping_address_{$shipping_address.ID}">
+								<div class="fw-bold">{$shipping_address.NAME}</div>
+								<div>{$shipping_address.ADDRESS}</div>
+							</label>
+						</div>
+					{/foreach}
+				</div>
+
+				<div class="h4">{#heading_payment_address#}</div>
+				{if isset($module_payment_address_error)}<div class="alert alert-danger">{$module_payment_address_error}</div>{/if}
+				<p>{#text_choose_payment_address#}</p>
+				<div class="list-group mb-4">
+					{foreach name=aussen item=payment_address from=$module_payment_address}
+						<div class="list-group-item">
+							{$payment_address.FIELD|replace:'<input':'<input class="form-check-input me-1"'}
+							<label class="form-check-label stretched-link" for="payment_address_{$payment_address.ID}">
+								<div class="fw-bold">{$payment_address.NAME}</div>
+								<div>{$payment_address.ADDRESS}</div>
+							</label>
+						</div>
+					{/foreach}
+				</div>
+
+				{*
+				<div class="d-grid gap-2 d-sm-flex justify-content-sm-between mt-3">
+					{$BUTTON_BACK|replace:'<a':'<a class="btn btn-outline-secondary"'}
+					{$BUTTON_SUBMIT_UPDATE|replace:'<button':'<button class="btn btn-secondary"'}
+				</div>
+				*}
+				<div class="d-flex justify-content-end mt-3">
+					{$BUTTON_SUBMIT_UPDATE|replace:'<button':'<button class="btn btn-secondary"'}
+				</div>
+				{$FORM_END}
+			</div>
+		</div>
+	</div>
+</div>
