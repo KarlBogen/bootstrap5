@@ -224,13 +224,13 @@
 						<div class="input-group{if isset($formerrs.password)} has-validation{/if}">
 							{if isset($formerrs.password)}
 								{$INPUT_PASSWORD|replace:'<input':'<input id="password" class="form-control is-invalid" aria-describedby="validationPasswordFeedback"'}
-								<button class="togglePw btn btn-outline-secondary" type="button" aria-label="{$smarty.const.BS5_TOGGLE_PWFIELD_SHOW}"><i class="fa fa-eye mx-2"></i></button>
+								<button class="togglePw btn btn-outline-secondary fa fa-eye px-3" type="button" aria-label="{$smarty.const.BS5_TOGGLE_PWFIELD_SHOW}"></button>
 								<div id="validationPasswordFeedback" class="invalid-feedback">
 									{$formerrs.password}
 								</div>
 							{else}
 								{$INPUT_PASSWORD|replace:'<input':'<input id="password" class="form-control"'}
-								<button class="togglePw btn btn-outline-secondary" type="button" aria-label="{$smarty.const.BS5_TOGGLE_PWFIELD_SHOW}"><i class="fa fa-eye mx-2"></i></button>
+								<button class="togglePw btn btn-outline-secondary fa fa-eye px-3" type="button" aria-label="{$smarty.const.BS5_TOGGLE_PWFIELD_SHOW}"></button>
 							{/if}
 						</div>
 					</div>
@@ -239,13 +239,13 @@
 						<div class="input-group">
 							{if isset($formerrs.confirmation)}
 								{$INPUT_CONFIRMATION|replace:'<input':'<input id="confirm_password" class="form-control is-invalid" aria-describedby="validationConfirmationFeedback"'}
-								<button class="togglePw btn btn-outline-secondary" type="button" aria-label="{$smarty.const.BS5_TOGGLE_PWFIELD_SHOW}"><i class="fa fa-eye mx-2"></i></button>
+								<button class="togglePw btn btn-outline-secondary fa fa-eye px-3" type="button" aria-label="{$smarty.const.BS5_TOGGLE_PWFIELD_SHOW}"></button>
 								<div id="validationConfirmationFeedback" class="invalid-feedback">
 									{$formerrs.confirmation}
 								</div>
 							{else}
 								{$INPUT_CONFIRMATION|replace:'<input':'<input id="confirm_password" class="form-control"'}
-								<button class="togglePw btn btn-outline-secondary" type="button" aria-label="{$smarty.const.BS5_TOGGLE_PWFIELD_SHOW}"><i class="fa fa-eye mx-2"></i></button>
+								<button class="togglePw btn btn-outline-secondary fa fa-eye px-3" type="button" aria-label="{$smarty.const.BS5_TOGGLE_PWFIELD_SHOW}"></button>
 							{/if}
 						</div>
 					</div>
