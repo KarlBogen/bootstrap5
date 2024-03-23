@@ -2,7 +2,7 @@
 
 #### Ab Version 1.1.0 steht ein zweites Template zur Auswahl. Das Template "bootstrap5a" hat wieder eine linke Spalte mit Menü. Unterkategorien werden per Ajax nachgeladen.
 
-<br /><br />
+<br />
 
 Das Template basiert auf dem Bootstrap-Framework 5 und wird getestet mit der, zum Zeitpunkt des Erscheinens eines neuen Releases, aktuellen Shopversion.
 
