@@ -156,16 +156,13 @@
 
   // Herstellerlinks
   function bs5_show_manufacturers() {
-    $manufacturers_query = xtDBquery("SELECT m.*,mi.manufacturers_title
+    $manufacturers_query = xtDBquery("SELECT m.*
                                         FROM ".TABLE_MANUFACTURERS." as m
                                         JOIN ".TABLE_PRODUCTS." as p 
                                              ON m.manufacturers_id = p.manufacturers_id
                                                 AND p.products_status = '1'
                                                     ".PRODUCTS_CONDITIONS_P."
-                                          JOIN " . TABLE_MANUFACTURERS_INFO . " mi
-                                              ON m.manufacturers_id = mi.manufacturers_id
-                                                AND mi.languages_id = '" . (int)$_SESSION['languages_id'] . "'
-                                               JOIN ".TABLE_PRODUCTS_DESCRIPTION." pd
+                                        JOIN ".TABLE_PRODUCTS_DESCRIPTION." pd
                                              ON p.products_id = pd.products_id
                                                 AND pd.language_id = '".(int)$_SESSION['languages_id']."'
                                                 AND trim(pd.products_name) != ''
@@ -182,7 +179,7 @@
     if (xtc_db_num_rows($manufacturers_query, true) > 0) {
       $manufacturers_string = '<ul class="navbar-nav flex-column">'. "\n";
       while ($manufacturers = xtc_db_fetch_array($manufacturers_query, true)) {
-        $name = $manufacturers['manufacturers_title'] != '' ? $manufacturers['manufacturers_title'] : $manufacturers['manufacturers_name'];
+        $name = $manufacturers['manufacturers_name'];
         $link = xtc_href_link(FILENAME_DEFAULT, xtc_manufacturer_link($manufacturers['manufacturers_id'],$manufacturers['manufacturers_name']));
         $active = ((isset($_GET['manufacturers_id']) && (int)$_GET['manufacturers_id'] == $manufacturers['manufacturers_id']) ? ' active" aria-current="page' : '');
 

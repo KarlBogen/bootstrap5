@@ -17,16 +17,13 @@
   $cache_id = md5('lID:'.$_SESSION['language'].'|mID:'.(isset($_GET['manufacturers_id']) ? (int)$_GET['manufacturers_id'] : '0'));
 
   if (!$box_smarty->is_cached(CURRENT_TEMPLATE.'/boxes/box_manufacturers_carousel.html', $cache_id) || !$cache) {  
-    $manufacturers_query = xtDBquery("SELECT m.*,mi.manufacturers_title
+    $manufacturers_query = xtDBquery("SELECT m.*
                                         FROM ".TABLE_MANUFACTURERS." as m
                                         JOIN ".TABLE_PRODUCTS." as p 
                                              ON m.manufacturers_id = p.manufacturers_id
                                                 AND p.products_status = '1'
                                                     ".PRODUCTS_CONDITIONS_P."
-                                          JOIN " . TABLE_MANUFACTURERS_INFO . " mi
-                                              ON m.manufacturers_id = mi.manufacturers_id
-                                                AND mi.languages_id = '" . (int)$_SESSION['languages_id'] . "'
-                                              JOIN ".TABLE_PRODUCTS_DESCRIPTION." pd
+                                        JOIN ".TABLE_PRODUCTS_DESCRIPTION." pd
                                              ON p.products_id = pd.products_id
                                                 AND pd.language_id = '".(int)$_SESSION['languages_id']."'
                                                 AND trim(pd.products_name) != ''
@@ -46,7 +43,7 @@
         $image = $main->getImage($manufacturers['manufacturers_image'], 'manufacturers/', MANUFACTURER_IMAGE_SHOW_NO_IMAGE, 'manufacturers/noimage.gif');
       
         $box_content[] = array(
-          'NAME' => $manufacturers['manufacturers_title'] != '' ? $manufacturers['manufacturers_title'] : $manufacturers['manufacturers_name'],
+          'NAME' => $manufacturers['manufacturers_name'],
           'LINK' => xtc_href_link(FILENAME_DEFAULT, xtc_manufacturer_link($manufacturers['manufacturers_id'],$manufacturers['manufacturers_name'])),
           'IMAGE' => (($image != '') ? DIR_WS_BASE . $image : ''),
         );

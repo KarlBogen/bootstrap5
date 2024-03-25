@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- BS5a - statt Kategorieüberschrift wird nur der Kategoriename im Menü angezeigt
 
 
 1.1.0 [23.03.2024]

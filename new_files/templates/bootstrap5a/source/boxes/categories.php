@@ -41,7 +41,6 @@ if (!$box_smarty->is_cached(CURRENT_TEMPLATE.'/boxes/box_categories.html', $cach
   
   $categories_query = xtDBquery("SELECT c.categories_id,
                                         cd.categories_name,
-										                    cd.categories_heading_title,
                                         c.parent_id
                                    FROM ".TABLE_CATEGORIES." c
                                    JOIN ".TABLE_CATEGORIES_DESCRIPTION." cd
@@ -57,7 +56,7 @@ if (!$box_smarty->is_cached(CURRENT_TEMPLATE.'/boxes/box_categories.html', $cach
       $categories['cat_link'] = xtc_href_link(FILENAME_DEFAULT, xtc_category_link($categories['categories_id'],$categories['categories_name']));
       $foo[$categories['categories_id']] = array (
         'id' => $categories['categories_id'],
-        'name' => $categories['categories_heading_title'] != '' ? $categories['categories_heading_title'] : $categories['categories_name'],
+        'name' => $categories['categories_name'],
         'link' => $categories['cat_link'],
         'parent' => $categories['parent_id'],
         'level' => 0,
@@ -89,7 +88,6 @@ if (!$box_smarty->is_cached(CURRENT_TEMPLATE.'/boxes/box_categories.html', $cach
         unset ($first_id);
         $categories_query = xtDBquery("SELECT c.categories_id,
                                               cd.categories_name,
-																							cd.categories_heading_title,
                                               c.parent_id
                                          FROM ".TABLE_CATEGORIES." c
                                          JOIN ".TABLE_CATEGORIES_DESCRIPTION." cd
@@ -107,7 +105,7 @@ if (!$box_smarty->is_cached(CURRENT_TEMPLATE.'/boxes/box_categories.html', $cach
             $row['cat_link'] = xtc_href_link(FILENAME_DEFAULT, xtc_category_link($row['categories_id'], $row['categories_name']));
             $foo[$row['categories_id']] = array (
 				      'id' => $row['categories_id'],
-              'name' => $row['categories_heading_title'] != '' ? $row['categories_heading_title'] : $row['categories_name'],
+              'name' => $row['categories_name'],
               'link' => $row['cat_link'],
               'parent' => $row['parent_id'],
               'level' => $key +1,
