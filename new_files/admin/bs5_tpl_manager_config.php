@@ -567,6 +567,11 @@ require_once (DIR_WS_INCLUDES.'head.php');
 				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_PROD_DETAIL_MOREIMAGES_AS_SLIDER_INFO; ?></td>
 							</tr>
 							<tr>
+				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_PROD_DETAIL_FULLCONTENT; ?></td>
+				                <td class="dataTableConfig col-middle"><?php echo xtc_cfg_select_option($yes_no_array, $bs5_conf['BS5_PROD_DETAIL_FULLCONTENT'], 'BS5_PROD_DETAIL_FULLCONTENT'); ?></td>
+				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_PROD_DETAIL_FULLCONTENT_INFO; ?></td>
+							</tr>
+							<tr>
 				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_MANUIMAGE; ?></td>
 				                <td class="dataTableConfig col-middle"><?php echo xtc_cfg_select_option($yes_no_array, $bs5_conf['BS5_PROD_DETAIL_SHOW_MANUIMAGE'], 'BS5_PROD_DETAIL_SHOW_MANUIMAGE'); ?></td>
 				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_MANUIMAGE_INFO; ?></td>

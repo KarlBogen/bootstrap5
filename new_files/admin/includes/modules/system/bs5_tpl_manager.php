@@ -281,6 +281,7 @@ class bs5_tpl_manager {
 			$values_config[] = "('BS5_TOP_PROD_IN_SLIDER', 'true')";
 			$values_config[] = "('BS5_PRODBOX_NAME_LINES', 0)";
 			$values_config[] = "('BS5_PROD_DETAIL_MI_AS_SLIDER', 'false')";
+			$values_config[] = "('BS5_PROD_DETAIL_FULLCONTENT', 'false')";
 			$values_config[] = "('BS5_PROD_DETAIL_SHOW_MANUIMAGE', 'true')";
 			$values_config[] = "('BS5_PROD_LIST_BOX', 'true')";
 			$values_config[] = "('BS5_PRODUCT_INFO_BOX', 'true')";

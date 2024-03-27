@@ -148,14 +148,14 @@
 				{if $ADD_CART_BUTTON != ''}
 					<div class="my-3 py-2 border-bottom">
 						<div class="row">
-							<div class="col-5 col-xl-3 mb-3 mx-auto">
+							<div class="col-5 col-xl-{if $smarty.const.BS5_PROD_DETAIL_FULLCONTENT == 'true'}4{else}3{/if} mb-3 mx-auto">
 								<div class="input-group">
 									{if !isset($ADD_QTY_HIDDEN)}<button id="btn_minus" class="btn btn-outline-secondary" type="button" aria-label="{#products_basket_quantity#} minus"><i class="fa fa-minus"></i></button>{/if}
 									{$ADD_QTY|replace:"type=\"text\"":"type=\"tel\" id=\"qty_input\" class=\"form-control text-center\" aria-label=\"{#products_basket_quantity#}\""}
 									{if !isset($ADD_QTY_HIDDEN)}<button id="btn_plus" class="btn btn-outline-secondary" type="button" aria-label="{#products_basket_quantity#} plus"><i class="fa fa-plus"></i></button>{/if}
 								</div>
 							</div>
-							<div class="col-sm-7 col-xl-9 d-grid gap-2">
+							<div class="col-sm-7 col-xl-{if $smarty.const.BS5_PROD_DETAIL_FULLCONTENT == 'true'}8{else}9{/if} d-grid gap-2">
 								{$ADD_CART_BUTTON|replace:'<button':'<button class="btn btn-cart btn-secondary"'}
 								{* Ausblenden der Links, wenn Modul Kundenerinnerung aktiviert und Lagerbestand kleiner 0 ist *}
 								{if $PRODUCTS_QUANTITY > 0 || ($PRODUCTS_QUANTITY <= 0 && $smarty.const.BS5_CUSTOMERS_REMIND != 'true')}

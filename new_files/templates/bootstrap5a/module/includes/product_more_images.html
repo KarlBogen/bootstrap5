@@ -1,7 +1,7 @@
 {if isset($more_images) && count($more_images) > 0}
   {if $smarty.const.BS5_PROD_DETAIL_MI_AS_SLIDER != 'true'}
     <div class="row">
-      <div class="col-4 col-sm-3 col-lg-2 mb-2">
+      <div class="col-4 col-sm-3{if $smarty.const.BS5_PROD_DETAIL_FULLCONTENT != 'true'} col-lg-2{/if} mb-2">
         <a role="button" href="#/" class="swap d-inline-block" tabindex="-1" data-goto="0" aria-describedby="zoomtext">
           {if $smarty.const.PICTURESET_ACTIVE === true}
             <img class="lazyload img-fluid img-thumbnail" data-src="{$PRODUCTS_IMAGE|replace:"info_":"mini_"}" alt="{$PRODUCTS_NAME|onlytext}" title="{$PRODUCTS_NAME|onlytext}">
@@ -12,7 +12,7 @@
       </div>
       {foreach key=i item=more_images_data from=$more_images}
         {if $more_images_data.PRODUCTS_IMAGE != ''}
-          <div class="col-4 col-sm-3 col-lg-2 mb-2">
+          <div class="col-4 col-sm-3{if $smarty.const.BS5_PROD_DETAIL_FULLCONTENT != 'true'} col-lg-2{/if} mb-2">
             <a role="button" href="#/" class="swap d-inline-block" tabindex="-1" data-goto="{$i}" aria-describedby="zoomtext">
               {if $smarty.const.PICTURESET_ACTIVE === true}
                 <img class="lazyload img-fluid img-thumbnail" data-src="{$more_images_data.PRODUCTS_IMAGE|replace:"info_":"mini_"}" alt="{if $more_images_data.IMAGE_ALT != ''}{$more_images_data.IMAGE_ALT|onlytext}{else}{$PRODUCTS_NAME|onlytext}{/if}" title="{if $more_images_data.IMAGE_TITLE != ''}{$more_images_data.IMAGE_TITLE|onlytext}{else}{$PRODUCTS_NAME|onlytext}{/if}">
