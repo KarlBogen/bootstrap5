@@ -99,7 +99,7 @@
       xtc_show_category($foo[$counter]['next_id'], $level);
     } else {
       if (BS5_MANUFACTURERS_LINK == 'true' && $level == 1) {
-        $categories_string .= '<li id="liman" class="nav-item level1 category_li">';
+        $categories_string .= '<li class="liman nav-item level1 category_li">';
         $categories_string .= '<a class="category_button nav-link border-bottom'. (isset($_GET['manufacturers_id']) ? ' active' : '') .'" role="button" aria-expanded="'.(isset($_GET['manufacturers_id']) ? 'true' : 'false').'" href="javascript:;" data-value="man" title="'. TEXT_FILTER_MANUFACTURERS_LABEL . '">';
         $categories_string .= TEXT_FILTER_MANUFACTURERS_LABEL .'<i class="fa fa-' . (isset($_GET['manufacturers_id']) ? 'chevron-up' : 'chevron-right') . '"></i></a>';
         if (isset($_GET['manufacturers_id'])) $categories_string .= bs5_show_manufacturers();

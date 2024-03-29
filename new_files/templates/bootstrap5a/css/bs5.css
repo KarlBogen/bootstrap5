@@ -306,7 +306,7 @@ span.special_percent {
 .category_li {
   position: relative;
 }
-button.category_button, #liman i {
+button.category_button, .liman i {
   line-height: 40px;
   width: 38px;
   height: 40px;
