@@ -1,7 +1,7 @@
 {config_load file="$language/lang_$language.conf" section="index"}
 {config_load file="lang_`$language`.custom"}
 <div id="layout_offline" style="margin-top:50px;">
-	{html_image file="templates/`$smarty.const.CURRENT_TEMPLATE`/`$smarty.const.BS5_SHOP_LOGO`" alt="`$store_name`" class="img-fluid mx-auto d-block"}
+	<img class="img-fluid mx-auto d-block" src="{$logo_path}" alt="{$store_name}" {$logo_path|imgsize:'templates'}>
 	<div class="mt-4">
 		{$shop_offline_msg}
 	</div>

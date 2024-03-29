@@ -1,5 +1,5 @@
 <div id="logobar" class="row text-center text-md-start py-3">
-	<a class="nav-logo col-12 col-md-3" href="{$index}" title="{#link_index#} &bull; {$store_name}">{html_image file="templates/`$smarty.const.CURRENT_TEMPLATE`/`$smarty.const.BS5_SHOP_LOGO`" alt="`$store_name`" class="img-fluid"}</a>
+	<a class="nav-logo col-12 col-md-3" href="{$index}" title="{#link_index#} &bull; {$store_name}"><img class="img-fluid" src="{$logo_path}" alt="{$store_name}" {$logo_path|imgsize:'templates'}></a>
 	<div class="logos col-12 col-md-9 position-relative">
 		<div class="row justify-content-end">
 			{if isset($box_SEARCH)}{$box_SEARCH}{/if}

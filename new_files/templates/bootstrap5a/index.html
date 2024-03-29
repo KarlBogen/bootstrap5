@@ -66,7 +66,7 @@
 				{* ENDE Javascript-Hinweis *}
 				<div id="checkout_logobar" class="pt-3 mb-3 border-bottom">
 					<div class="d-sm-flex justify-content-between align-items-center mb-3">
-						{html_image file="templates/`$smarty.const.CURRENT_TEMPLATE`/`$smarty.const.BS5_SHOP_LOGO`" alt="`$store_name`" class="img-fluid"}
+						<img class="img-fluid" src="{$logo_path}" alt="{$store_name}" {$logo_path|imgsize:'templates'}>
 						<div class="col_logo_back my-2 text-end">
 							{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_CHECKOUT_SUCCESS) !== false}
 								<a class="btn btn-outline-secondary btn-sm" href="{$index}" title="{#link_index#} &bull; {$store_name}">{#BS5_back_to_shop#}<i class="fa fa-arrow-right ms-2"></i></a>

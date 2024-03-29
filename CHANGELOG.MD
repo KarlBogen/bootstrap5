@@ -1,5 +1,6 @@
 UNRELEASED
 
+- Pfade zum Shoplogo auf manchen Systemen fehlerhaft - behoben
 - BS5a - Kategoriemenü kann auch auf Produktinfoseite angezeigt werden
 - BS5a - statt Kategorieüberschrift wird nur der Kategoriename im Menü angezeigt
 
