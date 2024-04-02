@@ -1,5 +1,6 @@
 UNRELEASED
 
+- css_button.inc.php Konstanten entfernt
 - BS5_FILTERBORDERCOLOR_AKTIV war ohne Systemmodul nicht definiert
 - Doppelte ID's im HTML - behoben
 - Pfade zum Shoplogo auf manchen Systemen fehlerhaft - behoben

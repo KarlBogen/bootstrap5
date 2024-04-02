@@ -9,9 +9,6 @@ function css_button($image, $alt, $parameters = '', $submit = false) {
     $title          = $alt;
     $leer			= '';
 
-    $products_review_link = defined('PRODUCTS_REVIEW_LINK_TITLE') ? PRODUCTS_REVIEW_LINK_TITLE : PRODUCTS_REVIEW_LINK;
-    $printview_info = defined('PRINTVIEW_INFO_TITLE') ? PRINTVIEW_INFO_TITLE : PRINTVIEW_INFO;
-
     // Erklärung: es wird geprüft, welches Buttonbild von Modified aufgerufen wird. Dementsprechend werden neue Attribute zugewiesen.
     // z.B. dem Buttonbild 'button_checkout_express.gif' wird zugewiesen:
     //      'Text' => TEXT_CHECKOUT_EXPRESS_INFO_LINK (der Text der auf dem neuen Button angezeigt wird, in der Regel der Text der Modifiedvariablen '$alt', in unserem Beispiel der Text der in der Languagedatei 'TEXT_CHECKOUT_EXPRESS_INFO_LINK' zugewiesen wurde).
