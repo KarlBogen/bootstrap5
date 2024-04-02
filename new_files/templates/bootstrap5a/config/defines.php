@@ -89,6 +89,7 @@
 	defined('BS5_USE_VIEWERJS') or define('BS5_USE_VIEWERJS', 'true'); // VIEWERJS-Bildbetrachter in der Produkt-Info-Ansicht verwenden = true, ansonsten false
 	// Filterfarbe, wenn aktiv
 	defined('BS5_FILTERCOLOR_AKTIV') or define('BS5_FILTERCOLOR_AKTIV', 'primary'); // primary, secondary, success, danger, warning, info, light oder dark
+	defined('BS5_FILTERBORDERCOLOR_AKTIV') or define('BS5_FILTERBORDERCOLOR_AKTIV', 'primary'); // primary, secondary, success, danger, warning, info, light oder dark
 	// Suchfeld, einreihig oder zweireihig
 	defined('BS5_SEARCHFIELD_ONE_ROW') or define('BS5_SEARCHFIELD_ONE_ROW', 'true'); // true einreihig / false zweireihig
 	// Artikelname in Produktboxen kürzen
