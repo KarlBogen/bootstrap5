@@ -26,7 +26,7 @@
 	$css_array = array();
 
 	// include bootstrap
-  if (BS5_THEME != '') {
+  if (defined('BS5_THEME') && BS5_THEME != '') {
     $css_array[] = DIR_TMPL_CSS.'bootstrap/bootstrap-'.BS5_THEME.'.min.css';
   } else {
 	  $css_array[] = DIR_TMPL_CSS.'bootstrap/bootstrap.min.css';

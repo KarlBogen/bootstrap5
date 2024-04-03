@@ -1,5 +1,11 @@
 UNRELEASED
 
+
+
+
+1.1.1 [03.04.2024]
+
+- Weisse Seite nach Update wegen fehlender Konstante - behoben
 - css_button.inc.php Konstanten entfernt
 - BS5_FILTERBORDERCOLOR_AKTIV war ohne Systemmodul nicht definiert
 - Doppelte ID's im HTML - behoben
