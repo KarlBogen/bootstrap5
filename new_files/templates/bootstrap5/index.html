@@ -279,7 +279,7 @@
 				{if isset($box_MISCELLANEOUS)}<div class="col-lg-3 col-md-6 mb-3">{$box_MISCELLANEOUS} </div>{/if}
 			</div>
 			<div class="mod_copyright mx-auto text-center small pb-5">
-        {if $smarty.const.MODULE_SMALL_BUSINESS != 'true'}{#footer_price_hinweis_1#} {if $smarty.session.customers_status.customers_status_show_price_tax == 1}{#footer_price_hinweis_incl#}{else}{#footer_price_hinweis_excl#}{/if} {#footer_price_hinweis_2#} <a class="iframe" title="Information" href="{'popup_content.php'|xtc_href_link:'coID=1'}" target="_blank" rel="nofollow">{#footer_price_hinweis_3#}</a>. {/if}{#footer_price_hinweis_4#} {$smarty.const.TITLE}.<br />
+        {if $smarty.const.MODULE_SMALL_BUSINESS != 'true'}{#footer_price_hinweis_1#} {if $smarty.session.customers_status.customers_status_show_price_tax == 1}{#footer_price_hinweis_incl#}{else}{#footer_price_hinweis_excl#}{/if} {#footer_price_hinweis_2#} <a class="iframe link-secondary" title="Information" href="{'popup_content.php'|xtc_href_link:'coID=1'}" target="_blank" rel="nofollow">{#footer_price_hinweis_3#}</a>. {/if}{#footer_price_hinweis_4#} {$smarty.const.TITLE}.<br />
 				{$smarty.const.TITLE} &copy; {$smarty.now|date_format:"Y"} | Template &copy; {$smarty.now|date_format:"Y"} by Karl
 			</div>
 		</div>
