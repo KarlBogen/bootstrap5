@@ -72,6 +72,14 @@ subfooter_newsletter_text = 'Kostenlose exklusive Angebote und Produktneuheiten 
 subfooter_newsletter_disclaim = 'Der Newsletter ist kostenlos und kann jederzeit hier oder in Ihrem Kundenkonto wieder abbestellt werden.'
 subfooter_text_email = 'Ihre E-Mail-Adresse ...'
 
+# Footer #
+footer_price_hinweis_1 = 'Alle Preise'
+footer_price_hinweis_incl = 'inkl.'
+footer_price_hinweis_excl = 'exkl.'
+footer_price_hinweis_2 = 'gesetzl. MwSt. zzgl.'
+footer_price_hinweis_3 = 'Versandkosten'
+footer_price_hinweis_4 = 'Die durchgestrichenen Preise entsprechen dem bisherigen Preis bei'
+
 footer_heading_payment = 'Zahlungsmethoden'
 footer_heading_social = 'Social Media'
 footer_heading_contact = 'Kontakt'
