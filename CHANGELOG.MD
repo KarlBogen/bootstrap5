@@ -1,7 +1,7 @@
 UNRELEASED
 
 
-
+- Durchgestrichene Preise in Info und Listing hinzugefügt
 - Kleinunternehmerregelung Footertext - https://trac.modified-shop.org/changeset/15782/
 
 1.1.1 [03.04.2024]

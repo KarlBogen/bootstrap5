@@ -1,7 +1,7 @@
             {if $price_data.PRODUCTS_PRICE_FLAG == 'Special' || $price_data.PRODUCTS_PRICE_FLAG == 'SpecialDiscount'}
               {* START Produkt Sonderpreis Langform mit Ausgabe Alter Preis, Neuer Preis, Sie sparen *}
               <div class="old_price">
-                <span class="small_price">{$smarty.const.INSTEAD}{$price_data.PRODUCTS_PRICE_FROM}</span> <span class="value_price">{$price_data.PRODUCTS_PRICE_OLD_PRICE}</span>
+                <span class="small_price">{$smarty.const.INSTEAD}{$price_data.PRODUCTS_PRICE_FROM}</span> <span class="value_price"><del>{$price_data.PRODUCTS_PRICE_OLD_PRICE}</del></span>
               </div>
               <div class="new_price fs-3 text-danger">
                 <span class="small_price">{$smarty.const.ONLY}{$price_data.PRODUCTS_PRICE_FROM}</span> <span class="value_price">{$price_data.PRODUCTS_PRICE_SPECIAL_PRICE}</span>
@@ -22,7 +22,7 @@
                 <div class="uvp_price fs-4">
                   <span class="small_price">{$smarty.const.YOUR_PRICE}</span> <span class="value_price">{$price_data.PRODUCTS_PRICE_SPECIAL_PRICE}</span>
                 </div>
-                <div class="item_price"><span class="small_price">{$smarty.const.MSRP}</span> <span class="value_price">{$price_data.PRODUCTS_PRICE_OLD_PRICE}</span></div>
+                <div class="item_price"><span class="small_price">{$smarty.const.MSRP}</span> <span class="value_price"><del>{$price_data.PRODUCTS_PRICE_OLD_PRICE}</span></del></div>
                 <meta itemprop="price" content="{$price_data.PRODUCTS_PRICE_PLAIN}" />
                 {* ENDE Produkt UVP Preis mit Ausgabe Ihr Preis, UVP *}
               {else}
