@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- Fehler Shop offline behoben
 - Durchgestrichene Preise in Info und Listing hinzugefügt
 - Kleinunternehmerregelung Footertext - https://trac.modified-shop.org/changeset/15782/
 
