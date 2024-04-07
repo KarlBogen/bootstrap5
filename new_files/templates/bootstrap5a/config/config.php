@@ -22,6 +22,9 @@
 		require_once('defines.php');
 	}
 
+	// Produktdetailansicht
+	defined('BS5_PROD_DETAIL_FULLCONTENT') or define('BS5_PROD_DETAIL_FULLCONTENT', 'false'); // 'true' Zeigt in der Produktdetailseite das Kategoriemenü in der linken Spalte. Nur für das Template "bootstrap5a"!
+
 	// KK-Megamenü
 	$KK_MEGAS = array(); // Variable wird definiert - hier nichts eintragen
 	if(BS5_KK_MEGAS != '') {
