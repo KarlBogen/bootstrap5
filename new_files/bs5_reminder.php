@@ -41,6 +41,7 @@ if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 	$smarty = new Smarty();
 
 	// include boxes
+	$display_mode = 'bs5_reminder';
 	require(DIR_FS_CATALOG . 'templates/' . CURRENT_TEMPLATE . '/source/boxes.php');
 	// include header
 	require(DIR_WS_INCLUDES . 'header.php');

@@ -26,36 +26,38 @@
             </div>
           {/if}
 				</div>
-				{if $PRODUCTS_RATING_COUNT > 0 || $BS5_AWIDS_PRODUCTS_SUM_REVIEWS > 0}
-					<div class="pd_inforow small mb-3" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-						{if $BS5_AWIDS_PRODUCTS_AVERAGE_PERCENT}
-							<div class="d-inline">
-								<a class="bs5_avg_container link-secondary" href="#" data-pid="{$PRODUCTS_ID}" data-class="prod" title="{$smarty.const.BS5_AWIDSRATINGBREAKDOWN_ARROW_TITLE}">
-									<span class="visually-hidden">{#info_review#}: {$smarty.const.TEXT_OF_5_STARS|sprintf:$BS5_AWIDS_PRODUCTS_AVERAGE}</span>
+				{if isset($PRODUCTS_RATING_COUNT)}
+					{if $PRODUCTS_RATING_COUNT > 0 || $BS5_AWIDS_PRODUCTS_SUM_REVIEWS > 0}
+						<div class="pd_inforow small mb-3" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+							{if $BS5_AWIDS_PRODUCTS_AVERAGE_PERCENT}
+								<div class="d-inline">
+									<a class="bs5_avg_container link-secondary" href="#" data-pid="{$PRODUCTS_ID}" data-class="prod" title="{$smarty.const.BS5_AWIDSRATINGBREAKDOWN_ARROW_TITLE}">
+										<span class="visually-hidden">{#info_review#}: {$smarty.const.TEXT_OF_5_STARS|sprintf:$BS5_AWIDS_PRODUCTS_AVERAGE}</span>
+										<span class="ratings">
+											<span class="fas empty-stars"></span><span class="fas full-stars" style="width:{$BS5_AWIDS_PRODUCTS_AVERAGE_PERCENT}%"></span>
+										</span>&nbsp;({$BS5_AWIDS_PRODUCTS_SUM_REVIEWS}<span class="visually-hidden">&nbsp;{#info_reviews#}</span>)
+										<i class="fa fa-chevron-down ms-1"></i>
+									</a>
+								</div>
+							{else}
+								<div>
+									<span class="visually-hidden">{#info_review#}: {$smarty.const.TEXT_OF_5_STARS|sprintf:$PRODUCTS_AVERAGE_RATING}</span>
 									<span class="ratings">
-										<span class="fas empty-stars"></span><span class="fas full-stars" style="width:{$BS5_AWIDS_PRODUCTS_AVERAGE_PERCENT}%"></span>
-									</span>&nbsp;({$BS5_AWIDS_PRODUCTS_SUM_REVIEWS}<span class="visually-hidden">&nbsp;{#info_reviews#}</span>)
-									<i class="fa fa-chevron-down ms-1"></i>
-								</a>
-							</div>
-						{else}
-							<div>
-								<span class="visually-hidden">{#info_review#}: {$smarty.const.TEXT_OF_5_STARS|sprintf:$PRODUCTS_AVERAGE_RATING}</span>
-								<span class="ratings">
-									<span class="fas empty-stars"></span><span class="fas full-stars" style="width:{math equation = "x * 20" x = $PRODUCTS_AVERAGE_RATING|intval}%"></span>
-								</span>&nbsp;({$PRODUCTS_RATING_COUNT}<span class="visually-hidden">&nbsp;{#info_reviews#}</span>)
-							</div>
-						{/if}
-						<meta itemprop="ratingValue" content="{$PRODUCTS_AVERAGE_RATING}" />
-						<meta itemprop="bestRating" content="5" />
-						<meta itemprop="ratingCount" content="{$PRODUCTS_RATING_COUNT}" />
-					</div>
-				{else}
-					<div class="ratings mb-3">
-						<div class="visually-hidden">{#info_reviews#}:</div>
-						<span class="fas empty-stars"></span><span class="fas full-stars" style="width:0%"></span>
-						<span class="text-secondary-emphasis">&nbsp;(0<span class="visually-hidden">&nbsp;{#info_reviews#}</span>)</span>
-					</div>
+										<span class="fas empty-stars"></span><span class="fas full-stars" style="width:{math equation = "x * 20" x = $PRODUCTS_AVERAGE_RATING|intval}%"></span>
+									</span>&nbsp;({$PRODUCTS_RATING_COUNT}<span class="visually-hidden">&nbsp;{#info_reviews#}</span>)
+								</div>
+							{/if}
+							<meta itemprop="ratingValue" content="{$PRODUCTS_AVERAGE_RATING}" />
+							<meta itemprop="bestRating" content="5" />
+							<meta itemprop="ratingCount" content="{$PRODUCTS_RATING_COUNT}" />
+						</div>
+					{else}
+						<div class="ratings mb-3">
+							<div class="visually-hidden">{#info_reviews#}:</div>
+							<span class="fas empty-stars"></span><span class="fas full-stars" style="width:0%"></span>
+							<span class="text-secondary-emphasis">&nbsp;(0<span class="visually-hidden">&nbsp;{#info_reviews#}</span>)</span>
+						</div>
+					{/if}
 				{/if}
 				<div class="mb-3">
 					{if $PRODUCTS_MODEL != ''}<div class="small mb-1"><strong>{#model#}</strong> <span itemprop="sku">{$PRODUCTS_MODEL}</span></div>{/if}

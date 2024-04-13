@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- Reviews werden trotz der Einstellung in Kundengruppe in Produktinfo angezeigt- behoben
 - Nicht definierter Array-Key in admin/bs5_tpl_manager_theme.php - behoben
 - Fehler Shop offline behoben
 - Durchgestrichene Preise in Info und Listing hinzugefügt

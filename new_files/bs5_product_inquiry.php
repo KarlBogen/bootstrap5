@@ -39,6 +39,7 @@ require_once (DIR_FS_INC.'secure_form.inc.php');
 $smarty = new Smarty();
 
 // include boxes
+$display_mode = 'bs5_product_inquiry';
 require(DIR_FS_CATALOG . 'templates/' . CURRENT_TEMPLATE . '/source/boxes.php');
 
 // include header
