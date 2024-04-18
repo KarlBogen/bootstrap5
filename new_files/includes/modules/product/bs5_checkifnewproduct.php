@@ -66,6 +66,14 @@ class bs5_checkifnewproduct {  //Important same name as filename
 	*/
 	function buildDataArray($productData, $array, $image='thumbnail', $precision = 0) {
 
+	if (defined('BS5_CUSTOMERS_REMIND_STATUS') && BS5_CUSTOMERS_REMIND_STATUS == 'true') {
+
+		if ($array["products_quantity"] < 1){
+
+	        $productData['PRODUCTS_BUTTON_BUY_NOW'] = '';
+
+		}
+  }
 		if (defined('BS5_AWIDSRATINGBREAKDOWN') && BS5_AWIDSRATINGBREAKDOWN == 'true') {
 
 			$sum_reviews = $this->getReviewsCount((int)$array['products_id']);

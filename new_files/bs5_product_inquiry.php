@@ -71,7 +71,7 @@ $smarty->assign('CONTENT_TEXT', $shop_content_data['content_text']);
 $smarty->assign('PRODUCTS_MODEL', $products->data['products_model']);
 $smarty->assign('PRODUCTS_NAME', $products->data['products_name']);
 $smarty->assign('PRODUCTS_SHORT_DESCRIPTION', stripslashes($products->data['products_short_description']));
-$smarty->assign('HEADING_FORMULAR', TEXT_PRODUCT_INQUIRY);
+$smarty->assign('HEADING_FORMULAR', BS5_TEXT_PRODUCT_INQUIRY);
 
 $image = '';
 if ($products->data['products_image'] != '') {
@@ -118,7 +118,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
 	}
 	if (strlen($message_body) == '') {
 		$error = true;
-		$messageStack->add('product_inquiry', ENTRY_MESSAGE_BODY_ERROR);
+		$messageStack->add('product_inquiry', BS5_ENTRY_MESSAGE_BODY_ERROR);
 	}
 	if (DISPLAY_PRIVACY_CHECK == 'true' && empty($privacy)) {
 		$error = true;
@@ -128,7 +128,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
 	if (!isset($_SESSION['customer_id']) || MODULE_CAPTCHA_LOGGED_IN == 'True') {
 		if ($mod_captcha->validate((isset($_POST['vvcode'])) ? $_POST['vvcode'] : '') !== true) {
 			$error = true;
-			$messageStack->add('product_inquiry', ENTRY_VVCODE_CHECK_ERROR);
+			$messageStack->add('product_inquiry', BS5_ENTRY_VVCODE_CHECK_ERROR);
 		}
 
 	}
@@ -154,7 +154,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
 		$products_link = xtc_href_link(FILENAME_PRODUCT_INFO, xtc_product_link($product->data['products_id'], $product->data['products_name']));
 
 		$create_html_body = '<h3>' . STORE_NAME . '</h3>';
-		$create_html_body .= '<h4>' . TEXT_PRODUCT_INQUIRY . '</h4>';
+		$create_html_body .= '<h4>' . BS5_TEXT_PRODUCT_INQUIRY . '</h4>';
 		$create_html_body .= $gender . "<br>";
 		$create_html_body .= $create_name . "<br>";
 		$create_html_body .= BS5_EMAIL . $email . "<br>";
@@ -166,7 +166,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
 		$create_html_body .= nl2br($message_body) . "<br><br>";
 
 		$create_text_body = STORE_NAME . "\n\n";
-		$create_text_body .= TEXT_PRODUCT_INQUIRY . ":\n--------------------\n";
+		$create_text_body .= BS5_TEXT_PRODUCT_INQUIRY . ":\n--------------------\n";
 		$create_text_body .= $gender . "\n";
 		$create_text_body .= $create_name . "\n";
 		$create_text_body .= BS5_EMAIL . $email . "\n";
@@ -221,7 +221,7 @@ $smarty->assign('INPUT_FIRSTNAME', xtc_draw_input_field('firstname', ($error ? $
 $smarty->assign('INPUT_LASTNAME', xtc_draw_input_field('lastname', ($error ? $_POST['lastname'] : (isset($_SESSION["customer_last_name"]) ? $_SESSION["customer_last_name"] : '')), 'id="lastname" class="form-control"'));
 $smarty->assign('INPUT_EMAIL', xtc_draw_input_field('email', ($error ? $_POST['email'] : (isset($_SESSION["customer_email_address"]) ? $_SESSION["customer_email_address"] : '')), 'id="email" class="form-control"'));
 $smarty->assign('INPUT_PHONE', xtc_draw_input_field('phone', ($error ? $_POST['phone'] : ''), 'id="phone" class="form-control"'));
-$smarty->assign('SELECT_SUBJECT', xtc_draw_input_field('subject', ($error ? $_POST['subject'] : TEXT_PRODUCT_INQUIRY), 'id="subject" class="form-control" disabled readonly'));
+$smarty->assign('SELECT_SUBJECT', xtc_draw_input_field('subject', ($error ? $_POST['subject'] : BS5_TEXT_PRODUCT_INQUIRY), 'id="subject" class="form-control" disabled readonly'));
 $smarty->assign('INPUT_TEXT', xtc_draw_textarea_field('message_body', 'soft', 50, 12, ($error ? $_POST['message_body'] : ''), 'class="form-control"'));
 $smarty->assign('BUTTON_SUBMIT', xtc_image_submit('button_send.gif', IMAGE_BUTTON_SEND));
 $smarty->assign('FORM_END', '</form>');

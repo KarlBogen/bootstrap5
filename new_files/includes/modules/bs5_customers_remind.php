@@ -9,7 +9,7 @@
 -------------------------------------------------------------- */
 
 /* ------------------------------------------------------------
-	Module "Kundenerinnerung_Multilingual_advanced_modified-shop-2.0.3.0" made by Karl
+	Module "Kundenerinnerung Modified Shop 3.0.2 mit Opt-in" made by Karl
 
 	Based on: Kundenerinnerung_Multilingual_advanced_modified-shop-1.06
 	Based on: xt-module.de customers remind
@@ -23,10 +23,40 @@
 	Released under the GNU General Public License
 -------------------------------------------------------------- */
 
-// alternativ nur von Admins ausführen ( bei stark frequentierten Shops und regelmäßigen Adminlogins )
-$only_admin = 0;
+$sendmail_asap = false; // true - wenn bei jedem Seitenaufruf die Tabelle "Kundenerinnerung" mit dem "Lagerbestand" abgeglichen werden soll
 
-if (($only_admin && $_SESSION['customers_status']['customers_status_id'] == 0) || !$only_admin) {
+if ($sendmail_asap === false) {
+	// Thanks to noRiddle - simulated cron job (code from https://trac.modified-shop.org/ticket/2252)
+	$last_exec = NULL;
+	$mas_act = false;
+
+	$mas_last_exec_qu_str = "SELECT last_executed FROM ".TABLE_BS5_SIMULATED_CRON_RECORDS." WHERE application = 'bs5customers_remind' AND last_executed IS NOT NULL";
+	$mas_last_exec_qu = xtc_db_query($mas_last_exec_qu_str);
+	if(xtc_db_num_rows($mas_last_exec_qu) == 1) {
+		$mas_last_exec_arr = xtc_db_fetch_array($mas_last_exec_qu);
+		$last_exec = $mas_last_exec_arr['last_executed'];
+
+		//do it only once a day
+		if(strtotime($last_exec) < time())
+			$mas_act = true;
+	} else {
+		if ($_SESSION['customers_status']['customers_status_id'] == 0) {
+			echo '<div class="errormessage shopsystem">Check Table <strong>' . TABLE_BS5_SIMULATED_CRON_RECORDS . '</strong>: There is no result "last_executed" for application "bs5customers_remind"!</div>';
+		}
+	}
+
+	if(xtc_check_agent() == 0 && !file_exists(DIR_WS_MODULES.'.sendremindmails_running')) { //process already running ?
+	  if(is_null($last_exec) || (isset($mas_act) && $mas_act === true)) {
+	    touch(DIR_WS_MODULES.'.sendremindmails_running'); //generate file as indicator that process is running
+
+	    //update set database record
+	    $remind_upd_qu_str = "INSERT INTO ".TABLE_BS5_SIMULATED_CRON_RECORDS." (application, last_executed) VALUES('bs5customers_remind', NOW()) ON DUPLICATE KEY UPDATE last_executed = VALUES(last_executed)";
+	    if(xtc_db_query($remind_upd_qu_str) && sendremindmails()) {
+	      unlink(DIR_WS_MODULES.'.sendremindmails_running'); //delete indicator
+	    }
+	  }
+	}
+} else {
   sendremindmails();
 }
 
@@ -126,6 +156,6 @@ function sendremindmails() {
                         );
                 }
         }
-        return;
+        return true;
 }
 ?>

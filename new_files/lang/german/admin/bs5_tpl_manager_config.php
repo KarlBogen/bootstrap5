@@ -241,6 +241,8 @@ $lang_array = array(
 		 <strong>Die Erinnerungsliste finden Sie im Adminbereich unter "Kunden -> Kundenerinnerungen".</strong><br><br>
 		 Ist ein Artikel (in ausreichender Anzahl) wieder auf Lager, bekommt der Kunde automatisch eine Erinnerungsmail mit einem Link, der direkt zum Produkt im Shop f&uuml;hrt.<br>
 		 Link zum Originalmodul: <a href="https://www.modified-shop.org/forum/index.php?topic=12813.0" target=”_blank”>https://www.modified-shop.org/forum/index.php?topic=12813.0</a>',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_ONLY_REGISTERED' => 'Kundenerinnerung:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_ONLY_REGISTERED_INFO' => '<strong>Erinnerung nur f&uuml;r angemeldete Kunden?</strong><br>Diesen Dienst nur f&uuml;r angemeldete Kunden erlauben, dann stellen Sie diesen Schalter auf "Ja".',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL' => 'Kundenerinnerung:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_INFO' => 'E-Mail an den Shopbetreiber (Kontakt - E-Mail-Adresse) senden, wenn sich ein Kunde in die Erinnerungsliste eintr&auml;gt?',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CHEAPLY_SEE' => 'Billiger gesehen:',

@@ -6,9 +6,9 @@
 	</tr>
 	<tr>
 		<td align="left" style="padding-top:20px;">
-			{if $CUSTOMERS_GENDER == 'f'}Sehr geehrte Frau{elseif $CUSTOMERS_GENDER == 'm'}Sehr geehrter Herr{else}Hallo Frau/Herr{/if} {$CUSTOMERS_LASTNAME},<br /><br />
+			{if $CUSTOMERS_LASTNAME != ''}{if $CUSTOMERS_GENDER == 'f'}Sehr geehrte Frau{elseif $CUSTOMERS_GENDER == 'm'}Sehr geehrter Herr{else}Hallo{/if} {$CUSTOMERS_FIRSTNAME} {$CUSTOMERS_LASTNAME}!<br /><br />{/if}
 
-			wir wollten Sie dar&uuml;ber informieren, dass wir soeben eine neue Lieferung bekommen haben, die auch Sie interessen k&ouml;nnte.<br /><br />
+			Wir wollten Sie dar&uuml;ber informieren, dass wir soeben eine neue Lieferung bekommen haben, die auch Sie interessen k&ouml;nnte.<br /><br />
 
 			Sie wollten eine Produkterinnerung bei einem erneutem Eintreffen des folgenden Artikels erhalten:<br /><br />
 

@@ -11,7 +11,7 @@
 define('TABLE_BS5_TPL_MANAGER_CONFIG', 'bs5_tpl_manager_config');
 define('TABLE_BS5_TPL_MANAGER_THEME', 'bs5_tpl_manager_theme');
 /* ------------------------------------------------------------
-	Module "Kundenerinnerung_Multilingual_advanced_modified-shop-2.0.3.0" made by Karl
+	Module "Kundenerinnerung Modified Shop 3.0.2 mit Opt-in" made by Karl
 
 	Based on: Kundenerinnerung_Multilingual_advanced_modified-shop-1.06
 	Based on: xt-module.de customers remind
@@ -26,4 +26,7 @@ define('TABLE_BS5_TPL_MANAGER_THEME', 'bs5_tpl_manager_theme');
 -------------------------------------------------------------- */
 
 define('TABLE_BS5_CUSTOMERS_REMIND', 'bs5_customers_remind');
+define('TABLE_BS5_CUSTOMERS_REMIND_RECIPIENTS', 'bs5_customers_remind_recipients');
+define('TABLE_BS5_CUSTOMERS_REMIND_RECIPIENTS_HISTORY', 'bs5_customers_remind_recipients_history');
+defined('TABLE_BS5_SIMULATED_CRON_RECORDS') or define('TABLE_BS5_SIMULATED_CRON_RECORDS', 'bs5_simulated_cron_records');
 ?>

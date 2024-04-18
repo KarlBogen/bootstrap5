@@ -1,6 +1,6 @@
 <?php
 /* ------------------------------------------------------------
-	Module "Kundenerinnerung_Multilingual_advanced_modified-shop-2.0.3.0" made by Karl
+	Module "Kundenerinnerung Modified Shop 3.0.2 mit Opt-in" made by Karl
 
 	Based on: Kundenerinnerung_Multilingual_advanced_modified-shop-1.06
 	Based on: xt-module.de customers remind

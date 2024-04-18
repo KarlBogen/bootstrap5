@@ -1,7 +1,9 @@
 UNRELEASED
 
 
-- Reviews werden trotz der Einstellung in Kundengruppe in Produktinfo angezeigt- behoben
+- Modul Kundenerinnerung jetzt mit Opt-in
+- Fehler Preload-Pfad für Schrift bei SEF-URLs - behoben
+- Reviews werden trotz der Abschaltung in Kundengruppe in Produktinfo angezeigt - behoben
 - Nicht definierter Array-Key in admin/bs5_tpl_manager_theme.php - behoben
 - Fehler Shop offline behoben
 - Durchgestrichene Preise in Info und Listing hinzugefügt

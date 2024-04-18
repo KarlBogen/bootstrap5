@@ -77,7 +77,7 @@ $smarty->assign('PRODUCTS_MODEL', $products->data['products_model']);
 $smarty->assign('PRODUCTS_NAME', $products->data['products_name']);
 $smarty->assign('PRODUCTS_SHORT_DESCRIPTION', stripslashes($products->data['products_short_description']));
 $smarty->assign('PRODUCTS_PRICE', isset($products_price['formated']) ? $products_price['formated'] : '');
-$smarty->assign('HEADING_FORMULAR', CHEAPLY_SEE_HEADING_FORMULAR);
+$smarty->assign('HEADING_FORMULAR', BS5_CHEAPLY_SEE_HEADING_FORMULAR);
 
 if ($_SESSION['customers_status']['customers_status_show_price'] != 0) {
 	$tax_rate = isset($xtPrice->TAX[$products->data['products_tax_class_id']]) ? $xtPrice->TAX[$products->data['products_tax_class_id']] : 0;
@@ -105,10 +105,10 @@ if ($products->data['products_vpe_status'] == 1 && $products->data['products_vpe
 }
 
 // Anfragetext
-$text_body = TEXT_PRODUCTS_CHEAPLY_NOTE . "\n\n"
-	. TEXT_PRODUCTS_CHEAPLY_NAME . $products->data['products_name'] . "\n"
-	. TEXT_PRODUCTS_CHEAPLY_NUMBER . $products->data['products_model'] . "\n\n"
-	. TEXT_PRODUCTS_CHEAPLY_NOTE2;
+$text_body = BS5_TEXT_PRODUCTS_CHEAPLY_NOTE . "\n\n"
+	. BS5_TEXT_PRODUCTS_CHEAPLY_NAME . $products->data['products_name'] . "\n"
+	. BS5_TEXT_PRODUCTS_CHEAPLY_NUMBER . $products->data['products_model'] . "\n\n"
+	. BS5_TEXT_PRODUCTS_CHEAPLY_NOTE2;
 
 //-- FEHLERMELDUNG ERZEUGEN ----------------------------------------------------------------------------------
 $privacy = isset($_POST['privacy']) && $_POST['privacy'] == 'privacy' ? true : false;
@@ -150,18 +150,18 @@ if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
 	}
 	if (strlen($message_body) == '') {
 		$error = true;
-		$messageStack->add('cheaply_see', ENTRY_MESSAGE_BODY_ERROR);
+		$messageStack->add('cheaply_see', BS5_ENTRY_MESSAGE_BODY_ERROR);
 	}
 	if ($competitorurl == '') {
 		$error = true;
-		$messageStack->add('cheaply_see', ENTRY_COMPETITORURL_CHECK_ERROR);
+		$messageStack->add('cheaply_see', BS5_ENTRY_COMPETITORURL_CHECK_ERROR);
 	} elseif (!validate_url($competitorurl)) {
 		$error = true;
-		$messageStack->add('cheaply_see', ENTRY_COMPETITORURL_VALIDATION_ERROR);
+		$messageStack->add('cheaply_see', BS5_ENTRY_COMPETITORURL_VALIDATION_ERROR);
 	}
 	if ($competitorprice == '') {
 		$error = true;
-		$messageStack->add('cheaply_see', ENTRY_COMPETITORPRICE_CHECK_ERROR);
+		$messageStack->add('cheaply_see', BS5_ENTRY_COMPETITORPRICE_CHECK_ERROR);
 	}
 	if (DISPLAY_PRIVACY_CHECK == 'true' && empty($privacy)) {
 		$error = true;
@@ -171,7 +171,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
 	if (!isset($_SESSION['customer_id']) || MODULE_CAPTCHA_LOGGED_IN == 'True') {
 		if ($mod_captcha->validate((isset($_POST['vvcode'])) ? $_POST['vvcode'] : '') !== true) {
 			$error = true;
-			$messageStack->add('cheaply_see', ENTRY_VVCODE_CHECK_ERROR);
+			$messageStack->add('cheaply_see', BS5_ENTRY_VVCODE_CHECK_ERROR);
 		}
 	}
   if (check_secure_form($_POST) === false) {
@@ -195,7 +195,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
 		$create_subject = $subject;
 
 		$create_html_body = '<h3>' . STORE_NAME . '</h3>';
-		$create_html_body .= '<h4>' . CHEAPLY_SEE_HEADING_FORMULAR . '</h4>';
+		$create_html_body .= '<h4>' . BS5_CHEAPLY_SEE_HEADING_FORMULAR . '</h4>';
 		$create_html_body .= $gender . "<br>";
 		$create_html_body .= $create_name . "<br>";
 		$create_html_body .= BS5_EMAIL . $email . "<br><br>";
@@ -207,7 +207,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
 		$create_html_body .= nl2br($message_body) . "<br><br>";
 
 		$create_text_body = STORE_NAME . "\n\n";
-		$create_text_body .= CHEAPLY_SEE_HEADING_FORMULAR . ":\n--------------------\n";
+		$create_text_body .= BS5_CHEAPLY_SEE_HEADING_FORMULAR . ":\n--------------------\n";
 		$create_text_body .= $gender . "\n";
 		$create_text_body .= $create_name . "\n";
 		$create_text_body .= BS5_EMAIL . $email . "\n\n";
@@ -261,7 +261,7 @@ $smarty->assign('SELECT_GENDER', $select_gender);
 $smarty->assign('INPUT_FIRSTNAME', xtc_draw_input_field('firstname', ($error ? $_POST['firstname'] : (isset($_SESSION["customer_first_name"]) ? $_SESSION["customer_first_name"] : '')), 'id="firstname" class="form-control"'));
 $smarty->assign('INPUT_LASTNAME', xtc_draw_input_field('lastname', ($error ? $_POST['lastname'] : (isset($_SESSION["customer_last_name"]) ? $_SESSION["customer_last_name"] : '')), 'id="lastname" class="form-control"'));
 $smarty->assign('INPUT_EMAIL', xtc_draw_input_field('email', ($error ? $_POST['email'] : (isset($_SESSION["customer_email_address"]) ? $_SESSION["customer_email_address"] : '')), 'id="email" class="form-control"'));
-$smarty->assign('SELECT_SUBJECT', xtc_draw_input_field('subject', ($error ? $_POST['subject'] : CONTACT_SUBJECT_4), 'id="subject" class="form-control" disabled readonly'));
+$smarty->assign('SELECT_SUBJECT', xtc_draw_input_field('subject', ($error ? $_POST['subject'] : BS5_CONTACT_SUBJECT_4), 'id="subject" class="form-control" disabled readonly'));
 $smarty->assign('INPUT_COMPETITOR_URL', xtc_draw_input_field('competitorurl', ($error ? $_POST['competitorurl'] : ''), 'id="competitorurl" class="form-control"'));
 $smarty->assign('INPUT_COMPETITOR_PRICE', xtc_draw_input_field('competitorprice', ($error ? $_POST['competitorprice'] : ''), 'id="competitorprice" class="form-control"'));
 $smarty->assign('INPUT_TEXT', xtc_draw_textarea_field('message_body', 'soft', 50, 12, $text_body, 'class="form-control"'));

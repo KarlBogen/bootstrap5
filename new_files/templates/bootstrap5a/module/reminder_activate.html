@@ -1,0 +1,15 @@
+{config_load file="lang_`$language`.section" section="bs5_customers_remind"}
+<h1 class="heading bg-h">{$smarty.const.BS5_CUSTOMERS_REMIND_TITLE}</h1>
+{if $error_message}<div class="alert alert-{if $message_class == 'error'}danger{else}{$message_class}{/if}">{$error_message}</div>{/if}
+{if isset($activated)}
+  <div class="content my-4 clearfix">
+		<div class="card">
+			<div class="card-header">
+				<h4>{#BS5_customers_remind_activate_head#}</h4>
+			</div>
+			<div class="card-body">
+		    <div>{#BS5_customers_remind_activate_info#}</div>
+			</div>
+	  </div>
+  </div>
+{/if}

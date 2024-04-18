@@ -241,6 +241,8 @@ $lang_array = array(
 		 <strong>The reminder list can be found in the admin area under "Customers -> Customers Remind".</strong><br><br>
 		 If an article (in sufficient number) is in stock again, the customer automatically receives a reminder email with a link that leads directly to the product in the shop.<br>
 		 Link to the original module: <a href="https://www.modified-shop.org/forum/index.php?topic=12813.0" target=”_blank”>https://www.modified-shop.org/forum/index.php?topic=12813.0</a>',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_ONLY_REGISTERED' => 'Customer remind:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_ONLY_REGISTERED_INFO' => '<strong>Reminder only for registered customers?</strong><br>If you only allow this service for registered customers, then set this switch to "Yes".',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL' => 'Customer remind:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_INFO' => 'Send an e-mail to the shop owner (contact - e-mail address) when a customer enters the reminder list?',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CHEAPLY_SEE' => 'Cheaply see:',

@@ -9,7 +9,7 @@
 -------------------------------------------------------------- */
 
 // Zusatzmodul Kundenerinnerung
-define('BS5_FILENAME_CUSTOMERS_REMIND', 'bs5_reminder.php');
+define('FILENAME_BS5_CUSTOMERS_REMIND','bs5_customers_remind.php');
 // Zusatzmodul Billiger gesehen
 define('BS5_FILENAME_CHEAPLY_SEE', 'bs5_cheaply_see.php');
 // Zusatzmodul Frage zum Produkt

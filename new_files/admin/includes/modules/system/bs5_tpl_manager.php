@@ -141,6 +141,7 @@ class bs5_tpl_manager {
 		$dirs_and_files = array();
 		$dirs_and_files[] = $shop_path.DIR_ADMIN.'bs5_banner_manager.php';
 		$dirs_and_files[] = $shop_path.DIR_ADMIN.'bs5_customers_remind.php';
+		$dirs_and_files[] = $shop_path.DIR_ADMIN.'bs5_customers_remind_recipients.php';
 		$dirs_and_files[] = $shop_path.DIR_ADMIN.'bs5_tpl_manager_config.php';
 		$dirs_and_files[] = $shop_path.DIR_ADMIN.'bs5_tpl_manager_theme.php';
 		$dirs_and_files[] = $shop_path.DIR_ADMIN.'bs5_tpl_manager_theme_preview.php';
@@ -149,6 +150,7 @@ class bs5_tpl_manager {
 		$dirs_and_files[] = $shop_path.DIR_ADMIN.'includes/extra/filenames/bs5_tpl_manager.php';
 		$dirs_and_files[] = $shop_path.DIR_ADMIN.'includes/extra/menu/bs5_tpl_manager.php';
 
+		$dirs_and_files[] = $shop_path.'includes/classes/bs5_class.customers_remind.php';
 		$dirs_and_files[] = $shop_path.'includes/extra/ajax/bs5_awids_rating.php';
 		$dirs_and_files[] = $shop_path.'includes/extra/ajax/bs5_get_subcat.php';
 		$dirs_and_files[] = $shop_path.'includes/extra/application_bottom/bs5_customers_remind.php';
@@ -165,8 +167,8 @@ class bs5_tpl_manager {
 		$dirs_and_files[] = $shop_path.'includes/extra/modules/metatags_data/bs5_metatags.php';
 		$dirs_and_files[] = $shop_path.'includes/extra/modules/order_details_cart_attributes/bs5_agi_reduce_cart.php';
 		$dirs_and_files[] = $shop_path.'includes/extra/modules/order_details_cart_content/bs5_agi_reduce_cart.php';
-		$dirs_and_files[] = $shop_path.'includes/extra/modules/product_info_end/bs5_additional_module_links.php';
-		$dirs_and_files[] = $shop_path.'includes/extra/modules/product_info_end/bs5_agi_reduce_cart.php';
+		$dirs_and_files[] = $shop_path.'includes/extra/modules/product_info_end/zzz_bs5_additional_module_links.php';
+		$dirs_and_files[] = $shop_path.'includes/extra/modules/product_info_end/zzz_bs5_agi_reduce_cart.php';
 		$dirs_and_files[] = $shop_path.'includes/extra/modules/product_listing_begin/bs5_banners.php';
 		$dirs_and_files[] = $shop_path.'includes/extra/modules/products_attributes_data/bs5_attribute_price_updater.php';
 		$dirs_and_files[] = $shop_path.'includes/extra/modules/products_attributes_end/bs5_modulfux_attributes_default.php';
@@ -176,6 +178,7 @@ class bs5_tpl_manager {
 
 		$dirs_and_files[] = $shop_path.'lang/english/admin/bs5_banner_manager.php';
 		$dirs_and_files[] = $shop_path.'lang/english/admin/bs5_customers_remind.php';
+		$dirs_and_files[] = $shop_path.'lang/english/admin/bs5_customers_remind_recipients.php';
 		$dirs_and_files[] = $shop_path.'lang/english/admin/bs5_tpl_manager_config.php';
 		$dirs_and_files[] = $shop_path.'lang/english/admin/bs5_tpl_manager_theme.php';
 		$dirs_and_files[] = $shop_path.'lang/english/extra/admin/bs5_tpl_manager.php';
@@ -186,6 +189,7 @@ class bs5_tpl_manager {
 
 		$dirs_and_files[] = $shop_path.'lang/german/admin/bs5_banner_manager.php';
 		$dirs_and_files[] = $shop_path.'lang/german/admin/bs5_customers_remind.php';
+		$dirs_and_files[] = $shop_path.'lang/german/admin/bs5_customers_remind_recipients.php';
 		$dirs_and_files[] = $shop_path.'lang/german/admin/bs5_tpl_manager_config.php';
 		$dirs_and_files[] = $shop_path.'lang/german/admin/bs5_tpl_manager_theme.php';
 		$dirs_and_files[] = $shop_path.'lang/german/extra/bs5_additional_modules.php';
@@ -200,7 +204,7 @@ class bs5_tpl_manager {
 
 		$dirs_and_files[] = $shop_path.'bs5_cheaply_see.php';
 		$dirs_and_files[] = $shop_path.'bs5_product_inquiry.php';
-		$dirs_and_files[] = $shop_path.'bs5_reminder.php';
+		$dirs_and_files[] = $shop_path.'bs5_customers_remind.php';
 		$dirs_and_files[] = $shop_path.'bs5-popup_reviews.php';
 
 		// Dateien löschen
@@ -310,6 +314,7 @@ class bs5_tpl_manager {
 			$values_config[] = "('BS5_FOOTER_NAVBAR', '')";
 			$values_config[] = "('BS5_FOOTER_BG', 'body-tertiary')";
 			$values_config[] = "('BS5_CUSTOMERS_REMIND', 'false')";
+			$values_config[] = "('BS5_CUSTOMERS_REMIND_ONLY_REGISTERED', 'false')";
 			$values_config[] = "('BS5_CUSTOMERS_REMIND_SENDMAIL', 'false')";
 			$values_config[] = "('BS5_CHEAPLY_SEE', 'false')";
 			$values_config[] = "('BS5_CHEAPLY_SEE_CONTENT_GROUP', '')";
@@ -576,12 +581,23 @@ class bs5_tpl_manager {
 		if ($_SESSION['customer_id'] > 1) {
 			xtc_db_query("UPDATE ".TABLE_ADMIN_ACCESS." SET bs5_customers_remind = '1' WHERE customers_id = '".$_SESSION['customer_id']."' LIMIT 1") ;
 		}
+		// Einträge in admin_access
+		$admin_access_bs5_customers_remind_recipients_exists = xtc_db_num_rows(xtc_db_query("SHOW COLUMNS FROM ".TABLE_ADMIN_ACCESS." WHERE Field='bs5_customers_remind_recipients'"));
+		if(!$admin_access_bs5_customers_remind_recipients_exists) {
+			xtc_db_query("ALTER TABLE ".TABLE_ADMIN_ACCESS." ADD `bs5_customers_remind_recipients` INT(1) DEFAULT '0' NOT NULL");
+		}
+		xtc_db_query("UPDATE ".TABLE_ADMIN_ACCESS." SET bs5_customers_remind_recipients = '2' WHERE customers_id = 'groups' LIMIT 1");
+		xtc_db_query("UPDATE ".TABLE_ADMIN_ACCESS." SET bs5_customers_remind_recipients = '1' WHERE customers_id = '1' LIMIT 1");
+		if ($_SESSION['customer_id'] > 1) {
+			xtc_db_query("UPDATE ".TABLE_ADMIN_ACCESS." SET bs5_customers_remind_recipients = '1' WHERE customers_id = '".$_SESSION['customer_id']."' LIMIT 1") ;
+		}
 
 		$admin_access_bs5_tpl_manager_exists = xtc_db_num_rows(xtc_db_query("SHOW COLUMNS FROM " . TABLE_ADMIN_ACCESS . " WHERE Field='bs5_tpl_manager_theme'"));
 		$admin_access_bs5_tpl_manager_config_exists = xtc_db_num_rows(xtc_db_query("SHOW COLUMNS FROM " . TABLE_ADMIN_ACCESS . " WHERE Field='bs5_tpl_manager_config'"));
 		$admin_access_bs5_banner_manager_exists = xtc_db_num_rows(xtc_db_query("SHOW COLUMNS FROM " . TABLE_ADMIN_ACCESS . " WHERE Field='bs5_banner_manager'"));
 		$admin_access_bs5_customers_remind_exists = xtc_db_num_rows(xtc_db_query("SHOW COLUMNS FROM ".TABLE_ADMIN_ACCESS." WHERE Field='bs5_customers_remind'"));
-		if(!$admin_access_bs5_tpl_manager_exists || !$admin_access_bs5_tpl_manager_config_exists || !$admin_access_bs5_customers_remind_exists || !$admin_access_bs5_banner_manager_exists) {
+		$admin_access_bs5_customers_remind_recipients_exists = xtc_db_num_rows(xtc_db_query("SHOW COLUMNS FROM ".TABLE_ADMIN_ACCESS." WHERE Field='bs5_customers_remind_recipients'"));
+		if(!$admin_access_bs5_tpl_manager_exists || !$admin_access_bs5_tpl_manager_config_exists || !$admin_access_bs5_banner_manager_exists || !$admin_access_bs5_customers_remind_exists || !$admin_access_bs5_customers_remind_recipients_exists) {
 			$install = false;
 		}
 
@@ -684,6 +700,7 @@ class bs5_tpl_manager {
 				xtc_db_query("ALTER TABLE " . TABLE_ADMIN_ACCESS . " DROP `bs5_tpl_manager_config`");
 				xtc_db_query("ALTER TABLE " . TABLE_ADMIN_ACCESS . " DROP `bs5_banner_manager`");
 				xtc_db_query("ALTER TABLE " . TABLE_ADMIN_ACCESS . " DROP `bs5_customers_remind`");
+				xtc_db_query("ALTER TABLE " . TABLE_ADMIN_ACCESS . " DROP `bs5_customers_remind_recipients`");
 				$messageStack->add_session(MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_ENTRY_REMOVED.TABLE_ADMIN_ACCESS, 'success');
 			case $x > 2:
 				xtc_db_query("DELETE FROM " . TABLE_CONFIGURATION . " WHERE configuration_key in ('" . implode("', '", $this->keys()) . "')");
@@ -714,6 +731,8 @@ class bs5_tpl_manager {
 				// Zusatzmodule entfernen
 				xtc_db_query("DROP TABLE " . TABLE_BS5_CUSTOMERS_REMIND);
 				$messageStack->add_session(MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_REMOVED.TABLE_BS5_CUSTOMERS_REMIND, 'success');
+				xtc_db_query("DROP TABLE " . TABLE_BS5_SIMULATED_CRON_RECORDS);
+				$messageStack->add_session(MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_REMOVED.TABLE_BS5_SIMULATED_CRON_RECORDS, 'success');
 		}
 		return true;
 	}
@@ -759,6 +778,39 @@ class bs5_tpl_manager {
 				$this->install_additional_modules_content(3);
 			}
 		}
+		xtc_db_query("CREATE TABLE IF NOT EXISTS " . TABLE_BS5_CUSTOMERS_REMIND_RECIPIENTS . " (
+		  mail_id int(11) NOT NULL AUTO_INCREMENT,
+		  customers_email_address varchar(255) NOT NULL DEFAULT '',
+		  customers_id int(11) NOT NULL DEFAULT 0,
+		  customers_status int(5) NOT NULL DEFAULT 0,
+		  customers_firstname varchar(64) NOT NULL DEFAULT '',
+		  customers_lastname varchar(64) NOT NULL DEFAULT '',
+		  mail_status int(1) NOT NULL DEFAULT 0,
+		  mail_key varchar(32) NOT NULL DEFAULT '',
+		  date_added datetime DEFAULT NULL,
+		  ip_date_added varchar(50) DEFAULT NULL,
+		  date_confirmed datetime DEFAULT NULL,
+		  ip_date_confirmed varchar(50) DEFAULT NULL,
+		  PRIMARY KEY (mail_id)
+		)");
+
+		xtc_db_query("CREATE TABLE IF NOT EXISTS " . TABLE_BS5_CUSTOMERS_REMIND_RECIPIENTS_HISTORY . " (
+		  history_id int(11) NOT NULL AUTO_INCREMENT,
+		  customers_email_address varchar(255) NOT NULL,
+		  customers_action varchar(32) NOT NULL,
+		  ip_address varchar(50) DEFAULT NULL,
+		  date_added datetime DEFAULT NULL,
+		  PRIMARY KEY (history_id)
+		)");
+
+		// Thanks to noRiddle - simulated cron job (code from https://trac.modified-shop.org/ticket/2252, see also https://www.modified-shop.org/forum/index.php?topic=12813.msg390607#msg390607)
+		xtc_db_query("CREATE TABLE IF NOT EXISTS " . TABLE_BS5_SIMULATED_CRON_RECORDS . " (
+			`application` varchar(64) NOT NULL,
+			`last_executed` DATE DEFAULT NULL,
+			PRIMARY KEY (`application`)
+		)");
+		xtc_db_query("INSERT INTO " . TABLE_BS5_SIMULATED_CRON_RECORDS . " (application, last_executed) VALUES ('bs5customers_remind', now())");
+
 
     return true;
 	}
@@ -781,11 +833,14 @@ class bs5_tpl_manager {
 		global $messageStack;
 
 		// Dateien definieren
-        $bs5_tpl = defined('BS5_CURRENT_TEMPLATE') && BS5_CURRENT_TEMPLATE != '' ? BS5_CURRENT_TEMPLATE : 'bootstrap5';
+    $bs5_tpl = defined('BS5_CURRENT_TEMPLATE') && BS5_CURRENT_TEMPLATE != '' ? BS5_CURRENT_TEMPLATE : 'bootstrap5';
 		$shop_path = DIR_FS_CATALOG;
 		$dirs_and_files = array();
 		// Beispiel
 		// $dirs_and_files[] = $shop_path.'includes/extra/bs5_test.php';
+		$dirs_and_files[] = $shop_path.'includes/extra/modules/product_info_end/bs5_additional_module_links.php';
+		$dirs_and_files[] = $shop_path.'includes/extra/modules/product_info_end/bs5_agi_reduce_cart.php';
+		$dirs_and_files[] = $shop_path.'bs5_reminder.php';
 
 		$tpl_dirs_and_files = array();
 		// Beispiel Templatedateien

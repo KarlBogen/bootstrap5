@@ -51,7 +51,7 @@ $add_contents[BOX_HEADING_CONFIGURATION2][MENU_BS5_TPL_MANAGER_MAIN][] = array(
 if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 
 /* ------------------------------------------------------------
-	Module "Kundenerinnerung_modified-shop-2.0.3.0" made by Karl
+	Module "Kundenerinnerung Modified Shop 3.0.2 mit Opt-in" made by Karl
 
 	Based on: Kundenerinnerung_Multilingual_advanced_modified-shop-1.06
 	Based on: xt-module.de customers remind
@@ -66,10 +66,27 @@ if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 -------------------------------------------------------------- */
 
 	// Listenpunkt unter 'Kunden'
-	$add_contents[BOX_HEADING_CUSTOMERS][] = array(
+	$add_contents[BOX_HEADING_CUSTOMERS][BS5_BOX_CUSTOMERS_REMIND][] = array(
     	'admin_access_name' => 'bs5_customers_remind',   //Eintrag fuer Adminrechte
-    	'filename' => 'bs5_customers_remind.php',	//Dateiname der neuen Admindatei
+    	'filename' => '',	//Dateiname der neuen Admindatei
     	'boxname' => BS5_BOX_CUSTOMERS_REMIND,     	//Anzeigename im Menue
+    	'parameters' => '',                 	//zusaetzliche Parameter z.B. 'set=export'
+    	'ssl' => '',                         	//SSL oder NONSSL, kein Eintrag = NONSSL
+	    'has_subs' => 1                     //wenn Menueeintrag Unterpunkte hat
+  	);
+
+	$add_contents[BOX_HEADING_CUSTOMERS][BS5_BOX_CUSTOMERS_REMIND][] = array(
+    	'admin_access_name' => 'bs5_customers_remind',   //Eintrag fuer Adminrechte
+    	'filename' => FILENAME_BS5_CUSTOMERS_REMIND,	//Dateiname der neuen Admindatei
+    	'boxname' => BS5_BOX_CUSTOMERS_REMIND_SUB1,     	//Anzeigename im Menue
+    	'parameters' => '',                 	//zusaetzliche Parameter z.B. 'set=export'
+    	'ssl' => ''                         	//SSL oder NONSSL, kein Eintrag = NONSSL
+  	);
+
+	$add_contents[BOX_HEADING_CUSTOMERS][BS5_BOX_CUSTOMERS_REMIND][] = array(
+    	'admin_access_name' => 'bs5_customers_remind',   //Eintrag fuer Adminrechte
+    	'filename' => FILENAME_BS5_CUSTOMERS_REMIND_RECIPIENTS,	//Dateiname der neuen Admindatei
+    	'boxname' => BS5_BOX_CUSTOMERS_REMIND_SUB2,     	//Anzeigename im Menue
     	'parameters' => '',                 	//zusaetzliche Parameter z.B. 'set=export'
     	'ssl' => ''                         	//SSL oder NONSSL, kein Eintrag = NONSSL
   	);

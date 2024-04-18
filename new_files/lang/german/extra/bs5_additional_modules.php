@@ -8,34 +8,42 @@
 	Released under the GNU General Public License
 -------------------------------------------------------------- */
 
-define('CUSTOMERS_REMIND' , 'Kundenerinnerung');
-define('CUSTOMERS_REMIND_NOTE' , 'Artikel zur Zeit nicht auf Lager!');
-define('CUSTOMERS_REMIND_LINK_TEXT', 'Benachrichtigung bei Wiederverf&uuml;gbarkeit');
-define('CUSTOMERS_REMIND_EMAIL_HEADING', 'Kundenerinnerungen bei erneutem Eintreffen von Artikeln');
-define('CUSTOMERS_REMIND_EMAIL_1', 'hat sich f&uuml;r diesen Artikel eingetragen:');
+define('BS5_CUSTOMERS_REMIND_TITLE' , 'Kundenerinnerung');
+define('BS5_NAVBAR_TITLE_CUSTOMERS_REMIND' , 'Kundenerinnerung');
+define('BS5_CUSTOMERS_REMIND_NOTE' , 'Artikel zur Zeit nicht auf Lager!');
+define('BS5_CUSTOMERS_REMIND_LINK_TEXT', 'Benachrichtigung bei Wiederverf&uuml;gbarkeit');
+define('BS5_CUSTOMERS_REMIND_EMAIL_HEADING', 'Kundenerinnerungen bei erneutem Eintreffen von Artikeln');
+define('BS5_CUSTOMERS_REMIND_EMAIL_1', 'hat sich f&uuml;r diesen Artikel eingetragen:');
 
-define('CONTACT_SUBJECT_0', '-- Bitte w&auml;hlen -- ');
-define('CONTACT_SUBJECT_4', 'Preisanfrage');
-define('TEXT_PRODUCTS_CHEAPLY', 'Billiger gesehen?');
-define('TEXT_PRODUCTS_CHEAPLY_NAME', 'Artikelname: ');
-define('TEXT_PRODUCTS_CHEAPLY_NUMBER', 'Art-Nr.: ');
-define('TEXT_PRODUCTS_CHEAPLY_NOTE', 'Ich interessiere mich für den Artikel: ');
-define('TEXT_PRODUCTS_CHEAPLY_NOTE2', 'Jedoch habe ich diesen Artikel zu einem günstigen Preis bei einem Ihrer Mitbewerber gesehen. Bitte teilen Sie mir mit, ob Sie den oben genanten Artikel unterbieten können.');
-define('ENTRY_COMPETITORURL_CHECK_ERROR', 'Bitte geben Sie die Mitbewerber-URL ein!');
-define('ENTRY_COMPETITORURL_VALIDATION_ERROR', 'Die Mitbewerber-URL ist keine valide URL!');
-define('ENTRY_COMPETITORPRICE_CHECK_ERROR', 'Bitte geben Sie den Mitbewerber-Preis ein!');
-define('NAVBAR_TITLE_CHEAPLY_SEE','Billiger gesehen');
-define('CHEAPLY_SEE_HEADING_FORMULAR','Preisanfrage Formular');
-define('CHEAPLY_SEE_TO_PRODUCT', 'Zum Produkt');
-define('ENTRY_VVCODE_CHECK_ERROR', 'Bitte geben Sie den Spamschutzcode ein!');
+define('BS5_TEXT_EMAIL_SUBJECT_REMINDER','Ihre Kundenerinnerungs-Anmeldung');
+define('BS5_TEXT_EMAIL_INPUT_REMINDER','<h1>Bitte beachten!</h1><p>Ihre E-Mail-Adresse wurde in unser System eingetragen.<br><br>Gleichzeitig wurde Ihnen vom System eine E-Mail mit einem Aktivierungslink geschickt.<br><br>Bitte klicken Sie nach dem Erhalt der E-Mail auf den Link, um Ihre Eintragung zu best&auml;tigen.<br>Ansonsten bekommen Sie keine Verf&uuml;gbarkeitsnachricht von uns zugestellt!</p>');
+define('BS5_TEXT_EMAIL_DEL_REMINDER','Ihre E-Mail-Adresse wurde aus unserer Datenbank gel&ouml;scht.');
+define('BS5_TEXT_EMAIL_ACTIVE_REMINDER','Ihre E-Mail-Adresse wurde erfolgreich f&uuml;r den Empfang der Kundenerinnerung freigeschaltet!');
+define('BS5_TEXT_EMAIL_EXIST_NO_REMINDER','<h1>Bitte beachten!</h1><p>Diese E-Mail-Adresse existiert bereits in unserer Datenbank, ist aber noch nicht f&uuml;r den Empfang der Kundenerinnerung freigeschaltet!<br><br>Es wurde Ihnen vom System eine E-Mail mit einem Aktivierungslink geschickt.<br>Bitte klicken Sie nach dem Erhalt der E-Mail auf den Link, um Ihre Eintragung zu best&auml;tigen.<br>Ansonsten bekommen Sie keine Verf&uuml;gbarkeitsnachricht von uns zugestellt!</p>');
+define('BS5_TEXT_EMAIL_EXIST_REMINDER','Diese E-Mail-Adresse ist f&uuml;r den Empfang der Kundenerinnerung bereits freigeschaltet!');
+
+define('BS5_CONTACT_SUBJECT_0', '-- Bitte w&auml;hlen -- ');
+define('BS5_CONTACT_SUBJECT_4', 'Preisanfrage');
+define('BS5_TEXT_PRODUCTS_CHEAPLY', 'Billiger gesehen?');
+define('BS5_TEXT_PRODUCTS_CHEAPLY_NAME', 'Artikelname: ');
+define('BS5_TEXT_PRODUCTS_CHEAPLY_NUMBER', 'Art-Nr.: ');
+define('BS5_TEXT_PRODUCTS_CHEAPLY_NOTE', 'Ich interessiere mich für den Artikel: ');
+define('BS5_TEXT_PRODUCTS_CHEAPLY_NOTE2', 'Jedoch habe ich diesen Artikel zu einem günstigen Preis bei einem Ihrer Mitbewerber gesehen. Bitte teilen Sie mir mit, ob Sie den oben genanten Artikel unterbieten können.');
+define('BS5_ENTRY_COMPETITORURL_CHECK_ERROR', 'Bitte geben Sie die Mitbewerber-URL ein!');
+define('BS5_ENTRY_COMPETITORURL_VALIDATION_ERROR', 'Die Mitbewerber-URL ist keine valide URL!');
+define('BS5_ENTRY_COMPETITORPRICE_CHECK_ERROR', 'Bitte geben Sie den Mitbewerber-Preis ein!');
+define('BS5_NAVBAR_TITLE_CHEAPLY_SEE','Billiger gesehen');
+define('BS5_CHEAPLY_SEE_HEADING_FORMULAR','Preisanfrage Formular');
+define('BS5_CHEAPLY_SEE_TO_PRODUCT', 'Zum Produkt');
+define('BS5_ENTRY_VVCODE_CHECK_ERROR', 'Bitte geben Sie den Spamschutzcode ein!');
 define('BS5_EMAIL', 'E-Mail: ');
 define('BS5_PHONE', 'Telefon: ');
 define('BS5_COMPETITORURL', 'Mitbewerber-URL: ');
 define('BS5_COMPETITORPRICE', 'Mitbewerber-Preis: ');
 define('BS5_SUBJECT', 'Betreff: ');
 
-define('TEXT_PRODUCT_INQUIRY', 'Frage zum Artikel');
-define('ENTRY_MESSAGE_BODY_ERROR', 'Bitte geben Sie die Nachricht an uns ein!');
+define('BS5_TEXT_PRODUCT_INQUIRY', 'Frage zum Artikel');
+define('BS5_ENTRY_MESSAGE_BODY_ERROR', 'Bitte geben Sie die Nachricht an uns ein!');
 
 define('BS5_TOGGLE_PWFIELD_SHOW', 'Passwort anzeigen');
 define('BS5_TOGGLE_PWFIELD_HIDE', 'Passwort verbergen');

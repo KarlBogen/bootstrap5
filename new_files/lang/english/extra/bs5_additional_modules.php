@@ -8,34 +8,42 @@
 	Released under the GNU General Public License
 -------------------------------------------------------------- */
 
-define('CUSTOMERS_REMIND' , 'Customer Remind');
-define('CUSTOMERS_REMIND_NOTE' , 'Article currently not in stock!');
-define('CUSTOMERS_REMIND_LINK_TEXT', 'Advice of availability');
-define('CUSTOMERS_REMIND_EMAIL_HEADING', 'Customer remind when articles arrive again');
-define('CUSTOMERS_REMIND_EMAIL_1', 'has registered for this article:');
+define('BS5_CUSTOMERS_REMIND_TITLE' , 'Customer Remind');
+define('BS5_NAVBAR_TITLE_CUSTOMERS_REMIND' , 'Customer Remind');
+define('BS5_CUSTOMERS_REMIND_NOTE' , 'Article currently not in stock!');
+define('BS5_CUSTOMERS_REMIND_LINK_TEXT', 'Advice of availability');
+define('BS5_CUSTOMERS_REMIND_EMAIL_HEADING', 'Customer remind when articles arrive again');
+define('BS5_CUSTOMERS_REMIND_EMAIL_1', 'has registered for this article:');
 
-define('CONTACT_SUBJECT_0', '-- Please Select -- ');
-define('CONTACT_SUBJECT_4', 'Price Inquiry');
-define('TEXT_PRODUCTS_CHEAPLY', 'More cheaply seen?');
-define('TEXT_PRODUCTS_CHEAPLY_NAME', 'Products Name: ');
-define('TEXT_PRODUCTS_CHEAPLY_NUMBER', 'Model-No.: ');
-define('TEXT_PRODUCTS_CHEAPLY_NOTE', 'I am interested in the article: ');
-define('TEXT_PRODUCTS_CHEAPLY_NOTE2', 'However I saw this article at a favourable price with one of your competitors. Please let me know if you can undercut the above mentioned article..');
-define('ENTRY_COMPETITORURL_CHECK_ERROR','Register please those to competitor URL!');
-define('ENTRY_COMPETITORURL_VALIDATION_ERROR', 'The competitor URL is no valide URL!');
-define('ENTRY_COMPETITORPRICE_CHECK_ERROR','Please register the competitor price!');
-define('NAVBAR_TITLE_CHEAPLY_SEE','Have You see this Product cheaply?');
-define('CHEAPLY_SEE_HEADING_FORMULAR','Price inquiry form');
-define('CHEAPLY_SEE_TO_PRODUCT', 'To the product');
-define('ENTRY_VVCODE_CHECK_ERROR', 'Please enter the spam protection code!');
+define('BS5_TEXT_EMAIL_SUBJECT_REMINDER','Your customers remind subscription');
+define('BS5_TEXT_EMAIL_INPUT_REMINDER','<h1>Please note!</h1><p>Your e-mail address has been registered in our system.<br />An e-mail with a confirmation link has been sent out. Click the link to complete registration!</p>');
+define('BS5_TEXT_EMAIL_DEL_REMINDER','Your e-mail address was deleted successfully from our database.');
+define('BS5_TEXT_EMAIL_ACTIVE_REMINDER','Your e-mail address has successfully been registered for the remind mails!');
+define('BS5_TEXT_EMAIL_EXIST_NO_REMINDER','<h1>Please note!</h1><p>This e-mail address is registered but not yet activated!<br />An e-mail with a confirmation link has been sent out. Click the link to complete registration!</p>');
+define('BS5_TEXT_EMAIL_EXIST_REMINDER','This e-mail address is already registered for the remind mails!');
+
+define('BS5_CONTACT_SUBJECT_0', '-- Please Select -- ');
+define('BS5_CONTACT_SUBJECT_4', 'Price Inquiry');
+define('BS5_TEXT_PRODUCTS_CHEAPLY', 'More cheaply seen?');
+define('BS5_TEXT_PRODUCTS_CHEAPLY_NAME', 'Products Name: ');
+define('BS5_TEXT_PRODUCTS_CHEAPLY_NUMBER', 'Model-No.: ');
+define('BS5_TEXT_PRODUCTS_CHEAPLY_NOTE', 'I am interested in the article: ');
+define('BS5_TEXT_PRODUCTS_CHEAPLY_NOTE2', 'However I saw this article at a favourable price with one of your competitors. Please let me know if you can undercut the above mentioned article..');
+define('BS5_ENTRY_COMPETITORURL_CHECK_ERROR','Register please those to competitor URL!');
+define('BS5_ENTRY_COMPETITORURL_VALIDATION_ERROR', 'The competitor URL is no valide URL!');
+define('BS5_ENTRY_COMPETITORPRICE_CHECK_ERROR','Please register the competitor price!');
+define('BS5_NAVBAR_TITLE_CHEAPLY_SEE','Have You see this Product cheaply?');
+define('BS5_CHEAPLY_SEE_HEADING_FORMULAR','Price inquiry form');
+define('BS5_CHEAPLY_SEE_TO_PRODUCT', 'To the product');
+define('BS5_ENTRY_VVCODE_CHECK_ERROR', 'Please enter the spam protection code!');
 define('BS5_EMAIL', 'E-mail: ');
 define('BS5_PHONE', 'Phone: ');
 define('BS5_COMPETITORURL', 'Competitor URL: ');
 define('BS5_COMPETITORPRICE', 'Competitor price: ');
 define('BS5_SUBJECT', 'Subject: ');
 
-define('TEXT_PRODUCT_INQUIRY', 'Question to article');
-define('ENTRY_MESSAGE_BODY_ERROR', 'Please enter the message to us!');
+define('BS5_TEXT_PRODUCT_INQUIRY', 'Question to article');
+define('BS5_ENTRY_MESSAGE_BODY_ERROR', 'Please enter the message to us!');
 
 define('BS5_TOGGLE_PWFIELD_SHOW', 'Show password');
 define('BS5_TOGGLE_PWFIELD_HIDE', 'Hide password');

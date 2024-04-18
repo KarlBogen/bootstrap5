@@ -21,7 +21,7 @@
   }
 
 	// preload font Cumulative Layout Shift (CLS)
-	echo '<link rel="preload" href="'.DIR_TMPL_CSS.'fonts/open-sans-v40-latin-regular.woff2" as="font" crossorigin="anonymous">';
+	echo '<link rel="preload" href="'.DIR_WS_BASE.DIR_TMPL_CSS.'fonts/open-sans-v40-latin-regular.woff2" as="font" crossorigin="anonymous">';
 
 	$css_array = array();
 

@@ -20,7 +20,7 @@
         {/if}
 				{if isset($box_LOGIN) || isset($box_INFOBOX)}
 					<div class="nav-item">
-						<button id="login" class="text-center nav-link {$smarty.const.BS5_LOGOBAR_TEXT}" title="{#link_account#}" data-bs-toggle="offcanvas" data-bs-target="#account" aria-controls="account">
+						<button id="login" class="text-center nav-link {if isset($smarty.session.customer_id)}text-danger{else}{$smarty.const.BS5_LOGOBAR_TEXT}{/if}" title="{#link_account#}" data-bs-toggle="offcanvas" data-bs-target="#account" aria-controls="account">
 							<span class="icon"><i class="fa fa-user fa-lg"></i></span>
 							{if $smarty.const.BS5_SHOW_ICON_WITH_NAMES != 'false'}<span class="d-none d-lg-block small">{#link_account#}</span>{/if}
 						</button>

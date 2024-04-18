@@ -13,4 +13,6 @@ define('MENU_BS5_TPL_MANAGER_SUB1', 'BS5 Configuration');
 define('MENU_BS5_TPL_MANAGER_SUB2', 'BS5 Theme Settings');
 define('MENU_BS5_TPL_MANAGER_SUB3', 'BS5 Banner Manager');
 define('BS5_BOX_CUSTOMERS_REMIND', 'BS5 Customers Remind');
+define('BS5_BOX_CUSTOMERS_REMIND_SUB1', 'Remind list');
+define('BS5_BOX_CUSTOMERS_REMIND_SUB2', 'Registered customers');
 ?>

@@ -632,6 +632,11 @@ require_once (DIR_WS_INCLUDES.'head.php');
 				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_INFO; ?></td>
 							</tr>
 							<tr>
+				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_ONLY_REGISTERED; ?></td>
+				                <td class="dataTableConfig col-middle"><?php echo xtc_cfg_select_option($yes_no_array, $bs5_conf['BS5_CUSTOMERS_REMIND_ONLY_REGISTERED'], 'BS5_CUSTOMERS_REMIND_ONLY_REGISTERED'); ?></td>
+				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_ONLY_REGISTERED_INFO; ?></td>
+							</tr>
+							<tr>
 				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL; ?></td>
 				                <td class="dataTableConfig col-middle"><?php echo xtc_cfg_select_option($yes_no_array, $bs5_conf['BS5_CUSTOMERS_REMIND_SENDMAIL'], 'BS5_CUSTOMERS_REMIND_SENDMAIL'); ?></td>
 				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_INFO; ?></td>

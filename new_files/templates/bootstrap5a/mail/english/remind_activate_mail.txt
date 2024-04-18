@@ -1,0 +1,18 @@
+
+Thank you for subscribing!
+
+{if isset($LINK)}
+You receive this e-mail because you want to use our customer reminder.
+
+Please click the following activation link to use the service. If you haven't subscribed to this service, please ignore this e-mail!
+
+Your activation link:
+{$LINK}
+
+If you have not registered for our reminder service, please ignore the activation link.
+
+Your consent to the dispatch of our Products availability notification is revocable at any time. The reminder mail is sent according to our privacy policy.
+{/if}
+
+
+[SIGNATUR]
