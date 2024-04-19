@@ -66,7 +66,7 @@ class bs5_checkifnewproduct {  //Important same name as filename
 	*/
 	function buildDataArray($productData, $array, $image='thumbnail', $precision = 0) {
 
-	if (defined('BS5_CUSTOMERS_REMIND_STATUS') && BS5_CUSTOMERS_REMIND_STATUS == 'true') {
+	if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 
 		if ($array["products_quantity"] < 1){
 

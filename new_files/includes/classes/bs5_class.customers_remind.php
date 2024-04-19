@@ -67,7 +67,7 @@ class bs5_customersremind {
 
 				// Einträge Kundenerinnerung löschen
 				$del_customers_reminds = "DELETE FROM
-				                   customers_remind
+				                   bs5_customers_remind
 				                 WHERE
 				                   customers_email_address = '".xtc_db_input($check_mail['customers_email_address'])."'";
 

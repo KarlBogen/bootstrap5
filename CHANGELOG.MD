@@ -1,6 +1,10 @@
 UNRELEASED
 
 
+
+
+1.1.2 [19.04.2024]
+
 - Modul Kundenerinnerung jetzt mit Opt-in
 - Fehler Preload-Pfad für Schrift bei SEF-URLs - behoben
 - Reviews werden trotz der Abschaltung in Kundengruppe in Produktinfo angezeigt - behoben
