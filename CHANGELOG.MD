@@ -1,7 +1,7 @@
 UNRELEASED
 
 
-
+- deutsche Selbstlaute in E-Mails
 
 1.1.2 [19.04.2024]
 

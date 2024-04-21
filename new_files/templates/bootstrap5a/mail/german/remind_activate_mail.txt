@@ -1,20 +1,20 @@
 
-Vielen Dank für die Anmeldung zu unserem Service Kundenerinnerung.
+Vielen Dank fÃ¼r die Anmeldung zu unserem Service Kundenerinnerung.
 
 {if isset($LINK)}
-Sie erhalten diese E-Mail, weil Sie unseren Service nutzen möchten.
+Sie erhalten diese E-Mail, weil Sie unseren Service nutzen mÃ¶chten.
 
-Bitte klicken Sie auf den Aktivierungslink, damit Ihre E-Mail-Adresse für die Kundenerinnerung freigeschaltet wird.
+Bitte klicken Sie auf den Aktivierungslink, damit Ihre E-Mail-Adresse fÃ¼r die Kundenerinnerung freigeschaltet wird.
 
 Ihr Aktivierungslink:
 {$LINK}
 
-Sollten Sie sich nicht für unseren Erinnerungsservice eingetragen haben bitten wir Sie, den Aktivierungslink einfach zu ignorieren.
+Sollten Sie sich nicht fÃ¼r unseren Erinnerungsservice eingetragen haben bitten wir Sie, den Aktivierungslink einfach zu ignorieren.
 
-Ihre Einwilligung in den Versand unseres Warenverfügbarkeitsbenachrichtigung ist jederzeit widerruflich. Der E-Mail-Versand erfolgt entsprechend unserer Datenschutzerklärung.
+Ihre Einwilligung in den Versand unseres WarenverfÃ¼gbarkeitsbenachrichtigung ist jederzeit widerruflich. Der E-Mail-Versand erfolgt entsprechend unserer DatenschutzerklÃ¤rung.
 {/if}
 
-Wir wünschen Ihnen viel Spaß mit unserem ONLINE-Angebot!
+Wir wÃ¼nschen Ihnen viel SpaÃŸ mit unserem ONLINE-Angebot!
 
 
 [SIGNATUR]
