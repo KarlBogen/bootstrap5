@@ -1,6 +1,12 @@
 UNRELEASED
 
 
+
+
+
+1.1.3 [24.04.2024]
+
+- Kundenerinnerung wurde auch ohne Opt-in versandt
 - deutsche Selbstlaute in E-Mails
 
 1.1.2 [19.04.2024]

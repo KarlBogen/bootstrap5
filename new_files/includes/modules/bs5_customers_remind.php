@@ -89,6 +89,9 @@ function sendremindmails() {
                             FROM ".TABLE_BS5_CUSTOMERS_REMIND." cr
                             JOIN ".TABLE_LANGUAGES." l
                                  ON l.directory = cr.customers_language
+                            JOIN ".TABLE_BS5_CUSTOMERS_REMIND_RECIPIENTS." crr
+                                 ON crr.mail_status = '1'
+                                    AND crr.customers_email_address = cr.customers_email_address
                             JOIN ".TABLE_PRODUCTS." p
                                  ON p.products_id = cr.products_id
                                     AND p.products_quantity >= cr.customers_st

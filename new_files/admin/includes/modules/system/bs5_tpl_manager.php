@@ -22,7 +22,7 @@ class bs5_tpl_manager {
 
 	public function __construct() {
 		$this->code = 'bs5_tpl_manager';
-		$this->title = MODULE_BS5_TPL_MANAGER_TEXT_TITLE . ' © by <a href="https://github.com/KarlBogen" target="_blank" style="color: #e67e22; font-weight: bold;">Karl</a> - Version: 1.1.2';
+		$this->title = MODULE_BS5_TPL_MANAGER_TEXT_TITLE . ' © by <a href="https://github.com/KarlBogen" target="_blank" style="color: #e67e22; font-weight: bold;">Karl</a> - Version: 1.1.3';
 		$this->description = '';
 		if (defined('MODULE_BS5_TPL_MANAGER_STATUS')) $this->description .= '<a class="button btnbox but_green" style="text-align:center;" onclick="this.blur();" href="' . xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=' . $this->code . '&action=update') . '">Update</a><br /><br />';
         $bs5_tpl = defined('BS5_CURRENT_TEMPLATE') && BS5_CURRENT_TEMPLATE != '' ? BS5_CURRENT_TEMPLATE : 'bootstrap5';
