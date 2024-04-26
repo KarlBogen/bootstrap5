@@ -2,6 +2,7 @@ UNRELEASED
 
 
 
+- Mailversand Kundenerinnerung nur einmal täglich - Code geändert
 
 
 1.1.3 [24.04.2024]

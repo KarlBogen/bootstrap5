@@ -37,7 +37,7 @@ if ($sendmail_asap === false) {
 		$last_exec = $mas_last_exec_arr['last_executed'];
 
 		//do it only once a day
-		if(strtotime($last_exec) < time())
+		if(strtotime($last_exec) < strtotime(date('Y-m-d', time())))
 			$mas_act = true;
 	} else {
 		if ($_SESSION['customers_status']['customers_status_id'] == 0) {
