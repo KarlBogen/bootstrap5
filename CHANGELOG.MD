@@ -1,7 +1,7 @@
 UNRELEASED
 
 
-
+- javascript/extra/cookieconsent.js.php angepasst an OIL.js Consent Management v1.43
 - Mailversand Kundenerinnerung nur einmal täglich - Code geändert
 
 
