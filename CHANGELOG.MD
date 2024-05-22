@@ -1,5 +1,6 @@
 UNRELEASED
 
+- Kontrollkästchen Datenschutz wurde in create_account und create_account_guest stets angezeigt - behoben
 - Fehlerhafte Anzeige Button in templates/bootstrap5a/source/inc/xtc_show_category.inc.php behoben
 - javascript/extra/cookieconsent.js.php angepasst an OIL.js Consent Management v1.43
 - Mailversand Kundenerinnerung nur einmal täglich - Code geändert

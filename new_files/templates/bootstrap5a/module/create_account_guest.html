@@ -254,8 +254,10 @@
 										</div>
 									{else}
 										{$PRIVACY_CHECKBOX|replace:'<input':'<input id="privacy" class="form-check-input"'}
-										<label class="form-check-label stretched-link fw-bold" for="privacy">{if $PRIVACY_CHECKBOX}{#text_privacy_accept#}{else}{#text_privacy_notice#}{/if} {$PRIVACY_LINK|replace:'iframe':'iframe z-2 position-relative'}</label>
+										<label class="form-check-label stretched-link fw-bold" for="privacy">{#text_privacy_accept#} {$PRIVACY_LINK|replace:'iframe':'iframe z-2 position-relative'}</label>
 									{/if}
+								{else}
+									<div class="fw-bold">{#text_privacy_notice#} {$PRIVACY_LINK|replace:'iframe':'iframe z-2 position-relative'}</div>              
 								{/if}
 							</div>
 						</div>
