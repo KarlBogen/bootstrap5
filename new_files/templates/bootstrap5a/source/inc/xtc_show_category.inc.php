@@ -74,7 +74,7 @@
     $categories_string .= $ul; //UL LI Versschachtelung
     if ((BS5_HIDE_EMPTY_CATEGORIES == 'true' && $products_in_category > 0) || BS5_HIDE_EMPTY_CATEGORIES != 'true') {
       $categories_string .= $tab; //Tabulator Codedarstellung
-      $categories_string .= '<li class="nav-item level'.$level.$cat_active.$subcategories_class.'">';
+      $categories_string .= '<li class="nav-item level'.$level.$subcategories_class.$cat_active.'">';
       $categories_string .= '<a class="nav-link border-bottom'.$cat_active_parent.$cat_active.'" href="'.$foo[$counter]['link'].'" title="'. $foo[$counter]['name'] . '">';
       $sign = '';
       for ($i = 2; $i <= $level; $i++) {
