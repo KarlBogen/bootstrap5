@@ -279,7 +279,7 @@ class bs5_customersremind {
                    EMAIL_SUPPORT_REPLY_ADDRESS_NAME,
                    REMINDER_REG_MAIL_ADMIN === true ? EMAIL_SUPPORT_ADDRESS : '',
                    REMINDER_REG_MAIL_ADMIN === true ? EMAIL_SUPPORT_NAME : '',
-                   BS5_TEXT_EMAIL_SUBJECT_REMINDER,
+                   STORE_NAME . ' - ' . BS5_TEXT_EMAIL_SUBJECT_REMINDER,
                    $html_mail,
                    $txt_mail
                    );

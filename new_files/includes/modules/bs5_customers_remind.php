@@ -153,7 +153,7 @@ function sendremindmails() {
                                 '', // bcc
                                 EMAIL_SUPPORT_REPLY_ADDRESS, EMAIL_SUPPORT_REPLY_ADDRESS_NAME, // reply-to
                                 '', '', // attachments
-                                sprintf(''.$arrstock['mail_head1'].'', STORE_NAME), // subject
+                                STORE_NAME . ' - ' . $arrstock['mail_head1'], // subject
                                 $html_mail, // HTML content
                                 $txt_mail // text-only content
                         );
