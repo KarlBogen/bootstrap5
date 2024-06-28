@@ -1,6 +1,6 @@
 UNRELEASED
 
-
+- In product_reviews_write review_count is always 0 - behoben
 
 
 

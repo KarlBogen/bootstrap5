@@ -53,6 +53,17 @@
 						{$BUTTON_SUBMIT|replace:'<button':'<button class="btn btn-secondary px-5"'}
 					</div>
 				</div>
+
+        <script>
+          var review = document.getElementById("review");
+          var review_count = document.getElementById("review_count");
+
+          review.addEventListener("keyup",function(){
+          	var characters = review.value.split('');
+            review_count.innerText = characters.length;
+          });
+        </script>
+
 			</div>
 		{$FORM_END}
 	{/if}
