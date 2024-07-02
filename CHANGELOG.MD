@@ -1,5 +1,6 @@
 UNRELEASED
 
+- Cookie consent - switcher style on focus
 - In product_reviews_write review_count is always 0 - behoben
 
 

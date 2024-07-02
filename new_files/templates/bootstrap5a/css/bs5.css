@@ -79,6 +79,17 @@ li.home {
   display:none;
 }
 /* CLS ENDE */
+.as-oil-cpc__switch input:focus ~ .as-oil-cpc__status {
+ color: var(--bs-link-color);
+}
+.as-oil-cpc__switch input:focus ~ .as-oil-cpc__slider {
+ border: 3px solid var(--bs-focus-ring-color);
+ background-color: rgba(var(--bs-focus-ring-color),.5) !important;
+}
+.as-oil-cpc__switch input:focus ~ .as-oil-cpc__slider::before {
+ background-color: var(--bs-link-color) !important;
+ bottom: 0 !important;
+}
 #horizontalTab h2.detailbox, #infoaccordion h2.detailbox {
   position:absolute!important;
   width:1px!important;
