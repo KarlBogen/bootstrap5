@@ -116,7 +116,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
 		$error = true;
 		$messageStack->add('product_inquiry', ENTRY_EMAIL_ADDRESS_CHECK_ERROR);
 	}
-	if (strlen($message_body) == '') {
+	if (strlen($message_body) == 0) {
 		$error = true;
 		$messageStack->add('product_inquiry', BS5_ENTRY_MESSAGE_BODY_ERROR);
 	}
