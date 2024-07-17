@@ -261,7 +261,7 @@ $smarty->assign('SELECT_GENDER', $select_gender);
 $smarty->assign('INPUT_FIRSTNAME', xtc_draw_input_field('firstname', ($error ? $_POST['firstname'] : (isset($_SESSION["customer_first_name"]) ? $_SESSION["customer_first_name"] : '')), 'id="firstname" class="form-control"'));
 $smarty->assign('INPUT_LASTNAME', xtc_draw_input_field('lastname', ($error ? $_POST['lastname'] : (isset($_SESSION["customer_last_name"]) ? $_SESSION["customer_last_name"] : '')), 'id="lastname" class="form-control"'));
 $smarty->assign('INPUT_EMAIL', xtc_draw_input_field('email', ($error ? $_POST['email'] : (isset($_SESSION["customer_email_address"]) ? $_SESSION["customer_email_address"] : '')), 'id="email" class="form-control"'));
-$smarty->assign('SELECT_SUBJECT', xtc_draw_input_field('subject', ($error ? $_POST['subject'] : BS5_CONTACT_SUBJECT_4), 'id="subject" class="form-control" disabled readonly'));
+$smarty->assign('SELECT_SUBJECT', xtc_draw_input_field('subject', BS5_CONTACT_SUBJECT_4, 'id="subject" class="form-control" disabled readonly'));
 $smarty->assign('INPUT_COMPETITOR_URL', xtc_draw_input_field('competitorurl', ($error ? $_POST['competitorurl'] : ''), 'id="competitorurl" class="form-control"'));
 $smarty->assign('INPUT_COMPETITOR_PRICE', xtc_draw_input_field('competitorprice', ($error ? $_POST['competitorprice'] : ''), 'id="competitorprice" class="form-control"'));
 $smarty->assign('INPUT_TEXT', xtc_draw_textarea_field('message_body', 'soft', 50, 12, $text_body, 'class="form-control"'));
