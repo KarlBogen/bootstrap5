@@ -1,6 +1,6 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   $Id: languages.php 15291 2023-07-06 11:46:25Z GTB $
+   $Id: languages.php 15900 2024-05-27 10:34:55Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
@@ -35,11 +35,16 @@
     
       if (count($language_array) > 1) {
         $hidden_get_variables = '';
-        if (isset($_GET) && count($_GET) > 0) {
-          reset($_GET);
-          foreach ($_GET as $key => $value) {
-            if (is_string($value) && $key != 'language' && $key != xtc_session_name() && $key != 'x' && $key != 'y' ) {
-              $hidden_get_variables .= xtc_draw_hidden_field($key, $value);
+
+        $params_array = xtc_get_params_array(xtc_get_all_get_params(array('language', 'currency')));
+        if (count($params_array) > 0) {
+          foreach ($params_array as $k => $v) {
+            if (is_array($v)) {
+              foreach ($v as $kk => $vv) {
+                $hidden_get_variables .= xtc_draw_hidden_field($k.'['.$kk.']', $vv);
+              }
+            } else {
+              $hidden_get_variables .= xtc_draw_hidden_field($k, $v);
             }
           }
         }

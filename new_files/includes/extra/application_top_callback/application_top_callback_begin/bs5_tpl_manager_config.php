@@ -16,4 +16,3 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 		defined($conf['config_key']) OR define($conf['config_key'], stripslashes($conf['config_value']));
 	}
 }
-?>

@@ -16,6 +16,8 @@
 
 require('includes/application_top.php');
 
+if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS == 'true') {
+
 	if(isset($_POST['del_user'])){
 		$usid = $_POST['del_user'];
 		xtc_db_query("DELETE FROM ".TABLE_BS5_CUSTOMERS_REMIND." WHERE remind_id ='".$usid."';");
@@ -215,4 +217,5 @@ require (DIR_WS_INCLUDES.'head.php');
 	<br />
 </body>
 </html>
-<?php require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>
+<?php require(DIR_WS_INCLUDES . 'application_bottom.php');
+}

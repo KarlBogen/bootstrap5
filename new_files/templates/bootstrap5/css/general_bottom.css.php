@@ -63,5 +63,3 @@
 		echo '<link rel="stylesheet" href="'.DIR_WS_BASE.$css.'" media="print" onload="this.onload=null;this.removeAttribute(\'media\');" fetchpriority="high">'.PHP_EOL;
 		echo '<noscript><link rel="stylesheet" property="stylesheet" href="'.DIR_WS_BASE.$css.'" type="text/css" media="screen"></noscript>'.PHP_EOL;
 	}
-
-?>

@@ -17,4 +17,3 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 	}
 
 }
-?>

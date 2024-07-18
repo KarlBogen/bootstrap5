@@ -161,4 +161,3 @@ function sendremindmails() {
         }
         return true;
 }
-?>

@@ -25,4 +25,3 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 	$forbidden_history_sites = array_merge($forbidden_array, $forbidden_history_sites);
 
 }
-?>

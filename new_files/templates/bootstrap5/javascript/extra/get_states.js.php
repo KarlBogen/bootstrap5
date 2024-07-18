@@ -120,4 +120,3 @@ if (ACCOUNT_STATE == 'true' && in_array(basename($PHP_SELF), $state_pages)) {
 </script>
 <?php 
 } 
-?>

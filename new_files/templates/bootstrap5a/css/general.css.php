@@ -38,7 +38,7 @@
   $bs5_min_ts = is_writeable(DIR_FS_CATALOG.$bs5_min) ? filemtime(DIR_FS_CATALOG.$bs5_min) : false;
   if ($bs5_f_time > $bs5_min_ts) {
     require_once(DIR_TMPL.'source/external/compactor/compactor.php');
-    $compactor = new BS5_Compactor(array('strip_php_comments' => true, 'compress_css' => $compress_css));
+    $compactor = new BS5_Compactor(array('strip_php_comments' => true, 'compress_css' => true));
     $compactor->add(DIR_FS_CATALOG.DIR_TMPL_CSS.'bs5.css');
     $compactor->save(DIR_FS_CATALOG.$bs5_min, true);
   }
@@ -68,5 +68,3 @@
   echo '  .img_container {max-width: '.PRODUCT_IMAGE_THUMBNAIL_WIDTH.'px}'.PHP_EOL;
   echo '  .man_image.img_container {max-width: '.MANUFACTURER_IMAGE_WIDTH.'px}'.PHP_EOL;
   echo '</style>'.PHP_EOL;
-
-?>

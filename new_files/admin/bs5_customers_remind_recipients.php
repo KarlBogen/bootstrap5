@@ -16,6 +16,8 @@
 
   require('includes/application_top.php');
 
+if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS == 'true') {
+
   // include needed function
   require_once(DIR_FS_INC.'xtc_href_link_from_admin.inc.php');
 
@@ -330,4 +332,5 @@
   <br />
 </body>
 </html>
-<?php require(DIR_WS_INCLUDES . 'application_bottom.php'); ?>
+<?php require(DIR_WS_INCLUDES . 'application_bottom.php');
+}

@@ -1,6 +1,6 @@
 <?php
 /*-----------------------------------------------------------
-   $Id: general_bottom.js.php 13771 2021-10-15 13:35:43Z GTB $
+   $Id: general_bottom.js.php 15940 2024-06-12 09:40:27Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
@@ -14,6 +14,7 @@
 */
 // this javascriptfile get includes at the BOTTOM of every template page in shop
 // you can add your template specific js scripts here
+defined('DIR_TMPL') OR define('DIR_TMPL', 'templates/'.CURRENT_TEMPLATE.'/');
 defined('DIR_TMPL_JS') OR define('DIR_TMPL_JS', DIR_TMPL.'javascript/');
 ?>
 

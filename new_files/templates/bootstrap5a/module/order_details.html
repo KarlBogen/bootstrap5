@@ -35,8 +35,9 @@
 								<div class="mb-2"><a class="link-secondary" href="{$module_data.PRODUCTS_LINK}">{$module_data.PRODUCTS_NAME}</a></div>
 								<div class="small">
 									{if $module_data.PRODUCTS_SHORT_DESCRIPTION}<div class="description line-clamp lc-4 mb-2">{$module_data.PRODUCTS_SHORT_DESCRIPTION}</div>{/if}
-									{if $module_data.PRODUCTS_MODEL || $module_data.PRODUCTS_SHIPPING_TIME}
+									{if $module_data.PRODUCTS_MODEL || $module_data.PRODUCTS_SHIPPING_TIME || $module_data.PRODUCTS_VPE}
 										<div class="mb-2">
+                      {if $module_data.PRODUCTS_VPE}<div>{$module_data.PRODUCTS_VPE}</div>{/if}
 											{if $module_data.PRODUCTS_MODEL}<div><strong>{$smarty.const.HEADER_MODEL}:</strong> {$module_data.PRODUCTS_MODEL}</div>{/if}
 											{if $module_data.PRODUCTS_SHIPPING_TIME}<div><strong>{$smarty.const.SHIPPING_TIME}</strong> {$module_data.PRODUCTS_SHIPPING_TIME}</div>{/if}
 										</div>

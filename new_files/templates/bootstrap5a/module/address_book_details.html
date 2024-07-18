@@ -65,7 +65,7 @@
 				{$INPUT_STATE|replace:'name="state"':'id="state" name="state"'}
 			</div>
 		{/if}
-		{if $new == '1'}
+		{if isset($new) && $new == '1'}
 			<div class="p-2 bg-warning-subtle position-relative clearfix">
 				<div class="form-check">
 					{$CHECKBOX_PRIMARY|replace:'<input':'<input id="primary" class="form-check-input"'}

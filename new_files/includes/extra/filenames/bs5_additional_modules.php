@@ -16,4 +16,3 @@ define('BS5_FILENAME_CHEAPLY_SEE', 'bs5_cheaply_see.php');
 define('BS5_FILENAME_PRODUCT_INQUIRY', 'bs5_product_inquiry.php');
 // Zusatzmodul Rezensionsaufgliederung nach vergebenen Sternen (Awids Rating Breakdown)
 define('BS5_FILENAME_POPUP_REVIEWS', 'bs5-popup_reviews.php');
-?>

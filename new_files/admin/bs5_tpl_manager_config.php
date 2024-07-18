@@ -889,4 +889,3 @@ require_once (DIR_WS_INCLUDES.'head.php');
 <?php require(DIR_WS_INCLUDES . 'application_bottom.php');
 
 }
-?>

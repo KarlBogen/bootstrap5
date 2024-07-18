@@ -1,6 +1,6 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   $Id: cart.php 15438 2023-08-21 11:33:20Z GTB $
+   $Id: cart.php 15974 2024-06-27 13:05:26Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
@@ -80,7 +80,7 @@
   $box_smarty->assign('products', $products_cart);
   $box_smarty->assign('PRODUCTS', $qty);
   $box_smarty->assign('empty', $qty > 0 ? 'false' : 'true');
-  $box_smarty->assign('ACTIVATE_GIFT', ACTIVATE_GIFT_SYSTEM == 'true' ? 'true' : false);
+  $box_smarty->assign('ACTIVATE_GIFT', ((ACTIVATE_GIFT_SYSTEM == 'true' && ((defined('MODULE_ORDER_TOTAL_GV_STATUS') && MODULE_ORDER_TOTAL_GV_STATUS == 'true') || (defined('MODULE_ORDER_TOTAL_COUPON_STATUS') && MODULE_ORDER_TOTAL_COUPON_STATUS == 'true'))) ? 'true' : false));
 
   // GV Code
   if (isset($_SESSION['customer_id'])) {

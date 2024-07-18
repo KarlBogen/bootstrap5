@@ -7,12 +7,13 @@
 	{/if}
 	<h1 class="cat heading bg-h">{$LIST_TITLE}</h1>
 	{if (isset($CATEGORIES_DESCRIPTION) && $CATEGORIES_DESCRIPTION != '')
+		|| (isset($CATEGORIES_SHORT_DESCRIPTION) && $CATEGORIES_SHORT_DESCRIPTION != '')
 		|| (isset($CATEGORIES_IMAGE) && $CATEGORIES_IMAGE != '')
 		|| (isset($CATEGORIES_IMAGE_MOBILE) && $CATEGORIES_IMAGE_MOBILE != '')
 	}
 	<div class="cat_description my-4 clearfix">
 		{if isset($CATEGORIES_IMAGE) && $CATEGORIES_IMAGE != ''}
-		<div class="d-inline-block col-12 mb-3{if (isset($CATEGORIES_DESCRIPTION) && $CATEGORIES_DESCRIPTION != '') && ($smarty.const.CATEGORIES_IMAGE_WIDTH < 900 || $listing_mode == 'manufacturer')}{if $listing_mode != 'manufacturer'} col-md-3{else} col-md-auto{/if} text-center float-md-start me-md-3{/if}">
+		<div class="d-inline-block col-12 mb-3{if (((isset($CATEGORIES_DESCRIPTION) && $CATEGORIES_DESCRIPTION != '') || (isset($CATEGORIES_SHORT_DESCRIPTION) && $CATEGORIES_SHORT_DESCRIPTION != '')) && ($smarty.const.CATEGORIES_IMAGE_WIDTH < 900) || $listing_mode == 'manufacturer')}{if $listing_mode != 'manufacturer'} col-md-3{else} col-md-auto{/if} text-center float-md-start me-md-3{/if}">
 			{assign var=sizeimg value=$CATEGORIES_IMAGE|imgsize}
 			{if isset($CATEGORIES_IMAGE_MOBILE) && $CATEGORIES_IMAGE_MOBILE != ''}
 				{assign var=sizeimgmob value=$CATEGORIES_IMAGE_MOBILE|imgsize}
@@ -26,7 +27,11 @@
 			{/if}
 		</div>
 		{/if}
-	  {if (isset($CATEGORIES_DESCRIPTION) && $CATEGORIES_DESCRIPTION != '')}<div>{$CATEGORIES_DESCRIPTION}</div>{/if}
+    {if (isset($CATEGORIES_SHORT_DESCRIPTION) && $CATEGORIES_SHORT_DESCRIPTION != '')
+        || (isset($CATEGORIES_DESCRIPTION) && $CATEGORIES_DESCRIPTION != '')
+        }
+			<div>{if isset($CATEGORIES_SHORT_DESCRIPTION) && $CATEGORIES_SHORT_DESCRIPTION != ''}{$CATEGORIES_SHORT_DESCRIPTION}{else if isset($CATEGORIES_DESCRIPTION) && $CATEGORIES_DESCRIPTION != ''}{$CATEGORIES_DESCRIPTION}{/if}</div>
+		{/if}
 	</div>
 	{/if}
 </div>
@@ -47,19 +52,26 @@
 	<div class="pag_bot">{$PAGINATION}</div>
 </div>      
 
+{if isset($CATEGORIES_SHORT_DESCRIPTION) && $CATEGORIES_SHORT_DESCRIPTION != '' && isset($CATEGORIES_DESCRIPTION) && $CATEGORIES_DESCRIPTION != ''}
+<div class="cat_description my-4 clearfix">
+	{$CATEGORIES_DESCRIPTION}
+</div>
+{/if}
+
 {if (isset($MANUFACTURER_DESCRIPTION) && $MANUFACTURER_DESCRIPTION != '')
+    || (isset($MANUFACTURER_SHORT_DESCRIPTION) && $MANUFACTURER_SHORT_DESCRIPTION != '')
     || (isset($MANUFACTURER_IMAGE) && $MANUFACTURER_IMAGE != '')
     || (isset($MANUFACTURER_NAME) && $MANUFACTURER_NAME != '')}
 <div class="manufacturer mb-2 clearfix">
 	<div class="h4 heading bg-h">{$MANUFACTURER_NAME}</div>
 	<div class="manu_description my-4">
 		{if $MANUFACTURER_IMAGE}
-			<div{if (isset($MANUFACTURER_DESCRIPTION) && $MANUFACTURER_DESCRIPTION != '')} class="col-4"{/if}>
+			<div{if (isset($MANUFACTURER_DESCRIPTION) && $MANUFACTURER_DESCRIPTION != '') || (isset($MANUFACTURER_SHORT_DESCRIPTION) && $MANUFACTURER_SHORT_DESCRIPTION != '')} class="col-4"{/if}>
 				<img class="lazyload manu_image img-fluid float-start mb-2 me-4" data-src="{$MANUFACTURER_IMAGE}" alt="{$MANUFACTURER_NAME|onlytext}">
 				<noscript><img class="manu_image img-fluid float-start mb-2 me-4" src="{$MANUFACTURER_IMAGE}" alt="{$MANUFACTURER_NAME|onlytext}"></noscript>
 			</div>
 		{/if}
-		{if $MANUFACTURER_DESCRIPTION}{$MANUFACTURER_DESCRIPTION}{/if}
+		<div>{if $MANUFACTURER_SHORT_DESCRIPTION}{$MANUFACTURER_SHORT_DESCRIPTION}{else if $MANUFACTURER_DESCRIPTION}{$MANUFACTURER_DESCRIPTION}{/if}</div>
 	</div>
 </div>
 {/if}

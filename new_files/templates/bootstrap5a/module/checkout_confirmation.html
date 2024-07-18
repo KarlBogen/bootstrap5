@@ -170,8 +170,9 @@
 									{/foreach} 
 								</div>
 							{/if}
-							{if $data.model || $data.shipping_time}
+							{if $data.model || $data.shipping_time || $data.vpe}
 								<div class="of_info mb-2">
+                  {if $data.vpe}<div class="of_infoline">{$data.vpe}</div>{/if}
 									{if $data.model}<div class="of_infoline"><strong>{$smarty.const.HEADER_MODEL}:</strong> {$data.model}</div>{/if}
 									{if $data.shipping_time}<div class="of_infoline"><strong>{$smarty.const.SHIPPING_TIME}</strong> {$data.shipping_time}</div>{/if}
 								</div>
@@ -229,8 +230,8 @@
 		<div class="clearfix my-4 text-end">
 			{$CHECKOUT_FORM}
 				{if $MODULE_BUTTONS != ''}{$MODULE_BUTTONS}{/if}
-				<div class="d-grid gap-2 col-sm-8 col-md-6 ms-auto mt-3">{$CHECKOUT_BUTTON|replace:"</form>":""}</div>
-			</form>
+				<div class="d-grid gap-2 col-sm-8 col-md-6 ms-auto mt-3">{$CHECKOUT_BUTTON}</div>
+			{$CHECKOUT_FORM_END}
 		</div>
 		</div>
 	</div>

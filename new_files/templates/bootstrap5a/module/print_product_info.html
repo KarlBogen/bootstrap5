@@ -2,8 +2,8 @@
 {config_load file="$language/lang_$language.conf" section="product_info"}
 {config_load file="lang_`$language`.custom"}
 {config_load file="lang_`$language`.section" section="print_product_info"}
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html{$doctype}>
+<html {$html_params}>
 <head>
   <meta charset="{$charset}" />
   <title>{$PRODUCTS_NAME} / {$PRODUCTS_MODEL}</title>

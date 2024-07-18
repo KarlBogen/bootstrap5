@@ -251,7 +251,7 @@ if(!empty($KK_MEGAS) && BS5_MENUCASE != '2') {
 <?php
 }
 ?>
-$('ul#main li.level1.hassub').hover(function (ev) {
+$('ul#main li.level1.hassub, div#subnav li.level0.hassub').hover(function (ev) {
 		ev.stopPropagation();
 		var sel = $(this).find('>a');
 		if (typeof sel.data('href') != "undefined") {

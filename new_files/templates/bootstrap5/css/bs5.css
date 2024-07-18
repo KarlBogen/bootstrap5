@@ -372,6 +372,12 @@ li.kk-mega.level2 > a {
       opacity: 1;
   }
 }
+#subnav .hassub:hover >.dropdown-menu, #subnav .dropend .dropdown-menu[data-bs-popper] {
+	display: block !important;
+	left: 97%;
+	top:0;
+	position:absolute !important;
+}
 /* Ende KK-Megamenü */
 /* Ende Superfish */
 /* Autocomplete-Box von Suche */

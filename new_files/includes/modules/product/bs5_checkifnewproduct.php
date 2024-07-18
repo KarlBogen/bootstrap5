@@ -1,6 +1,23 @@
 <?php
+/* ------------------------------------------------------------
+	Module "Bootstrap 5 Template-Manager" made by Karl
+
+	modified eCommerce Shopsoftware
+	http://www.modified-shop.org
+
+	Released under the GNU General Public License
+-------------------------------------------------------------- */
 
 class bs5_checkifnewproduct {  //Important same name as filename
+
+    var $code;
+    var $name;
+    var $title;
+    var $description;
+    var $enabled;
+    var $sort_order;
+    var $translate;
+    var $_check;
 
     //--- BEGIN DEFAULT CLASS METHODS ---//
     function __construct()
@@ -39,10 +56,10 @@ class bs5_checkifnewproduct {  //Important same name as filename
     }
 
     function keys() {
-        define($this->name.'_STATUS_TITLE', TEXT_DEFAULT_STATUS_TITLE);
-        define($this->name.'_STATUS_DESC', TEXT_DEFAULT_STATUS_DESC);
-        define($this->name.'_SORT_ORDER_TITLE', TEXT_DEFAULT_SORT_ORDER_TITLE);
-        define($this->name.'_SORT_ORDER_DESC', TEXT_DEFAULT_SORT_ORDER_DESC);
+        defined($this->name.'_STATUS_TITLE') OR define($this->name.'_STATUS_TITLE', TEXT_DEFAULT_STATUS_TITLE);
+        defined($this->name.'_STATUS_DESC') OR define($this->name.'_STATUS_DESC', TEXT_DEFAULT_STATUS_DESC);
+        defined($this->name.'_SORT_ORDER_TITLE') OR define($this->name.'_SORT_ORDER_TITLE', TEXT_DEFAULT_SORT_ORDER_TITLE);
+        defined($this->name.'_SORT_ORDER_DESC') OR define($this->name.'_SORT_ORDER_DESC', TEXT_DEFAULT_SORT_ORDER_DESC);
 
         return array(
 //            $this->name.'_STATUS',
@@ -135,4 +152,3 @@ class bs5_checkifnewproduct {  //Important same name as filename
   }
 
 }
-?>

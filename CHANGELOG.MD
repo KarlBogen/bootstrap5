@@ -1,5 +1,13 @@
 UNRELEASED
 
+
+
+
+1.1.5 [18.07.2024]
+
+- Update zu Shopversion 3.1.0
+- Update Bootstrap-Framework zu Version 5.3.3
+- Update SCSS-Complier zu Version 1.12.1
 - Fix missing span tag (thanks flth)
 - Cookie consent - switcher style on focus
 - In product_reviews_write review_count is always 0 - behoben

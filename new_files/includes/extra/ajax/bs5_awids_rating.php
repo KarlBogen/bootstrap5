@@ -126,4 +126,3 @@ function bs5_awids_rating() {
 		return $breakdown_content;
 
 }
-?>

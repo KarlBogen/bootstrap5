@@ -481,4 +481,3 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 <?php require(DIR_WS_INCLUDES . 'application_bottom.php');
 
 }
-?>

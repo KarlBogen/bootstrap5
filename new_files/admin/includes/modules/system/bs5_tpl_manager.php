@@ -13,16 +13,16 @@ defined( '_VALID_XTC' ) or die( 'Direct Access to this location is not allowed.'
 
 class bs5_tpl_manager {
 
-    public $code;
-    public $title;
-    public $description;
-    public $enabled;
-    public $sort_order;
-    public $keys;
+  var $code;
+  var $title;
+  var $description;
+  var $sort_order;
+  var $enabled;
+  var $_check;
 
 	public function __construct() {
 		$this->code = 'bs5_tpl_manager';
-		$this->title = MODULE_BS5_TPL_MANAGER_TEXT_TITLE . ' © by <a href="https://github.com/KarlBogen" target="_blank" style="color: #e67e22; font-weight: bold;">Karl</a> - Version: 1.1.4';
+		$this->title = MODULE_BS5_TPL_MANAGER_TEXT_TITLE . ' © by <a href="https://github.com/KarlBogen" target="_blank" style="color: #e67e22; font-weight: bold;">Karl</a> - Version: 1.1.5';
 		$this->description = '';
 		if (defined('MODULE_BS5_TPL_MANAGER_STATUS')) $this->description .= '<a class="button btnbox but_green" style="text-align:center;" onclick="this.blur();" href="' . xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=' . $this->code . '&action=update') . '">Update</a><br /><br />';
         $bs5_tpl = defined('BS5_CURRENT_TEMPLATE') && BS5_CURRENT_TEMPLATE != '' ? BS5_CURRENT_TEMPLATE : 'bootstrap5';
@@ -864,4 +864,3 @@ class bs5_tpl_manager {
 	}
 
 }
-?>

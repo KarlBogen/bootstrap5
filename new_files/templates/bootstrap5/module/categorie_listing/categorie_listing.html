@@ -12,12 +12,13 @@
 	{/if}
 	{if $error_message}<div class="alert alert-danger">{$error_message}</div>{/if}
 	{if (isset($CATEGORIES_DESCRIPTION) && $CATEGORIES_DESCRIPTION != '')
+    || (isset($CATEGORIES_SHORT_DESCRIPTION) && $CATEGORIES_SHORT_DESCRIPTION != '')
 		|| (isset($CATEGORIES_IMAGE) && $CATEGORIES_IMAGE != '')
 		|| (isset($CATEGORIES_IMAGE_MOBILE) && $CATEGORIES_IMAGE_MOBILE != '')
 	}
-		<div class="cat_description clearfix p-2 my-4">
+		<div class="cat_description clearfix my-4">
 			{if isset($CATEGORIES_IMAGE) && $CATEGORIES_IMAGE != ''}
-				<div class="d-inline-block col-12 mb-2{if (isset($CATEGORIES_DESCRIPTION) && $CATEGORIES_DESCRIPTION != '' && $smarty.const.CATEGORIES_IMAGE_WIDTH < 1200)} col-lg-6 text-center float-md-start me-md-3{/if}">
+				<div class="d-inline-block col-12 mb-2{if ((isset($CATEGORIES_DESCRIPTION) && $CATEGORIES_DESCRIPTION != '') || (isset($CATEGORIES_SHORT_DESCRIPTION) && $CATEGORIES_SHORT_DESCRIPTION != '')) && $smarty.const.CATEGORIES_IMAGE_WIDTH < 1200} col-lg-6 text-center float-md-start me-md-3{/if}">
 					{assign var=sizeimg value=$CATEGORIES_IMAGE|imgsize}
 					{if isset($CATEGORIES_IMAGE_MOBILE) && $CATEGORIES_IMAGE_MOBILE != ''}
 						{assign var=sizeimgmob value=$CATEGORIES_IMAGE_MOBILE|imgsize}
@@ -31,7 +32,11 @@
 					{/if}
 				</div>
 			{/if}
-			{if (isset($CATEGORIES_DESCRIPTION) && $CATEGORIES_DESCRIPTION != '')}{$CATEGORIES_DESCRIPTION}{/if}
+	    {if (isset($CATEGORIES_SHORT_DESCRIPTION) && $CATEGORIES_SHORT_DESCRIPTION != '')
+	        || (isset($CATEGORIES_DESCRIPTION) && $CATEGORIES_DESCRIPTION != '')
+	        }
+				<div>{if isset($CATEGORIES_SHORT_DESCRIPTION) && $CATEGORIES_SHORT_DESCRIPTION != ''}{$CATEGORIES_SHORT_DESCRIPTION}{else if isset($CATEGORIES_DESCRIPTION) && $CATEGORIES_DESCRIPTION != ''}{$CATEGORIES_DESCRIPTION}{/if}</div>
+			{/if}
 		</div>
 	{/if}
 </div>
@@ -39,3 +44,9 @@
 {if isset($CATEGORIES_LISTING)}{$CATEGORIES_LISTING|replace:'row-cols-lg-4':'row-cols-lg-4 row-cols-xl-5'}{/if}
 
 {if isset($MODULE_new_products)}{$MODULE_new_products}{/if}
+
+{if isset($CATEGORIES_SHORT_DESCRIPTION) && $CATEGORIES_SHORT_DESCRIPTION != '' && isset($CATEGORIES_DESCRIPTION) && $CATEGORIES_DESCRIPTION != ''}
+  <div class="cat_description clearfix my-4">
+    {$CATEGORIES_DESCRIPTION}
+  </div>
+{/if}

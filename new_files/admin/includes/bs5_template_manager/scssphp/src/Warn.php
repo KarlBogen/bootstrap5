@@ -16,7 +16,7 @@ final class Warn
 {
     /**
      * @var callable|null
-     * @phpstan-var (callable(string, ?Deprecation): void)|null
+     * @phpstan-var (callable(string, bool): void)|null
      */
     private static $callback;
 
@@ -29,9 +29,9 @@ final class Warn
      *
      * @return void
      */
-    public static function warning(string $message): void
+    public static function warning($message)
     {
-        self::reportWarning($message, null);
+        self::reportWarning($message, false);
     }
 
     /**
@@ -43,14 +43,9 @@ final class Warn
      *
      * @return void
      */
-    public static function deprecation(string $message): void
+    public static function deprecation($message)
     {
-        self::reportWarning($message, Deprecation::userAuthored);
-    }
-
-    public static function forDeprecation(string $message, Deprecation $deprecation): void
-    {
-        self::reportWarning($message, $deprecation);
+        self::reportWarning($message, true);
     }
 
     /**
@@ -58,13 +53,13 @@ final class Warn
      *
      * @return callable|null The previous warn callback
      *
-     * @phpstan-param (callable(string, ?Deprecation): void)|null $callback
+     * @phpstan-param (callable(string, bool): void)|null $callback
      *
-     * @phpstan-return (callable(string, ?Deprecation): void)|null
+     * @phpstan-return (callable(string, bool): void)|null
      *
      * @internal
      */
-    public static function setCallback(callable $callback = null): ?callable
+    public static function setCallback(callable $callback = null)
     {
         $previousCallback = self::$callback;
         self::$callback = $callback;
@@ -72,7 +67,13 @@ final class Warn
         return $previousCallback;
     }
 
-    private static function reportWarning(string $message, ?Deprecation $deprecation): void
+    /**
+     * @param string $message
+     * @param bool   $deprecation
+     *
+     * @return void
+     */
+    private static function reportWarning($message, $deprecation)
     {
         if (self::$callback === null) {
             throw new \BadMethodCallException('The warning Reporter may only be called within a custom function or importer callback.');

@@ -90,7 +90,6 @@ if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
     'lastname',
     'email',
     'phone',
-    'subject',
     'message_body',
   );
 
@@ -116,7 +115,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
 		$error = true;
 		$messageStack->add('product_inquiry', ENTRY_EMAIL_ADDRESS_CHECK_ERROR);
 	}
-	if (strlen($message_body) == '') {
+	if (strlen($message_body) == 0) {
 		$error = true;
 		$messageStack->add('product_inquiry', BS5_ENTRY_MESSAGE_BODY_ERROR);
 	}
@@ -150,7 +149,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
 
 		// Email bilden
 		$create_name = $firstname . ' ' . $lastname;
-		$create_subject = $subject;
+		$create_subject = BS5_TEXT_PRODUCT_INQUIRY;
 		$products_link = xtc_href_link(FILENAME_PRODUCT_INFO, xtc_product_link($product->data['products_id'], $product->data['products_name']));
 
 		$create_html_body = '<h3>' . STORE_NAME . '</h3>';
@@ -221,7 +220,7 @@ $smarty->assign('INPUT_FIRSTNAME', xtc_draw_input_field('firstname', ($error ? $
 $smarty->assign('INPUT_LASTNAME', xtc_draw_input_field('lastname', ($error ? $_POST['lastname'] : (isset($_SESSION["customer_last_name"]) ? $_SESSION["customer_last_name"] : '')), 'id="lastname" class="form-control"'));
 $smarty->assign('INPUT_EMAIL', xtc_draw_input_field('email', ($error ? $_POST['email'] : (isset($_SESSION["customer_email_address"]) ? $_SESSION["customer_email_address"] : '')), 'id="email" class="form-control"'));
 $smarty->assign('INPUT_PHONE', xtc_draw_input_field('phone', ($error ? $_POST['phone'] : ''), 'id="phone" class="form-control"'));
-$smarty->assign('SELECT_SUBJECT', xtc_draw_input_field('subject', ($error ? $_POST['subject'] : BS5_TEXT_PRODUCT_INQUIRY), 'id="subject" class="form-control" disabled readonly'));
+$smarty->assign('SELECT_SUBJECT', xtc_draw_input_field('subject', BS5_TEXT_PRODUCT_INQUIRY, 'id="subject" class="form-control" disabled readonly'));
 $smarty->assign('INPUT_TEXT', xtc_draw_textarea_field('message_body', 'soft', 50, 12, ($error ? $_POST['message_body'] : ''), 'class="form-control"'));
 $smarty->assign('BUTTON_SUBMIT', xtc_image_submit('button_send.gif', IMAGE_BUTTON_SEND));
 $smarty->assign('FORM_END', '</form>');

@@ -66,4 +66,3 @@ if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 		$info_smarty->assign('ADD_CART_BUTTON', $remindlink);
 	}
 }
-?>

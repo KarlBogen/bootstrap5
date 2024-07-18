@@ -93,6 +93,9 @@
 		 */
 		private $_preserved_blocks  = false;
 
+		// PHP 8.2 kompatibel
+		private $data;
+
 		/**
 		 * Constructor
 		 */
@@ -540,4 +543,3 @@
 		}
 
 	}
-?>

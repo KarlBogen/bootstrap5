@@ -29,4 +29,3 @@ define('TABLE_BS5_CUSTOMERS_REMIND', 'bs5_customers_remind');
 define('TABLE_BS5_CUSTOMERS_REMIND_RECIPIENTS', 'bs5_customers_remind_recipients');
 define('TABLE_BS5_CUSTOMERS_REMIND_RECIPIENTS_HISTORY', 'bs5_customers_remind_recipients_history');
 defined('TABLE_BS5_SIMULATED_CRON_RECORDS') or define('TABLE_BS5_SIMULATED_CRON_RECORDS', 'bs5_simulated_cron_records');
-?>
