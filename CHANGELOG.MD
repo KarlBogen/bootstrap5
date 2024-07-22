@@ -3,6 +3,10 @@ UNRELEASED
 
 
 
+- Anpassung Templatedateien "product_info..." an Attribute Kombinations Manager
+
+
+
 1.1.5 [18.07.2024]
 
 - Update zu Shopversion 3.1.0
