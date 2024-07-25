@@ -34,24 +34,24 @@
 			<div class="carousel-item{if $smarty.foreach.aussen.first} active{/if}">
 				{if $slider.LINK != ''}
 					{if isset($slider.IMAGE_SRC_MOBILE) && $slider.IMAGE_SRC_MOBILE != ''}
-						<a class="stretched-link d-block" title="{$slider.IMAGE_TITLE}" href="{$slider.LINK}" {$slider.TARGET}></a>
+						<a class="stretched-link d-block" title="{$slider.IMAGE_TITLE|onlytext}" href="{$slider.LINK}" {$slider.TARGET}></a>
 						<picture>
 							<source media="(max-width:575.98px)" srcset="{$slider.IMAGE_SRC_MOBILE}">
 							<source srcset="{$slider.IMAGE_SRC}">
 							<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
 						</picture>
-						{if $slider.TEXT}
+						{if $slider.TEXT != ''}
 							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
-						{else}
-							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE}{else}{$slider.TITLE}{/if}</span></div>
+						{elseif $slider.IMAGE_TITLE != '' || $slider.TITLE != ''}
+							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
 						{/if}
 					{else}
-						<a class="stretched-link d-block" title="{$slider.IMAGE_TITLE}" href="{$slider.LINK}" {$slider.TARGET}></a>
+						<a class="stretched-link d-block" title="{$slider.IMAGE_TITLE|onlytext}" href="{$slider.LINK}" {$slider.TARGET}></a>
 						<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
-						{if $slider.TEXT}
+						{if $slider.TEXT != ''}
 							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
-						{else}
-							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE}{else}{$slider.TITLE}{/if}</span></div>
+						{elseif $slider.IMAGE_TITLE != '' || $slider.TITLE != ''}
+							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
 						{/if}
 					{/if}
 				{elseif $slider.IMAGE_IMG != ''}
@@ -61,17 +61,17 @@
 							<source srcset="{$slider.IMAGE_SRC}">
 							<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
 						</picture>
-						{if $slider.TEXT}
+						{if $slider.TEXT != ''}
 							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
-						{else}
-							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE}{else}{$slider.TITLE}{/if}</span></div>
+						{elseif $slider.IMAGE_TITLE != '' || $slider.TITLE != ''}
+							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
 						{/if}
 					{else}
 						<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
-						{if $slider.TEXT}
+						{if $slider.TEXT != ''}
 							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
-						{else}
-							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE}{else}{$slider.TITLE}{/if}</span></div>
+						{elseif $slider.IMAGE_TITLE != '' || $slider.TITLE != ''}
+							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
 						{/if}
 					{/if}
 				{/if}
@@ -110,24 +110,24 @@
 			<div class="carousel-item active">
 				{if $slider.LINK != ''}
 					{if isset($slider.IMAGE_SRC_MOBILE) && $slider.IMAGE_SRC_MOBILE != ''}
-						<a class="stretched-link d-block" title="{$slider.IMAGE_TITLE}" href="{$slider.LINK}" {$slider.TARGET}></a>
+						<a class="stretched-link d-block" title="{$slider.IMAGE_TITLE|onlytext}" href="{$slider.LINK}" {$slider.TARGET}></a>
 						<picture>
 							<source media="(max-width:575.98px)" srcset="{$slider.IMAGE_SRC_MOBILE}">
 							<source srcset="{$slider.IMAGE_SRC}">
 							<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
 						</picture>
-						{if $slider.TEXT}
+						{if $slider.TEXT != ''}
 							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
-						{else}
-							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE}{else}{$slider.TITLE}{/if}</span></div>
+						{elseif $slider.IMAGE_TITLE != '' || $slider.TITLE != ''}
+							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
 						{/if}
 					{else}
-						<a class="stretched-link d-block" title="{$slider.IMAGE_TITLE}" href="{$slider.LINK}" {$slider.TARGET}></a>
+						<a class="stretched-link d-block" title="{$slider.IMAGE_TITLE|onlytext}" href="{$slider.LINK}" {$slider.TARGET}></a>
 						<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
-						{if $slider.TEXT}
+						{if $slider.TEXT != ''}
 							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
-						{else}
-							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE}{else}{$slider.TITLE}{/if}</span></div>
+						{elseif $slider.IMAGE_TITLE != '' || $slider.TITLE != ''}
+							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
 						{/if}
 					{/if}
 				{elseif $slider.IMAGE_IMG != ''}
@@ -137,17 +137,17 @@
 							<source srcset="{$slider.IMAGE_SRC}">
 							<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
 						</picture>
-						{if $slider.TEXT}
+						{if $slider.TEXT != ''}
 							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
-						{else}
-							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE}{else}{$slider.TITLE}{/if}</span></div>
+						{elseif $slider.IMAGE_TITLE != '' || $slider.TITLE != ''}
+							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
 						{/if}
 					{else}
 						<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
-						{if $slider.TEXT}
+						{if $slider.TEXT != ''}
 							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
-						{else}
-							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE}{else}{$slider.TITLE}{/if}</span></div>
+						{elseif $slider.IMAGE_TITLE != '' || $slider.TITLE != ''}
+							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
 						{/if}
 					{/if}
 				{/if}
