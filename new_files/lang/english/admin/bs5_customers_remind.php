@@ -33,6 +33,7 @@ define('FOOTER_INFO', 'Your customers get a reminder mail sent as soon as an art
 define('CUSTOMERS_ADVERTISING_DELETE_CONFIRM', 'Are you sure you want to permanently delete this advertiser?');
 
 define('BUTTON_SEND_GIFT', 'Send gift');
+define('BUTTON_SEND_RABATT', 'Send discount');
 
 defined('TEXT_SORT_ASC') or define('TEXT_SORT_ASC','ascending');
 defined('TEXT_SORT_DESC') or define('TEXT_SORT_DESC','descending');

@@ -33,6 +33,7 @@ define('FOOTER_INFO', 'Kunden, die sich f&uuml;r eine Produkterinnerung eingetra
 define('CUSTOMERS_ADVERTISING_DELETE_CONFIRM', 'Sind Sie sicher, dass Sie diese Kundenwerbung unwiderruflich l&ouml;schen wollen?');
 
 define('BUTTON_SEND_GIFT', 'Gutschein senden');
+define('BUTTON_SEND_RABATT', 'Rabatt senden');
 
 defined('TEXT_SORT_ASC') or define('TEXT_SORT_ASC','aufsteigend');
 defined('TEXT_SORT_DESC') or define('TEXT_SORT_DESC','absteigend');

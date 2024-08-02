@@ -106,9 +106,11 @@ if(defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 					}
 				}
 
-				if (DISPLAY_PRIVACY_CHECK == 'true' && empty($privacy)) {
-					$error = true;
-					$messageStack->add('bs5_customers_remind', ENTRY_PRIVACY_ERROR);
+				if (!isset($_SESSION['customer_email_address']) || (isset($_SESSION['customer_email_address']) && BS5_CUSTOMERS_REMIND_PRIVACY_CHECK_REGISTERED == 'true')) {
+					if (DISPLAY_PRIVACY_CHECK == 'true' && empty($privacy)) {
+						$error = true;
+						$messageStack->add('bs5_customers_remind', ENTRY_PRIVACY_ERROR);
+					}
 				}
 				if(strlen($customers_input_email) < ENTRY_EMAIL_ADDRESS_MIN_LENGTH) {
 					$error = true;
@@ -235,12 +237,14 @@ if(defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 
         $smarty->assign('FORM_END_REMIND', '</form>');
 				if (DISPLAY_PRIVACY_CHECK == 'true') {
-					$smarty->assign('PRIVACY_CHECKBOX', xtc_draw_checkbox_field('privacy', 'privacy', $privacy, 'id="privacy" class="form-check-input"'));
+					if (!isset($_SESSION['customer_email_address']) || (isset($_SESSION['customer_email_address']) && BS5_CUSTOMERS_REMIND_PRIVACY_CHECK_REGISTERED == 'true')) {
+						$smarty->assign('PRIVACY_CHECKBOX', xtc_draw_checkbox_field('privacy', 'privacy', $privacy, 'id="privacy" class="form-check-input"'));
+					}
 				}
 				$smarty->assign('PRIVACY_LINK', $main->getContentLink(2, MORE_INFO, $request_type));
 
-	        $smarty->assign('SUCCESS_MESSAGE', '0');
-	        $smarty->assign('BUTTON_SUBMIT_REMIND', xtc_image_submit('button_continue.gif', IMAGE_BUTTON_CONTINUE));
+	      $smarty->assign('SUCCESS_MESSAGE', '0');
+	      $smarty->assign('BUTTON_SUBMIT_REMIND', xtc_image_submit('button_continue.gif', IMAGE_BUTTON_CONTINUE));
     	}
 
 			$smarty->assign('error_message', $error_message);

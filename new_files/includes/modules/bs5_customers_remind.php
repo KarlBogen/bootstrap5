@@ -23,9 +23,9 @@
 	Released under the GNU General Public License
 -------------------------------------------------------------- */
 
-$sendmail_asap = false; // true - wenn bei jedem Seitenaufruf die Tabelle "Kundenerinnerung" mit dem "Lagerbestand" abgeglichen werden soll
+$sendmail_asap = defined('BS5_CUSTOMERS_REMIND_SENDMAIL_ASAP') ? BS5_CUSTOMERS_REMIND_SENDMAIL_ASAP : 'false'; // true - wenn bei jedem Seitenaufruf die Tabelle "Kundenerinnerung" mit dem "Lagerbestand" abgeglichen werden soll
 
-if ($sendmail_asap === false) {
+if ($sendmail_asap === 'false') {
 	// Thanks to noRiddle - simulated cron job (code from https://trac.modified-shop.org/ticket/2252)
 	$last_exec = NULL;
 	$mas_act = false;

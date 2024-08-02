@@ -632,9 +632,24 @@ require_once (DIR_WS_INCLUDES.'head.php');
 				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_INFO; ?></td>
 							</tr>
 							<tr>
+				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_DOUBLE_OPT_IN; ?></td>
+				                <td class="dataTableConfig col-middle"><?php echo xtc_cfg_select_option($yes_no_array, $bs5_conf['BS5_CUSTOMERS_REMIND_DOUBLE_OPT_IN'], 'BS5_CUSTOMERS_REMIND_DOUBLE_OPT_IN'); ?></td>
+				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_DOUBLE_OPT_IN_INFO; ?></td>
+							</tr>
+							<tr>
 				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_ONLY_REGISTERED; ?></td>
 				                <td class="dataTableConfig col-middle"><?php echo xtc_cfg_select_option($yes_no_array, $bs5_conf['BS5_CUSTOMERS_REMIND_ONLY_REGISTERED'], 'BS5_CUSTOMERS_REMIND_ONLY_REGISTERED'); ?></td>
 				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_ONLY_REGISTERED_INFO; ?></td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_PRIVACY_CHECK_REGISTERED; ?></td>
+				                <td class="dataTableConfig col-middle"><?php echo xtc_cfg_select_option($yes_no_array, $bs5_conf['BS5_CUSTOMERS_REMIND_PRIVACY_CHECK_REGISTERED'], 'BS5_CUSTOMERS_REMIND_PRIVACY_CHECK_REGISTERED'); ?></td>
+				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_PRIVACY_CHECK_REGISTERED_INFO; ?></td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_ASAP; ?></td>
+				                <td class="dataTableConfig col-middle"><?php echo xtc_cfg_select_option($yes_no_array, $bs5_conf['BS5_CUSTOMERS_REMIND_SENDMAIL_ASAP'], 'BS5_CUSTOMERS_REMIND_SENDMAIL_ASAP'); ?></td>
+				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_ASAP_INFO; ?></td>
 							</tr>
 							<tr>
 				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL; ?></td>

@@ -1,7 +1,7 @@
 UNRELEASED
 
 
-
+- Kundenerinnerung - Anpassung an Modulversion 1.0.4
 - If-Abfrage Slidertitel (siehe Forum https://www.modified-shop.org/forum/index.php?topic=43489.msg406306#msg406306)
 - Anpassung Templatedateien "product_info..." an Attribute Kombinations Manager
 

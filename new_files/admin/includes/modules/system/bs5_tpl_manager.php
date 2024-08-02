@@ -45,13 +45,17 @@ class bs5_tpl_manager {
 	}
 
 	public function check() {
-		if (!isset($this->_check)) {
-			$check_query = xtc_db_query("SELECT configuration_value
-											FROM " . TABLE_CONFIGURATION . "
-											WHERE configuration_key = 'MODULE_BS5_TPL_MANAGER_STATUS'");
-			$this->_check = xtc_db_num_rows($check_query);
-		}
-		return $this->_check;
+    if (!isset($this->_check)) {
+      if (defined('MODULE_BS5_TPL_MANAGER_STATUS')) {
+        $this->_check = true;
+      } else {
+        $check_query = xtc_db_query("SELECT configuration_value
+                                       FROM " . TABLE_CONFIGURATION . "
+                                      WHERE configuration_key = 'MODULE_BS5_TPL_MANAGER_STATUS'");
+        $this->_check = xtc_db_num_rows($check_query);
+      }
+    }
+    return $this->_check;
 	}
 
 	public function install() {
@@ -314,7 +318,10 @@ class bs5_tpl_manager {
 			$values_config[] = "('BS5_FOOTER_NAVBAR', '')";
 			$values_config[] = "('BS5_FOOTER_BG', 'body-tertiary')";
 			$values_config[] = "('BS5_CUSTOMERS_REMIND', 'false')";
+			$values_config[] = "('BS5_CUSTOMERS_REMIND_DOUBLE_OPT_IN', 'true')";
 			$values_config[] = "('BS5_CUSTOMERS_REMIND_ONLY_REGISTERED', 'false')";
+			$values_config[] = "('BS5_CUSTOMERS_REMIND_PRIVACY_CHECK_REGISTERED', 'true')";
+			$values_config[] = "('BS5_CUSTOMERS_REMIND_SENDMAIL_ASAP', 'false')";
 			$values_config[] = "('BS5_CUSTOMERS_REMIND_SENDMAIL', 'false')";
 			$values_config[] = "('BS5_CHEAPLY_SEE', 'false')";
 			$values_config[] = "('BS5_CHEAPLY_SEE_CONTENT_GROUP', '')";
@@ -809,7 +816,7 @@ class bs5_tpl_manager {
 			`last_executed` DATE DEFAULT NULL,
 			PRIMARY KEY (`application`)
 		)");
-		xtc_db_query("INSERT INTO " . TABLE_BS5_SIMULATED_CRON_RECORDS . " (application, last_executed) VALUES ('bs5customers_remind', now())");
+		xtc_db_query("INSERT INTO " . TABLE_BS5_SIMULATED_CRON_RECORDS . " (application, last_executed) VALUES ('bs5customers_remind', now()) on duplicate key update application='bs5customers_remind', last_executed=now()");
 
 
     return true;

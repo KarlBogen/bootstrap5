@@ -241,8 +241,14 @@ $lang_array = array(
 		 <strong>The reminder list can be found in the admin area under "Customers -> Customers Remind".</strong><br><br>
 		 If an article (in sufficient number) is in stock again, the customer automatically receives a reminder email with a link that leads directly to the product in the shop.<br>
 		 Link to the original module: <a href="https://www.modified-shop.org/forum/index.php?topic=12813.0" target=”_blank”>https://www.modified-shop.org/forum/index.php?topic=12813.0</a>',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_DOUBLE_OPT_IN' => 'Customer remind:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_DOUBLE_OPT_IN_INFO' => '<strong>Double-Opt-In for Customers Remind registration?</strong><br>If "Yes" an eMail will be send where the Registration have to be confirmed. This only works if send eMails is activated.',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_ONLY_REGISTERED' => 'Customer remind:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_ONLY_REGISTERED_INFO' => '<strong>Reminder only for registered customers?</strong><br>If you only allow this service for registered customers, then set this switch to "Yes".',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_PRIVACY_CHECK_REGISTERED' => 'Customer remind:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_PRIVACY_CHECK_REGISTERED_INFO' => '<strong>Signing privacy notice also for registered customers?</strong><br>Should the privacy notice checkbox also be required for registered customers, set this switch to "Yes".<br>(Only applies if Adv. Configuration -> Additional Modules - Sign privacy notice = "Yes"!)',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_ASAP' => 'Customer remind:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_ASAP_INFO' => '<strong>Send email immediately?</strong><br>Compare the "Customer Reminder" table with the "Stock" and then <strong>send the email only once a day</strong>, then switch to "No" (recommended setting).<br>If you want to compare the "Customer Reminder" table with the "Stock" at every page load, set this switch to "Yes".',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL' => 'Customer remind:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_INFO' => 'Send an e-mail to the shop owner (contact - e-mail address) when a customer enters the reminder list?',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CHEAPLY_SEE' => 'Cheaply see:',

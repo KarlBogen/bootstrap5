@@ -1,6 +1,6 @@
 <?php
 /* ------------------------------------------------------------
-	Module "Kundenerinnerung_modified-shop-2.0.3.0" made by Karl
+	Module "Kundenerinnerung Modified Shop 3.0.2 mit Opt-in" made by Karl
 
 	Based on: Kundenerinnerung_Multilingual_advanced_modified-shop-1.06
 	Based on: xt-module.de customers remind
@@ -173,7 +173,10 @@ require (DIR_WS_INCLUDES.'head.php');
 										<?php
 											echo '<a class="button" href="'.xtc_href_link(FILENAME_MAIL .'?selected_box=tools&action=email&customer='. $customers_remind['customers_email_address']).'" style="float:left; height:10px; line-height:10px; margin:0px 2px;" >'.BUTTON_EMAIL.'</a>';
 											if (ACTIVATE_GIFT_SYSTEM == 'true') {
-												echo '<a class="button" href="'.xtc_href_link(FILENAME_GV_MAIL .'?action=email&selected_box=tools&cID='. $customers_remind['customers_id']).'" style="float:left; height:10px; line-height:10px; margin:0px 2px;" >'.BUTTON_SEND_GIFT.'</a>';
+												echo '<a class="button" href="'.xtc_href_link(FILENAME_GV_MAIL .'?action=email&selected_box=tools&cID='. $customers_remind['customers_id']).'" style="float:left; height:10px; line-height:10px; margin:0px 2px;" >'.BUTTON_SEND_COUPON.'</a>';
+											}
+											if (ACTIVATE_GIFT_SYSTEM == 'true') {
+												echo '<a class="button" href="'.xtc_href_link(FILENAME_COUPON_ADMIN .'?action=email&cid=1=selected_box=tools&customer='. $customers_remind['customers_email_address']).'" style="float:left; height:10px; line-height:10px; margin:0px 2px;" >'.BUTTON_SEND_RABATT.'</a>';
 											}
 										?>
 									</td>
