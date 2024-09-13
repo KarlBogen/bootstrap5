@@ -39,7 +39,7 @@ BS5_new = 'Neu'
 
 BS5_previous = 'zur&uuml;ck'
 BS5_next = 'vor'
-BS5_close = 'Schließen'
+BS5_close = 'Schlie&szlig;en'
 BS5_price = 'Preisangaben'
 
 BS5_noscript = '<strong>JavaScript ist deaktiviert!</strong> Es stehen Ihnen nicht alle Shopfunktionen zur Verf&uuml;gung. Bitte &uuml;berpr&uuml;fen Sie Ihre Browsereinstellungen.'

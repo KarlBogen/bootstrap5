@@ -1,6 +1,6 @@
 /* Breadcrumb-Divider */
 .breadcrumb-item+.breadcrumb-item::before {
-	content: "»" !important;
+	content: "\00bb" !important;
 }
 /* CLS BEGINN */
 .logos .nav{
@@ -241,7 +241,7 @@ input[type=submit].btn-block {
 .resCarousel .card, .listingbox .card, .listingrow.card, .over-hidden {
 	overflow: hidden;
 }
-.resCarousel .card > div a:not(.stretched-link), .listingbox .card > div a:not(.stretched-link), .listingrow.card > div a:not(.stretched-link), .over-hidden > div a:not(.stretched-link), .card .traffic {
+.resCarousel .card > div a:not(.stretched-link), .listingbox .card > div a:not(.stretched-link), .listingrow.card > div a:not(.stretched-link), .over-hidden > div a:not(.stretched-link) {
 	z-index: 2;
 	position: relative;
 }

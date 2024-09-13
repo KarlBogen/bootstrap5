@@ -1,10 +1,13 @@
 UNRELEASED
 
 
+- Barrierefreiheit bei mehreren Produktbildern verändert
+- "X" in Offcanvas stand nicht in rechter Ecke
+- Breadcrumb-Divider in CSS-Datei angepasst
 - Kundenerinnerung - Anpassung an Modulversion 1.0.4
 - If-Abfrage Slidertitel (siehe Forum https://www.modified-shop.org/forum/index.php?topic=43489.msg406306#msg406306)
 - Anpassung Templatedateien "product_info..." an Attribute Kombinations Manager
-
+- kleinere Änderungen
 
 
 1.1.5 [18.07.2024]
