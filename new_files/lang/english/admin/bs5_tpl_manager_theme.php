@@ -214,20 +214,18 @@ $lang_array = array(
 		are possible.',
 
 	'TEXT_BS5_TPL_MANAGER_THEME_TAB_BUTTON' => 'Buttons',
-	'TEXT_BS5_TPL_MANAGER_THEME_BUTTONS' => 'The buttons can not be changed here, because there are too many variations!<br><br>
-		Changes can be made in the file <strong>templates/bootstrap5/source/inc/css_button.inc.php</strong>.<br><br>
-		<strong>Sample:<br>
-		The green button "Checkout" in the shopping cart should be displayed in blue and get another icon.</strong><br><br>
-		The modified shop system sends the information to the template - create a button with the image "button_checkout.gif" and the language string "IMAGE_BUTTON_CHECKOUT" (Checkout).<br>
-		<strong>Tip:</strong> To find out which image will be called by Modified, you can switch to the template "tpl_modified" and inspect the button with a browser developer tool.<br><br>
-		The modified information is converted into a bootstrap button in css_button.inc.php.<br>
-		In line 35 is the entry "button_checkout.gif".<br><br>
-		At first we search on <a href="https://fontawesome.com/icons?d=gallery&s=regular,solid&m=free" target="_blank">Font Awesome</a> for another "checkout" icon e.g. "money-bill-alt".<br>
-		Now this section will change \'icon\' => \'far fa-credit-card\' into \'icon\' => \'far fa-money-bill-alt\' (far stands for regular, alternatively fa or fas can be used for solid).<br><br>
-		At <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank">Bootstrap</a>  we search under Docs->Components->Buttons for the CSS classes, in our case "btn-primary".<br>
-		We change \'Class\' => \'btn btn-checkout btn-success btn-block\' into \'Class\' => \'btn btn-checkout btn-primary btn-block\'<br><br>
-		Then empty caches and update the shop!<br><br>
-		<strong>Note:</strong> Some buttons are used in several places in the shop!',
+	'TEXT_BS5_TPL_MANAGER_THEME_BUTTONS' => '<h4>Buttons</h4>The destination was to make Bootstrap5 as barrier-free as possible - the shop should also be easy to use with the keyboard.<br><br>
+		Modified does not offer the option of directly accessing the corresponding button or link tag using the /source/inc/css_button.inc.php file, but only accessing a child element.<br>
+		For this reason, the CSS classes were inserted directly into the output files.<br><br>
+		Here <strong>as an example the button "Add to cart"</strong>.<br><br>
+		This code can be found in the template files "module/product_info/product_info...html":<br><br>
+		<code>&nbsp;&nbsp;{$ADD_CART_BUTTON|replace:\'&lt;button\':\'&lt;button class="btn btn-cart btn-secondary"\'}</code><br><br>
+		If you want the gray (btn-secondary) button to become a green (btn-success) button, you have to change the CSS class as follows:<br><br>
+		<code>&nbsp;&nbsp;{$ADD_CART_BUTTON|replace:\'&lt;button\':\'&lt;button class="btn btn-cart btn-success"\'}</code><br><br>
+		You can find the possible CSS classes at <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> under Docs->Components->Buttons.<br><br><br>
+		<h4>Icons</h4>Most <strong>icons can be customized in the template file /source/inc/css_button.inc.php</strong>, some can be found directly in the output files.<br><br>
+		For performance reasons, the icon font and CSS files are limited to the used icons.<br>
+		If additional icons are wanted, instructions (only german) can be found in the template directory /css/icons/.<br><br>',
 
 	// Default Bootstrap 5 font-family
 	'BS5_DEFAULT_FONT_FAMILY' => '$font-family-sans-serif: "%s", sans-serif !default;',

@@ -214,20 +214,18 @@ $lang_array = array(
 		sind m&ouml;glich.',
 
 	'TEXT_BS5_TPL_MANAGER_THEME_TAB_BUTTON' => 'Buttons',
-	'TEXT_BS5_TPL_MANAGER_THEME_BUTTONS' => 'Die Buttons k&ouml;nnen hier nicht ver&auml;ndert werden, da es zuviele Variationen gibt!<br><br>
-		&Auml;nderungen k&ouml;nnen aber in der Datei <strong>templates/bootstrap5/source/inc/css_button.inc.php</strong> gemacht werden.<br><br>
-		<strong>Beispiel:<br>
-		Es soll der gr&uuml;ne Button "Kasse" im Warenkorb blau dargestellt werden und ein anderes Icon (Bild) erhalten.</strong><br><br>
-		Das Modified Shopsystem sendet an das Template die Informationen - erstelle einen Button mit dem Bild "button_checkout.gif" und dem Sprachstring "IMAGE_BUTTON_CHECKOUT" (Kasse).<br>
-		<strong>Tip:</strong> Um herauszufinden, welches Bild von Modified aufgrufen wird, kann man auf das Template "tpl_modified" umstellen und den Button mit einem Entwicklertool des Browsers untersuchen.<br><br>
-		Die Modified Informationen werden in der css_button.inc.php in einen Bootstrap-Button umgewandelt.<br>
-		In Zeile 35 befindet sich der Eintrag "button_checkout.gif".<br><br>
-		Zuerst suchen wir bei <a href="https://fontawesome.com/icons?d=gallery&s=regular,solid&m=free" target="_blank">Font Awesome</a> ein anderes "checkout" Icon z.B. "money-bill-alt".<br>
-		Nun &auml;ndern wird diesen Abschnitt \'icon\' => \'far fa-credit-card\' in \'icon\' => \'far fa-money-bill-alt\' (far steht f&uuml; regular, alternativ kann fa oder fas f&uuml;r solid verwendet werden).<br><br>
-		Jetzt suchen wir bei <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/" target="_blank">Bootstrap</a> unter Docs->Components->Buttons nach den CSS-Klassen, in unserem Fall "btn-primary".<br>
-		Wir &auml;ndern diesen Abschnitt \'Class\' => \'btn btn-checkout btn-success btn-block\' in \'Class\' => \'btn btn-checkout btn-primary btn-block\'<br><br>
-		Anschlie&szlig;end Caches leeren und Shop aktualisieren!<br><br>
-		<strong>Hinweis:</strong> Manche Button werden an mehreren Stellen im Shop benutzt!',
+	'TEXT_BS5_TPL_MANAGER_THEME_BUTTONS' => '<h4>Buttons</h4>Ziel war es Bootstrap5 m&ouml;glichst barrierefrei zu gestalten - der Shop sollte auch mit der Tastatur ansehnlich bedienbar sein.<br><br>
+		Modified bietet leider keine M&ouml;glichkeit mit Hilfe der Datei /source/inc/css_button.inc.php direkt auf den entsprechenden Button- bzw. Link-Tag, sondern nur auf ein Kindelement, zuzugreifen.<br>
+		Aus diesem Grund wurden die CSS-Klassen direkt in die Ausgabedateien einf&uuml;gt.<br><br>
+		Hier als <strong>Beispiel der Button "In den Warenkorb"</strong>.<br><br>
+		In den Templatedateien "module/product_info/product_info...html" ist dieser Code zu finden:<br><br>
+		<code>&nbsp;&nbsp;{$ADD_CART_BUTTON|replace:\'&lt;button\':\'&lt;button class="btn btn-cart btn-secondary"\'}</code><br><br>
+		Soll aus dem Grauen (btn-secondary) ein gr&uuml;ner (btn-success) Button werden muss die CSS-Klasse so ge&auml;ndert werden:<br><br>
+		<code>&nbsp;&nbsp;{$ADD_CART_BUTTON|replace:\'&lt;button\':\'&lt;button class="btn btn-cart btn-success"\'}</code><br><br>
+		Bei <a href="https://getbootstrap.com" target="_blank">Bootstrap</a> unter Docs->Components->Buttons kann man die m&ouml;glichen CSS-Klassen finden.<br><br><br>
+		<h4>Icons</h4>Die meisten <strong>Icons k&ouml;nnen in der Templatedatei /source/inc/css_button.inc.php</strong> angepasst werden, einige sind direkt in den Ausgabedateien zu finden.<br><br>
+		Aus Performance-Gr&uuml;nden sind die Icon-Font- und CSS-Dateien nur auf die genutzten Icons beschr&auml;nkt.<br>
+		Werden weitere Icons ben&ouml;tigt ist im Templateverzeichnis /css/icons/ eine Anleitung zu finden.<br><br>',
 
 	// Default Bootstrap 5 font-family
 	'BS5_DEFAULT_FONT_FAMILY' => '$font-family-sans-serif: "%s", sans-serif !default;',
