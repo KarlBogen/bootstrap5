@@ -327,6 +327,7 @@ button.category_button, .liman i {
   position: absolute;
   top: 1px;
   right: 0;
+  color: var(--bs-emphasis-color);
   border: 1px solid currentColor;
 }
 ul.categorymenu ul {

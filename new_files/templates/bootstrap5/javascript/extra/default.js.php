@@ -1,6 +1,6 @@
 <?php
   /* --------------------------------------------------------------
-   $Id: default.js.php 12435 2019-12-02 09:21:20Z GTB $
+   $Id: default.js.php 16109 2024-08-23 15:20:11Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
@@ -15,7 +15,7 @@
 <?php if ($_SESSION['customers_status']['customers_status'] == '0') { ?>
 	$('body').addClass('admin_mode');
 <?php } ?>
-	$(".listing_topscroll").click(function(event) {
+	$('body').on('click', '.listing_topscroll', function(event) {
 		event.preventDefault();
 		$("html, body").animate({ scrollTop: $('.listing').offset().top - 120}, "slow", function() {
 			$(".listing_bottomscroll").focus();
@@ -23,7 +23,7 @@
     return false;
   });
 	$('.as-oil .as-oil__heading-intro-description').focus();
-	$(".listing_bottomscroll").click(function(event) {
+	$('body').on('click', '.listing_bottomscroll', function(event) {
 		event.preventDefault();
 		$("html, body").animate({ scrollTop: $('.listing').offset().top + $(".listing").outerHeight() - $(window).height() + 200}, "slow", function() {
 			$(".listing_topscroll").focus();

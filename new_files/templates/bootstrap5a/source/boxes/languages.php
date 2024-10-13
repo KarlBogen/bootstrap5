@@ -1,6 +1,6 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   $Id: languages.php 15900 2024-05-27 10:34:55Z GTB $
+   $Id: languages.php 16156 2024-10-02 05:47:51Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
@@ -14,7 +14,7 @@
   include(DIR_FS_BOXES_INC . 'smarty_default.php');
 
   // set cache id
-  $cache_id = md5('lID:'.$_SESSION['language'].'|site:'.basename($PHP_SELF).'|params:'.xtc_get_all_get_params());
+  $cache_id = md5('lID:'.$_SESSION['language'].'|csID:'.$_SESSION['customers_status']['customers_status'].'|site:'.basename($PHP_SELF).'|params:'.xtc_get_all_get_params());
 
   if (!$box_smarty->is_cached(CURRENT_TEMPLATE.'/boxes/box_languages.html', $cache_id) || !$cache) {
 

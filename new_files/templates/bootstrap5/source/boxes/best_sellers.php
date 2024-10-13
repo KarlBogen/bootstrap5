@@ -1,6 +1,6 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   $Id: best_sellers.php 15434 2023-08-21 09:59:07Z GTB $
+   $Id: best_sellers.php 16099 2024-08-21 08:53:28Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
@@ -16,8 +16,11 @@
   // set cache id
   $cache_id = md5('lID:'.$_SESSION['language'].'|csID:'.$_SESSION['customers_status']['customers_status_id'].'|curr:'.$_SESSION['currency'].'|cID:'.$current_category_id.'|country:'.((isset($_SESSION['country'])) ? $_SESSION['country'] : ((isset($_SESSION['customer_country_id'])) ? $_SESSION['customer_country_id'] : STORE_COUNTRY)));
 
-  if (MIN_DISPLAY_BESTSELLERS > 0 && (!$box_smarty->is_cached(CURRENT_TEMPLATE.'/boxes/box_best_sellers.html', $cache_id) || !$cache)) {
-  
+  if (MIN_DISPLAY_BESTSELLERS > 0
+      && MAX_DISPLAY_BESTSELLERS > 0
+      && (!$box_smarty->is_cached(CURRENT_TEMPLATE.'/boxes/box_best_sellers.html', $cache_id) || !$cache)
+      ) 
+  {
     // include needed functions
     require_once (DIR_FS_INC.'xtc_row_number_format.inc.php');
   
@@ -111,9 +114,9 @@
       $box_content = array();
       if ($best_sellers_count >= MIN_DISPLAY_BESTSELLERS) {  
         while ($best_sellers = xtc_db_fetch_array($best_sellers_query, true)) {
+          $box_content[$rows] = $product->buildDataArray($best_sellers);
+          $box_content[$rows] = array_merge($box_content[$rows], array('ID' => xtc_row_number_format($rows + 1), 'COUNT' => xtc_row_number_format($rows + 1)));
           $rows ++;
-          $best_sellers = array_merge($best_sellers, array('ID' => xtc_row_number_format($rows)));
-          $box_content[] = $product->buildDataArray($best_sellers);
         }
       }
 

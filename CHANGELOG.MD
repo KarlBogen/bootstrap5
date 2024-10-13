@@ -1,6 +1,9 @@
 UNRELEASED
 
 
+1.1.6 [13.10.2024]
+
+- Update zu Shopversion 3.1.1
 - Barrierefreiheit bei mehreren Produktbildern verändert
 - "X" in Offcanvas stand nicht in rechter Ecke
 - Breadcrumb-Divider in CSS-Datei angepasst
