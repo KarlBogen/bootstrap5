@@ -159,7 +159,7 @@ $lang_array = array(
 		The categories are hidden if there is no active article in the category or one of its subcategories.<br>
 		For this reason, in the admin area Configuration -> Stock Options -> Completion of order - disable Sold out should be set to "Yes".',
 
-	'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_SLIDER' => 'Slider',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_SLIDER' => 'Slider/Banner',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_SHOW' => 'Imageslider:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_SHOW_INFO' => 'Where and how wide should the slider be displayed?<br><br>
 		<strong>Note:</strong><br>
@@ -170,8 +170,12 @@ $lang_array = array(
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_SHOW_SHOP' => 'content width',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_FADE' => 'Imageslider:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_FADE_INFO' => 'Which effect should be used?',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_TITLE' => 'Imageslider:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_TITLE_INFO' => 'Should the "Banner Title" or "Image Title" be displayed at the bottom left?<br>Note: The "Image Title" is displayed preferentially!',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_TOP' => 'TOP-Articles:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_TOP_INFO' => 'Should the top products be displayed in a slider?',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_BANNER_TITLE' => 'Banner:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_BANNER_TITLE_INFO' => 'Should the "Banner Title" or "Image Title" be displayed at the bottom left?<br>Note: The "Image Title" is displayed preferentially!',
 
 	'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_BOXES' => 'Boxes',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_STARTPAGE_BOXES' => 'Boxes on the start page',

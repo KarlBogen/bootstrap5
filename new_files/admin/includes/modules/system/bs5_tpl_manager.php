@@ -286,7 +286,9 @@ class bs5_tpl_manager {
 			$values_config[] = "('BS5_HIDE_EMPTY_CATEGORIES', 'false')";
 			$values_config[] = "('BS5_CAROUSEL_SHOW', 'shop')";
 			$values_config[] = "('BS5_CAROUSEL_FADE', 'true')";
+			$values_config[] = "('BS5_CAROUSEL_TITLE', 'true')";
 			$values_config[] = "('BS5_TOP_PROD_IN_SLIDER', 'true')";
+			$values_config[] = "('BS5_BANNER_TITLE', 'true')";
 			$values_config[] = "('BS5_PRODBOX_NAME_LINES', 0)";
 			$values_config[] = "('BS5_PROD_DETAIL_MI_AS_SLIDER', 'false')";
 			$values_config[] = "('BS5_PROD_DETAIL_FULLCONTENT', 'false')";

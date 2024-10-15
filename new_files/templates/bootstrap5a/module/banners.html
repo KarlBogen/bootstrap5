@@ -12,16 +12,16 @@
   				<source srcset="{$banner_data.IMAGE_SRC}">
   				<img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}>
         </picture>
-        {if $banner_data.TITLE != ''}
-          <div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{$banner_data.TITLE}</span></div>
+        {if $smarty.const.BS5_BANNER_TITLE == 'true' && ($banner_data.IMAGE_TITLE != '' || $banner_data.TITLE != '')}
+          <div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $banner_data.IMAGE_TITLE}{$banner_data.IMAGE_TITLE|onlytext}{else}{$banner_data.TITLE}{/if}</span></div>
         {/if}
       </a>
     {else}
       <a title="{$banner_data.IMAGE_TITLE|onlytext}" href="{$banner_data.LINK}" {$banner_data.TARGET}>
   			<img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}>
   			<noscript><img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}></noscript>
-        {if $banner_data.TITLE != ''}
-          <div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{$banner_data.TITLE}</span></div>
+        {if $smarty.const.BS5_BANNER_TITLE == 'true' && ($banner_data.IMAGE_TITLE != '' || $banner_data.TITLE != '')}
+          <div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $banner_data.IMAGE_TITLE}{$banner_data.IMAGE_TITLE|onlytext}{else}{$banner_data.TITLE}{/if}</span></div>
         {/if}
   		</a>
     {/if}
@@ -38,14 +38,14 @@
   			<source srcset="{$banner_data.IMAGE_SRC}">
   			<img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}>
       </picture>
-      {if $banner_data.TITLE != ''}
-        <div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{$banner_data.TITLE}</span></div>
+      {if $smarty.const.BS5_BANNER_TITLE == 'true' && ($banner_data.IMAGE_TITLE != '' || $banner_data.TITLE != '')}
+        <div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $banner_data.IMAGE_TITLE}{$banner_data.IMAGE_TITLE|onlytext}{else}{$banner_data.TITLE}{/if}</span></div>
       {/if}
     {else}
   		<img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}>
   		<noscript><img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}></noscript>
-      {if $banner_data.TITLE != ''}
-        <div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{$banner_data.TITLE}</span></div>
+      {if $smarty.const.BS5_BANNER_TITLE == 'true' && ($banner_data.IMAGE_TITLE != '' || $banner_data.TITLE != '')}
+        <div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $banner_data.IMAGE_TITLE}{$banner_data.IMAGE_TITLE|onlytext}{else}{$banner_data.TITLE}{/if}</span></div>
       {/if}
     {/if}
     </div>

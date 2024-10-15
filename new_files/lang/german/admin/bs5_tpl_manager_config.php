@@ -159,7 +159,7 @@ $lang_array = array(
 		Ausgeblendet werden die Kategorien wenn kein aktiver Artikel in der Kategorie selbst oder einer ihrer Unterkategorien enthalten ist.<br>
 		Aus diesem Grund sollte im Adminbereich Konfiguration -> Lagerverwaltungs Optionen -> Bestellabschluß - Ausverkaufte Artikel deaktivieren auf "Ja" gestellt werden.',
 
-	'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_SLIDER' => 'Slider',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_SLIDER' => 'Slider/Banner',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_SHOW' => 'Bilderslider:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_SHOW_INFO' => 'Wo und wie breit soll der Slider auf der Startseite angezeigt werden?<br><br>
 		<strong>Hinweis:</strong><br>
@@ -170,8 +170,12 @@ $lang_array = array(
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_SHOW_SHOP' => 'Contentbreite',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_FADE' => 'Bilderslider:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_FADE_INFO' => 'Welcher Effekt soll genutzt werden?',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_TITLE' => 'Bilderslider:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_TITLE_INFO' => 'Soll der "Titel des Banners" bzw. der "Bild Titel" links unten angezeigt werden?<br>Hinweis: Der "Bild Titel" wird bevorzugt angezeigt!',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_TOP' => 'Topartikel:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_TOP_INFO' => 'Sollen die Topartikel als Slider angezeigt werden?',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_BANNER_TITLE' => 'Banner:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_BANNER_TITLE_INFO' => 'Soll der "Titel des Banners" bzw. der "Bild Titel" links unten angezeigt werden?<br>Hinweis: Der "Bild Titel" wird bevorzugt angezeigt!',
 
 	'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_BOXES' => 'Boxen',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_STARTPAGE_BOXES' => 'Boxen auf der Startseite',

@@ -42,7 +42,7 @@
 						</picture>
 						{if $slider.TEXT != ''}
 							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
-						{elseif $slider.IMAGE_TITLE != '' || $slider.TITLE != ''}
+						{elseif $smarty.const.BS5_CAROUSEL_TITLE == 'true' && ($slider.IMAGE_TITLE != '' || $slider.TITLE != '')}
 							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
 						{/if}
 					{else}
@@ -50,7 +50,7 @@
 						<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
 						{if $slider.TEXT != ''}
 							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
-						{elseif $slider.IMAGE_TITLE != '' || $slider.TITLE != ''}
+						{elseif $smarty.const.BS5_CAROUSEL_TITLE == 'true' && ($slider.IMAGE_TITLE != '' || $slider.TITLE != '')}
 							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
 						{/if}
 					{/if}
@@ -63,14 +63,14 @@
 						</picture>
 						{if $slider.TEXT != ''}
 							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
-						{elseif $slider.IMAGE_TITLE != '' || $slider.TITLE != ''}
+						{elseif $smarty.const.BS5_CAROUSEL_TITLE == 'true' && ($slider.IMAGE_TITLE != '' || $slider.TITLE != '')}
 							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
 						{/if}
 					{else}
 						<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
 						{if $slider.TEXT != ''}
 							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
-						{elseif $slider.IMAGE_TITLE != '' || $slider.TITLE != ''}
+						{elseif $smarty.const.BS5_CAROUSEL_TITLE == 'true' && ($slider.IMAGE_TITLE != '' || $slider.TITLE != '')}
 							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
 						{/if}
 					{/if}
@@ -118,7 +118,7 @@
 						</picture>
 						{if $slider.TEXT != ''}
 							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
-						{elseif $slider.IMAGE_TITLE != '' || $slider.TITLE != ''}
+						{elseif $smarty.const.BS5_CAROUSEL_TITLE == 'true' && ($slider.IMAGE_TITLE != '' || $slider.TITLE != '')}
 							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
 						{/if}
 					{else}
@@ -126,7 +126,7 @@
 						<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
 						{if $slider.TEXT != ''}
 							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
-						{elseif $slider.IMAGE_TITLE != '' || $slider.TITLE != ''}
+						{elseif $smarty.const.BS5_CAROUSEL_TITLE == 'true' && ($slider.IMAGE_TITLE != '' || $slider.TITLE != '')}
 							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
 						{/if}
 					{/if}
@@ -139,14 +139,14 @@
 						</picture>
 						{if $slider.TEXT != ''}
 							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
-						{elseif $slider.IMAGE_TITLE != '' || $slider.TITLE != ''}
+						{elseif $smarty.const.BS5_CAROUSEL_TITLE == 'true' && ($slider.IMAGE_TITLE != '' || $slider.TITLE != '')}
 							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
 						{/if}
 					{else}
 						<img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
 						{if $slider.TEXT != ''}
 							<div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
-						{elseif $slider.IMAGE_TITLE != '' || $slider.TITLE != ''}
+						{elseif $smarty.const.BS5_CAROUSEL_TITLE == 'true' && ($slider.IMAGE_TITLE != '' || $slider.TITLE != '')}
 							<div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
 						{/if}
 					{/if}

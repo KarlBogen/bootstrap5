@@ -108,7 +108,7 @@ require_once (DIR_WS_INCLUDES.'head.php');
 			<!-- body_text //-->
 			<td class="boxCenter">
 				<?php // updateinfo
-					if (!isset($bs5_conf['BS5_THEME'])) {
+					if (!isset($bs5_conf['BS5_BANNER_TITLE'])) {
 						echo '<div class="messageStackWarning"><h3>' . TEXT_BS5_TPL_MANAGER_CONFIG_UPDATE_SYSTEMMODULE_WARNING .'<a class="button but_red" href="'. xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=bs5_tpl_manager') . '">Bootstrap 5 Template-Manager</a></h3></div><br />';
 					}
 				?>
@@ -408,14 +408,22 @@ require_once (DIR_WS_INCLUDES.'head.php');
 			                	</td>
 							</tr>
 							<tr>
+				                <td class="dataTableConfig" colspan="3"><h3>Slider</h3></td>
+							</tr>
+							<tr>
 				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_SHOW; ?></td>
 				                <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_CAROUSEL_SHOW]', $carousel_show, $bs5_conf['BS5_CAROUSEL_SHOW']); ?></td>
 				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_SHOW_INFO; ?></td>
 							</tr>
 							<tr>
 				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_FADE; ?></td>
-								<td class="dataTableConfig col-middle"><?php echo draw_on_off_selection('configuration[BS5_CAROUSEL_FADE]', $fade_slide, $bs5_conf['BS5_CAROUSEL_FADE']); ?></td>
+				                <td class="dataTableConfig col-middle"><?php echo draw_on_off_selection('configuration[BS5_CAROUSEL_FADE]', $fade_slide, $bs5_conf['BS5_CAROUSEL_FADE']); ?></td>
 				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_FADE_INFO; ?></td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_TITLE; ?></td>
+				                <td class="dataTableConfig col-middle"><?php echo xtc_cfg_select_option($yes_no_array, $bs5_conf['BS5_CAROUSEL_TITLE'], 'BS5_CAROUSEL_TITLE'); ?></td>
+				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_TITLE_INFO; ?></td>
 							</tr>
 							<tr>
 				                <td class="dataTableConfig" colspan="3">&nbsp;</td>
@@ -424,6 +432,17 @@ require_once (DIR_WS_INCLUDES.'head.php');
 				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_TOP; ?></td>
 				                <td class="dataTableConfig col-middle"><?php echo xtc_cfg_select_option($yes_no_array, $bs5_conf['BS5_TOP_PROD_IN_SLIDER'], 'BS5_TOP_PROD_IN_SLIDER'); ?></td>
 				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_TOP_INFO; ?></td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig" colspan="3">&nbsp;</td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig" colspan="3"><h3>Banner</h3></td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_BANNER_TITLE; ?></td>
+				                <td class="dataTableConfig col-middle"><?php echo xtc_cfg_select_option($yes_no_array, $bs5_conf['BS5_BANNER_TITLE'], 'BS5_BANNER_TITLE'); ?></td>
+				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_BANNER_TITLE_INFO; ?></td>
 							</tr>
 							<tr>
 				                <td class="txta-r" colspan="3" style="border:none;">

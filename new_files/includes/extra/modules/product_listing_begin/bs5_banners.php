@@ -62,6 +62,8 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 				$bs5_banner_target = (($shop_url['domain'] != $bs5_banner_url['domain']) ? ' target="_blank" rel="noopener"' : '');
 				$bs5_banner_image = (($bs5_banner['banners_image'] != '') ? xtc_image(DIR_WS_IMAGES.'banner/'.$bs5_banner['banners_image'], $bs5_banner['banners_title'], '', '', 'title="'.$bs5_banner['banners_title'].'"') : '');
 				$bs5_banner_image_mobile = (($bs5_banner['banners_image_mobile'] != '') ? xtc_image(DIR_WS_IMAGES.'banner/'.$bs5_banner['banners_image_mobile'], $bs5_banner['banners_title'], '', '', 'title="'.$bs5_banner['banners_title'].'"') : '');
+				$bs5_banner_image_title = (($bs5_banner['banners_image_title'] != '') ? xtc_parse_input_field_data($bs5_banner['banners_image_title'], array('"' => '&quot;')) : $bs5_banner_title);
+				$bs5_banner_image_alt = (($bs5_banner['banners_image_alt'] != '') ? xtc_parse_input_field_data($bs5_banner['banners_image_alt'], array('"' => '&quot;')) : $bs5_banner_image_title);
 
 				$bs5_banner_array[] = array(
 					'IMAGE' => ((xtc_not_null($bs5_banner['banners_url'])) ? '<a title="'.$bs5_banner_title.'" href="'.$bs5_banner_link.'"'.$bs5_banner_target.'>'.$bs5_banner_image.'</a>' : $bs5_banner_image),
@@ -69,6 +71,8 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 					'IMAGE_IMG' => $bs5_banner_image,
 					'IMAGE_SRC_MOBILE' => (($bs5_banner['banners_image_mobile'] != '') ? DIR_WS_BASE.DIR_WS_IMAGES.'banner/'.$bs5_banner['banners_image_mobile'] : ''),
 					'IMAGE_IMG_MOBILE' => $bs5_banner_image_mobile,
+					'IMAGE_TITLE' => $bs5_banner_image_title,
+					'IMAGE_ALT' => $bs5_banner_image_alt,
 					'LINK' => ((xtc_not_null($bs5_banner['banners_url'])) ? $bs5_banner_link : ''),
 					'TARGET' => $bs5_banner_target,
 					'TEXT' => $bs5_banner['banners_html_text'],
