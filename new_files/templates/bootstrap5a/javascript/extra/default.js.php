@@ -54,9 +54,11 @@
 				}
 			});
 		}
+<?php if (BS5_CATEGORIESMENU_AJAX_SCROLL == 'true') { ?>
 		if (!$('#resnav').hasClass('show')) {
 			$('html, body, #mainnav').stop().animate({scrollTop: $this.offset().top -30}, 1500);
 		}
+<?php } ?>
 	});
 <?php if (BS5_AWIDSRATINGBREAKDOWN == 'true') { ?>
 	// ajax awids rating

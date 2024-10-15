@@ -382,6 +382,14 @@ require_once (DIR_WS_INCLUDES.'head.php');
 				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_HIDE_EMPTY_CATEGORIES_INFO; ?></td>
 							</tr>
 							<tr>
+				                <td class="dataTableConfig" colspan="3"><h3>Template "bootstrap5a"</h3></td>
+							</tr>
+							<tr>
+				                <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CATEGORIESMENU_AJAX_SCROLL; ?></td>
+				                <td class="dataTableConfig col-middle"><?php echo xtc_cfg_select_option($yes_no_array, $bs5_conf['BS5_CATEGORIESMENU_AJAX_SCROLL'], 'BS5_CATEGORIESMENU_AJAX_SCROLL'); ?></td>
+				                <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CATEGORIESMENU_AJAX_SCROLL_INFO; ?></td>
+							</tr>
+							<tr>
 				                <td class="txta-r" colspan="3" style="border:none;">
 									<input type="submit" class="button" name="submit" value="<?php echo BUTTON_UPDATE; ?>">
 				                </td>

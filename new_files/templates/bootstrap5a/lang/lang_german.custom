@@ -53,7 +53,7 @@ heading_flyout_wishlist = 'Merkzettel anzeigen'
 text_shippingtime_box = 'Lieferzeit:'
 
 products_desc = 'Produktbeschreibung'
-products_fsk18_check = 'Dieser Artikel kann erst nach erfolgter Altersverifikation gekauft werden.'
+products_fsk18_check = '<div class="d-flex"><div class="text-bg-danger fs-3 fw-bold px-2 me-3">18</div><div>Dieser Artikel kann erst nach erfolgter Altersverifikation gekauft werden.</div></div>'
 products_manufacturer_model = 'HAN:'
 products_tags = 'Eigenschaften'
 heading_products_tags = 'Produkteigenschaften'

@@ -64,12 +64,16 @@
 	defined('BS5_WHATSNEW_CATEGORIES') or define('BS5_WHATSNEW_CATEGORIES', 'true'); // 'true' zeigt den Link "Neue Artikel" im Kategoriebaum / 'false' zeigt die "Neue Artikel" als separate Box
 	defined('BS5_WHATSNEW_SPECIALS_UPPERCASE') or define('BS5_WHATSNEW_SPECIALS_UPPERCASE', 'true'); // Links "Angebote" und "Neue Artikel" in GROßBUCHSTABEN anzeigen = true, ansonsten false
 	defined('BS5_HIDE_EMPTY_CATEGORIES') or define('BS5_HIDE_EMPTY_CATEGORIES', 'false'); // Leere Kategorien ausblenden? - ausblenden = true, ansonsten false
+	defined('BS5_CATEGORIESMENU_AJAX_SCROLL') or define('BS5_CATEGORIESMENU_AJAX_SCROLL', 'false'); // Kategoriemenü bei Klick nach oben scrollen = true, ansonsten false
 
 	// Karusellslider
 	defined('BS5_CAROUSEL_SHOW') or define('BS5_CAROUSEL_SHOW', 'shop'); // Bilderslider auf Startseite / nicht anzeigen = 'false', Bildschirmbreite = 'screen', Shopbreite = 'shop'
 	defined('BS5_CAROUSEL_FADE') or define('BS5_CAROUSEL_FADE', 'true'); // Fadeeffekt = true, Slideeffekt = false
+	defined('BS5_CAROUSEL_TITLE') or define('BS5_CAROUSEL_TITLE', 'true'); // "Titel des Banners" bzw. der "Bild Titel" links unten angezeigen = true, Slideeffekt = false
 	// Top-Artikel als Slider anzeigen
 	defined('BS5_TOP_PROD_IN_SLIDER') or define('BS5_TOP_PROD_IN_SLIDER', 'true'); // Top-Artikel können auch als Slider angezeigt werden - anzeigen = true, ansonsten false
+  // Banner
+	defined('BS5_BANNER_TITLE') or define('BS5_BANNER_TITLE', 'true'); // "Titel des Banners" bzw. der "Bild Titel" links unten angezeigen = true, Slideeffekt = false
 
 	// Produktdetailansicht
 	defined('BS5_PROD_DETAIL_MI_AS_SLIDER') or define('BS5_PROD_DETAIL_MI_AS_SLIDER', 'false'); // 'true' zeigt die kleinen Produktbilder als Slider

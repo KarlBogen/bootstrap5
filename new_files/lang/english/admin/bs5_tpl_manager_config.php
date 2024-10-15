@@ -114,7 +114,7 @@ $lang_array = array(
 	'TEXT_BS5_TPL_MANAGER_CONFIG_HOMEBUTTON' => 'Home icon :',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_HOMEBUTTON_INFO' => 'Should the home icon be displayed?',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_ADD_LINK' => 'Additional links:',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_ADD_LINK_INFO' => 'Additional links for the menu can be entered!<br><br>
+	'TEXT_BS5_TPL_MANAGER_CONFIG_ADD_LINK_INFO' => '<strong>This option also applies to the "bootstrap5a" template!</strong><br><br>Additional links for the menu can be entered!<br><br>
 		<strong>Syntax:</strong><br>
 		Link target1|link name1,link target2|link name2,link target3|link na...<br><br>
 		<strong>Example:</strong><br>
@@ -143,7 +143,7 @@ $lang_array = array(
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CATEGORIESMENU_MAXLEVEL' => 'Display up to level:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CATEGORIESMENU_MAXLEVEL_INFO' => 'To what level should the Standard menu be displayed?',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_NONE' => 'none',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_ALL_MENUS' => 'Applies to superfish and responsive menu',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_ALL_MENUS' => 'Applies to all menus',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_MANUFACTURERS_LINK' => 'Link Manufacturer:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_MANUFACTURERS_LINK_INFO' => 'Should the link "Manufacturer" be displayed in the menu?',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_SPECIALS' => 'Link Special offers:',
@@ -158,6 +158,8 @@ $lang_array = array(
 		If "Yes", the page build time will slow down, because with every shop call it is checked how many products are in the individual categories and their subcategories.<br><br>
 		The categories are hidden if there is no active article in the category or one of its subcategories.<br>
 		For this reason, in the admin area Configuration -> Stock Options -> Completion of order - disable Sold out should be set to "Yes".',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CATEGORIESMENU_AJAX_SCROLL' => 'Scroll at subcategory-click:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CATEGORIESMENU_AJAX_SCROLL_INFO' => 'Do you want to scroll up the clicked category after clicking on the subcategory button?',
 
 	'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_SLIDER' => 'Slider/Banner',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_SHOW' => 'Imageslider:',

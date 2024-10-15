@@ -284,6 +284,7 @@ class bs5_tpl_manager {
 			$values_config[] = "('BS5_WHATSNEW_CATEGORIES', 'true')";
 			$values_config[] = "('BS5_WHATSNEW_SPECIALS_UPPERCASE', 'false')";
 			$values_config[] = "('BS5_HIDE_EMPTY_CATEGORIES', 'false')";
+			$values_config[] = "('BS5_CATEGORIESMENU_AJAX_SCROLL', 'true')";
 			$values_config[] = "('BS5_CAROUSEL_SHOW', 'shop')";
 			$values_config[] = "('BS5_CAROUSEL_FADE', 'true')";
 			$values_config[] = "('BS5_CAROUSEL_TITLE', 'true')";

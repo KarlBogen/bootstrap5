@@ -1,5 +1,8 @@
 UNRELEASED
 
+- bootstrap5a - Schalter soll Menü nach oben scrollen
+- FSK18 Hinweis geändert
+- Schalter für Anzeige Bannertitel hinzugefügt
 
 1.1.6 [13.10.2024]
 

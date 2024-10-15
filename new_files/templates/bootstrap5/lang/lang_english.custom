@@ -53,7 +53,7 @@ heading_flyout_wishlist = 'Show wishlist'
 text_shippingtime_box = 'Delivery time:'
 
 products_desc = 'Products description'
-products_fsk18_check = 'This article can be purchased only after age verification.'
+products_fsk18_check = '<div class="d-flex"><div class="text-bg-danger fs-3 fw-bold px-2 me-3">18</div><div>This article can be purchased only after age verification.</div></div>'
 products_manufacturer_model = 'MPN:'
 products_tags = 'Features'
 heading_products_tags = 'Product Features'

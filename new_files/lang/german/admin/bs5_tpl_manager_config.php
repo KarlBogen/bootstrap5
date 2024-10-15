@@ -114,7 +114,7 @@ $lang_array = array(
 	'TEXT_BS5_TPL_MANAGER_CONFIG_HOMEBUTTON' => 'Startseite-Icon:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_HOMEBUTTON_INFO' => 'Soll das Startseite-Icon (Home-Icon) angezeigt werden?',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_ADD_LINK' => 'Zus&auml;tzliche Links:',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_ADD_LINK_INFO' => 'Es k&ouml;nnen zus&auml;tzliche Links f&uuml;r das Men&uuml; erfasst werden!<br><br>
+	'TEXT_BS5_TPL_MANAGER_CONFIG_ADD_LINK_INFO' => '<strong>Diese Option gilt auch f&uuml;r das Template "bootstrap5a"!</strong><br><br>Es k&ouml;nnen zus&auml;tzliche Links f&uuml;r das Men&uuml; erfasst werden!<br><br>
 		<strong>Syntax:</strong><br>
 		Linkziel1|Linkname1,Linkziel2|Linkname2,Linkziel3|Linkna...<br><br>
 		<strong>Beispiel:</strong><br>
@@ -143,7 +143,7 @@ $lang_array = array(
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CATEGORIESMENU_MAXLEVEL' => 'Anzeige bis Level:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CATEGORIESMENU_MAXLEVEL_INFO' => 'Bis zu welchem Level soll das Standard-Men&uuml; angezeigt werden?',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_NONE' => 'keine',
-	'TEXT_BS5_TPL_MANAGER_CONFIG_ALL_MENUS' => 'Gilt f&uuml;r Superfish und responsive Men&uuml;',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_ALL_MENUS' => 'Gilt f&uuml;r alle Men&uuml;s',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_MANUFACTURERS_LINK' => 'Link Hersteller:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_MANUFACTURERS_LINK_INFO' => 'Soll der Link "Hersteller" im Men&uuml; angezeigt werden?',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_SPECIALS' => 'Link Angebote:',
@@ -158,6 +158,8 @@ $lang_array = array(
         Bei "Ja" wird sich die Seitenaufbauzeit verlangsamen, denn bei jedem Shopaufruf wird gepr&uuml;ft wieviele Produkte in den einzelnen Kategorien und deren Unterkategorien stecken.<br><br>
 		Ausgeblendet werden die Kategorien wenn kein aktiver Artikel in der Kategorie selbst oder einer ihrer Unterkategorien enthalten ist.<br>
 		Aus diesem Grund sollte im Adminbereich Konfiguration -> Lagerverwaltungs Optionen -> Bestellabschluß - Ausverkaufte Artikel deaktivieren auf "Ja" gestellt werden.',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CATEGORIESMENU_AJAX_SCROLL' => 'Scrollen bei Unterkategorie-Klick:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_CATEGORIESMENU_AJAX_SCROLL_INFO' => 'Soll nach dem Klick auf den Unterkategorie-Button die geklickte Kategorie nach oben gescrollt werden?',
 
 	'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_SLIDER' => 'Slider/Banner',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_SHOW' => 'Bilderslider:',
