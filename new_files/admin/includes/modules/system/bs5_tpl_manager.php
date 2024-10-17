@@ -226,7 +226,8 @@ class bs5_tpl_manager {
 		}
 
 		// Datei selbst löschen
-        unlink($shop_path.DIR_ADMIN.'includes/modules/system/bs5_tpl_manager.php');
+    unlink($shop_path.DIR_ADMIN.'includes/modules/system/bs5_tpl_manager.php');
+    xtc_redirect(xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system'));
 	}
 
 	public function remove() {
@@ -750,7 +751,7 @@ class bs5_tpl_manager {
 	protected function table_exists($table_name)
 	{
 	  $Table = xtc_db_query("show tables like '" . $table_name . "'");
-	  if(xtc_db_fetch_row($Table) === false)
+	  if(xtc_db_num_rows($Table) < 1)
 	  {
 	    return(false);
 	  } else {
