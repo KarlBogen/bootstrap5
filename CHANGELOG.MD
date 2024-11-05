@@ -1,5 +1,11 @@
 UNRELEASED
 
+
+
+
+1.1.7 [05.11.2024]
+
+- Update zu Shopversion 3.1.2
 - Versionsnummer aktualisiert
 - bootstrap5a - Schalter soll Menü nach oben scrollen
 - FSK18 Hinweis geändert
