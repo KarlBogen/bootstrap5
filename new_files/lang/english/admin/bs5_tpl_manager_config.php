@@ -23,7 +23,7 @@ $lang_array = array(
 		<strong>&nbsp;data-bs-theme="dark"</strong><br><br>
 		Attention: Do not forget the space before data-bs-theme="dark"!<br>You can find out more about this at "Docs->Customize->Color Modes" at the side "https://getbootstrap.com".<br>',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_COMPRESS_OPTIONS' => '<h3>Recommendation "Compression"</h3>
-		Empfehlung f&uuml;r die Einstellungen in <em>Adv. Configuration -> Compression</em><br>
+		Recommendation for the settings in <em>Adv. Configuration -> Compression</em><br>
 		After countless tests with the Chrome extension “Lighthouse”, the following settings are recommended:<br><br>
 		<strong><u>HTML Compression</u>&nbsp;&nbsp;<span style="color:green">"Yes"</span></strong><br>
 		<strong><u>CSS Compression</u>&nbsp;&nbsp;<span style="color:red">"No"</span></strong><br>

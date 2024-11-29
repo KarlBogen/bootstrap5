@@ -24,7 +24,7 @@ $lang_array = array(
 		Achtung: Das Leerzeichen vor data-bs-theme="dark" nicht vergessen!<br>Mehr dazu finden Sie unter "Docs->Customize->Color Modes" auf der Seite "https://getbootstrap.com".<br>',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_COMPRESS_OPTIONS' => '<h3>Empfehlung "Komprimierung"</h3>
 		Empfehlung f&uuml;r die Einstellungen in <em>Erw. Konfiguration -> Komprimierung</em><br>
-		Nach zahllose Test mit der Chromeerweiterung "Lighthouse" werden folgende Einstellungen empfohlen:<br><br>
+		Nach zahllosen Test mit der Chromeerweiterung "Lighthouse" werden folgende Einstellungen empfohlen:<br><br>
 		<strong><u>HTML Komprimierung</u>&nbsp;&nbsp;<span style="color:green">"Ja"</span></strong><br>
 		<strong><u>CSS Komprimierung</u>&nbsp;&nbsp;<span style="color:red">"Nein"</span></strong><br>
 		<strong><u>JavaScript Komprimierung</u>&nbsp;&nbsp;<span style="color:red">"Nein"</span></strong><br><br>
