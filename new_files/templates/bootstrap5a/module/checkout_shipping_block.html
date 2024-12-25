@@ -17,7 +17,7 @@
 				<div class="accordion-header" id="acc{$smarty.foreach.outer.iteration}">
 					<span class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#acc_{$smarty.foreach.outer.iteration}" aria-expanded="false" aria-controls="acc_{$smarty.foreach.outer.iteration}">
 							<span class="w-100 m-0">
-									{$module_data.module|onlytext}
+									<i class="fas fa-ban me-3 opacity-50"></i>{$module_data.module|onlytext}
 						</span>
 				</div>
 				<div id="acc_{$smarty.foreach.outer.iteration}" class="accordion-collapse collapse" data-bs-parent="#accordion" aria-labelledby="acc{$smarty.foreach.outer.iteration}">

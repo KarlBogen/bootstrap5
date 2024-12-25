@@ -3,3 +3,4 @@ define('BUTTON_EPAYPAL_EN_TEXT', '<span class="paypal0 small"><strong>CHECK OUT 
 define('BUTTON_SMALL_CONTINUE_TEXT', 'Select');
 defined('BS5_MORECATS_SHOW') or define('BS5_MORECATS_SHOW', 'show more ...');
 defined('BS5_MORECATS_HIDE') or define('BS5_MORECATS_HIDE', 'show less ...');
+define('BS5_HOUSE_NUMBER_ERROR', '<span class="text-danger fw-bold">House number missing!</span> Ignore this message if you do not have one.');

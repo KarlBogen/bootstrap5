@@ -86,9 +86,7 @@
 						}
 						if (updateOrgPrice) {
 							if (firsts < 1) {
-								$('.pd_offer .pd_price .standard_price').html(symbolLeft + newPrice + symbolRight);
-								$('.pd_offer .pd_price .new_price').html(data.onlytext + symbolLeft + newPrice + symbolRight);
-								$('.pd_offer .pd_price .old_price').html(data.insteadtext + symbolLeft + oldPrice + symbolRight);
+								$('.pd_offer .pd_price .value_price').html(symbolLeft + newPrice + symbolRight);
 								$('meta[itemprop="price"]').attr('content', metaPrice);
 								if (data.vpevalue !== false) {
 									$('.pd_offer .pd_vpe').html(symbolLeft + newVpePrice + symbolRight + data.protext + data.vpetext);

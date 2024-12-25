@@ -1,5 +1,10 @@
 UNRELEASED
 
+- JavaScript Price Updater geändert
+- JavaScript-Hinweis Hausnummer bei create_account und create_account_guest
+- Templatedateien für PayPal-Express angepasst
+- checkout_shipping_block.html - Icon hinzugefügt
+- Font-Icons erweitert
 
 
 

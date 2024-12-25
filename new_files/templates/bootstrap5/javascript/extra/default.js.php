@@ -205,8 +205,16 @@ if (strpos($PHP_SELF, FILENAME_CREATE_ACCOUNT) !== false || strpos($PHP_SELF, FI
 ?>
 	(function(){
 		var isinvalid = document.querySelector('.is-invalid');
-		if (typeof(isinvalid) != 'undefined' && isinvalid != null) isinvalid.focus();
-	})();
+    if (typeof(isinvalid) != 'undefined' && isinvalid != null) isinvalid.focus();
+    $("#street").blur(function() {
+      if(!/[1-9]/.test(this.value) && this.value.length >= <?php echo ENTRY_STREET_ADDRESS_MIN_LENGTH; ?>) {
+        $('#number-error').slideDown(200);
+      } else {
+        $('#number-error').slideUp(200);
+      }
+    });
+    $("#street").parent().append('<div id="number-error" style="display: none;"><?php echo BS5_HOUSE_NUMBER_ERROR; ?></div>');
+	 })();
 <?php
 }
 // Ende Erweiterte Validation im Registrierungsformular
