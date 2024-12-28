@@ -127,7 +127,7 @@
 					{if $PRODUCTS_MANUFACTURERS_MODEL != ''}<meta itemprop="mpn" content="{$PRODUCTS_MANUFACTURERS_MODEL}" />{/if}
 					<meta itemprop="itemCondition" content="http://schema.org/NewCondition" />
 					<div class="pd_price my-3 py-2 border-info border-top border-bottom text-end" aria-label="{#BS5_price#}">
-						{if isset($PRODUCTS_DISCOUNT) && $PRODUCTS_DISCOUNT != ''}<div class="small mb-1"><strong>{#text_discount#}</strong> {$PRODUCTS_DISCOUNT}</div>{/if}
+						{if isset($PRODUCTS_DISCOUNT) && $PRODUCTS_DISCOUNT != ''}<div class="text-danger small mb-1"><strong>{#text_discount#}</strong> {$PRODUCTS_DISCOUNT}</div>{/if}
 						<div id="pd_puprice" class="mb-2">
 							{foreach name=inner item=price_data from=$PRODUCTS_PRICE_ARRAY}
 								{include file="module/includes/price_info.html"}

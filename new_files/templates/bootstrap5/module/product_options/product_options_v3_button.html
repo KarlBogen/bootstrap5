@@ -60,7 +60,6 @@
 						});
 						var metaPrice = (Math.round((summe + data.gprice) * 100) / 100).toFixed(2).toString();
 						var newPrice = metaPrice.replace(/[.]/, ',');
-						var oldPrice = (Math.round((summe + data.oprice) * 100) / 100).toFixed(2).toString().replace(/[.]/, ',');
 						var newVpePrice = (Math.round((summe + data.gprice) / data.vpevalue * 100) / 100).toFixed(2).toString().replace(/[.]/, ',');
 						if (data.vpevalue !== false && attrvpevalue != 0) {
 							var newVpePrice = (Math.round((summe + data.gprice) / attrvpevalue * 100) / 100).toFixed(2).toString().replace(/[.]/, ',');
@@ -84,9 +83,16 @@
 						}
 						if (updateOrgPrice) {
 							if (firsts < 1) {
-								$('.pd_offer .pd_price .value_price').html(symbolLeft + newPrice + symbolRight);
+						    var oldPrice = (Math.round((summe + data.oprice) * 100) / 100).toFixed(2).toString().replace(/[.]/, ',');
+						    var savePercent = Math.round(((summe + data.oprice) - (summe + data.gprice)) / (summe + data.oprice) * 100).toString();
+								$('.pd_offer .pd_price .standard_price').html(symbolLeft + newPrice + symbolRight);
+								$('.pd_offer .pd_price .uvp_price .value_price').html(symbolLeft + newPrice + symbolRight);
+								$('.pd_offer .pd_price .uvp_price_old .value_price').html(symbolLeft + oldPrice + symbolRight);
+								$('.pd_offer .pd_price .new_price').html(data.onlytext + symbolLeft + newPrice + symbolRight);
+								$('.pd_offer .pd_price .old_price').html(data.insteadtext + '<del>' + symbolLeft + oldPrice + symbolRight + '<\/del>');
+								$('.pd_offer .pd_price .save_price .save_percent').html(savePercent);
 								$('meta[itemprop="price"]').attr('content', metaPrice);
-								if (data.vpevalue !== false) {
+								if (data.vpevalue !== false && $('.pd_offer .graduated_price').length == 0) {
 									$('.pd_offer .pd_vpe').html(symbolLeft + newVpePrice + symbolRight + data.protext + data.vpetext);
 								}
 							}

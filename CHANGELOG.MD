@@ -1,5 +1,6 @@
 UNRELEASED
 
+- Attribute Price Updater geändert
 - JavaScript Price Updater geändert
 - JavaScript-Hinweis Hausnummer bei create_account und create_account_guest
 - Templatedateien für PayPal-Express angepasst
