@@ -1,5 +1,6 @@
 UNRELEASED
 
+- Anzeige Attributgesamtpreis in module/product_options/product_options_v1_select.html
 - Attribute Price Updater geändert
 - JavaScript Price Updater geändert
 - JavaScript-Hinweis Hausnummer bei create_account und create_account_guest
