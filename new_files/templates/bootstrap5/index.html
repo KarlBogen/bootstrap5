@@ -5,8 +5,9 @@
 
 {* BEGINN Hauptcontainer innerhalb body *}
 <div id="container" class="{$smarty.const.BS5_BOOTSTRAP_THEME}">
+  <a id="focus" class="visually-hidden" href="#" tabindex="-1"></a>
 
-	{if $display_mode != 'checkout'} 
+  {if $display_mode != 'checkout'}
 
 		{* BEGINN Screenreadernavigation *}
 		<div class="visually-hidden-focusable flex-column navbar bg-body-secondary border p-3 position-absolute z-2">
@@ -75,7 +76,7 @@
 							<li class="nav-item level1 added_link"><a class="nav-link" href="{$box_data.HREF}">{if strpos($box_data.NAME, 'BS5_') !== false}{#$box_data.NAME#}{else}{$box_data.NAME}{/if}</a></li>
 						{/foreach}
 					{/if}
-				</ul>    
+				</ul>
 			</div>
 		</nav>
 		{* ENDE Topnavcontainer *}
@@ -98,7 +99,7 @@
 								<a class="btn btn-outline-secondary btn-sm" href="{$index}" title="{#link_index#} &bull; {$store_name}">{#BS5_back_to_shop#}<i class="fa fa-arrow-right ms-2"></i></a>
 							{else}
 								<a class="btn btn-outline-secondary btn-sm" href="{$smarty.const.FILENAME_SHOPPING_CART|xtc_href_link}" title="{#BS5_back_to_cart#}">{#BS5_back_to_cart#}<i class="fa fa-arrow-right ms-2"></i></a>
-							{/if} 
+							{/if}
 						</div>
 					</div>
 				</div>
@@ -161,7 +162,7 @@
 		</main>
 		{* ENDE Maincontainer 2 *}
 
-	{elseif $display_mode == 'listing'}  
+	{elseif $display_mode == 'listing'}
 
 		{* BEGINN Maincontainer 2 *}
 		<main id="container2" class="container-xxl mb-4">
@@ -181,7 +182,7 @@
 		</main>
 		{* ENDE Maincontainer 2 *}
 
-	{elseif $display_mode == 'productinfo'}  
+	{elseif $display_mode == 'productinfo'}
 
 		{* BEGINN Maincontainer 2 *}
 		<main id="container2" class="container-xxl mb-4">
@@ -236,7 +237,7 @@
 		{* ENDE Maincontainer 2 *}
 
 	{/if}
-	
+
 	{if $display_mode == 'home'}
 		{if isset($box_TRUSTEDSHOPS)}
 			<div class="container-xxl">
@@ -332,7 +333,7 @@
 							<li class="level1 added_link"><a href="{$box_data.HREF}">{if strpos($box_data.NAME, 'BS5_') !== false}{#$box_data.NAME#}{else}{$box_data.NAME}{/if}</a></li>
 						 {/foreach}
 					{/if}
-				</ul>    
+				</ul>
       </div>
     {/if}
   {/if}
@@ -352,6 +353,6 @@
 			</div>
 		</div>
 	</div>
-	
+
 </div>
 {* ENDE Hauptcontainer innerhalb body *}

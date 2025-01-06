@@ -1,5 +1,6 @@
 UNRELEASED
 
+- Focus für Screenreader nach Cookie Consent Auswahl gesetzt
 - Anzeige Attributgesamtpreis in module/product_options/product_options_v1_select.html
 - Attribute Price Updater geändert
 - JavaScript Price Updater geändert

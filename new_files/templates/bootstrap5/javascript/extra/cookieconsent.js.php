@@ -104,6 +104,10 @@ if (defined('MODULE_COOKIE_CONSENT_STATUS') && strtolower(MODULE_COOKIE_CONSENT_
         __cmp('getVendorConsents', [], oilGtagCookie);
       }
       <?php } ?>
+      // Focus für Screenreader setzen
+      if (event && event.data && (eventDataContains('oil_optin_done'))) {
+			 setTimeout(function() {$("#focus").focus()}, 300);
+      }
     }
 
     // Register event handler

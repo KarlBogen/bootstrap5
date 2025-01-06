@@ -24,7 +24,7 @@ BS5_slider_info = 'Es folgt ein Produktslider - navigieren Sie mit der Tab-Taste
 BS5_prod_carousel = 'Produktkarusell'
 BS5_prod_carousel_info = 'Das Produktkarusell kann abh&auml;ngig von der Bildschirmbreite ein oder mehrere Informationsabschnitte beinhalten. Sie k&ouml;nnen die "Zur&uuml;ck-" und "Vor-Button" nutzen, um zwischen den Abschnitten zu navigieren.'
 BS5_img_carousel = 'Bilderkarusell'
-BS5_img_carousel_info = 'Wenn mehr als ein Produktbild exitiert, k&ouml;nnen Sie die "Zur&uuml;ck-" und "Vor-Button" nutzen, um zwischen den Bildern zu navigieren. Zum Vergr&ouml;&szlig;ern klicken Sie auf das Bild.'
+BS5_img_carousel_info = 'Wenn mehr als ein Produktbild existiert, k&ouml;nnen Sie die "Zur&uuml;ck-" und "Vor-Button" nutzen, um zwischen den Bildern zu navigieren. Zum Vergr&ouml;&szlig;ern klicken Sie auf das Bild.'
 BS5_zoomtext = 'F&uuml;r eine gr&ouml;&szlig;ere Ansicht klicken Sie auf das Bild!'
 
 BS5_alert_qty_wanted = 'gew&uuml;nscht'
