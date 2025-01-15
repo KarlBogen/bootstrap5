@@ -9,350 +9,350 @@
 
   {if $display_mode != 'checkout'}
 
-		{* BEGINN Screenreadernavigation *}
-		<div class="visually-hidden-focusable flex-column navbar bg-body-secondary border p-3 position-absolute z-2">
-			<div class="navbar-brand w-100 border-bottom mb-2">{#BS5_skip_nav#}</div>
-			<ul class="nav flex-column">
-				<li class="nav-item">
-					<a class="nav-link" href="#content">{#BS5_skip_to_content#}</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#main">{#BS5_skip_to_nav#}</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#login">{#BS5_skip_to_login#}</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#setbtn">{#BS5_skip_to_sets#}</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#layout_footer">{#BS5_skip_to_footer#}</a>
-				</li>
-			</ul>
-		</div>
-		{* ENDE Screenreadernavigation *}
+    {* BEGINN Screenreadernavigation *}
+    <div class="visually-hidden-focusable flex-column navbar bg-body-secondary border p-3 position-absolute z-2">
+      <div class="navbar-brand w-100 border-bottom mb-2">{#BS5_skip_nav#}</div>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="#content">{#BS5_skip_to_content#}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#main">{#BS5_skip_to_nav#}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#login">{#BS5_skip_to_login#}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#setbtn">{#BS5_skip_to_sets#}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#layout_footer">{#BS5_skip_to_footer#}</a>
+        </li>
+      </ul>
+    </div>
+    {* ENDE Screenreadernavigation *}
 
-		{* BEGINN Topleiste*}
-		{if $smarty.const.BS5_SHOW_TOP1 == 'true' || $smarty.const.BS5_SHOW_TOP2 == 'true' || $smarty.const.BS5_SHOW_TOP3 == 'true' || $smarty.const.BS5_SHOW_TOP4 == 'true'}
-			{include file="module/includes/topbar.html"}
-		{/if}
-		{* ENDE Topleiste *}
-		{* BEGINN Maincontainer 1 *}
-		<div id="container1">
-			<div class="container-xxl">
-				{* BEGINN Javascript-Hinweis *}
-				{if $smarty.const.BS5_SHOW_JS_DISABLED == 'true'}
-					<noscript><div class="alert alert-warning my-2">{#BS5_noscript#}</div></noscript>
-				{/if}
-				{* ENDE Javascript-Hinweis *}
-				{* BEGINN Logo, Sprache, Account, Merkliste, Warenkorb und Suche *}
-				{include file="module/includes/logobar.html"}
-				{* ENDE Logo, Sprache, Account, Merkliste, Warenkorb und Suche *}
-			</div>
-		</div>
-		{* ENDE Maincontainer 1 *}
-		{* BEGINN Topnavcontainer *}
-		<nav id="nav_container" class="container-fluid bg-{$smarty.const.BS5_TOP2_BG} border-top border-bottom mb-3"{if $smarty.const.BS5_TOP2_NAVBAR == 'dark'} data-bs-theme="dark"{/if}>
-			<div id="navbar" class="container-xxl top2 navbar navbar-expand d-none d-lg-block">
-				<ul id="main" class="navbar-nav d-flex flex-wrap me-auto">
-					{if isset($box_TOPCATEGORIES)}{$box_TOPCATEGORIES}{/if}
-					{if $smarty.const.BS5_MANUFACTURERS_LINK == 'true'}
-						<li id="liman" class="nav-item level1 hassub dropdown{if $smarty.const.BS5_MENUCASE != '2'} kk-mega{/if}">
-							<a class="nav-link dropdown-toggle{if isset($smarty.get.manufacturers_id)} active{/if}" href="#/" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{#heading_manufacturers#}">{#heading_manufacturers#}</a>
-							<ul class="dropdown-menu p-2{if $smarty.const.BS5_MENUCASE != '2'} row row-cols-1 row-cols-lg-3 kk-mega{/if}">
-								{if isset($box_MANUFACTURERS)}{$box_MANUFACTURERS}{/if}
-							</ul>
-						</li>
-					{/if}
-					{if $smarty.const.SPECIALS_EXISTS == 'true'}
-						<li id="lisp" class="nav-item level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false} active{/if}"><a class="nav-link{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false} active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_SPECIALS|xtc_href_link}">{#heading_specials#}</a></li>
-					{/if}
-					{if $smarty.const.WHATSNEW_EXISTS == 'true'}
-						<li id="liwn" class="nav-item level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false} active{/if}"><a class="nav-link{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false} active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_PRODUCTS_NEW|xtc_href_link}">{#heading_whatsnew#}</a></li>
-					{/if}
-					{if $smarty.const.BS5_ADD_LINK_IN_TOPCATMENU_LAST != ''}
-						{assign var=BOX_LINKS value=$smarty.const.BS5_ADD_LINK_IN_TOPCATMENU_LAST|addedLinks}
-						{foreach name=aussen item=box_data from=$BOX_LINKS}
-							<li class="nav-item level1 added_link"><a class="nav-link" href="{$box_data.HREF}">{if strpos($box_data.NAME, 'BS5_') !== false}{#$box_data.NAME#}{else}{$box_data.NAME}{/if}</a></li>
-						{/foreach}
-					{/if}
-				</ul>
-			</div>
-		</nav>
-		{* ENDE Topnavcontainer *}
+    {* BEGINN Topleiste*}
+    {if $smarty.const.BS5_SHOW_TOP1 == 'true' || $smarty.const.BS5_SHOW_TOP2 == 'true' || $smarty.const.BS5_SHOW_TOP3 == 'true' || $smarty.const.BS5_SHOW_TOP4 == 'true'}
+      {include file="module/includes/topbar.html"}
+    {/if}
+    {* ENDE Topleiste *}
+    {* BEGINN Maincontainer 1 *}
+    <div id="container1">
+      <div class="container-xxl">
+        {* BEGINN Javascript-Hinweis *}
+        {if $smarty.const.BS5_SHOW_JS_DISABLED == 'true'}
+          <noscript><div class="alert alert-warning my-2">{#BS5_noscript#}</div></noscript>
+        {/if}
+        {* ENDE Javascript-Hinweis *}
+        {* BEGINN Logo, Sprache, Account, Merkliste, Warenkorb und Suche *}
+        {include file="module/includes/logobar.html"}
+        {* ENDE Logo, Sprache, Account, Merkliste, Warenkorb und Suche *}
+      </div>
+    </div>
+    {* ENDE Maincontainer 1 *}
+    {* BEGINN Topnavcontainer *}
+    <nav id="nav_container" class="container-fluid bg-{$smarty.const.BS5_TOP2_BG} border-top border-bottom mb-3"{if $smarty.const.BS5_TOP2_NAVBAR == 'dark'} data-bs-theme="dark"{/if}>
+      <div id="navbar" class="container-xxl top2 navbar navbar-expand d-none d-lg-block">
+        <ul id="main" class="navbar-nav d-flex flex-wrap me-auto">
+          {if isset($box_TOPCATEGORIES)}{$box_TOPCATEGORIES}{/if}
+          {if $smarty.const.BS5_MANUFACTURERS_LINK == 'true'}
+            <li id="liman" class="nav-item level1 hassub dropdown{if $smarty.const.BS5_MENUCASE != '2'} kk-mega{/if}">
+              <a class="nav-link dropdown-toggle{if isset($smarty.get.manufacturers_id)} active{/if}" href="#/" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{#heading_manufacturers#}">{#heading_manufacturers#}</a>
+              <ul class="dropdown-menu p-2{if $smarty.const.BS5_MENUCASE != '2'} row row-cols-1 row-cols-lg-3 kk-mega{/if}">
+                {if isset($box_MANUFACTURERS)}{$box_MANUFACTURERS}{/if}
+              </ul>
+            </li>
+          {/if}
+          {if $smarty.const.SPECIALS_EXISTS == 'true'}
+            <li id="lisp" class="nav-item level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false} active{/if}"><a class="nav-link{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false} active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_SPECIALS|xtc_href_link}">{#heading_specials#}</a></li>
+          {/if}
+          {if $smarty.const.WHATSNEW_EXISTS == 'true'}
+            <li id="liwn" class="nav-item level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false} active{/if}"><a class="nav-link{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false} active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_PRODUCTS_NEW|xtc_href_link}">{#heading_whatsnew#}</a></li>
+          {/if}
+          {if $smarty.const.BS5_ADD_LINK_IN_TOPCATMENU_LAST != ''}
+            {assign var=BOX_LINKS value=$smarty.const.BS5_ADD_LINK_IN_TOPCATMENU_LAST|addedLinks}
+            {foreach name=aussen item=box_data from=$BOX_LINKS}
+              <li class="nav-item level1 added_link"><a class="nav-link" href="{$box_data.HREF}">{if strpos($box_data.NAME, 'BS5_') !== false}{#$box_data.NAME#}{else}{$box_data.NAME}{/if}</a></li>
+            {/foreach}
+          {/if}
+        </ul>
+      </div>
+    </nav>
+    {* ENDE Topnavcontainer *}
 
-	{else}
+  {else}
 
-		{* BEGINN Maincontainer 1 *}
-		<div id="container1">
-			<div class="container-xxl">
-				{* BEGINN Javascript-Hinweis *}
-				{if $smarty.const.BS5_SHOW_JS_DISABLED == 'true'}
-					<noscript><div class="alert alert-warning my-2">{#BS5_noscript#}</div></noscript>
-				{/if}
-				{* ENDE Javascript-Hinweis *}
-				<div id="checkout_logobar" class="pt-3 mb-3 border-bottom">
-					<div class="d-sm-flex justify-content-between align-items-center mb-3">
-						<img class="img-fluid" src="{$logo_path}" alt="{$store_name}" {$logo_path|imgsize:'templates'}>
-						<div class="col_logo_back my-2 text-end">
-							{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_CHECKOUT_SUCCESS) !== false}
-								<a class="btn btn-outline-secondary btn-sm" href="{$index}" title="{#link_index#} &bull; {$store_name}">{#BS5_back_to_shop#}<i class="fa fa-arrow-right ms-2"></i></a>
-							{else}
-								<a class="btn btn-outline-secondary btn-sm" href="{$smarty.const.FILENAME_SHOPPING_CART|xtc_href_link}" title="{#BS5_back_to_cart#}">{#BS5_back_to_cart#}<i class="fa fa-arrow-right ms-2"></i></a>
-							{/if}
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		{* ENDE Maincontainer 1 *}
+    {* BEGINN Maincontainer 1 *}
+    <div id="container1">
+      <div class="container-xxl">
+        {* BEGINN Javascript-Hinweis *}
+        {if $smarty.const.BS5_SHOW_JS_DISABLED == 'true'}
+          <noscript><div class="alert alert-warning my-2">{#BS5_noscript#}</div></noscript>
+        {/if}
+        {* ENDE Javascript-Hinweis *}
+        <div id="checkout_logobar" class="pt-3 mb-3 border-bottom">
+          <div class="d-sm-flex justify-content-between align-items-center mb-3">
+            <img class="img-fluid" src="{$logo_path}" alt="{$store_name}" {$logo_path|imgsize:'templates'}>
+            <div class="col_logo_back my-2 text-end">
+              {if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_CHECKOUT_SUCCESS) !== false}
+                <a class="btn btn-outline-secondary btn-sm" href="{$index}" title="{#link_index#} &bull; {$store_name}">{#BS5_back_to_shop#}<i class="fa fa-arrow-right ms-2"></i></a>
+              {else}
+                <a class="btn btn-outline-secondary btn-sm" href="{$smarty.const.FILENAME_SHOPPING_CART|xtc_href_link}" title="{#BS5_back_to_cart#}">{#BS5_back_to_cart#}<i class="fa fa-arrow-right ms-2"></i></a>
+              {/if}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {* ENDE Maincontainer 1 *}
 
-	{/if}
+  {/if}
 
-	{if $display_mode == 'home'}
+  {if $display_mode == 'home'}
 
-		{* BEGINN Slider Karusell gesamte Breite *}
-		{if isset($SLIDER)}
-			<div id="slider"{if ($smarty.const.BS5_CAROUSEL_SHOW != 'screen')} class="container-xxl"{/if}>
-				{include file="module/includes/slider.html"}
-			</div>
-		{/if}
-		{* ENDE Slider Karusell gesamte Breite *}
-		{* BEGINN Maincontainer 2 *}
-		<main id="container2" class="container-xxl mb-4">
-			<div id="content">
-				{if $error_message}<div class="alert alert-danger my-2">{$error_message}</div>{/if}
-				{* BEGINN Banner *}
-				{if isset($BANNER) && $BANNER != ''}
-					<div class="content_banner clearfix mb-4">{$BANNER}</div>
-				{/if}
-				{* ENDE Banner *}
-				{if isset($box_GREETING)}{$box_GREETING}{/if}
-				{if isset($box_CATEGORIES_LIST)}{$box_CATEGORIES_LIST}{/if}
-				{if isset($box_WHATSNEW)}{$box_WHATSNEW}{/if}
-				{if isset($box_SPECIALS)}{$box_SPECIALS}{/if}
-				{if $smarty.const.BS5_STARTPAGE_BOX_UPCOME_PRODS == 'true' && isset($MODULE_upcoming_products)}{$MODULE_upcoming_products}{/if}
-				{if $smarty.const.BS5_STARTPAGE_BOX_NEW_PRODS == 'true' && isset($MODULE_new_products)}{$MODULE_new_products}{/if}
+    {* BEGINN Slider Karusell gesamte Breite *}
+    {if isset($SLIDER)}
+      <div id="slider"{if ($smarty.const.BS5_CAROUSEL_SHOW != 'screen')} class="container-xxl"{/if}>
+        {include file="module/includes/slider.html"}
+      </div>
+    {/if}
+    {* ENDE Slider Karusell gesamte Breite *}
+    {* BEGINN Maincontainer 2 *}
+    <main id="container2" class="container-xxl mb-4">
+      <div id="content">
+        {if $error_message}<div class="alert alert-danger my-2">{$error_message}</div>{/if}
+        {* BEGINN Banner *}
+        {if isset($BANNER) && $BANNER != ''}
+          <div class="content_banner clearfix mb-4">{$BANNER}</div>
+        {/if}
+        {* ENDE Banner *}
+        {if isset($box_GREETING)}{$box_GREETING}{/if}
+        {if isset($box_CATEGORIES_LIST)}{$box_CATEGORIES_LIST}{/if}
+        {if isset($box_WHATSNEW)}{$box_WHATSNEW}{/if}
+        {if isset($box_SPECIALS)}{$box_SPECIALS}{/if}
+        {if $smarty.const.BS5_STARTPAGE_BOX_UPCOME_PRODS == 'true' && isset($MODULE_upcoming_products)}{$MODULE_upcoming_products}{/if}
+        {if $smarty.const.BS5_STARTPAGE_BOX_NEW_PRODS == 'true' && isset($MODULE_new_products)}{$MODULE_new_products}{/if}
 
-				{if isset($main_content)}{$main_content}{/if}
+        {if isset($main_content)}{$main_content}{/if}
 
-				{if isset($box_REVIEWS)}{$box_REVIEWS}{/if}
+        {if isset($box_REVIEWS)}{$box_REVIEWS}{/if}
 
-				{if isset($box_BESTSELLERS)}{$box_BESTSELLERS}{/if}
-				{if isset($box_MANUFACTURERS_CAROUSEL)}{$box_MANUFACTURERS_CAROUSEL}{/if}
-			</div>
-		</main>
-		{* ENDE Maincontainer 2 *}
+        {if isset($box_BESTSELLERS)}{$box_BESTSELLERS}{/if}
+        {if isset($box_MANUFACTURERS_CAROUSEL)}{$box_MANUFACTURERS_CAROUSEL}{/if}
+      </div>
+    </main>
+    {* ENDE Maincontainer 2 *}
 
-	{elseif $display_mode == 'error'}
+  {elseif $display_mode == 'error'}
 
-		{* BEGINN Maincontainer 2 *}
-		<main id="container2" class="container-xxl mb-4">
-			{if isset($navtrail)}
-				<nav class="breadcrumb border-bottom" aria-label="breadcrumb">{$navtrail}</nav>
-			{/if}
-			<div id="content">
-				{if isset($main_content)}{$main_content}{/if}
-				{if isset($box_LAST_VIEWED)}{$box_LAST_VIEWED}{/if}
-				{if isset($box_BESTSELLERS)}{$box_BESTSELLERS}{/if}
-				{if isset($box_WHATSNEW)}{$box_WHATSNEW}{/if}
-				{if isset($box_SPECIALS)}{$box_SPECIALS}{/if}
-				{if isset($box_XSELL)}{$box_XSELL}{/if}
-			</div>
-		</main>
-		{* ENDE Maincontainer 2 *}
+    {* BEGINN Maincontainer 2 *}
+    <main id="container2" class="container-xxl mb-4">
+      {if isset($navtrail)}
+        <nav class="breadcrumb border-bottom" aria-label="breadcrumb">{$navtrail}</nav>
+      {/if}
+      <div id="content">
+        {if isset($main_content)}{$main_content}{/if}
+        {if isset($box_LAST_VIEWED)}{$box_LAST_VIEWED}{/if}
+        {if isset($box_BESTSELLERS)}{$box_BESTSELLERS}{/if}
+        {if isset($box_WHATSNEW)}{$box_WHATSNEW}{/if}
+        {if isset($box_SPECIALS)}{$box_SPECIALS}{/if}
+        {if isset($box_XSELL)}{$box_XSELL}{/if}
+      </div>
+    </main>
+    {* ENDE Maincontainer 2 *}
 
-	{elseif $display_mode == 'listing'}
+  {elseif $display_mode == 'listing'}
 
-		{* BEGINN Maincontainer 2 *}
-		<main id="container2" class="container-xxl mb-4">
-			{if isset($navtrail)}
-				<nav class="breadcrumb border-bottom" aria-label="breadcrumb">{$navtrail}</nav>
-			{/if}
-			<div id="content" class="row">
-				{if isset($box_SUB_CATEGORIES)}
-					<div id="col_left" class="col-lg-3 d-none d-lg-block">
-						{$box_SUB_CATEGORIES}
-					</div>
-				{/if}
-				<div id="col_right" class="{if isset($box_SUB_CATEGORIES)}col-lg-9{else}col-12{/if}">
-					{if isset($main_content)}{$main_content}{/if}
-				</div>
-			</div>
-		</main>
-		{* ENDE Maincontainer 2 *}
+    {* BEGINN Maincontainer 2 *}
+    <main id="container2" class="container-xxl mb-4">
+      {if isset($navtrail)}
+        <nav class="breadcrumb border-bottom" aria-label="breadcrumb">{$navtrail}</nav>
+      {/if}
+      <div id="content" class="row">
+        {if isset($box_SUB_CATEGORIES)}
+          <div id="col_left" class="col-lg-3 d-none d-lg-block">
+            {$box_SUB_CATEGORIES}
+          </div>
+        {/if}
+        <div id="col_right" class="{if isset($box_SUB_CATEGORIES)}col-lg-9{else}col-12{/if}">
+          {if isset($main_content)}{$main_content}{/if}
+        </div>
+      </div>
+    </main>
+    {* ENDE Maincontainer 2 *}
 
-	{elseif $display_mode == 'productinfo'}
+  {elseif $display_mode == 'productinfo'}
 
-		{* BEGINN Maincontainer 2 *}
-		<main id="container2" class="container-xxl mb-4">
-			{if isset($navtrail)}
-				<nav class="breadcrumb border-bottom" aria-label="breadcrumb">{$navtrail}</nav>
-			{/if}
-			<div id="content">
-				{if isset($main_content)}{$main_content}{/if}
-				{if isset($box_LAST_VIEWED)}{$box_LAST_VIEWED}{/if}
-			</div>
-		</main>
-		{* ENDE Maincontainer 2 *}
+    {* BEGINN Maincontainer 2 *}
+    <main id="container2" class="container-xxl mb-4">
+      {if isset($navtrail)}
+        <nav class="breadcrumb border-bottom" aria-label="breadcrumb">{$navtrail}</nav>
+      {/if}
+      <div id="content">
+        {if isset($main_content)}{$main_content}{/if}
+        {if isset($box_LAST_VIEWED)}{$box_LAST_VIEWED}{/if}
+      </div>
+    </main>
+    {* ENDE Maincontainer 2 *}
 
-	{elseif $display_mode == 'content'}
+  {elseif $display_mode == 'content'}
 
-		{* BEGINN Maincontainer 2 *}
-		<main id="container2" class="container-xxl mb-4">
-			{if isset($navtrail)}
-				<nav class="breadcrumb border-bottom" aria-label="breadcrumb">{$navtrail}</nav>
-			{/if}
-			<div id="content" class="row">
-				<div id="col_left" class="col-lg-9">
-					{if isset($main_content)}{$main_content}{/if}
-				</div>
-				<div id="col_right" class="col-lg-3 d-none d-lg-block">
-					{if isset($box_CONTENT)}<div class="navbar small my-4">{$box_CONTENT}</div>{/if}
-					{if isset($box_INFORMATION)}<div class="navbar small my-4">{$box_INFORMATION}</div>{/if}
-				</div>
-			</div>
-		</main>
-		{* ENDE Maincontainer 2 *}
+    {* BEGINN Maincontainer 2 *}
+    <main id="container2" class="container-xxl mb-4">
+      {if isset($navtrail)}
+        <nav class="breadcrumb border-bottom" aria-label="breadcrumb">{$navtrail}</nav>
+      {/if}
+      <div id="content" class="row">
+        <div id="col_left" class="col-lg-9">
+          {if isset($main_content)}{$main_content}{/if}
+        </div>
+        <div id="col_right" class="col-lg-3 d-none d-lg-block">
+          {if isset($box_CONTENT)}<div class="navbar small my-4">{$box_CONTENT}</div>{/if}
+          {if isset($box_INFORMATION)}<div class="navbar small my-4">{$box_INFORMATION}</div>{/if}
+        </div>
+      </div>
+    </main>
+    {* ENDE Maincontainer 2 *}
 
-	{else}
+  {else}
 
-		{* BEGINN Maincontainer 2 *}
-		<main id="container2" class="container-xxl mb-4">
-			{if $display_mode != 'checkout'}
-				{if isset($navtrail)}
-					<nav class="breadcrumb border-bottom" aria-label="breadcrumb">{$navtrail}</nav>
-				{/if}
-			{/if}
-			<div id="content">
-				{if isset($main_content)}{$main_content}{/if}
+    {* BEGINN Maincontainer 2 *}
+    <main id="container2" class="container-xxl mb-4">
+      {if $display_mode != 'checkout'}
+        {if isset($navtrail)}
+          <nav class="breadcrumb border-bottom" aria-label="breadcrumb">{$navtrail}</nav>
+        {/if}
+      {/if}
+      <div id="content">
+        {if isset($main_content)}{$main_content}{/if}
 
-				{if isset($box_XSELL)}{$box_XSELL}{/if}
-				{if isset($box_LAST_VIEWED)}{$box_LAST_VIEWED}{/if}
-				{if isset($box_BESTSELLERS)}{$box_BESTSELLERS}{/if}
-				{if isset($box_WHATSNEW)}{$box_WHATSNEW}{/if}
-				{if isset($box_SPECIALS)}{$box_SPECIALS}{/if}
-			</div>
-		</main>
-		{* ENDE Maincontainer 2 *}
+        {if isset($box_XSELL)}{$box_XSELL}{/if}
+        {if isset($box_LAST_VIEWED)}{$box_LAST_VIEWED}{/if}
+        {if isset($box_BESTSELLERS)}{$box_BESTSELLERS}{/if}
+        {if isset($box_WHATSNEW)}{$box_WHATSNEW}{/if}
+        {if isset($box_SPECIALS)}{$box_SPECIALS}{/if}
+      </div>
+    </main>
+    {* ENDE Maincontainer 2 *}
 
-	{/if}
+  {/if}
 
-	{if $display_mode == 'home'}
-		{if isset($box_TRUSTEDSHOPS)}
-			<div class="container-xxl">
-				{$box_TRUSTEDSHOPS}
-			</div>
-		{/if}
-	{/if}
-
-	{if isset($box_NEWSLETTER) && $display_mode != 'checkout' && $display_mode != 'newsletter'}
-		<div id="newsletter" class="border-top py-4">
-			<div class="container-xxl">
-				<div class="col-md-8 col-lg-6 mx-auto">
-					{$box_NEWSLETTER}
-				</div>
-			</div>
-		</div>
-	{/if}
-
-	{* BEGINN FOOTER *}
-	<footer id="layout_footer" class="container-fluid bg-{$smarty.const.BS5_FOOTER_BG} border-top border-light-subtle py-4" {if $smarty.const.BS5_FOOTER_NAVBAR=='dark' } data-bs-theme="dark" {/if}>
-		<div class="container-xxl navbar">
-			<div id="layout_footer_inner" class="row">
-				<div class="col-lg-3 col-md-6 mb-3">
-					<div class="box-contact">
-						<div class="box-heading w-100 navbar-brand border-bottom mb-2">
-							{#footer_heading_contact#}
-						</div>
-						<div class="box_sub">
-							{#footer_text_contact#}
-						</div>
-					</div>
-				</div>
-				{if isset($box_CONTENT)}<div class="col-lg-3 col-md-6 mb-3">{$box_CONTENT} </div>{/if}
-				{if isset($box_INFORMATION)}<div class="col-lg-3 col-md-6 mb-3">{$box_INFORMATION} </div>{/if}
-				{if isset($box_MISCELLANEOUS)}<div class="col-lg-3 col-md-6 mb-3">{$box_MISCELLANEOUS} </div>{/if}
-			</div>
-			<div class="mod_copyright mx-auto text-center small pb-5">
-        {if $smarty.const.MODULE_SMALL_BUSINESS != 'true'}{#footer_price_hinweis_1#} {if $smarty.session.customers_status.customers_status_show_price_tax == 1}{#footer_price_hinweis_incl#}{else}{#footer_price_hinweis_excl#}{/if} {#footer_price_hinweis_2#} <a class="iframe link-body-emphasis" title="Information" href="{'popup_content.php'|xtc_href_link:'coID=1'}" target="_blank" rel="nofollow">{#footer_price_hinweis_3#}</a>. {/if}{#footer_price_hinweis_4#} {$smarty.const.TITLE}.
-				<div class="py-2">{$smarty.const.TITLE} &copy; {$smarty.now|date_format:"Y"} | Template &copy; {$smarty.now|date_format:"Y"} by Karl</div>
-			</div>
-		</div>
-	</footer>
-	{* ENDE FOOTER *}
-	<a href="#" class="go2top btn btn-secondary" aria-label="go to top"><i class="fa fa-chevron-up"></i></a>
-
-	{if $display_mode != 'checkout'}
-    {if (isset($box_CURRENCIES) && $box_CURRENCIES != '') || (isset($box_SHIPPING_COUNTRY) && $box_SHIPPING_COUNTRY != '') || (isset($box_LANGUAGES) && $box_LANGUAGES != '')}
-			<div id="settings" class="offcanvas offcanvas-start" tabindex="-1">
-				<div class="offcanvas-header bg-secondary-subtle">
-					<h4 class="offcanvas-title">{#BS5_heading_settingbox#}</h4>
-					<button type="button" class="btn btn-dark fa fa-xmark ms-auto" data-bs-dismiss="offcanvas" data-bs-target="#settings" aria-label="{#BS5_close#}"></button>
-				</div>
-				<div class="offcanvas-body">
-					{if isset($box_SHIPPING_COUNTRY)}{$box_SHIPPING_COUNTRY}{/if}
-					{if isset($box_LANGUAGES) && $box_LANGUAGES != ''}{$box_LANGUAGES}{/if}
-					{if isset($box_CURRENCIES)}{$box_CURRENCIES}{/if}
-				</div>
-			</div>
-		{/if}
-		{if isset($box_LOGIN) || isset($box_INFOBOX)}
-			<div id="account" class="offcanvas offcanvas-start" tabindex="-1">
-				<div class="offcanvas-header bg-secondary-subtle">
-					<h4 class="offcanvas-title">{#link_account#}</h4>
-					<button type="button" class="btn btn-dark fa fa-xmark ms-auto" data-bs-dismiss="offcanvas" data-bs-target="#account" aria-label="{#BS5_close#}"></button>
-				</div>
-				<div class="offcanvas-body">
-					{if isset($box_LOGIN)}<div class="mb-5">{$box_LOGIN}</div>{/if}
-					{if isset($box_INFOBOX)}{$box_INFOBOX}{/if}
-				</div>
-			</div>
-		{/if}
-    {if isset($box_CATEGORIES)}
-      <div id="mmenu">
-        <ul class="mmenu">
-          {$box_CATEGORIES}
-					{if $smarty.const.BS5_MANUFACTURERS_LINK == 'true'}
-						<li class="level1 manu hassub">
-							<span {if isset($smarty.get.manufacturers_id)}class="active parent" {/if}title="{#heading_manufacturers#}">{#heading_manufacturers#}</span>
-							<ul>
-								{if isset($box_MANUFACTURERS)}{$box_MANUFACTURERS}{/if}
-							</ul>
-						</li>
-					{/if}
-					{if $smarty.const.SPECIALS_EXISTS == 'true'}
-						<li class="level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false} Selected active{/if}"><a class="{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false}active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_SPECIALS|xtc_href_link}">{#heading_specials#}</a></li>
-					{/if}
-					{if $smarty.const.WHATSNEW_EXISTS == 'true'}
-						<li class="level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false} Selected active{/if}"><a class="{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false}active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_PRODUCTS_NEW|xtc_href_link}">{#heading_whatsnew#}</a></li>
-					{/if}
-					{if $smarty.const.BS5_ADD_LINK_IN_TOPCATMENU_LAST != ''}
-						{assign var=BOX_LINKS value=$smarty.const.BS5_ADD_LINK_IN_TOPCATMENU_LAST|addedLinks}
-						{foreach name=aussen item=box_data from=$BOX_LINKS}
-							<li class="level1 added_link"><a href="{$box_data.HREF}">{if strpos($box_data.NAME, 'BS5_') !== false}{#$box_data.NAME#}{else}{$box_data.NAME}{/if}</a></li>
-						 {/foreach}
-					{/if}
-				</ul>
+  {if $display_mode == 'home'}
+    {if isset($box_TRUSTEDSHOPS)}
+      <div class="container-xxl">
+        {$box_TRUSTEDSHOPS}
       </div>
     {/if}
   {/if}
 
-	<div id="modal" class="modal modal-xl fade" tabindex="-1" aria-labelledby="title" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h4 id="title" class="modal-title up mx-auto">&nbsp;</h4>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{#BS5_close#}"></button>
-				</div>
-				<div class="modal-body">
-				</div>
-				<div class="modal-footer">
-					<button class="btn btn-dark btn-sm" data-bs-dismiss="modal" type="button" title="{#BS5_close#}">{#BS5_close#}</button>
-				</div>
-			</div>
-		</div>
-	</div>
+  {if isset($box_NEWSLETTER) && $display_mode != 'checkout' && $display_mode != 'newsletter'}
+    <div id="newsletter" class="border-top py-4">
+      <div class="container-xxl">
+        <div class="col-md-8 col-lg-6 mx-auto">
+          {$box_NEWSLETTER}
+        </div>
+      </div>
+    </div>
+  {/if}
+
+  {* BEGINN FOOTER *}
+  <footer id="layout_footer" class="container-fluid bg-{$smarty.const.BS5_FOOTER_BG} border-top border-light-subtle py-4" {if $smarty.const.BS5_FOOTER_NAVBAR=='dark' } data-bs-theme="dark" {/if}>
+    <div class="container-xxl navbar">
+      <div id="layout_footer_inner" class="row">
+        <div class="col-lg-3 col-md-6 mb-3">
+          <div class="box-contact">
+            <div class="box-heading w-100 navbar-brand border-bottom mb-2">
+              {#footer_heading_contact#}
+            </div>
+            <div class="box_sub">
+              {#footer_text_contact#}
+            </div>
+          </div>
+        </div>
+        {if isset($box_CONTENT)}<div class="col-lg-3 col-md-6 mb-3">{$box_CONTENT} </div>{/if}
+        {if isset($box_INFORMATION)}<div class="col-lg-3 col-md-6 mb-3">{$box_INFORMATION} </div>{/if}
+        {if isset($box_MISCELLANEOUS)}<div class="col-lg-3 col-md-6 mb-3">{$box_MISCELLANEOUS} </div>{/if}
+      </div>
+      <div class="mod_copyright mx-auto text-center small pb-5">
+        {if $smarty.const.MODULE_SMALL_BUSINESS != 'true'}{#footer_price_hinweis_1#} {if $smarty.session.customers_status.customers_status_show_price_tax == 1}{#footer_price_hinweis_incl#}{else}{#footer_price_hinweis_excl#}{/if} {#footer_price_hinweis_2#} <a class="iframe link-body-emphasis" title="Information" href="{'popup_content.php'|xtc_href_link:'coID=1'}" target="_blank" rel="nofollow">{#footer_price_hinweis_3#}</a>. {/if}{#footer_price_hinweis_4#} {$smarty.const.TITLE}.
+        <div class="py-2">{$smarty.const.TITLE} &copy; {$smarty.now|date_format:"Y"} | Template &copy; {$smarty.now|date_format:"Y"} by Karl</div>
+      </div>
+    </div>
+  </footer>
+  {* ENDE FOOTER *}
+  <a href="#" class="go2top btn btn-secondary" aria-label="go to top"><i class="fa fa-chevron-up"></i></a>
+
+  {if $display_mode != 'checkout'}
+    {if (isset($box_CURRENCIES) && $box_CURRENCIES != '') || (isset($box_SHIPPING_COUNTRY) && $box_SHIPPING_COUNTRY != '') || (isset($box_LANGUAGES) && $box_LANGUAGES != '')}
+      <div id="settings" class="offcanvas offcanvas-start" tabindex="-1">
+        <div class="offcanvas-header bg-secondary-subtle">
+          <h4 class="offcanvas-title">{#BS5_heading_settingbox#}</h4>
+          <button type="button" class="btn btn-dark fa fa-xmark ms-auto" data-bs-dismiss="offcanvas" data-bs-target="#settings" aria-label="{#BS5_close#}"></button>
+        </div>
+        <div class="offcanvas-body">
+          {if isset($box_SHIPPING_COUNTRY)}{$box_SHIPPING_COUNTRY}{/if}
+          {if isset($box_LANGUAGES) && $box_LANGUAGES != ''}{$box_LANGUAGES}{/if}
+          {if isset($box_CURRENCIES)}{$box_CURRENCIES}{/if}
+        </div>
+      </div>
+    {/if}
+    {if isset($box_LOGIN) || isset($box_INFOBOX)}
+      <div id="account" class="offcanvas offcanvas-start" tabindex="-1">
+        <div class="offcanvas-header bg-secondary-subtle">
+          <h4 class="offcanvas-title">{#link_account#}</h4>
+          <button type="button" class="btn btn-dark fa fa-xmark ms-auto" data-bs-dismiss="offcanvas" data-bs-target="#account" aria-label="{#BS5_close#}"></button>
+        </div>
+        <div class="offcanvas-body">
+          {if isset($box_LOGIN)}<div class="mb-5">{$box_LOGIN}</div>{/if}
+          {if isset($box_INFOBOX)}{$box_INFOBOX}{/if}
+        </div>
+      </div>
+    {/if}
+    {if isset($box_CATEGORIES)}
+      <div id="mmenu">
+        <ul class="mmenu">
+          {$box_CATEGORIES}
+          {if $smarty.const.BS5_MANUFACTURERS_LINK == 'true'}
+            <li class="level1 manu hassub">
+              <span {if isset($smarty.get.manufacturers_id)}class="active parent" {/if}title="{#heading_manufacturers#}">{#heading_manufacturers#}</span>
+              <ul>
+                {if isset($box_MANUFACTURERS)}{$box_MANUFACTURERS}{/if}
+              </ul>
+            </li>
+          {/if}
+          {if $smarty.const.SPECIALS_EXISTS == 'true'}
+            <li class="level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false} Selected active{/if}"><a class="{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false}active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_SPECIALS|xtc_href_link}">{#heading_specials#}</a></li>
+          {/if}
+          {if $smarty.const.WHATSNEW_EXISTS == 'true'}
+            <li class="level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false} Selected active{/if}"><a class="{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false}active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_PRODUCTS_NEW|xtc_href_link}">{#heading_whatsnew#}</a></li>
+          {/if}
+          {if $smarty.const.BS5_ADD_LINK_IN_TOPCATMENU_LAST != ''}
+            {assign var=BOX_LINKS value=$smarty.const.BS5_ADD_LINK_IN_TOPCATMENU_LAST|addedLinks}
+            {foreach name=aussen item=box_data from=$BOX_LINKS}
+              <li class="level1 added_link"><a href="{$box_data.HREF}">{if strpos($box_data.NAME, 'BS5_') !== false}{#$box_data.NAME#}{else}{$box_data.NAME}{/if}</a></li>
+             {/foreach}
+          {/if}
+        </ul>
+      </div>
+    {/if}
+  {/if}
+
+  <div id="modal" class="modal modal-xl fade" tabindex="-1" aria-labelledby="title" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 id="title" class="modal-title up mx-auto">&nbsp;</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{#BS5_close#}"></button>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-dark btn-sm" data-bs-dismiss="modal" type="button" title="{#BS5_close#}">{#BS5_close#}</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
 {* ENDE Hauptcontainer innerhalb body *}

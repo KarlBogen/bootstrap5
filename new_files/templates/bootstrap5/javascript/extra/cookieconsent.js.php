@@ -106,7 +106,7 @@ if (defined('MODULE_COOKIE_CONSENT_STATUS') && strtolower(MODULE_COOKIE_CONSENT_
       <?php } ?>
       // Focus fuer Screenreader setzen
       if (event && event.data && (eventDataContains('oil_optin_done'))) {
-			 setTimeout(function() {$("#focus").focus()}, 300);
+       setTimeout(function() {$("#focus").focus()}, 300);
       }
     }
 
