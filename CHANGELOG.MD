@@ -1,5 +1,11 @@
 UNRELEASED
 
+
+
+1.1.8 [05.02.2025]
+
+- Button BuyNow im Listing geändert
+- Box Reviews geändert
 - Focus für Screenreader nach Cookie Consent Auswahl gesetzt
 - Anzeige Attributgesamtpreis in module/product_options/product_options_v1_select.html
 - Attribute Price Updater geändert
@@ -8,8 +14,6 @@ UNRELEASED
 - Templatedateien für PayPal-Express angepasst
 - checkout_shipping_block.html - Icon hinzugefügt
 - Font-Icons erweitert
-
-
 
 1.1.7 [05.11.2024]
 

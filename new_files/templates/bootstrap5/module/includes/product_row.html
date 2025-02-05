@@ -57,7 +57,7 @@
 				{if $module_data.PRODUCTS_PRICE_ARRAY.0.PRODUCTS_PRICE_FLAG != 'NotAllowed'}
 					<div class="lr_tax mb-3">
 						<div class="lr_tax text-secondary-emphasis small mb-2">{$module_data.PRODUCTS_TAX_INFO}{$module_data.PRODUCTS_SHIPPING_LINK}</div>
-						{if $module_data.PRODUCTS_PRICE_EXPIRES_DATE|strtotime > 0}        
+						{if $module_data.PRODUCTS_PRICE_EXPIRES_DATE|strtotime > 0}
 							<div class="lr_expires_date text-danger small">{#text_expires_date#} {$module_data.PRODUCTS_PRICE_EXPIRES_DATE|xtc_date_short}</div>
 						{/if}
 					</div>
@@ -66,7 +66,7 @@
 				{if $smarty.const.BS5_TRAFFIC_LIGHTS == 'true' && $smarty.const.BS5_TRAFFIC_LIGHTS_PRODLISTING != 'false'}
 					<div class="lr_stock mb-2 small">{traffic_light stock=$module_data.PRODUCTS_QUANTITY modul='listing'}</div>
 				{/if}
-				<div class="lr_buttons text-center">{if $module_data.PRODUCTS_BUTTON_BUY_NOW || ($module_data.PRODUCTS_FSK18 != '0' && $smarty.const.SHOW_BUTTON_BUY_NOW != 'false')}{$module_data.PRODUCTS_BUTTON_BUY_NOW|replace:'<a':'<a class="btn btn-cart btn-outline-secondary btn-sm mt-2" aria-label="buy now"'}&nbsp;&nbsp;{/if}{if $module_data.PRODUCTS_LINK_WISHLIST_NOW}<a class="btn btn-wish btn-outline-secondary btn-sm mt-2" href="{$module_data.PRODUCTS_LINK_WISHLIST_NOW}" title="{$smarty.const.TEXT_TO_WISHLIST}"><i class="fa fa fa-heart"></i></a>&nbsp;&nbsp;{/if}<a class="stretched-link btn btn-secondary btn-sm mt-2" href="{$module_data.PRODUCTS_LINK}"><i class="fa fa-eye"></i>{$smarty.const.TEXT_INFO_DETAILS}</a></div>
+				<div class="lr_buttons text-center">{if $module_data.PRODUCTS_BUTTON_BUY_NOW || ($module_data.PRODUCTS_FSK18 != '0' && $smarty.const.SHOW_BUTTON_BUY_NOW != 'false')}{$module_data.PRODUCTS_BUTTON_BUY_NOW|replace:'class="add_cart"':'class="add_cart btn btn-cart btn-outline-secondary btn-sm mt-2" aria-label="buy now"'}&nbsp;&nbsp;{/if}{if $module_data.PRODUCTS_LINK_WISHLIST_NOW}<a class="btn btn-wish btn-outline-secondary btn-sm mt-2" href="{$module_data.PRODUCTS_LINK_WISHLIST_NOW}" title="{$smarty.const.TEXT_TO_WISHLIST}"><i class="fa fa fa-heart"></i></a>&nbsp;&nbsp;{/if}<a class="stretched-link btn btn-secondary btn-sm mt-2" href="{$module_data.PRODUCTS_LINK}"><i class="fa fa-eye"></i>{$smarty.const.TEXT_INFO_DETAILS}</a></div>
 			</div>
 		</div>
 	</div>

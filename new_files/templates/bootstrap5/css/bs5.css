@@ -245,7 +245,7 @@ input[type=submit].btn-block {
 	z-index: 2;
 	position: relative;
 }
-.resCarousel .card:hover, .listingbox .card:hover, .listingrow.card:hover, .subcat.card:hover, .cat .card:hover {
+.resCarousel .card:hover, .listingbox .card:hover, .listingrow.card:hover, .subcat .card:hover, .cat .card:hover {
 	box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.25) !important;
 }
 .lb_price {
@@ -686,15 +686,19 @@ div[id^="trustbadge-container-"] {
 }
 .lc-1 {
   -webkit-line-clamp: 1;
+  max-height: calc(var(--bs-body-line-height) * 1em);
 }
 .lc-2 {
   -webkit-line-clamp: 2;
+  max-height: calc(var(--bs-body-line-height) * 2em);
 }
 .lc-3 {
   -webkit-line-clamp: 3;
+  max-height: calc(var(--bs-body-line-height) * 3em);
 }
 .lc-4 {
   -webkit-line-clamp: 4;
+  max-height: calc(var(--bs-body-line-height) * 4em);
 }
 /* resCarousel */
 .resCarousel-inner {
@@ -791,3 +795,26 @@ div[id^="trustbadge-container-"] {
     width: calc(16.6666%)
   }
 }
+/* Produktbild skalieren bei Mauszeiger */
+/* Bereich auskommentiert
+.resCarousel .card:hover .prod_image img, .listingbox .card:hover .prod_image img, .listingrow.card:hover .prod_image img
+{
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+.prod_image img {
+  -webkit-transform: scale(0.95);
+  -moz-transform: scale(0.95);
+  -ms-transform: scale(0.95);
+  -o-transform: scale(0.95);
+  transform: scale(0.95);
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+*/
+/* Ende Produktbild skalieren bei Mauszeiger */
