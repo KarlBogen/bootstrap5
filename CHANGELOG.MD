@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- SQL-Abfrage für Box Hersteller und Hersteller-Menü aktualisiert
 
 1.1.8 [05.02.2025]
 

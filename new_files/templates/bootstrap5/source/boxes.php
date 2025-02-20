@@ -9,13 +9,13 @@
    -----------------------------------------------------------------------------------------
    based on:
    (c) 2006 XT-Commerce
-   
-   Released under the GNU General Public License 
-   -----------------------------------------------------------------------------------------
-   valid display modes: 
 
-   account, category, checkout, contactus, content, cookieusage, createaccount, download 
-   error, gv, home, listing, login, logoff, manufacturer, newsletter, password, productinfo 
+   Released under the GNU General Public License
+   -----------------------------------------------------------------------------------------
+   valid display modes:
+
+   account, category, checkout, contactus, content, cookieusage, createaccount, download
+   error, gv, home, listing, login, logoff, manufacturer, newsletter, password, productinfo
    productsnew, reviews, shoppingcart, search, sitemap, specials, sslcheck, wishlist
    ---------------------------------------------------------------------------------------*/
 
@@ -49,7 +49,7 @@
     require_once(DIR_FS_BOXES . 'infobox.php');
   }
   require_once(DIR_FS_BOXES . 'login.php');
-  if (!defined('MODULE_NEWSLETTER_STATUS') 
+  if (!defined('MODULE_NEWSLETTER_STATUS')
       || MODULE_NEWSLETTER_STATUS == 'true'
       )
   {
@@ -69,7 +69,7 @@
   // -----------------------------------------------------------------------------------------
   // additional boxes
   // -----------------------------------------------------------------------------------------
-  if (in_array($display_mode, array('logoff', 'error', 'shoppingcart', 'newsletter')) 
+  if (in_array($display_mode, array('logoff', 'error', 'shoppingcart', 'newsletter'))
       || basename($PHP_SELF) == FILENAME_CHECKOUT_SUCCESS
       )
   {
@@ -86,7 +86,7 @@
   if ($display_mode != 'checkout') {
     require_once(DIR_FS_BOXES . 'currencies.php');
     require_once(DIR_FS_BOXES . 'shipping_country.php');
-    require_once(DIR_FS_BOXES . 'languages.php'); 
+    require_once(DIR_FS_BOXES . 'languages.php');
   }
 
   // -----------------------------------------------------------------------------------------
@@ -111,7 +111,7 @@
       }
       if (substr(basename($PHP_SELF), 0,8) != 'advanced' && BS5_STARTPAGE_BOX_WHATSNEW == 'true') {
         // whats_new
-        require_once(DIR_FS_BOXES . 'whats_new.php'); 
+        require_once(DIR_FS_BOXES . 'whats_new.php');
       }
       if ($_SESSION['customers_status']['customers_status_specials'] == '1' && BS5_STARTPAGE_BOX_SPECIALS == 'true') {
         // specials
@@ -125,20 +125,16 @@
         // Bestseller
         require_once(DIR_FS_BOXES . 'best_sellers.php');
       }
-      if (BS5_MANCAROUSEL_SHOW == 'true') {
-        // Bootstrap5
-        require_once(DIR_FS_BOXES . 'manufacturers_carousel.php');
-      }
       // trustedshops
-      if (defined('MODULE_TS_TRUSTEDSHOPS_ID') 
-          && MODULE_TS_REVIEW_STICKER != '' 
+      if (defined('MODULE_TS_TRUSTEDSHOPS_ID')
+          && MODULE_TS_REVIEW_STICKER != ''
           && MODULE_TS_REVIEW_STICKER_STATUS == '1'
-          ) 
+          )
       {
         require_once(DIR_FS_BOXES . 'trustedshops.php');
       }
       break;
-    
+
     case 'listing':
       if (BS5_NOT_STARTPAGE_BOX_SUBCATEGORIES == 'true') {
         // sub categories

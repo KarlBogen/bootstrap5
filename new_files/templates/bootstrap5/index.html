@@ -139,7 +139,7 @@
         {if isset($box_REVIEWS)}{$box_REVIEWS}{/if}
 
         {if isset($box_BESTSELLERS)}{$box_BESTSELLERS}{/if}
-        {if isset($box_MANUFACTURERS_CAROUSEL)}{$box_MANUFACTURERS_CAROUSEL}{/if}
+        {if $smarty.const.BS5_MANCAROUSEL_SHOW == 'true' && isset($box_MANUFACTURERS_CAROUSEL)}{$box_MANUFACTURERS_CAROUSEL}{/if}
       </div>
     </main>
     {* ENDE Maincontainer 2 *}
