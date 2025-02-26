@@ -19,7 +19,7 @@ text_account_history = 'Here you can see all the orders you have placed.<br>You 
 text_must = '* necessary information'
 text_note = 'Notice'
 text_account_new_password_info = 'After submitting the form, your new password will be saved and you will automatically be redirected to the login page. You can then log in here with the newly assigned password.'
-                                  
+
 [account]
 title_nav_account = 'Your account'
 title_nav_account_edit = 'Edit your account'
@@ -50,6 +50,7 @@ text_must = '* necessary information'
 text_shippingtime = 'Shipping time:'
 show_all = 'Show all'
 subcats_total_heading = 'Product range'
+text_cart_or = 'or'
 
 [error_handler]
 

@@ -1,6 +1,6 @@
 UNRELEASED
 
-
+- Update Box Cart für PayPal PLUS fuer Shopversion 3.1.2 rev 16207
 - SQL-Abfrage für Box Hersteller und Hersteller-Menü aktualisiert
 
 1.1.8 [05.02.2025]
