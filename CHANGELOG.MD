@@ -1,5 +1,6 @@
 UNRELEASED
 
+- neue Option in der Konfiguration - PayPal Button in Box Warenkorb
 - Update Box Cart für PayPal PLUS fuer Shopversion 3.1.2 rev 16207
 - SQL-Abfrage für Box Hersteller und Hersteller-Menü aktualisiert
 

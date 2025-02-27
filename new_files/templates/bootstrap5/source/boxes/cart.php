@@ -65,6 +65,7 @@
 
     if (defined('MODULE_PAYMENT_PAYPAL_SECRET')
         && MODULE_PAYMENT_PAYPAL_SECRET != ''
+        && BS5_SHOW_PAYPAL_IN_BOX_CART == 'true'
         )
     {
       // include needed classes

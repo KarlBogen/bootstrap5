@@ -216,6 +216,8 @@ $lang_array = array(
 		Standard: 10',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_BOX_ADD_QUICKIE' => 'Box Schnellkauf:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_BOX_ADD_QUICKIE_INFO' => '<strong>Box Schnellkauf innerhalb Box Warenkorb</strong><br>Soll die Box Schnellkauf innerhalb Box Warenkorb angezeigt werden?',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_PAYPAL_IN_BOX_CART' => 'Box Cart / Warenkorb:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_PAYPAL_IN_BOX_CART_INFO' => '<strong>PayPal Button</strong><br>Soll PayPal innerhalb Box Warenkorb angezeigt werden?',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_BOX_INFO' => 'Box Info Kundengruppe:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_BOX_INFO_INFO' => '<strong>Box Info Kundengruppe innerhalb Box Account "Mein Konto"</strong><br>Soll die Box Info Kundengruppe innerhalb Box Account "Mein Konto" angezeigt werden?',
 

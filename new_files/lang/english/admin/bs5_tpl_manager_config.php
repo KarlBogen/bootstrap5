@@ -216,6 +216,8 @@ $lang_array = array(
 		Standard: 10',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_BOX_ADD_QUICKIE' => 'Box quick purchase:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_BOX_ADD_QUICKIE_INFO' => '<strong>Box quick purchase inside box shopping cart</strong><br>Should the box quick purchase be displayed inside box shopping cart?',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_PAYPAL_IN_BOX_CART' => 'Box CArt / Warenkorb:',
+	'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_PAYPAL_IN_BOX_CART_INFO' => '<strong>PayPal Button</strong><br>Should PayPal be displayed inside box shopping cart?',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_BOX_INFO' => 'Box customer group:',
 	'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_BOX_INFO_INFO' => '<strong>Box customer group inside box "Your account"</strong><br>Should the box customer group be displayed inside box "Your account"?',
 
