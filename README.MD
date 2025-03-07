@@ -6,8 +6,12 @@
 
 Das Template basiert auf dem Bootstrap-Framework 5 und wird getestet mit der, zum Zeitpunkt des Erscheinens eines neuen Releases, aktuellen Shopversion.
 
-<img src="images/screenshot_1.png" raw=true alt="bootstrap5" style="width:49%;float:left;">
-<img src="images/screenshot_dark_1.png" raw=true alt="bootstrap5 dark mode" style="width:49%;">
+<div  style="width:49%;float:left;">
+<img src="images/screenshot_1.png" raw=true alt="bootstrap5">
+</div>
+<div  style="width:49%;">
+<img src="images/screenshot_dark_1.png" raw=true alt="bootstrap5 dark mode">
+</div>
 
 ## Eigenschaften:
 - responsive Template für PC, Tablet, Smartphone
