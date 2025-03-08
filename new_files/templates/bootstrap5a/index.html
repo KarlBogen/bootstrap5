@@ -5,12 +5,12 @@
 
 {* BEGINN Hauptcontainer innerhalb body *}
 <div id="container" class="{$smarty.const.BS5_BOOTSTRAP_THEME} dm-{$display_mode}">
-  <a id="focus" class="visually-hidden" href="#" tabindex="-1"></a>
+  <span id="focus" class="visually-hidden" href="#" tabindex="-1"></span>
 
   {if $display_mode != 'checkout'}
 
     {* BEGINN Screenreadernavigation *}
-    <div class="visually-hidden-focusable flex-column navbar bg-body-secondary border p-3 position-absolute z-2">
+    <div class="visually-hidden-focusable flex-column navbar bg-body-secondary border p-3 position-absolute z-3">
       <div class="navbar-brand w-100 border-bottom mb-2">{#BS5_skip_nav#}</div>
       <ul class="nav flex-column">
         <li class="nav-item d-none d-lg-block">
