@@ -85,6 +85,7 @@
 						}
 						if (updateOrgPrice) {
 							if (firsts < 1) {
+                $("#attrErr").hide('slow', function () { $("#attrErr").remove(); });
 						    var oldPrice = (Math.round((summe + data.oprice) * 100) / 100).toFixed(2).toString().replace(/[.]/, ',');
 						    var savePercent = Math.round(((summe + data.oprice) - (summe + data.gprice)) / (summe + data.oprice) * 100).toString();
 								$('.pd_offer .pd_price .standard_price').html(symbolLeft + newPrice + symbolRight);

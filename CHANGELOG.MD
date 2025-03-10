@@ -1,5 +1,6 @@
 UNRELEASED
 
+- JS Price Updater geändert
 - Barrierefreiheit - Focus-Anker in index.html verändert
 - neue Option in der Konfiguration - PayPal Button in Box Warenkorb
 - Update Box Cart für PayPal PLUS fuer Shopversion 3.1.2 rev 16207

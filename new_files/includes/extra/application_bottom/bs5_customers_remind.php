@@ -35,7 +35,7 @@ if (defined('BS5_MODULFUX_ATTRIBUTES_DEFAULT') && BS5_MODULFUX_ATTRIBUTES_DEFAUL
       ?>
       <script type="text/javascript">
         $(document).ready(function(){
-          $('<div class="alert alert-danger"><?php echo BS5_MODULFUX_ATTRIBUTES_ERROR; ?></div>').insertBefore($('div[id^="optionen"]'));
+          $('<div id="attrErr" class="alert alert-danger"><?php echo BS5_MODULFUX_ATTRIBUTES_ERROR; ?></div>').insertBefore($('div[id^="optionen"]'));
 					$('div[id^="optionen"]').find('input, select').filter(':visible:first').focus();
         });
       </script>
