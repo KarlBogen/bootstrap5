@@ -1,5 +1,6 @@
 UNRELEASED
 
+- Theme "blau natur" hinzugefügt
 - JS Price Updater geändert
 - Barrierefreiheit - Focus-Anker in index.html verändert
 - neue Option in der Konfiguration - PayPal Button in Box Warenkorb

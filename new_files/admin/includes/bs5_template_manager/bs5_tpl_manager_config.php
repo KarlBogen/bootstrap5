@@ -451,6 +451,7 @@ class Bs5TplManager {
 		$themes_array = array(
 			array('id' => 'default', 'text' => 'Bootstrap Default'),
 			array('id' => 'bs5-blue', 'text' => 'BS5 blau - blue'),
+			array('id' => 'bs5-bluepure', 'text' => 'BS5 blau natur - blue pure'),
 			array('id' => 'bs5-darkblue', 'text' => 'BS5 dunkelblau - darkblue'),
 			array('id' => 'bs5-darkcyan', 'text' => 'BS5 dunkelcyan - darkcyan'),
 			array('id' => 'bs5-darkgreen', 'text' => 'BS5 dunkelgr&uuml;n - darkgreen'),
@@ -498,6 +499,7 @@ class Bs5TplManager {
 			array('id' => '', 'text' => 'Bootstrap (bootstrap.min.css)'),
 			array('id' => 'default', 'text' => 'BS5 standard - default'),
 			array('id' => 'blue', 'text' => 'BS5 blau - blue'),
+			array('id' => 'bluepure', 'text' => 'BS5 blau natur - blue pure'),
 			array('id' => 'darkblue', 'text' => 'BS5 dunkelblau - darkblue'),
 			array('id' => 'darkcyan', 'text' => 'BS5 dunkelcyan - darkcyan'),
 			array('id' => 'darkgreen', 'text' => 'BS5 dunkelgr&uuml;n - darkgreen'),

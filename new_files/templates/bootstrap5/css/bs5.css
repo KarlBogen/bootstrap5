@@ -468,6 +468,9 @@ li.kk-mega.level2 > a {
 	margin-top: 20px;
   color: var(--bs-navbar-color);
 }
+.bluepure .link-body-emphasis {
+  color: currentColor !important;
+}
 /* lazysizes */
 .lazyload,
 .lazyloading {
