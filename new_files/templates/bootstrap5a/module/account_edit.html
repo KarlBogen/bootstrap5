@@ -2,84 +2,86 @@
 {config_load file="lang_`$language`.custom"}
 {config_load file="lang_`$language`.section" section="account_edit"}
 <div class="account_edit">
-	<h1 class="heading bg-h">{#heading_account#}</h1>
-	<div class="row my-4">
-		<div class="col-lg-4 d-none d-lg-block">
-			{if isset($smarty.session.customer_id)}
-				{include file="module/account_navigation.html"}
-			{/if}
-		</div>
-		<div class="col-12 col-lg-8">
-			{$FORM_ACTION}
-				{if $error_message}<div class="alert alert-danger">{$error_message}</div>{/if}
-				<div class="contentbox mb-4">
-					<div class="h4">{#title_personal#}</div>
-					<p class="small mb-4">({#text_must#})</p>
-					{if $csID}
-						<div class="mb-2 stern clearfix">
-							<label class="form-label" for="csID">{#csID#}</label>
-							{$csID|replace:'<input':'<input id="csID" class="form-control"'}
-						</div>
-					{/if}
-					{if $gender == '1'}
-						<div class="mb-2 stern clearfix">
-							<label class="form-label" for="gender">{#text_gender#}</label>
-							{$INPUT_GENDER|replace:'<select':'<select id="gender" class="form-select"'}
-						</div>
-					{/if}
-					<div class="mb-2 stern clearfix">
-						<label class="form-label" for="firstname">{#text_firstname#}</label>
-						{$INPUT_FIRSTNAME|replace:'<input':'<input id="firstname" class="form-control"'}
-					</div>
-					<div class="mb-2 stern clearfix">
-						<label class="form-label" for="lastname">{#text_lastname#}</label>
-						{$INPUT_LASTNAME|replace:'<input':'<input id="lastname" class="form-control"'}
-					</div>
-					{if $birthdate == '1'}
-						<div class="mb-2 stern clearfix">
-							<label class="form-label" for="birthdate">{#text_birthdate#}</label>
-							{$INPUT_DOB|replace:'<input':'<input id="birthdate" class="form-control" aria-describedby="dateHelp"'}
-							<div id="dateHelp" class="form-text small">{$TEXT_DOB_NOTE}</div>
-						</div>
-					{/if}
-				</div>
-				<div class="contentbox mb-4">
-					<div class="h4">{#title_contact#}</div>
-					<p class="small mb-4">({#text_must#})</p>
-					<div class="mb-2 stern clearfix">
-						<label class="form-label" for="mail">{#text_email#}</label>
-						{$INPUT_EMAIL|replace:'<input':'<input id="mail" class="form-control"'|replace:"type=\"text\"":"type=\"email\""}
-					</div>
-					<div class="mb-2 stern clearfix">
-						<label class="form-label" for="confirm_email">{#text_confirm_email#}</label>
-						{$INPUT_CONFIRM_EMAIL|replace:'<input':'<input id="confirm_email" class="form-control"'|replace:"type=\"text\"":"type=\"email\""}
-					</div>
-					<div class="mb-2 stern clearfix">
-						<label class="form-label" for="tel">{#text_tel#}</label>
-						{$INPUT_TEL|replace:'<input':'<input id="tel" class="form-control"'|replace:"type=\"text\"":"type=\"tel\""}
-					</div>
-					<div class="mb-2 stern clearfix">
-						<label class="form-label" for="fax">{#text_fax#}</label>
-						{$INPUT_FAX|replace:'<input':'<input id="fax" class="form-control"'|replace:"type=\"text\"":"type=\"tel\""}
-					</div>
-					{if $vat == '1'}
-						<div class="mb-2 stern clearfix">
-							<label class="form-label" for="ustid">{#text_ustid#}</label>
-							{$INPUT_VAT|replace:'<input':'<input id="ustid" class="form-control" aria-describedby="vatHelp"'}
-							<div id="vatHelp" class="form-text small">{$TEXT_VAT_NOTE}</div>
-						</div>
-					{/if}
-				</div>
-				{*
-				<div class="d-grid gap-2 d-sm-flex justify-content-sm-between mt-3">
-					{$BUTTON_BACK|replace:'<a':'<a class="btn btn-outline-secondary"'}
-					{$BUTTON_SUBMIT_UPDATE|replace:'<button':'<button class="btn btn-secondary"'}
-				</div>
-				*}
-				<div class="d-flex justify-content-end mt-3">
-					{$BUTTON_SUBMIT_UPDATE|replace:'<button':'<button class="btn btn-secondary"'}
-				</div>
-			{$FORM_END}
-		</div>
-	</div>
+  <h1 class="heading bg-h">{#heading_account#}</h1>
+  <div class="row my-4">
+    <div class="col-lg-4 d-none d-lg-block">
+      {if isset($smarty.session.customer_id)}
+        {include file="module/account_navigation.html"}
+      {/if}
+    </div>
+    <div class="col-12 col-lg-8">
+      {$FORM_ACTION}
+        {if $error_message}<div class="alert alert-danger">{$error_message}</div>{/if}
+        <div class="contentbox mb-4">
+          <div class="h4">{#title_personal#}</div>
+          <p class="small mb-4">({#text_must#})</p>
+          {if $csID}
+            <div class="mb-2 stern clearfix">
+              <label class="form-label" for="csID">{#csID#}</label>
+              {$csID|replace:'<input':'<input id="csID" class="form-control"'}
+            </div>
+          {/if}
+          {if $gender == '1'}
+            <div class="mb-2 stern clearfix">
+              <label class="form-label" for="gender">{#text_gender#}</label>
+              {$INPUT_GENDER|replace:'<select':'<select id="gender" class="form-select"'}
+            </div>
+          {/if}
+          <div class="mb-2 stern clearfix">
+            <label class="form-label" for="firstname">{#text_firstname#}</label>
+            {$INPUT_FIRSTNAME|replace:'<input':'<input id="firstname" class="form-control"'}
+          </div>
+          <div class="mb-2 stern clearfix">
+            <label class="form-label" for="lastname">{#text_lastname#}</label>
+            {$INPUT_LASTNAME|replace:'<input':'<input id="lastname" class="form-control"'}
+          </div>
+          {if $birthdate == '1'}
+            <div class="mb-2 stern clearfix">
+              <label class="form-label" for="birthdate">{#text_birthdate#}</label>
+              {$INPUT_DOB|replace:'<input':'<input id="birthdate" class="form-control" aria-describedby="dateHelp"'}
+              <div id="dateHelp" class="form-text small">{$TEXT_DOB_NOTE}</div>
+            </div>
+          {/if}
+        </div>
+        <div class="contentbox mb-4">
+          <div class="h4">{#title_contact#}</div>
+          <p class="small mb-4">({#text_must#})</p>
+          <div class="mb-2 stern clearfix">
+            <label class="form-label" for="mail">{#text_email#}</label>
+            {$INPUT_EMAIL|replace:'<input':'<input id="mail" class="form-control"'|replace:"type=\"text\"":"type=\"email\""}
+          </div>
+          <div class="mb-2 stern clearfix">
+            <label class="form-label" for="confirm_email">{#text_confirm_email#}</label>
+            {$INPUT_CONFIRM_EMAIL|replace:'<input':'<input id="confirm_email" class="form-control"'|replace:"type=\"text\"":"type=\"email\""}
+          </div>
+          <div class="mb-2 stern clearfix">
+            <label class="form-label" for="tel">{#text_tel#}</label>
+            {$INPUT_TEL|replace:'<input':'<input id="tel" class="form-control"'|replace:"type=\"text\"":"type=\"tel\""}
+          </div>
+          {if $fax == '1'}
+            <div class="mb-2 stern clearfix">
+              <label class="form-label" for="fax">{#text_fax#}</label>
+              {$INPUT_FAX|replace:'<input':'<input id="fax" class="form-control"'|replace:"type=\"text\"":"type=\"tel\""}
+            </div>
+          {/if}
+          {if $vat == '1'}
+            <div class="mb-2 stern clearfix">
+              <label class="form-label" for="ustid">{#text_ustid#}</label>
+              {$INPUT_VAT|replace:'<input':'<input id="ustid" class="form-control" aria-describedby="vatHelp"'}
+              <div id="vatHelp" class="form-text small">{$TEXT_VAT_NOTE}</div>
+            </div>
+          {/if}
+        </div>
+        {*
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-between mt-3">
+          {$BUTTON_BACK|replace:'<a':'<a class="btn btn-outline-secondary"'}
+          {$BUTTON_SUBMIT_UPDATE|replace:'<button':'<button class="btn btn-secondary"'}
+        </div>
+        *}
+        <div class="d-flex justify-content-end mt-3">
+          {$BUTTON_SUBMIT_UPDATE|replace:'<button':'<button class="btn btn-secondary"'}
+        </div>
+      {$FORM_END}
+    </div>
+  </div>
 </div>

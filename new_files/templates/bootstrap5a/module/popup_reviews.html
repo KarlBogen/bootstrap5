@@ -97,7 +97,7 @@
 	</ul>
 	<div class="tab-content">
 	{for $i=1 to 5}
-		<div id="tab{$i}" class="container tab-pane fade{if $i == $stars} active{/if}">
+		<div id="tab{$i}" class="container tab-pane fade{if $i == $stars} active show{/if}">
 			{if $i == 1}<h3 class="border-bottom py-2 invisible">{$headline_all}</h3>{/if}
 			<div class="h4 border-bottom py-2">{$headline_{$i}}</div>
 			{if (isset($module_content.$i))}
@@ -130,11 +130,11 @@
 	});
 	$("#avg_popup #show_all").on("click", function() {
 		$(this).addClass("active").parent("li").siblings().find("a").removeClass("active");
-		$("#avg_popup .tab-pane").addClass("active");
+		$("#avg_popup .tab-pane").addClass("active show");
 		$("#avg_popup h3").removeClass("invisible");
 	});
 	$("#avg_popup .nav-link").not("#show_all").on("click", function() {
-		$("#avg_popup .tab-pane").not(this.hash).removeClass("active");
+		$("#avg_popup .tab-pane").not(this.hash).removeClass("active show");
 		$("#avg_popup h3").addClass("invisible");
 	});
 </script>

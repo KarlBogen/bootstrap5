@@ -1,6 +1,6 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   $Id: boxes.php 15351 2023-07-18 16:57:08Z Markus $
+   $Id: boxes.php 16350 2025-03-12 17:44:58Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
@@ -40,7 +40,6 @@
   // -----------------------------------------------------------------------------------------
   require_once(DIR_FS_BOXES . 'categories.php');
   require_once(DIR_FS_BOXES . 'topcategories.php');
-  require_once(DIR_FS_BOXES . 'manufacturers.php');
   require_once(DIR_FS_BOXES . 'search.php');
   require_once(DIR_FS_BOXES . 'content.php');
   require_once(DIR_FS_BOXES . 'information.php');
@@ -49,6 +48,9 @@
     require_once(DIR_FS_BOXES . 'infobox.php');
   }
   require_once(DIR_FS_BOXES . 'login.php');
+  if (BS5_MANUFACTURERS_LINK == 'true' || BS5_MANCAROUSEL_SHOW == 'true') {
+    require_once(DIR_FS_BOXES . 'manufacturers.php');
+  }
   if (!defined('MODULE_NEWSLETTER_STATUS')
       || MODULE_NEWSLETTER_STATUS == 'true'
       )
@@ -149,7 +151,7 @@
       break;
 
 /* wird in Bootstrap5 nicht genutzt
-      case 'category':
+    case 'category':
     case 'manufacturer':
     case 'search':
     case 'productsnew':

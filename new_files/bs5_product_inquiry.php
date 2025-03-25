@@ -140,11 +140,11 @@ if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
 
 		$post_gender = $gender;
 		if ($post_gender == 'm') {
-			$gender = MALE;
+			$gender = GENDER_MALE;
 		} elseif ($post_gender == 'f') {
-			$gender = FEMALE;
+			$gender = GENDER_FEMALE;
 		} elseif ($post_gender == 'd') {
-			$gender = DIVERSE;
+			$gender = GENDER_DIVERSE;
 		}
 
 		// Email bilden
@@ -202,7 +202,7 @@ if ($messageStack->size('product_inquiry') > 0) {
 }
 
 // ANREDE
-$gender_selected = $error ? $_POST['gender'] : (isset($_SESSION["customer_gender"]) ? $_SESSION["customer_gender"] : '');
+$gender_selected = $error ? $gender : (isset($_SESSION["customer_gender"]) ? $_SESSION["customer_gender"] : '');
 $select_gender = xtc_draw_pull_down_menu('gender', get_customers_gender(), $gender_selected, 'id="gender" class="form-select"');
 
 // FORMULAR

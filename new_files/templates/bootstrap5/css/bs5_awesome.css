@@ -115,7 +115,6 @@
 .fa-trash:before { content: '\e83e'; } /* '' */
 .fa-truck:before { content: '\e83f'; } /* '' */
 .fa-truck-fast:before { content: '\e840'; } /* '' */
-.fa-twitter:before { content: '\e841'; } /* '' */
 .fa-user:before { content: '\e842'; } /* '' */
 .fa-user-group:before { content: '\e843'; } /* '' */
 .fa-user-pen:before { content: '\e844'; } /* '' */
@@ -123,3 +122,4 @@
 .fa-youtube:before { content: '\e846'; } /* '' */
 .fa-cogs:before { content: '\e847'; } /* '' */
 .fa-ban:before { content: '\e848'; }
+.fa-x-twitter:before { content: '\e849'; }

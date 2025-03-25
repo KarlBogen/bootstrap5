@@ -98,7 +98,7 @@ if(defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 					'customers_input_email',
 					'customers_input_st',
 				);
-	
+
 				// prepare variables
 				foreach ($_POST as $key => $value) {
 					if ((!isset(${$key}) || !is_object(${$key})) && in_array($key , $valid_params)) {
@@ -183,7 +183,7 @@ if(defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 						$create_html_body .= HEADER_ARTICLE . ": " . $product->data['products_name'] . "<br>";
 						$create_html_body .= HEADER_MODEL . ": " . $product->data['products_model'] . "<br><br>";
 						$create_html_body .= "Link: " . HTTP_SERVER . DIR_WS_CATALOG . FILENAME_PRODUCT_INFO . "?products_id=" . $product->data['products_id'] . "<br><br>";
-		
+
 						$create_text_body = STORE_NAME . "\n\n";
 						$create_text_body .= BS5_CUSTOMERS_REMIND_EMAIL_HEADING . ":\n--------------------\n";
 						$create_text_body .= $customers_input_firstname . "  " . $customers_input_lastname;
@@ -192,7 +192,7 @@ if(defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 						$create_text_body .= HEADER_ARTICLE . ": " . $product->data['products_name'] . "\n";
 						$create_text_body .= HEADER_MODEL . ": " . $product->data['products_model'] . "\n\n";
 						$create_text_body .= "Link: " . HTTP_SERVER . DIR_WS_CATALOG . FILENAME_PRODUCT_INFO . "?products_id=" . $product->data['products_id'] . "\n\n";
-		
+
 						// EMAIL GENERIEREN
 						xtc_php_mail(
 							EMAIL_SUPPORT_ADDRESS, //von emailadresse
@@ -269,6 +269,6 @@ if(defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 			$smarty->display(CURRENT_TEMPLATE . '/module/reminder.html');
 			include('includes/application_bottom.php');
 		}
-	
+
 	}
 }

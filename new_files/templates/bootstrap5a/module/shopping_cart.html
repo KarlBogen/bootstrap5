@@ -2,104 +2,105 @@
 {config_load file="lang_`$language`.custom"}
 {config_load file="lang_`$language`.section" section="shopping_cart"}
 <div class="shopping_cart">
-	<h1 class="h3 bg-h">{#heading_cart#}</h1>
-	{if $error_message}<div class="alert alert-danger small">{$error_message}</div>{/if}
-	{if $cart_empty == true}
-		<div class="my-4">
-			<div class="alert alert-info mb-4">{#text_empty#}</div>
-			{$BUTTON_CONTINUE|replace:'<a':'<a class="btn btn-secondary px-5"'}
-		</div>
-	{else}
-		{if $info_message_3}<div class="alert alert-danger small">{$info_message_3}</div>{/if}
-		{$FORM_ACTION}
-  	  {$HIDDEN_OPTIONS}
-			<div class="row mb-5">
-				<div class="col-12 col-lg-8 mb-3">
-		    {$MODULE_order_details}
-				</div>
-				<div class="col-12 col-sm-10 col-md-8 col-lg-4 ms-auto mb-3">
-					<div class="ordersum list-group mb-3 small">
-						<div class="list-group-item bg-body-tertiary py-2 fw-bold">{#order_total_heading#}</div>
-						{if isset($TOTAL_BLOCK_ARRAY) && count($TOTAL_BLOCK_ARRAY) > 0}
-							{foreach name=aussen item=order_total_values from=$TOTAL_BLOCK_ARRAY}
-								<div class="list-group-item d-flex bg-body-tertiary py-2 justify-content-between{if strpos($order_total_values.text, '-') !== false} text-danger{/if}">
-									<div>{$order_total_values.title}</div>
-									<div class="ps-3 text-nowrap"><strong>{$order_total_values.text}</strong></div>
-								</div>
-							{/foreach}
-							{if isset($shipping_content) && count($shipping_content) > 0}
-								{if $SELECT_COUNTRY}
-									<div class="list-group-item d-flex justify-content-between ot_shipping ot_select">
-										<div class="text-nowrap align-self-center">{$smarty.const._SHIPPING_TO}</div>
-										<div class="ps-3">{$SELECT_COUNTRY_PLAIN|replace:'<select':'<select class="form-select form-select-sm"'}</div>
-									</div>                                                           
-								{/if}
-								{foreach name=aussen item=shipping_data from=$shipping_content}
-									<div class="list-group-item d-flex justify-content-between ot_shipping">
-										{if $shipping_data.VALUE != ''}
-											<div>{$shipping_data.NAME}</div>
-											<div class="ps-3 text-nowrap">{$shipping_data.VALUE}</div>
-										{else}
-											{$shipping_data.NAME}
-										{/if}
-									</div>
-								{/foreach}
-							{/if}
-							{if $total}
-								<div class="list-group-item d-flex justify-content-between ot_total">
-									<div class="fw-bold">{#text_total#}:</div>
-									<div class="fw-bold ps-3 text-nowrap">{$total}</div>
-								</div>
-							{/if}
-						{else}
-							<div class="list-group-item">
-								{if $smarty.const.MODULE_SMALL_BUSINESS != 'true'}
-									{if $UST_CONTENT}{$UST_CONTENT}{else}{$smarty.const.TAX_INFO_EXCL|sprintf:''}<br />{/if}
-								{/if}
-								<strong>{$TOTAL_CONTENT}</strong>
-							</div>
-							{if isset($shipping_content) && count($shipping_content) > 0}
-								{if $SELECT_COUNTRY}
-									<div class="list-group-item d-flex justify-content-between ot_shipping ot_select">
-										<div class="text-nowrap align-self-center">{$smarty.const._SHIPPING_TO}</div>
-										<div class="ps-3">{$SELECT_COUNTRY_PLAIN|replace:'<select':'<select class="form-select form-select-sm"'}</div>
-									</div>                                                           
-								{/if}
-								{foreach name=aussen item=shipping_data from=$shipping_content}
-									<div class="list-group-item d-flex justify-content-between"><div>{$shipping_data.NAME}</div><div class="ps-3 text-nowrap">{$shipping_data.VALUE}</div></div>
-								{/foreach}
-							{/if}
-							{if $total}<div class="list-group-item fw-bold">{#text_total#}: {$total}</div>{/if}
-						{/if}
-						{* if $TOTAL_WEIGHT}<div class="list-group-item d-flex justify-content-between ot_weight"><div>{#text_total_weight#}</div><div class="ps-3 text-nowrap">{$TOTAL_WEIGHT|number_format:2:",":"."} kg</div></div>{/if *}
-					</div>
-					{if isset($FREE_SHIPPING_INFO)}<div class="alert alert-success small mb-3">{$FREE_SHIPPING_INFO}</div>{/if}
-					{if $info_message_1}<div class="alert alert-danger small mb-3">{$info_message_1} <span class="text-nowrap">{$min_order}</span> {$info_message_2} <span class="text-nowrap">{$order_amount}</span></div>{/if}
+  <h1 class="h3 bg-h">{#heading_cart#}</h1>
+  {if $error_message}<div class="alert alert-danger small">{$error_message}</div>{/if}
+  {if $cart_empty == true}
+    <div class="my-4">
+      <div class="alert alert-info mb-4">{#text_empty#}</div>
+      {$BUTTON_CONTINUE|replace:'<a':'<a class="btn btn-secondary px-5"'}
+    </div>
+  {else}
+    {if $info_message_3}<div class="alert alert-danger small">{$info_message_3}</div>{/if}
+    {$FORM_ACTION}
+      {$HIDDEN_OPTIONS}
+      <div class="row mb-5">
+        <div class="col-12 col-lg-8 mb-3">
+        {$MODULE_order_details}
+        </div>
+        <div class="col-12 col-sm-10 col-md-8 col-lg-4 ms-auto mb-3">
+          <div class="ordersum list-group mb-3 small">
+            <div class="list-group-item bg-body-tertiary py-2 fw-bold">{#order_total_heading#}</div>
+            {if isset($TOTAL_BLOCK_ARRAY) && count($TOTAL_BLOCK_ARRAY) > 0}
+              {foreach name=aussen item=order_total_values from=$TOTAL_BLOCK_ARRAY}
+                <div class="list-group-item d-flex bg-body-tertiary py-2 justify-content-between{if strpos($order_total_values.text, '-') !== false} text-danger{/if}">
+                  <div>{$order_total_values.title}</div>
+                  <div class="ps-3 text-nowrap"><strong>{$order_total_values.text}</strong></div>
+                </div>
+              {/foreach}
+              {if isset($shipping_content) && count($shipping_content) > 0}
+                {if $SELECT_COUNTRY}
+                  <div class="list-group-item d-flex justify-content-between ot_shipping ot_select">
+                    <div class="text-nowrap align-self-center">{$smarty.const._SHIPPING_TO}</div>
+                    <div class="ps-3">{$SELECT_COUNTRY_PLAIN|replace:'<select':'<select class="form-select form-select-sm"'}</div>
+                  </div>
+                {/if}
+                {foreach name=aussen item=shipping_data from=$shipping_content}
+                  <div class="list-group-item d-flex justify-content-between ot_shipping">
+                    {if $shipping_data.VALUE != ''}
+                      <div>{$shipping_data.NAME}</div>
+                      <div class="ps-3 text-nowrap">{$shipping_data.VALUE}</div>
+                    {else}
+                      {$shipping_data.NAME}
+                    {/if}
+                  </div>
+                {/foreach}
+              {/if}
+              {if $total}
+                <div class="list-group-item d-flex justify-content-between ot_total">
+                  <div class="fw-bold">{#text_total#}:</div>
+                  <div class="fw-bold ps-3 text-nowrap">{$total}</div>
+                </div>
+              {/if}
+            {else}
+              <div class="list-group-item">
+                {if $smarty.const.MODULE_SMALL_BUSINESS != 'true'}
+                  {if $UST_CONTENT}{$UST_CONTENT}{else}{$smarty.const.TAX_INFO_EXCL|sprintf:''}<br />{/if}
+                {/if}
+                <strong>{$TOTAL_CONTENT}</strong>
+              </div>
+              {if isset($shipping_content) && count($shipping_content) > 0}
+                {if $SELECT_COUNTRY}
+                  <div class="list-group-item d-flex justify-content-between ot_shipping ot_select">
+                    <div class="text-nowrap align-self-center">{$smarty.const._SHIPPING_TO}</div>
+                    <div class="ps-3">{$SELECT_COUNTRY_PLAIN|replace:'<select':'<select class="form-select form-select-sm"'}</div>
+                  </div>
+                {/if}
+                {foreach name=aussen item=shipping_data from=$shipping_content}
+                  <div class="list-group-item d-flex justify-content-between"><div>{$shipping_data.NAME}</div><div class="ps-3 text-nowrap">{$shipping_data.VALUE}</div></div>
+                {/foreach}
+              {/if}
+              {if $total}<div class="list-group-item fw-bold">{#text_total#}: {$total}</div>{/if}
+            {/if}
+            {* if $TOTAL_WEIGHT}<div class="list-group-item d-flex justify-content-between ot_weight"><div>{#text_total_weight#}</div><div class="ps-3 text-nowrap">{$TOTAL_WEIGHT|number_format:2:",":"."} kg</div></div>{/if *}
+          </div>
+          {if isset($FREE_SHIPPING_INFO)}<div class="alert alert-success small mb-3">{$FREE_SHIPPING_INFO}</div>{/if}
+          {if $info_message_1}<div class="alert alert-danger small mb-3">{$info_message_1} <span class="text-nowrap">{$min_order}</span> {$info_message_2} <span class="text-nowrap">{$order_amount}</span></div>{/if}
 
-					{$MODULE_gift_cart}
-	
-					<div class="button_row">
-						{$BUTTON_CHECKOUT|replace:'<button':'<button class="btn btn-checkout btn-secondary w-100"'}
-						{if (isset($BUTTON_CHECKOUT_EXPRESS) || isset($ACTIVATE_EXPRESS_LINK)) && !$PAYPALPLAN}
-							<div class="hstack text-secondary justify-content-center"><hr class="w-25"><span class="up small mx-3">{#text_cart_or#}</span><hr class="w-25"></div>
-							{$BUTTON_CHECKOUT_EXPRESS|replace:'<a':'<a class="btn btn-outline-secondary w-100"'}
-							{if isset($ACTIVATE_EXPRESS_LINK)}
-								<a class="btn btn-link link-secondary w-100" href="{$ACTIVATE_EXPRESS_LINK}">{#checkout_express_activate#}<i class="fa fa-arrow-right ms-3"></i></a>
-							{/if}
-						{/if}
-						{if $BUTTON_PAYPAL != '' && !$PAYPALPLAN}
-							<div class="hstack text-secondary justify-content-center"><hr class="w-25"><span class="up small mx-3">{#text_cart_or#}</span><hr class="w-25"></div>
-							{$BUTTON_PAYPAL}
-						{/if}
-					</div>
-				</div>
-			</div>
+          {$MODULE_gift_cart}
+
+          <div class="button_row">
+            {$BUTTON_CHECKOUT|replace:'<button':'<button class="btn btn-checkout btn-secondary w-100"'}
+            {if (isset($BUTTON_CHECKOUT_EXPRESS) || isset($ACTIVATE_EXPRESS_LINK)) && !$PAYPALPLAN}
+              <div class="hstack text-secondary justify-content-center"><hr class="w-25"><span class="up small mx-3">{#text_cart_or#}</span><hr class="w-25"></div>
+              {$BUTTON_CHECKOUT_EXPRESS|replace:'<a':'<a class="btn btn-outline-secondary w-100"'}
+              {if isset($ACTIVATE_EXPRESS_LINK)}
+                {$EXPRESS_LINK|replace:'"iframe':'"iframe btn btn-link link-secondary w-100'|replace:'">':'"><span class="fa fa-circle-info me-2"></span>'}
+                <a class="btn btn-link link-secondary w-100" href="{$ACTIVATE_EXPRESS_LINK}">{#checkout_express_activate#}<i class="fa fa-arrow-right ms-3"></i></a>
+              {/if}
+            {/if}
+            {if $BUTTON_PAYPAL != '' && !$PAYPALPLAN}
+              <div class="hstack text-secondary justify-content-center"><hr class="w-25"><span class="up small mx-3">{#text_cart_or#}</span><hr class="w-25"></div>
+              {$BUTTON_PAYPAL}
+            {/if}
+          </div>
+        </div>
+      </div>
     {$FORM_END}
-	{/if}
+  {/if}
 </div>
 
 {if $MODULE_wishlist}
-	<div class="mb-5">
-		{$MODULE_wishlist}
-	</div>
+  <div class="mb-5">
+    {$MODULE_wishlist}
+  </div>
 {/if}

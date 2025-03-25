@@ -3,14 +3,14 @@
 {elseif $banner_data.LINK != ''}
   <div class="d-flex justify-content-center">
     <div class="position-relative">
-  	{assign var=sizeimg value=$banner_data.IMAGE_SRC|imgsize}
+    {assign var=sizeimg value=$banner_data.IMAGE_SRC|imgsize}
     {if isset($banner_data.IMAGE_SRC_MOBILE) && $banner_data.IMAGE_SRC_MOBILE != ''}
-  		{assign var=sizeimgmob value=$banner_data.IMAGE_SRC_MOBILE|imgsize}
+      {assign var=sizeimgmob value=$banner_data.IMAGE_SRC_MOBILE|imgsize}
       <a title="{$banner_data.IMAGE_TITLE|onlytext}" href="{$banner_data.LINK}" {$banner_data.TARGET}>
         <picture>
-  				<source media="(max-width:575.98px)" srcset="{$banner_data.IMAGE_SRC_MOBILE}" {$sizeimgmob}>
-  				<source srcset="{$banner_data.IMAGE_SRC}">
-  				<img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}>
+          <source media="(max-width:575.98px)" srcset="{$banner_data.IMAGE_SRC_MOBILE}" {$sizeimgmob}>
+          <source srcset="{$banner_data.IMAGE_SRC}">
+          <img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}>
         </picture>
         {if $smarty.const.BS5_BANNER_TITLE == 'true' && ($banner_data.IMAGE_TITLE != '' || $banner_data.TITLE != '')}
           <div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $banner_data.IMAGE_TITLE}{$banner_data.IMAGE_TITLE|onlytext}{else}{$banner_data.TITLE}{/if}</span></div>
@@ -18,32 +18,30 @@
       </a>
     {else}
       <a title="{$banner_data.IMAGE_TITLE|onlytext}" href="{$banner_data.LINK}" {$banner_data.TARGET}>
-  			<img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}>
-  			<noscript><img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}></noscript>
+        <img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}>
         {if $smarty.const.BS5_BANNER_TITLE == 'true' && ($banner_data.IMAGE_TITLE != '' || $banner_data.TITLE != '')}
           <div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $banner_data.IMAGE_TITLE}{$banner_data.IMAGE_TITLE|onlytext}{else}{$banner_data.TITLE}{/if}</span></div>
         {/if}
-  		</a>
+      </a>
     {/if}
     </div>
   </div>
 {elseif $banner_data.IMAGE_IMG != ''}
   <div class="d-flex justify-content-center">
     <div class="position-relative">
-  	{assign var=sizeimg value=$banner_data.IMAGE_SRC|imgsize}
+    {assign var=sizeimg value=$banner_data.IMAGE_SRC|imgsize}
     {if isset($banner_data.IMAGE_SRC_MOBILE) && $banner_data.IMAGE_SRC_MOBILE != ''}
-  		{assign var=sizeimgmob value=$banner_data.IMAGE_SRC_MOBILE|imgsize}
+      {assign var=sizeimgmob value=$banner_data.IMAGE_SRC_MOBILE|imgsize}
       <picture>
-  			<source media="(max-width:575.98px)" srcset="{$banner_data.IMAGE_SRC_MOBILE}" {$sizeimgmob}>
-  			<source srcset="{$banner_data.IMAGE_SRC}">
-  			<img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}>
+        <source media="(max-width:575.98px)" srcset="{$banner_data.IMAGE_SRC_MOBILE}" {$sizeimgmob}>
+        <source srcset="{$banner_data.IMAGE_SRC}">
+        <img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}>
       </picture>
       {if $smarty.const.BS5_BANNER_TITLE == 'true' && ($banner_data.IMAGE_TITLE != '' || $banner_data.TITLE != '')}
         <div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $banner_data.IMAGE_TITLE}{$banner_data.IMAGE_TITLE|onlytext}{else}{$banner_data.TITLE}{/if}</span></div>
       {/if}
     {else}
-  		<img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}>
-  		<noscript><img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}></noscript>
+      <img class="img-fluid" src="{$banner_data.IMAGE_SRC}" alt="{$banner_data.IMAGE_ALT|onlytext}" title="{$banner_data.IMAGE_TITLE|onlytext}" {$sizeimg}>
       {if $smarty.const.BS5_BANNER_TITLE == 'true' && ($banner_data.IMAGE_TITLE != '' || $banner_data.TITLE != '')}
         <div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $banner_data.IMAGE_TITLE}{$banner_data.IMAGE_TITLE|onlytext}{else}{$banner_data.TITLE}{/if}</span></div>
       {/if}

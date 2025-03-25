@@ -1,11 +1,17 @@
 UNRELEASED
 
+
+
+
+1.1.9 [25.03.2025]
+- Update zu Shopversion 3.1.3
 - Theme "blau natur" hinzugefügt
 - JS Price Updater geändert
 - Barrierefreiheit - Focus-Anker in index.html verändert
 - neue Option in der Konfiguration - PayPal Button in Box Warenkorb
 - Update Box Cart für PayPal PLUS fuer Shopversion 3.1.2 rev 16207
 - SQL-Abfrage für Box Hersteller und Hersteller-Menü aktualisiert
+- kleinere Änderungen
 
 1.1.8 [05.02.2025]
 

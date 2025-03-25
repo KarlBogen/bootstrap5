@@ -56,11 +56,11 @@
       <div id="navbar" class="container-xxl top2 navbar navbar-expand d-none d-lg-block">
         <ul id="main" class="navbar-nav d-flex flex-wrap me-auto">
           {if isset($box_TOPCATEGORIES)}{$box_TOPCATEGORIES}{/if}
-          {if $smarty.const.BS5_MANUFACTURERS_LINK == 'true'}
+          {if $smarty.const.BS5_MANUFACTURERS_LINK == 'true' && isset($box_MANUFACTURERS)}
             <li id="liman" class="nav-item level1 hassub dropdown{if $smarty.const.BS5_MENUCASE != '2'} kk-mega{/if}">
               <a class="nav-link dropdown-toggle{if isset($smarty.get.manufacturers_id)} active{/if}" href="#/" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{#heading_manufacturers#}">{#heading_manufacturers#}</a>
               <ul class="dropdown-menu p-2{if $smarty.const.BS5_MENUCASE != '2'} row row-cols-1 row-cols-lg-3 kk-mega{/if}">
-                {if isset($box_MANUFACTURERS)}{$box_MANUFACTURERS}{/if}
+                {$box_MANUFACTURERS}
               </ul>
             </li>
           {/if}
@@ -313,11 +313,11 @@
       <div id="mmenu">
         <ul class="mmenu">
           {$box_CATEGORIES}
-          {if $smarty.const.BS5_MANUFACTURERS_LINK == 'true'}
+          {if $smarty.const.BS5_MANUFACTURERS_LINK == 'true' && isset($box_MANUFACTURERS)}
             <li class="level1 manu hassub">
               <span {if isset($smarty.get.manufacturers_id)}class="active parent" {/if}title="{#heading_manufacturers#}">{#heading_manufacturers#}</span>
               <ul>
-                {if isset($box_MANUFACTURERS)}{$box_MANUFACTURERS}{/if}
+                {$box_MANUFACTURERS}
               </ul>
             </li>
           {/if}

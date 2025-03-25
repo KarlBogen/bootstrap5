@@ -1,33 +1,35 @@
 {if isset($box_content) && count($box_content) > 0}
   {config_load file="$language/lang_$language.conf" section="boxes"}
   {config_load file="lang_`$language`.custom"}
-	<div id="bs5_ManCarousel" class="box_manufacturers_carousel mb-5">
-		<div class="d-flex justify-content-between border-bottom mb-3">
-			<div class="h2">
-				{#heading_manufacturers#}
-			</div>
-		</div>
-		<div id="ManCarousel" class="resCarousel position-relative w-100 it5" data-items="1-2-3-4-5" data-slide="5" data-speed="900">
-			<button type="button" class="resBtn btn btn-light leftRs" tabindex="-1"><i class="fa fa-fw fa-angle-left"></i><span class="visually-hidden">{#BS5_previous#}</span></button>
-			<div class="resCarousel-inner py-1" tabindex="-1">
-				{foreach name=aussen item=box_data from=$box_content}
-					<div class="item">
-						<div class="card h-100 text-center">
-							<div class="card-body">
-								<div class="man_image img_container w-100 mx-auto">
-									<div class="prod_image mb-auto">
-										<img class="lazyload img-fluid" data-src="{$box_data.IMAGE}" alt="{#BS5_manu_imgalt#}" title="{$box_data.NAME|onlytext}">
-									</div>
-								</div>
-							</div>
-							<div class="card-footer">
-								<a class="stretched-link lb_title fs-5 text-secondary-emphasis mb-0 d-block{if $smarty.const.BS5_MANCAROUSEL_NAME_LINES != 0}  line-clamp lc-{$smarty.const.BS5_MANCAROUSEL_NAME_LINES}{/if}" href="{$box_data.LINK}"  title="{$box_data.NAME|onlytext}">{$box_data.NAME}</a>
-							</div>
-						</div>
-					</div>
-				{/foreach}
-			</div>
-			<button type="button" class="resBtn btn btn-light rightRs" tabindex="-1"><i class="fa fa-fw fa-angle-right"></i><span class="visually-hidden">{#BS5_next#}</span></button>
-		</div>
-	</div>
+  <div id="bs5_ManCarousel" class="box_manufacturers_carousel mb-5">
+    <div class="d-flex justify-content-between border-bottom mb-3">
+      <div class="h2">
+        {#heading_manufacturers#}
+      </div>
+    </div>
+    <div id="ManCarousel" class="resCarousel position-relative w-100 it5" data-items="1-2-3-4-5" data-slide="5" data-speed="900">
+      <button type="button" class="resBtn btn btn-light leftRs" tabindex="-1"><i class="fa fa-fw fa-angle-left"></i><span class="visually-hidden">{#BS5_previous#}</span></button>
+      <div class="resCarousel-inner py-1" tabindex="-1">
+        {foreach name=aussen item=box_data from=$box_content}
+          {if $box_data.IMAGE != ''}
+            <div class="item">
+              <div class="card h-100 text-center">
+                <div class="card-body">
+                  <div class="man_image img_container w-100 mx-auto">
+                    <div class="prod_image mb-auto">
+                      <img class="lazyload img-fluid" data-src="{$box_data.IMAGE}" alt="{#BS5_manu_imgalt#}" title="{$box_data.NAME|onlytext}">
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <a class="stretched-link lb_title fs-5 text-secondary-emphasis mb-0 d-block{if $smarty.const.BS5_MANCAROUSEL_NAME_LINES != 0}  line-clamp lc-{$smarty.const.BS5_MANCAROUSEL_NAME_LINES}{/if}" href="{$box_data.LINK}"  title="{$box_data.NAME|onlytext}">{$box_data.NAME}</a>
+                </div>
+              </div>
+            </div>
+          {/if}
+        {/foreach}
+      </div>
+      <button type="button" class="resBtn btn btn-light rightRs" tabindex="-1"><i class="fa fa-fw fa-angle-right"></i><span class="visually-hidden">{#BS5_next#}</span></button>
+    </div>
+  </div>
 {/if}

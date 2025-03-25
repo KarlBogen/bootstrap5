@@ -1,6 +1,6 @@
 <?php
   /* --------------------------------------------------------------
-   $Id: get_states.js.php 15483 2023-10-04 11:05:34Z GTB $
+   $Id: get_states.js.php 16216 2024-12-02 17:36:17Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
@@ -14,15 +14,15 @@
    --------------------------------------------------------------*/
 
 $state_pages = array(
-  'address_book_process.php',
-  'create_account.php',
-  'create_guest_account.php',
-  'checkout_shipping_address.php',
-  'checkout_payment_address.php'
+  FILENAME_ADDRESS_BOOK_PROCESS,
+  FILENAME_CREATE_ACCOUNT,
+  FILENAME_CREATE_GUEST_ACCOUNT,
+  FILENAME_CHECKOUT_SHIPPING_ADDRESS,
+  FILENAME_CHECKOUT_PAYMENT_ADDRESS,
 );
 
 if (ACCOUNT_STATE == 'true' && in_array(basename($PHP_SELF), $state_pages)) {
-  
+
   //countries with zones
   $query = xtDBquery("SELECT GROUP_CONCAT(countries_id) AS ids
                         FROM ".TABLE_COUNTRIES."
@@ -53,10 +53,10 @@ if (ACCOUNT_STATE == 'true' && in_array(basename($PHP_SELF), $state_pages)) {
 
   function load_state() {
     var selection = $("#addressbook select[name='country'], #checkout_address select[name='country'], #create_account select[name='country']").val();
-  
+
 	  //change select to input
 	  $("select[name='state']").replaceWith('<input id="state" class="form-control" type="text" name="state"></input>');
-  
+
 	  //countries without zones
 	  if ($.inArray(parseInt(selection), no_zones) != -1) {
 	    if (min_length) {
@@ -66,15 +66,15 @@ if (ACCOUNT_STATE == 'true' && in_array(basename($PHP_SELF), $state_pages)) {
 	    }
 	    return;
 	  }
-  
+
 	  //countries without required_zones
 	  if ($.inArray(parseInt(selection), req_zones) == -1) {
 	    hide_state();
 	    return;
 	  }
-  
+
     //countries with required_zones
-    $.get('ajax.php', {ext: 'get_states', country: selection, speed: 1}, function(data) {
+    $.get('<?php echo DIR_WS_BASE; ?>ajax.php', {ext: 'get_states', country: selection, speed: 1}, function(data) {
       if (data != '' && data != undefined) {
 	      $("[name='state']").replaceWith('<select id="state" class="form-select" name="state"></select>');
 	      var stateSelect = $("[name='state']");
@@ -118,5 +118,5 @@ if (ACCOUNT_STATE == 'true' && in_array(basename($PHP_SELF), $state_pages)) {
     load_state();
   });
 </script>
-<?php 
-} 
+<?php
+}
