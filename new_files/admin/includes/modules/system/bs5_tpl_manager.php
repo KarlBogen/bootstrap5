@@ -866,6 +866,9 @@ class bs5_tpl_manager
 		$dirs_and_files[] = $shop_path . 'includes/extra/modules/product_info_end/bs5_additional_module_links.php';
 		$dirs_and_files[] = $shop_path . 'includes/extra/modules/product_info_end/bs5_agi_reduce_cart.php';
 		$dirs_and_files[] = $shop_path . 'bs5_reminder.php';
+    // Version 1.1.9
+		$dirs_and_files[] = $shop_path . 'templates/bootstrap5/css/icons/fontello-c54745a6.zip';
+		$dirs_and_files[] = $shop_path . 'templates/bootstrap5/css/icons/fontello-c54745a6.zip';
 
 		$tpl_dirs_and_files = array();
 		// Beispiel Templatedateien
