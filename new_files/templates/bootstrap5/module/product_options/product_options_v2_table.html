@@ -78,7 +78,7 @@
 							$('div[id^="optionen' + data.pid + '"] .calculatePriceUpdater span.cuVpePrice').html('<span class="text-danger">{$smarty.const.BS5_TXT_CHOOSE_ATTR}</span>');
 						} else {
 							$('div[id^="optionen' + data.pid + '"] .calculatePriceUpdater span.cuPrice').html('&nbsp;' + symbolLeft + newPrice + symbolRight);
-							if (data.vpevalue !== false) {
+							if (data.vpevalue != 0) {
 								$('div[id^="optionen' + data.pid + '"] .calculatePriceUpdater span.cuVpePrice').html(symbolLeft + newVpePrice + symbolRight + data.protext + data.vpetext);
 							} else {
 								$('div[id^="optionen' + data.pid + '"] .calculatePriceUpdater span.cuVpePrice').html('');
@@ -96,7 +96,7 @@
 								$('.pd_offer .pd_price .old_price').html(data.insteadtext + '<del>' + symbolLeft + oldPrice + symbolRight + '<\/del>');
 								$('.pd_offer .pd_price .save_price .save_percent').html(savePercent);
 								$('meta[itemprop="price"]').attr('content', metaPrice);
-								if (data.vpevalue !== false && $('.pd_offer .graduated_price').length == 0) {
+								if (data.vpevalue != 0 && $('.pd_offer .graduated_price').length == 0) {
 									$('.pd_offer .pd_vpe').html(symbolLeft + newVpePrice + symbolRight + data.protext + data.vpetext);
 								}
 							}
