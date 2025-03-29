@@ -3,6 +3,11 @@ UNRELEASED
 
 
 
+
+1.1.10 [29.03.2025]
+
+- Modul "Automatische Preisberechnung" - Preisaktualisierung an Shopberechnung angepasst
+
 1.1.9 [25.03.2025]
 - Update zu Shopversion 3.1.3
 - Theme "blau natur" hinzugefügt

@@ -133,7 +133,7 @@
                 {include file="module/includes/price_info.html"}
               {/foreach}
               {if $PRODUCTS_PRICE_ARRAY.0.PRODUCTS_PRICE_FLAG != 'NotAllowed'}
-                {if $PRODUCTS_VPE}<div class="pd_vpe text-secondary-emphasis">{$PRODUCTS_VPE}</div>{/if}
+                {if $PRODUCTS_VPE}<div class="vpe text-secondary-emphasis">{$PRODUCTS_VPE}</div>{/if}
               {/if}
             </div>
             {if $PRODUCTS_EXPIRES}<div class="small text-danger mb-1">{#text_expires_date#} {$PRODUCTS_EXPIRES}</div>{/if}

@@ -60,14 +60,13 @@
 							if (data.firstprice) {
 								firsts += data.firstprice;
 							}
-							attrvpevalue += data.attrvpevalue;
+							if (data.attrvpevalue != 0) {
+  							attrvpevalue = data.attrvpevalue;
+              }
 						});
 						var metaPrice = (Math.round((summe + data.gprice) * 100) / 100).toFixed(2).toString();
 						var newPrice = metaPrice.replace(/[.]/, ',');
-						var newVpePrice = (Math.round((summe + data.gprice) / data.vpevalue * 100) / 100).toFixed(2).toString().replace(/[.]/, ',');
-						if (data.vpevalue !== false && attrvpevalue != 0) {
-							var newVpePrice = (Math.round((summe + data.gprice) / attrvpevalue * 100) / 100).toFixed(2).toString().replace(/[.]/, ',');
-						}
+						var newVpePrice = (Math.round((summe + data.gprice) / (data.vpevalue + attrvpevalue) * 100) / 100).toFixed(2).toString().replace(/[.]/, ',');
 						if (data.cleft) {
 							symbolLeft = data.cleft + '&nbsp;';
 						}
