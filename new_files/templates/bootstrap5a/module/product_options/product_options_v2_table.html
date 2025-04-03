@@ -97,7 +97,7 @@
 								$('.pd_offer .pd_price .save_price .save_percent').html(savePercent);
 								$('meta[itemprop="price"]').attr('content', metaPrice);
 								if (data.vpevalue != 0 && $('.pd_offer .graduated_price').length == 0) {
-									$('.pd_offer .pd_vpe').html(symbolLeft + newVpePrice + symbolRight + data.protext + data.vpetext);
+									$('.pd_offer .vpe').html(symbolLeft + newVpePrice + symbolRight + data.protext + data.vpetext);
 								}
 							}
 						}
