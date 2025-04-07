@@ -1,7 +1,7 @@
 UNRELEASED
 
 
-
+- Captcha - Eingabelänge korrigiert
 - Modul-Preisaktualisierung - JavaScript angepasst
 
 1.1.10 [29.03.2025]

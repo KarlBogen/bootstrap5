@@ -84,7 +84,7 @@
 						</div>
 						<div class="vvcode_sec mb-2">
 							<label class="form-label" for="code">{#BS5_text_inp_code#}</label>
-							<div>{$INPUT_CODE}</div>
+							{$INPUT_CODE|replace:'<input':'<input id="code" class="form-control"'}
 						</div>
 					{/if}
 					{if isset($PRIVACY_CHECKBOX)}

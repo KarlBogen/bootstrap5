@@ -254,7 +254,7 @@ if (isset($_GET['view'])) {
 $smarty->assign('FORM_ACTION', xtc_draw_form('cheaply_see', xtc_href_link(BS5_FILENAME_CHEAPLY_SEE, 'pID=' . $products->data['products_id'] . '&' . xtc_product_link($products->data['products_id'], $products->data['products_name']) . $view, 'SSL'), 'post', 'class="form-horizontal"').xtc_draw_hidden_field('action', 'send').secure_form('cheaply_see'));
 if (!isset($_SESSION['customer_id']) || MODULE_CAPTCHA_LOGGED_IN == 'True') {
 	$smarty->assign('VVIMG', $mod_captcha->get_image_code());
-	$smarty->assign('INPUT_CODE', xtc_draw_input_field('vvcode', '', 'id="code" class="form-control" maxlength="6"', 'text', false));
+	$smarty->assign('INPUT_CODE', $mod_captcha->get_input_code());
 }
 $smarty->assign('SELECT_GENDER', $select_gender);
 $smarty->assign('INPUT_FIRSTNAME', xtc_draw_input_field('firstname', ($error ? $_POST['firstname'] : (isset($_SESSION["customer_first_name"]) ? $_SESSION["customer_first_name"] : '')), 'id="firstname" class="form-control"'));
