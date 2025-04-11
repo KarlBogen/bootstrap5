@@ -63,7 +63,10 @@ Mit wenigen Änderungen ist ein komplett verändertes Aussehen zu schaffen.
 - Tab "eigenes Theme 1" - Vorlage wählen und Button "Vorlage laden" klicken => Vorschau wird geladen
 - Änderungen machen und "Aktualisieren"
 - Zurück zu Tab "Allgemeines" und "Fertig - Theme ins Template übernehmen" klicken
+- Erw. Konfiguration -> Bootstrap 5 Template-Manager -> BS5 Konfiguration auf "Bootstrap (bootstrap.min.css)" umgestellen
 - Caches löschen und Shop Frontend aktualisieren
+
+#### [Eine Anleitung mit Bildern gibt es hier](docs/theme_manager.md)
 
 ## BS5 Banner Manager
 Unter dem Menüpunkt **Erw. Konfiguration - Bootstrap 5 Template Manager** ist der **BS5 Banner Manager** zu finden.<br />
