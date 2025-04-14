@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- PayPal-Button in Box Cart aktualisiert
 - Captcha - Eingabelänge korrigiert
 - Modul-Preisaktualisierung - JavaScript angepasst
 
