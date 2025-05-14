@@ -24,7 +24,7 @@ class bs5_tpl_manager
 	public function __construct()
 	{
 		$this->code = 'bs5_tpl_manager';
-		$this->title = MODULE_BS5_TPL_MANAGER_TEXT_TITLE . ' © by <a href="https://github.com/KarlBogen" target="_blank" style="color: #e67e22; font-weight: bold;">Karl</a> - Version: 1.1.10';
+		$this->title = MODULE_BS5_TPL_MANAGER_TEXT_TITLE . ' © by <a href="https://github.com/KarlBogen" target="_blank" style="color: #e67e22; font-weight: bold;">Karl</a> - Version: 1.1.11';
 		// Wichtiger Hinweis: bei Versionsänderung in den Templates die letzte neu hinzugekommene Konstante in "config/config.php" eintragen.
 		// if (!defined('MODULE_BS5_TPL_MANAGER_STATUS') || MODULE_BS5_TPL_MANAGER_STATUS != 'true' || !defined('BS5_SHOW_PAYPAL_IN_BOX_CART')) {
 		// Damit wird die Fehlermeldung zu einer fehlenden Konstante vermieden!

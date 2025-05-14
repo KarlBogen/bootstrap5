@@ -1,6 +1,6 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   $Id: cart.php 16401 2025-04-02 15:35:51Z GTB $
+   $Id: cart.php 16425 2025-04-30 11:22:35Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
@@ -66,6 +66,7 @@
     if (defined('MODULE_PAYMENT_PAYPAL_SECRET')
         && MODULE_PAYMENT_PAYPAL_SECRET != ''
         && BS5_SHOW_PAYPAL_IN_BOX_CART == 'true'
+        && $any_out_of_stock === false
         )
     {
       // include needed classes

@@ -10,7 +10,7 @@
         {/if}
       </div>
     </div>
-    <div class="lb_title fs-5 text-secondary-emphasis mt-2 mb-0{if $smarty.const.BS5_PRODBOX_NAME_LINES != 0}  line-clamp lc-{$smarty.const.BS5_PRODBOX_NAME_LINES}{/if}">{$module_data.PRODUCTS_NAME}</div>
+    <div class="lb_title text-secondary-emphasis mt-2 mb-0{if $smarty.const.BS5_PRODBOX_NAME_LINES != 0}  line-clamp lc-{$smarty.const.BS5_PRODBOX_NAME_LINES}{/if}"><h2 class="fs-5">{$module_data.PRODUCTS_NAME}</h2></div>
   </div>
   <div class="p-1 text-center">
     {if $smarty.const.BS5_AWIDSRATINGBREAKDOWN == 'true' && ((isset($module_data.BS5_AWIDS_PRODUCTS_SUM_REVIEWS) && $module_data.BS5_AWIDS_PRODUCTS_SUM_REVIEWS > 0 || $smarty.const.BS5_AWIDSRATINGBREAKDOWN_SHOW_NULL_REVIEWS == 'true') && $smarty.const.BS5_AWIDSRATINGBREAKDOWN_PRODLIST == 'true')}

@@ -432,8 +432,8 @@ ul.categorymenu a.active {
 	margin-top: 20px;
   color: var(--bs-navbar-color);
 }
-.bluepure .link-body-emphasis {
-  color: currentColor !important;
+#layout_footer .link-body-emphasis{
+  color:var(--bs-custom-color-rgb)!important
 }
 /* lazysizes */
 .lazyload,

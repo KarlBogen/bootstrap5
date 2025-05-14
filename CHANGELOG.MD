@@ -1,9 +1,14 @@
 UNRELEASED
 
 
+
+
+1.1.11 [14.05.2025]
+
 - PayPal-Button in Box Cart aktualisiert
 - Captcha - Eingabelänge korrigiert
 - Modul-Preisaktualisierung - JavaScript angepasst
+- kleinere Änderungen
 
 1.1.10 [29.03.2025]
 

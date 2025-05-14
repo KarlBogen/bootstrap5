@@ -38,7 +38,7 @@
 	$css_array_async[] = DIR_TMPL_CSS.'jquery.mmenulight.min.css';
 	$css_array_async[] = DIR_TMPL_CSS.'jquery.alertable.min.css';
 
-	if (file_exists(DIR_FS_CATALOG.DIR_TMPL_CSS.'/custom.css')) {
+	if (file_exists(DIR_FS_CATALOG.DIR_TMPL_CSS.'custom.css')) {
 		$css_array[] = DIR_TMPL_CSS.'custom.css';
 	}
 
