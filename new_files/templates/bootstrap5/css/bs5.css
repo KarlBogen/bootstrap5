@@ -411,7 +411,7 @@ li.kk-mega.level2 > a {
 .accordion label, label.stretched-link {
   cursor: pointer;
 }
-.accordion .form-check-input {
+.accordion .form-check-input, #privacy.form-check-input {
   border-color: var(--bs-secondary);
 }
 /* Gototop Button */
@@ -603,9 +603,18 @@ textarea#message {
 a:hover {
     text-decoration: none;
 }
-#container {
+body {
 	overflow-x:hidden;
+}
+#container {
+	/* overflow-x:hidden; */
   width: 100%;
+}
+#subnav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 70px;
+  z-index:1020;
 }
 .sitemaplist ul {
   list-style-type:none;
@@ -684,7 +693,7 @@ div[id^="trustbadge-container-"] {
 }
 .line-clamp {
   display: -webkit-box;
-  -webkit-box-orient: vertical;  
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 .lc-1 {

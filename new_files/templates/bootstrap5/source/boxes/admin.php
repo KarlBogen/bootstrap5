@@ -1,6 +1,6 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   $Id: admin.php 16079 2024-08-04 10:43:15Z GTB $
+   $Id: admin.php 16439 2025-05-06 07:23:56Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
@@ -20,7 +20,7 @@
   $admin_access = array();
   if ($_SESSION['customers_status']['customers_status'] == '0') {
     require_once(DIR_FS_INC.'get_admin_access.inc.php');
-    $admin_access = get_admin_access($_SESSION['customer_id']);
+    $admin_access = get_admin_access($_SESSION['customer_id']); 
   }
 
   // offline/online
@@ -92,6 +92,14 @@
     $customers = xtc_db_fetch_array($customers_query);
     $box_smarty->assign('CUSTOMERS_INFO', BOX_ENTRY_CUSTOMERS . ' ' . $customers['count']);
     $box_smarty->assign('CUSTOMERS', xtc_href_link_admin((defined('DIR_ADMIN') ? DIR_ADMIN : 'admin/').'customers.php', '', 'NONSSL'));
+  }
+
+  // manufacturers
+  if ($admin_access['manufacturers'] == '1') {
+    if (isset($_GET['manufacturers_id'])) {
+      $box_smarty->assign('EDIT_MANUFACTURER', xtc_href_link_admin((defined('DIR_ADMIN') ? DIR_ADMIN : 'admin/').'manufacturers.php', 'action=edit&mID='.(int)$_GET['manufacturers_id']));
+    }
+    $box_smarty->assign('MANUFACTURERS', xtc_href_link_admin((defined('DIR_ADMIN') ? DIR_ADMIN : 'admin/').'manufacturers.php', '', 'NONSSL'));
   }
 
   // categories/product/attributes

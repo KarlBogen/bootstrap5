@@ -152,7 +152,7 @@
         {if $ADD_CART_BUTTON != ''}
           <div class="my-3 py-2 border-bottom">
             <div class="row">
-              <div class="col-5 col-xl-3 mb-3 mx-auto">
+              <div class="col-7 col-sm-5 col-xl-3 mb-3 mx-auto">
                 <div class="input-group">
                   {if !isset($ADD_QTY_HIDDEN)}<button id="btn_minus" class="btn btn-outline-secondary" type="button" aria-label="{#products_basket_quantity#} minus"><i class="fa fa-minus"></i></button>{/if}
                   {$ADD_QTY|replace:"type=\"text\"":"type=\"tel\" id=\"qty_input\" class=\"form-control text-center\" aria-label=\"{#products_basket_quantity#}\""}
@@ -263,7 +263,7 @@
         </div>
       </div>
       {/if}
-      {if isset($MANUFACTURER_CONTACT_ADDRESS) || isset($MANUFACTURER_RESPONSIBLE_ADDRESS) != '' || $MANUFACTURER_ADD_DESCRIPTION != ''}
+      {if isset($MANUFACTURER_CONTACT_ADDRESS) || isset($MANUFACTURER_RESPONSIBLE_ADDRESS) || $MANUFACTURER_ADD_DESCRIPTION != ''}
       <div class="accordion-item">
         <h2 class="accordion-header" id="header4">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#manufacturers" aria-expanded="false" aria-controls="manufacturers">

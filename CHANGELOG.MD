@@ -3,6 +3,10 @@ UNRELEASED
 
 
 
+
+1.1.12 [15.05.2025]
+- Update zu Shopversion 3.1.4
+
 1.1.11 [14.05.2025]
 
 - PayPal-Button in Box Cart aktualisiert

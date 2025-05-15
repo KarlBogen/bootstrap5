@@ -375,7 +375,7 @@ ul.categorymenu a.active {
 .accordion label, label.stretched-link {
   cursor: pointer;
 }
-.accordion .form-check-input {
+.accordion .form-check-input, #privacy.form-check-input {
   border-color: var(--bs-secondary);
 }
 /* Gototop Button */
@@ -648,7 +648,7 @@ div[id^="trustbadge-container-"] {
 }
 .line-clamp {
   display: -webkit-box;
-  -webkit-box-orient: vertical;  
+  -webkit-box-orient: vertical;
   overflow: hidden;
 }
 .lc-1 {

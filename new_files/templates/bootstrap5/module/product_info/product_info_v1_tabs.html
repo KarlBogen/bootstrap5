@@ -148,7 +148,7 @@
         {if $ADD_CART_BUTTON != ''}
           <div class="my-3 py-2 border-bottom">
             <div class="row">
-              <div class="col-5 col-xl-3 mb-3 mx-auto">
+              <div class="col-7 col-sm-5 col-xl-3 mb-3 mx-auto">
                 <div class="input-group">
                   {if !isset($ADD_QTY_HIDDEN)}<button id="btn_minus" class="btn btn-outline-secondary" type="button" aria-label="{#products_basket_quantity#} minus"><i class="fa fa-minus"></i></button>{/if}
                   {$ADD_QTY|replace:"type=\"text\"":"type=\"tel\" id=\"qty_input\" class=\"form-control text-center\" aria-label=\"{#products_basket_quantity#}\""}
@@ -206,7 +206,7 @@
         {if isset($MODULE_product_tags) && $MODULE_product_tags != ''}<li class="nav-item" role="presentation"><button class="nav-link" id="prod_tags_tab" data-bs-target="#prod_tags" role="tab" aria-controls="prod_tags" data-bs-toggle="pill">{#products_tags#}</button></li>{/if}
         {if isset($MODULE_products_media) && $MODULE_products_media != ''}<li class="nav-item" role="presentation"><button class="nav-link" id="prod_media_tab" data-bs-target="#prod_media" role="tab" aria-controls="prod_media" data-bs-toggle="pill">{#products_media#}</button></li>{/if}
         {if isset($MODULE_products_reviews) && $MODULE_products_reviews != ''}<li class="nav-item" role="presentation"><button class="nav-link" id="prod_reviews_tab" data-bs-target="#prod_reviews" role="tab" aria-controls="prod_reviews" data-bs-toggle="pill">{#products_reviews#}{if $PRODUCTS_RATING_COUNT > 0}<span class="badge text-bg-secondary ms-2">{$PRODUCTS_RATING_COUNT}</span>{/if}</button></li>{/if}
-        {if isset($MANUFACTURER_CONTACT_ADDRESS) || isset($MANUFACTURER_RESPONSIBLE_ADDRESS) != '' || $MANUFACTURER_ADD_DESCRIPTION != ''}<li class="nav-item" role="presentation"><button class="nav-link" id="manufacturers_tab" data-bs-target="#manufacturers" role="tab" aria-controls="manufacturers" data-bs-toggle="pill">{#manufacturers_info#}</button></li>{/if}
+        {if isset($MANUFACTURER_CONTACT_ADDRESS) || isset($MANUFACTURER_RESPONSIBLE_ADDRESS) || $MANUFACTURER_ADD_DESCRIPTION != ''}<li class="nav-item" role="presentation"><button class="nav-link" id="manufacturers_tab" data-bs-target="#manufacturers" role="tab" aria-controls="manufacturers" data-bs-toggle="pill">{#manufacturers_info#}</button></li>{/if}
       </ul>
     </div>
     <div class="tab-content card-body">
@@ -220,7 +220,7 @@
       {if isset($MODULE_product_tags) && $MODULE_product_tags != ''}<div role="tabpanel" class="tab-pane fade" id="prod_tags" aria-labelledby="prod_tags_tab" tabindex="0">{$MODULE_product_tags}</div>{/if}
       {if isset($MODULE_products_media) && $MODULE_products_media != ''}<div role="tabpanel" class="tab-pane fade" id="prod_media" aria-labelledby="prod_media_tab" tabindex="0">{$MODULE_products_media}</div>{/if}
       {if isset($MODULE_products_reviews) && $MODULE_products_reviews != ''}<div role="tabpanel" class="tab-pane fade" id="prod_reviews" aria-labelledby="prod_reviews_tab" tabindex="0">{$MODULE_products_reviews}</div>{/if}
-      {if isset($MANUFACTURER_CONTACT_ADDRESS) || isset($MANUFACTURER_RESPONSIBLE_ADDRESS) != '' || $MANUFACTURER_ADD_DESCRIPTION != ''}
+      {if isset($MANUFACTURER_CONTACT_ADDRESS) || isset($MANUFACTURER_RESPONSIBLE_ADDRESS) || $MANUFACTURER_ADD_DESCRIPTION != ''}
         <div role="tabpanel" class="tab-pane fade" id="manufacturers" aria-labelledby="manufacturers_tab" tabindex="0">
           <div class="pd_manu_description">
             <h2 class="h3 detailbox">{#manufacturers_info#}</h2>

@@ -152,7 +152,7 @@
         {if $ADD_CART_BUTTON != ''}
           <div class="my-3 py-2 border-bottom">
             <div class="row">
-              <div class="col-5 col-xl-{if $smarty.const.BS5_PROD_DETAIL_FULLCONTENT == 'true'}4{else}3{/if} mb-3 mx-auto">
+              <div class="col-7 col-sm-5 col-xl-{if $smarty.const.BS5_PROD_DETAIL_FULLCONTENT == 'true'}4{else}3{/if} mb-3 mx-auto">
                 <div class="input-group">
                   {if !isset($ADD_QTY_HIDDEN)}<button id="btn_minus" class="btn btn-outline-secondary" type="button" aria-label="{#products_basket_quantity#} minus"><i class="fa fa-minus"></i></button>{/if}
                   {$ADD_QTY|replace:"type=\"text\"":"type=\"tel\" id=\"qty_input\" class=\"form-control text-center\" aria-label=\"{#products_basket_quantity#}\""}
@@ -215,7 +215,7 @@
       {if isset($MODULE_product_tags) && $MODULE_product_tags != ''}<li class="list-group-item py-3">{$MODULE_product_tags}</li>{/if}
       {if isset($MODULE_products_media) && $MODULE_products_media != ''}<li class="list-group-item py-3">{$MODULE_products_media}</li>{/if}
       {if isset($MODULE_products_reviews) && $MODULE_products_reviews != ''}<li class="list-group-item py-3">{$MODULE_products_reviews}</li>{/if}
-      {if isset($MANUFACTURER_CONTACT_ADDRESS) || isset($MANUFACTURER_RESPONSIBLE_ADDRESS) != '' || $MANUFACTURER_ADD_DESCRIPTION != ''}
+      {if isset($MANUFACTURER_CONTACT_ADDRESS) || isset($MANUFACTURER_RESPONSIBLE_ADDRESS) || $MANUFACTURER_ADD_DESCRIPTION != ''}
       <li class="list-group-item py-3">
         <div class="pd_manu_description">
           <h2 class="h3 detailbox">{#manufacturers_info#}</h2>
