@@ -1,4 +1,4 @@
-// Minty 5.3.2
+// Minty 5.3.6
 // Bootswatch
 
 
@@ -63,6 +63,12 @@
   &-outline-light {
     color: $light;
   }
+}
+
+// Tables
+
+.table-light {
+  --#{$prefix}table-color: #{$body-color};
 }
 
 // Forms

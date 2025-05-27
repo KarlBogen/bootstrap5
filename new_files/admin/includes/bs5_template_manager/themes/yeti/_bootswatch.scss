@@ -1,4 +1,4 @@
-// Yeti 5.3.2
+// Yeti 5.3.6
 // Bootswatch
 
 // Navbar
@@ -211,6 +211,11 @@
 
 table {
   font-size: $font-size-sm;
+}
+
+.table-secondary,
+.table-light {
+  --#{$prefix}table-color: #{$body-color};
 }
 
 // Forms

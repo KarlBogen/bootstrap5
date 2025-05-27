@@ -1,4 +1,4 @@
-// Superhero 5.3.2
+// Superhero 5.3.6
 // Bootswatch
 
 // Buttons
@@ -16,6 +16,10 @@
 }
 
 // Typography
+
+.text-secondary {
+  color: var(--bs-secondary-color) !important;
+}
 
 .dropdown-menu {
   font-size: $font-size-sm;

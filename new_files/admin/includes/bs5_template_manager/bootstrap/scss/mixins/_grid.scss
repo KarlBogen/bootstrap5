@@ -70,7 +70,7 @@
     @include media-breakpoint-up(xs) {
       // Provide basic `.col-{bp}` classes for equal-width flexbox columns
       .col#{$infix} {
-        flex: 1 0 0%; // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+        flex: 1 0 0;
       }
 
       .row-cols#{$infix}-auto > * {
@@ -116,7 +116,7 @@
     @include media-breakpoint-up(sm) {
       // Provide basic `.col-{bp}` classes for equal-width flexbox columns
       .col#{$infix} {
-        flex: 1 0 0%; // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+        flex: 1 0 0;
       }
 
       .row-cols#{$infix}-auto > * {
@@ -147,7 +147,7 @@
     @include media-breakpoint-up(md) {
       // Provide basic `.col-{bp}` classes for equal-width flexbox columns
       .col#{$infix} {
-        flex: 1 0 0%; // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+        flex: 1 0 0;
       }
 
       .row-cols#{$infix}-auto > * {
@@ -178,7 +178,7 @@
     @include media-breakpoint-up(lg) {
       // Provide basic `.col-{bp}` classes for equal-width flexbox columns
       .col#{$infix} {
-        flex: 1 0 0%; // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+        flex: 1 0 0;
       }
 
       .row-cols#{$infix}-auto > * {
@@ -218,7 +218,7 @@
     @include media-breakpoint-up(xl) {
       // Provide basic `.col-{bp}` classes for equal-width flexbox columns
       .col#{$infix} {
-        flex: 1 0 0%; // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+        flex: 1 0 0;
       }
 
       .row-cols#{$infix}-auto > * {

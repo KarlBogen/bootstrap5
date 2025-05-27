@@ -4,6 +4,10 @@ UNRELEASED
 
 
 
+1.1.13 [26.05.2025]
+- Update Bootstrap-Framework zu Version 5.3.6
+- Update PHP-Sass-Compiler zu Version 2.0.1
+
 1.1.12 [15.05.2025]
 - Update zu Shopversion 3.1.4
 

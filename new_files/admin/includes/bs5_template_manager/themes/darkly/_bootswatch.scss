@@ -1,4 +1,4 @@
-// Darkly 5.3.2
+// Darkly 5.3.6
 // Bootswatch
 
 // Typography
@@ -7,6 +7,10 @@
   &-footer {
     color: $gray-600;
   }
+}
+
+.text-secondary {
+  color: var(--bs-secondary-color) !important;
 }
 
 // Forms
@@ -26,19 +30,6 @@
 }
 
 // Navs
-
-.nav-tabs,
-.nav-pills {
-  .nav-link,
-  .nav-link.active,
-  .nav-link.active:focus,
-  .nav-link.active:hover,
-  .nav-item.open .nav-link,
-  .nav-item.open .nav-link:focus,
-  .nav-item.open .nav-link:hover {
-    color: $white;
-  }
-}
 
 .breadcrumb a {
   color: $white;

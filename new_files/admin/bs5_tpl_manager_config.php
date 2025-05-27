@@ -108,7 +108,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
         <!-- body_text //-->
         <td class="boxCenter">
           <?php // updateinfo
-          if (!isset($bs5_conf['BS5_SHOW_PAYPAL_IN_BOX_CART'])) {
+          if (!isset($bs5_conf['BS5_SHOW_PAYPAL_IN_BOX_CART']) || file_exists(DIR_FS_CATALOG . DIR_ADMIN . 'includes/bs5_template_manager/scssphp/scss.inc.php')) {
             echo '<div class="messageStackWarning"><h3>' . TEXT_BS5_TPL_MANAGER_CONFIG_UPDATE_SYSTEMMODULE_WARNING . '<a class="button but_red" href="' . xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=bs5_tpl_manager') . '">Bootstrap 5 Template-Manager</a></h3></div><br />';
           }
           ?>

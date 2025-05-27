@@ -11,7 +11,7 @@
 defined( '_VALID_XTC' ) or die( 'Direct Access to this location is not allowed.' );
 
 	// Leafo scssphp
-	require_once "scssphp/scss.inc.php";
+	require_once "scssphp/vendor/autoload.php";
 	require_once "scssphp/server/Server.php";
 	use ScssPhp\ScssPhp\Compiler;
 	use ScssPhp\ScssPhp\OutputStyle;
@@ -461,6 +461,7 @@ class Bs5TplManager {
 			array('id' => 'bs5-green', 'text' => 'BS5 gr&uuml;n - green'),
 			array('id' => 'bs5-orange', 'text' => 'BS5 orange - orange'),
 			array('id' => 'bs5-red', 'text' => 'BS5 rot - red'),
+			array('id' => 'brite', 'text' => 'Brite'),
 			array('id' => 'cerulean', 'text' => 'Cerulean'),
 			array('id' => 'cosmo', 'text' => 'Cosmo'),
 			array('id' => 'cyborg', 'text' => 'Cyborg'),

@@ -272,7 +272,7 @@ if (file_exists($css_file))	$time = filemtime($css_file);
 			</nav>
 
 			<div id="container2" class="container-xxl mb-4">
-				<nav class="breadcrumb border-bottom" aria-label="breadcrumb">
+				<nav class="border-bottom" aria-label="breadcrumb">
 					<ol class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
 						<li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
 							<a class="link-secondary" itemprop="item" href="#"><span itemprop="name">Startseite&nbsp;</span></a><meta itemprop="position" content="1">
@@ -946,7 +946,7 @@ if (file_exists($css_file))	$time = filemtime($css_file);
 			</nav>
 
 			<div id="container2" class="container-xxl mb-4">
-				<nav class="breadcrumb border-bottom" aria-label="breadcrumb">
+				<nav class="border-bottom" aria-label="breadcrumb">
 					<ol class="breadcrumb" itemscope="" itemtype="http://schema.org/BreadcrumbList">
 						<li class="breadcrumb-item" itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
 							<a class="link-secondary" itemprop="item" href="#"><span itemprop="name">Home&nbsp;</span></a><meta itemprop="position" content="1">

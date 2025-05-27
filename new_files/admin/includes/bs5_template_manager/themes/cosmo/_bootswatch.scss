@@ -1,9 +1,27 @@
-// Cosmo 5.3.2
+// Cosmo 5.3.6
 // Bootswatch
 
 
 body {
   -webkit-font-smoothing: antialiased;
+}
+
+// Tables
+
+.table-primary,
+.table-secondary,
+.table-success,
+.table-warning,
+.table-danger,
+.table-info,
+.table-light {
+  --#{$prefix}table-color: #{$body-color};
+}
+
+// Forms
+
+.form-range::-moz-range-thumb {
+  border-radius: inherit;
 }
 
 // Indicators
