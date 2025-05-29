@@ -870,10 +870,10 @@ class bs5_tpl_manager
     $dirs_and_files[] = $shop_path . 'templates/bootstrap5/css/icons/fontello-c54745a6.zip';
     $dirs_and_files[] = $shop_path . 'templates/bootstrap5/css/icons/fontello-c54745a6.zip';
     // Version 1.1.13
-    $dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/bs5_template_manager/scssphp/src';
-    $dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/bs5_template_manager/scssphp/LICENSE.md';
-    $dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/bs5_template_manager/scssphp/README.md';
-    $dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/bs5_template_manager/scssphp/scss.inc.php';
+    //$dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/bs5_template_manager/scssphp/src';
+    //$dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/bs5_template_manager/scssphp/LICENSE.md';
+    //$dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/bs5_template_manager/scssphp/README.md';
+    //$dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/bs5_template_manager/scssphp/scss.inc.php';
 
     $tpl_dirs_and_files = array();
     // Beispiel Templatedateien

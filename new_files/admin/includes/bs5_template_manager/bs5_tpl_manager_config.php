@@ -11,7 +11,11 @@
 defined( '_VALID_XTC' ) or die( 'Direct Access to this location is not allowed.' );
 
 	// Leafo scssphp
-	require_once "scssphp/vendor/autoload.php";
+	if (!(PHP_VERSION_ID >= 80100)) {
+		require_once "scssphp/scss.inc.php";
+	} else {
+		require_once "scssphp/vendor/autoload.php";
+	}
 	require_once "scssphp/server/Server.php";
 	use ScssPhp\ScssPhp\Compiler;
 	use ScssPhp\ScssPhp\OutputStyle;

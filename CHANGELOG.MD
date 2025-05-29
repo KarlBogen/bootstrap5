@@ -3,8 +3,12 @@ UNRELEASED
 
 
 
+1.1.13a [29.05.2025]
+- Update Bootstrap-Framework zu Version 5.3.6
+- Update PHP-Sass-Compiler zu Version 2.0.1
+- alte Version des Sass-Compilers (für PHP-Version kleiner 8.1) wieder hinzugefügt
 
-1.1.13 [26.05.2025]
+1.1.13 [26.05.2025] Release entfernt
 - Update Bootstrap-Framework zu Version 5.3.6
 - Update PHP-Sass-Compiler zu Version 2.0.1
 
