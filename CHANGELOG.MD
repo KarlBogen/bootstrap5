@@ -2,6 +2,7 @@ UNRELEASED
 
 
 
+- Hinweis "Neue Einstellungen sind hinzugekommen..." wurde nicht ausgeblendet - behoben
 
 1.1.13a [29.05.2025]
 - Update Bootstrap-Framework zu Version 5.3.6
