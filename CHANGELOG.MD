@@ -1,7 +1,8 @@
 UNRELEASED
 
 
-
+1.1.14 [26.06.2025]
+- Automatische Attribute Preisberechnung und "Bitte wählen" aktualisiert
 - Hinweis "Neue Einstellungen sind hinzugekommen..." wurde nicht ausgeblendet - behoben
 
 1.1.13a [29.05.2025]

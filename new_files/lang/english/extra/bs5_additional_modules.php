@@ -50,7 +50,8 @@ define('BS5_TOGGLE_PWFIELD_HIDE', 'Hide password');
 
 //BOF - modulfux_attributes_default
 define('BS5_MODULFUX_PULL_DOWN_DEFAULT', 'Please select');
-define('BS5_MODULFUX_ATTRIBUTES_ERROR', 'Select an option!');
+define('BS5_MODULFUX_ERROR', 'Error');
+define('BS5_MODULFUX_ATTRIBUTES_ERROR', 'Please select all options!');
 //EOF - modulfux_attributes_default
 
 /*

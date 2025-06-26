@@ -24,7 +24,7 @@ class bs5_tpl_manager
   public function __construct()
   {
     $this->code = 'bs5_tpl_manager';
-    $this->title = MODULE_BS5_TPL_MANAGER_TEXT_TITLE . ' © by <a href="https://github.com/KarlBogen" target="_blank" style="color: #e67e22; font-weight: bold;">Karl</a> - Version: 1.1.13';
+    $this->title = MODULE_BS5_TPL_MANAGER_TEXT_TITLE . ' © by <a href="https://github.com/KarlBogen" target="_blank" style="color: #e67e22; font-weight: bold;">Karl</a> - Version: 1.1.14';
     // Wichtiger Hinweis: bei Versionsänderung in den Templates die letzte neu hinzugekommene Konstante in "config/config.php" eintragen.
     // if (!defined('MODULE_BS5_TPL_MANAGER_STATUS') || MODULE_BS5_TPL_MANAGER_STATUS != 'true' || !defined('BS5_SHOW_PAYPAL_IN_BOX_CART')) {
     // Damit wird die Fehlermeldung zu einer fehlenden Konstante vermieden!
@@ -340,6 +340,10 @@ class bs5_tpl_manager
     $values_config[] = "('BS5_PRODUCT_INQUIRY', 'false')";
     $values_config[] = "('BS5_PRODUCT_INQUIRY_CONTENT_GROUP', '')";
     $values_config[] = "('BS5_MODULFUX_ATTRIBUTES_DEFAULT', 'false')";
+    $values_config[] = "('BS5_MODULFUX_ATTRIBUTES_DEFAULT_TABLE', 'false')";
+    $values_config[] = "('BS5_MODULFUX_ATTRIBUTES_DEFAULT_TABLE_CHECKED', 'false')";
+    $values_config[] = "('BS5_MODULFUX_ATTRIBUTES_DEFAULT_RADIO', 'false')";
+    $values_config[] = "('BS5_MODULFUX_ATTRIBUTES_DEFAULT_RADIO_CHECKED', 'false')";
     $values_config[] = "('BS5_ATTR_PRICE_UPDATER', 'false')";
     $values_config[] = "('BS5_ATTR_PRICE_UPDATER_UPDATE_PRICE', 'true')";
     $values_config[] = "('BS5_AGI_REDUCE_CART', 'false')";

@@ -132,6 +132,10 @@ defined('BS5_PRODUCT_INQUIRY_CONTENT_GROUP') or define('BS5_PRODUCT_INQUIRY_CONT
 		Der im oberen Bereich angezeigte Text kann im Content Manager geändert werden!
 		Link zum Originalmodul: https://www.modified-shop.org/forum/index.php?topic=2153.0 */
 defined('BS5_MODULFUX_ATTRIBUTES_DEFAULT') or define('BS5_MODULFUX_ATTRIBUTES_DEFAULT', 'false'); // 'false' = deaktiviert / 'true' = aktiviert
+defined('BS5_MODULFUX_ATTRIBUTES_DEFAULT_TABLE') or define('BS5_MODULFUX_ATTRIBUTES_DEFAULT_TABLE', 'false'); // "Bitte wählen" Templatevorlage table - 'false' = deaktiviert / 'true' = aktiviert
+defined('BS5_MODULFUX_ATTRIBUTES_DEFAULT_TABLE_CHECKED') or define('BS5_MODULFUX_ATTRIBUTES_DEFAULT_TABLE_CHECKED', 'false'); // Vorauswahl erste Option Templatevorlage table - 'false' = deaktiviert / 'true' = aktiviert
+defined('BS5_MODULFUX_ATTRIBUTES_DEFAULT_RADIO') or define('BS5_MODULFUX_ATTRIBUTES_DEFAULT_RADIO', 'false'); // "Bitte wählen" Templatevorlage button - 'false' = deaktiviert / 'true' = aktiviert
+defined('BS5_MODULFUX_ATTRIBUTES_DEFAULT_RADIO_CHECKED') or define('BS5_MODULFUX_ATTRIBUTES_DEFAULT_RADIO_CHECKED', 'false'); // Vorauswahl erste Option Templatevorlage button - 'false' = deaktiviert / 'true' = aktiviert
 /* Modul "Bitte wählen" aktivieren!
 		Hinweis:
 		Modul "Attributauswahl als Pflichtfeld und vorbelegt mit (Bitte wählen)" aktivieren!

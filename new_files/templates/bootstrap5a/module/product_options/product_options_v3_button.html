@@ -31,13 +31,12 @@
           </div>
         {/if}
       {/if}
-    <script type="text/javascript">
+    <script>
       var attributePriceUpdater;
       function PriceUpdaterReady() {
         attributePriceUpdater = {
           calculate: function (This) {
             var updateOrgPrice = {$smarty.const.BS5_ATTR_PRICE_UPDATER_UPDATE_PRICE},
-              firsts = 0,
               summe = 0,
               attrvpevalue = 0,
               symbolLeft = '',
@@ -55,13 +54,15 @@
                   summe += data.aprice - data.gprice;
                 }
               }
-              if (data.firstprice) {
-                firsts += data.firstprice;
-              }
               if (data.attrvpevalue != 0) {
                 attrvpevalue += data.attrvpevalue;
               }
             });
+            var check = attributePriceUpdater.check();
+            if (!check) {
+              summe = 0;
+              attrvpevalue = 0;
+            }
             var metaPrice = (Math.round((summe + data.gprice) * 100) / 100).toFixed(2).toString();
             var newPrice = metaPrice.replace(/[.]/, ',');
             var newVpePrice = (Math.round((summe + data.gprice) / (data.vpevalue + attrvpevalue) * 100) / 100).toFixed(2).toString().replace(/[.]/, ',');
@@ -71,7 +72,7 @@
             if (data.cright) {
               symbolRight = '&nbsp;' + data.cright;
             }
-            if (firsts > 0) {
+            if (!check) {
               $('div[id^="optionen' + data.pid + '"] .calculatePriceUpdater span.cuPrice').html('');
               $('div[id^="optionen' + data.pid + '"] .calculatePriceUpdater span.cuVpePrice').html('<span class="text-danger">{$smarty.const.BS5_TXT_CHOOSE_ATTR}</span>');
             } else {
@@ -83,13 +84,14 @@
               }
             }
             if (updateOrgPrice) {
-              if (firsts < 1) {
-                $("#attrErr").hide('slow', function () { $("#attrErr").remove(); });
+              if (check || (!check && $('div[id^="optionen"]').hasClass('changed'))) {
+                $('div[id^="optionen' + data.pid + '"]').addClass('changed');
                 var oldPrice = (Math.round((summe + data.oprice) * 100) / 100).toFixed(2).toString().replace(/[.]/, ',');
                 var savePercent = Math.round(((summe + data.oprice) - (summe + data.gprice)) / (summe + data.oprice) * 100).toString();
                 $('.pd_offer .pd_price .standard_price').html(symbolLeft + newPrice + symbolRight);
                 $('.pd_offer .pd_price .uvp_price .value_price').html(symbolLeft + newPrice + symbolRight);
                 $('.pd_offer .pd_price .uvp_price_old .value_price').html(symbolLeft + oldPrice + symbolRight);
+                $('.pd_offer .graduated_price').html(symbolLeft + newPrice + symbolRight);
                 $('.pd_offer .pd_price .new_price').html(data.onlytext + symbolLeft + newPrice + symbolRight);
                 $('.pd_offer .pd_price .old_price').html(data.insteadtext + '<del>' + symbolLeft + oldPrice + symbolRight + '<\/del>');
                 $('.pd_offer .pd_price .save_price .save_percent').html(savePercent);
@@ -100,13 +102,42 @@
               }
             }
           },
+          setParams: function() {
+            if ($('div[id^="optionen"] div[class*="product_options_select"]').length) {
+              div = 'product_options_select';
+              selector = 'option:selected';
+            }
+            else if ($('div[id^="optionen"] div[class*="product_options_table"]').length) {
+              div = 'product_options_table';
+              selector = 'input:checked';
+            }
+            else if ($('div[id^="optionen"] div[class*="product_options_button"]').length) {
+              div = 'product_options_button';
+              selector = 'input:checked';
+            }
+            else {
+              div = 'product_options_select';
+              selector = 'option:selected';
+            }
+          },
+          check: function() {
+            var checked = 0, i = 0, z = 0;
+            $('div[id^="optionen"] div[class*="' + div + '"]').each(function() {
+              i++;
+              var val = $(this).find(selector).val();
+              if ($.isNumeric(val)) z++;
+            });
+            if (i == z) checked = 1;
+            return checked;
+          },
           calculateAll: function () {
-            $.each($('div[id^="optionen"] input[type=radio]:checked, div[id^="optionen"] input[type=checkbox], div[id^="optionen"] option'), function () {
+            $.each($('div[id^="optionen"] input[type=radio], div[id^="optionen"] input[type=checkbox], div[id^="optionen"] option:not([disabled])'), function () {
               attributePriceUpdater.calculate($(this));
             });
           }
         };
         $(document).ready(function () {
+          attributePriceUpdater.setParams();
           attributePriceUpdater.calculateAll();
           $(".calculatePriceUpdater").show();
           $('div[id^="optionen"] select').on('change click', function () {
@@ -114,6 +145,14 @@
           });
           $('div[id^="optionen"] input').on('change click', function () {
             attributePriceUpdater.calculate($(this));
+          });
+          $('#cart_quantity').on('submit', function() {
+            var check = attributePriceUpdater.check();
+            if (!check) {
+              alert('<div class="alert alert-danger fs-6 p-3">{$smarty.const.BS5_MODULFUX_ATTRIBUTES_ERROR}<\/div>', '{$smarty.const.BS5_MODULFUX_ERROR}');
+              return false;
+            }
+            return true;
           });
         });
       }

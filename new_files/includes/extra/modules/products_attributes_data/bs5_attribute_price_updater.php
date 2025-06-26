@@ -18,9 +18,31 @@
  * --------------------------------------------------------------------------
  */
 if (defined('BS5_MODULFUX_ATTRIBUTES_DEFAULT') && BS5_MODULFUX_ATTRIBUTES_DEFAULT == 'true') {
-	if ($col == 0) {
+
+  defined('BS5_MODULFUX_ATTRIBUTES_DEFAULT_DROPDOWN') or define('BS5_MODULFUX_ATTRIBUTES_DEFAULT_DROPDOWN', 'true');
+  defined('BS5_MODULFUX_ATTRIBUTES_DEFAULT_DROPDOWN_CHECKED') or define('BS5_MODULFUX_ATTRIBUTES_DEFAULT_DROPDOWN_CHECKED', 'true');
+
+  $opt_tpl = 'DROPDOWN';
+  switch ($product->data['options_template']) {
+    case 'product_options_v1_select.html':
+      $opt_tpl = 'DROPDOWN';
+      break;
+
+    case 'product_options_v3_button.html':
+      $opt_tpl = 'RADIO';
+      break;
+
+    case 'product_options_v2_table.html':
+      $opt_tpl = 'TABLE';
+      break;
+  }
+  if (constant('BS5_MODULFUX_ATTRIBUTES_DEFAULT_'.$opt_tpl) == 'true') {
+
+
+
+  if ($col == 0) {
 	  $attr_default_data[$row]= [
-	      'ID'      => '0',
+	      'ID'      => '0_' . $products_options_data[$row]['DATA'][$col]['ID'],
 	      'TEXT'    => BS5_MODULFUX_PULL_DOWN_DEFAULT,
 	      'CHECKED' => isset($attrib_checked_array[$products_options_name['products_options_id']]) ? '0' : '1'
 	    ];
@@ -28,9 +50,8 @@ if (defined('BS5_MODULFUX_ATTRIBUTES_DEFAULT') && BS5_MODULFUX_ATTRIBUTES_DEFAUL
 	      $attr_default_data[$row]['JSON_ATTRDATA'] = str_replace('"', '&quot;', json_encode(
 	        [
 	          'pid'          => (int)$product->data['products_id'],
-	          'firstprice'   => 1,
 	          'gprice'       => $products_price,
-	          'oprice'       => isset($productDataArray["PRODUCTS_PRICE_OLD_PRICE"]) ? (int)$productDataArray["PRODUCTS_PRICE_OLD_PRICE"] : $products_price,
+	          'oprice'       => isset($productDataArray["PRODUCTS_PRICE_OLD_PRICE_PLAIN"]) ? floatval(str_replace(',', '.', $productDataArray["PRODUCTS_PRICE_OLD_PRICE_PLAIN"])) : $products_price,
 	          'cleft'        => $xtPrice->currencies[$_SESSION['currency']]['symbol_left'],
 	          'cright'       => $xtPrice->currencies[$_SESSION['currency']]['symbol_right'],
 	          'prefix'       => isset($products_options['price_prefix']) ? $products_options['price_prefix'] : '',
@@ -45,7 +66,14 @@ if (defined('BS5_MODULFUX_ATTRIBUTES_DEFAULT') && BS5_MODULFUX_ATTRIBUTES_DEFAUL
 	      ));
 	    }
 	}
+
+  } else {
+    if (constant('BS5_MODULFUX_ATTRIBUTES_DEFAULT_'.$opt_tpl.'_CHECKED') != 'true') {
+      if (!isset($attrib_checked_array[$products_options_name['products_options_id']])) $products_options_data[$row]['DATA'][$col]['CHECKED'] = '0';
+    }
+  }
 }
+
 
 //BOF - web0null_attribute_price_updater
 if (defined('BS5_ATTR_PRICE_UPDATER') && BS5_ATTR_PRICE_UPDATER == 'true') {
@@ -67,7 +95,7 @@ if (defined('BS5_ATTR_PRICE_UPDATER') && BS5_ATTR_PRICE_UPDATER == 'true') {
       [
         'pid'          => (int)$product->data['products_id'],
         'gprice'       => $products_price,
-        'oprice'       => isset($productDataArray["PRODUCTS_PRICE_OLD_PRICE"]) ? (int)$productDataArray["PRODUCTS_PRICE_OLD_PRICE"] : $products_price,
+        'oprice'       => isset($productDataArray["PRODUCTS_PRICE_OLD_PRICE_PLAIN"]) ? floatval(str_replace(',', '.', $productDataArray["PRODUCTS_PRICE_OLD_PRICE_PLAIN"])) : $products_price,
         'cleft'        => $xtPrice->currencies[$_SESSION['currency']]['symbol_left'],
         'cright'       => $xtPrice->currencies[$_SESSION['currency']]['symbol_right'],
         'prefix'       => $products_options['price_prefix'],
