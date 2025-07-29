@@ -1,5 +1,7 @@
 UNRELEASED
 
+- Cookie Consent Popup-Links geändert zu rel="nofollow"
+
 
 1.1.14 [26.06.2025]
 - Automatische Attribute Preisberechnung und "Bitte wählen" aktualisiert
