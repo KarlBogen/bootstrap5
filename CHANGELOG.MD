@@ -7,11 +7,11 @@ UNRELEASED
 - Versionsnummer wird in der Tabelle "configuration" gespeichert
 - Cookie Consent Popup-Links geändert zu rel="nofollow"
 - Modul Kundenerinnerung aktualisiert
-  --- aus der Erinnerungsliste kann direkt eine Erinnerung versandt werden
-  --- Zusätzlich wird beim Produkt eine Info angezeigt, sobald sich mehrere Kunden in die Erinnerungsliste eingetragen haben
-  --- Benachrichtigung ab prozentualem Mindestlagerbestand hinzugefügt
-  --- Mailversand als "geplante Aufgabe" hinzugefügt
-  --- Frontendtexte "Kundenerinnerung" in "Produkterinnerung" umbenannt
+<br> --- aus der Erinnerungsliste kann direkt eine Erinnerung versandt werden
+<br> --- Zusätzlich wird beim Produkt eine Info angezeigt, sobald sich mehrere Kunden in die Erinnerungsliste eingetragen haben
+<br> --- Benachrichtigung ab prozentualem Mindestlagerbestand hinzugefügt
+<br> --- Mailversand als "geplante Aufgabe" hinzugefügt
+<br> --- Frontendtexte "Kundenerinnerung" in "Produkterinnerung" umbenannt
 
 1.1.14 [26.06.2025]
 - Automatische Attribute Preisberechnung und "Bitte wählen" aktualisiert
