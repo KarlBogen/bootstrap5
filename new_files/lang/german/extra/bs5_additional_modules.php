@@ -8,19 +8,19 @@
 	Released under the GNU General Public License
 -------------------------------------------------------------- */
 
-define('BS5_CUSTOMERS_REMIND_TITLE' , 'Kundenerinnerung');
-define('BS5_NAVBAR_TITLE_CUSTOMERS_REMIND' , 'Kundenerinnerung');
+define('BS5_CUSTOMERS_REMIND_TITLE' , 'Produkterinnerung');
+define('BS5_NAVBAR_TITLE_CUSTOMERS_REMIND' , 'Produkterinnerung');
 define('BS5_CUSTOMERS_REMIND_NOTE' , 'Artikel zur Zeit nicht auf Lager!');
 define('BS5_CUSTOMERS_REMIND_LINK_TEXT', 'Benachrichtigung bei Wiederverf&uuml;gbarkeit');
-define('BS5_CUSTOMERS_REMIND_EMAIL_HEADING', 'Kundenerinnerungen bei erneutem Eintreffen von Artikeln');
+define('BS5_CUSTOMERS_REMIND_EMAIL_HEADING', 'Produkterinnerungen bei erneutem Eintreffen von Artikeln');
 define('BS5_CUSTOMERS_REMIND_EMAIL_1', 'hat sich f&uuml;r diesen Artikel eingetragen:');
 
-define('BS5_TEXT_EMAIL_SUBJECT_REMINDER','Ihre Kundenerinnerungs-Anmeldung');
+define('BS5_TEXT_EMAIL_SUBJECT_REMINDER','Ihre Produkterinnerungs-Anmeldung');
 define('BS5_TEXT_EMAIL_INPUT_REMINDER','<h1>Bitte beachten!</h1><p>Ihre E-Mail-Adresse wurde in unser System eingetragen.<br><br>Gleichzeitig wurde Ihnen vom System eine E-Mail mit einem Aktivierungslink geschickt.<br><br>Bitte klicken Sie nach dem Erhalt der E-Mail auf den Link, um Ihre Eintragung zu best&auml;tigen.<br>Ansonsten bekommen Sie keine Verf&uuml;gbarkeitsnachricht von uns zugestellt!</p>');
 define('BS5_TEXT_EMAIL_DEL_REMINDER','Ihre E-Mail-Adresse wurde aus unserer Datenbank gel&ouml;scht.');
-define('BS5_TEXT_EMAIL_ACTIVE_REMINDER','Ihre E-Mail-Adresse wurde erfolgreich f&uuml;r den Empfang der Kundenerinnerung freigeschaltet!');
+define('BS5_TEXT_EMAIL_ACTIVE_REMINDER','Ihre E-Mail-Adresse wurde erfolgreich f&uuml;r den Empfang der Produkterinnerung freigeschaltet!');
 define('BS5_TEXT_EMAIL_EXIST_NO_REMINDER','<h1>Bitte beachten!</h1><p>Diese E-Mail-Adresse existiert bereits in unserer Datenbank, ist aber noch nicht f&uuml;r den Empfang der Kundenerinnerung freigeschaltet!<br><br>Es wurde Ihnen vom System eine E-Mail mit einem Aktivierungslink geschickt.<br>Bitte klicken Sie nach dem Erhalt der E-Mail auf den Link, um Ihre Eintragung zu best&auml;tigen.<br>Ansonsten bekommen Sie keine Verf&uuml;gbarkeitsnachricht von uns zugestellt!</p>');
-define('BS5_TEXT_EMAIL_EXIST_REMINDER','Diese E-Mail-Adresse ist f&uuml;r den Empfang der Kundenerinnerung bereits freigeschaltet!');
+define('BS5_TEXT_EMAIL_EXIST_REMINDER','Diese E-Mail-Adresse ist f&uuml;r den Empfang der Produkterinnerung bereits freigeschaltet!');
 
 define('BS5_CONTACT_SUBJECT_0', '-- Bitte w&auml;hlen -- ');
 define('BS5_CONTACT_SUBJECT_4', 'Preisanfrage');

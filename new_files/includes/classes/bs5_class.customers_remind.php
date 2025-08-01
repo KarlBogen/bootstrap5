@@ -1,17 +1,17 @@
 <?php
 /* ------------------------------------------------------------
-	Module "Kundenerinnerung Modified Shop 3.0.2 mit Opt-in" made by Karl
+  Module "Kundenerinnerung Modified Shop 3.0.2 mit Opt-in" made by Karl
 
-	Based on: Kundenerinnerung_Multilingual_advanced_modified-shop-1.06
-	Based on: xt-module.de customers remind
-	erste Anpassung von: Fishnet Services - Gemsjäger 30.03.2012
-	Zusatzfunktionen eingefügt sowie Fehler beseitigt von Ralph_84
-	Aufgearbeitet für die Modified 1.06 rev4356 von Ralph_84
+  Based on: Kundenerinnerung_Multilingual_advanced_modified-shop-1.06
+  Based on: xt-module.de customers remind
+  erste Anpassung von: Fishnet Services - Gemsjäger 30.03.2012
+  Zusatzfunktionen eingefügt sowie Fehler beseitigt von Ralph_84
+  Aufgearbeitet für die Modified 1.06 rev4356 von Ralph_84
 
-	modified eCommerce Shopsoftware
-	http://www.modified-shop.org
+  modified eCommerce Shopsoftware
+  http://www.modified-shop.org
 
-	Released under the GNU General Public License
+  Released under the GNU General Public License
 -------------------------------------------------------------- */
 
 define('REMINDER_REG_MAIL_ADMIN', false);
@@ -35,7 +35,7 @@ class bs5_customersremind {
   function __construct() {
     $this->auto = false;
     $this->remove = false;
-    
+
     $captcha_class = CAPTCHA_MOD_CLASS;
     $this->mod_captcha = $captcha_class::getInstance();
   }
@@ -70,13 +70,13 @@ class bs5_customersremind {
         );
         xtc_db_perform(TABLE_BS5_CUSTOMERS_REMIND_RECIPIENTS, $sql_data_array, 'update', "customers_email_address = '".xtc_db_input($check_mail['customers_email_address'])."'".$where);
 
-				// Einträge Kundenerinnerung löschen
-				$del_customers_reminds = "DELETE FROM
-				                   bs5_customers_remind
-				                 WHERE
-				                   customers_email_address = '".xtc_db_input($check_mail['customers_email_address'])."'";
+        // Einträge Kundenerinnerung löschen
+        $del_customers_reminds = "DELETE FROM
+                           bs5_customers_remind
+                         WHERE
+                           customers_email_address = '".xtc_db_input($check_mail['customers_email_address'])."'";
 
-				xtc_db_query($del_customers_reminds);
+        xtc_db_query($del_customers_reminds);
 
         $this->message = BS5_TEXT_EMAIL_DEL_REMINDER;
         $this->message_class = 'info';
@@ -115,7 +115,7 @@ class bs5_customersremind {
           xtc_db_perform(TABLE_BS5_CUSTOMERS_REMIND_RECIPIENTS, $sql_data_array, 'update', "customers_email_address = '".xtc_db_input($check_mail['customers_email_address'])."'");
           $this->sendRequestMail($check_mail['customers_email_address'], 'subscribe');
           $this->message = BS5_TEXT_EMAIL_ACTIVE_REMINDER;
-          $this->message_class = 'info';          
+          $this->message_class = 'info';
         }
       } else {
         $this->message = TEXT_EMAIL_NOT_EXIST;
@@ -146,7 +146,7 @@ class bs5_customersremind {
 
         if ($check == 'inp') {
           $check_mail_query = xtc_db_query("SELECT customers_email_address,
-                                                   mail_status 
+                                                   mail_status
                                               FROM ".TABLE_BS5_CUSTOMERS_REMIND_RECIPIENTS."
                                              WHERE customers_email_address = '".xtc_db_input($mail)."'");
           if (xtc_db_num_rows($check_mail_query) > 0) {
@@ -164,8 +164,8 @@ class bs5_customersremind {
                 );
                 xtc_db_perform(TABLE_BS5_CUSTOMERS_REMIND_RECIPIENTS, $sql_data_array, 'update', "customers_email_address = '".xtc_db_input($mail)."'");
                 $this->sendRequestMail($mail);
-	              $this->message = BS5_TEXT_EMAIL_EXIST_NO_REMINDER;
-	              $this->message_class = 'info';
+                $this->message = BS5_TEXT_EMAIL_EXIST_NO_REMINDER;
+                $this->message_class = 'info';
               } else {
                 $sql_data_array = array(
                   'mail_status' => '1',
@@ -181,7 +181,7 @@ class bs5_customersremind {
               }
 
             } else {
-							// Email registriert
+              // Email registriert
               $this->message = BS5_TEXT_EMAIL_EXIST_REMINDER;
               $this->message_class = 'success';
             }
@@ -221,8 +221,8 @@ class bs5_customersremind {
 
             if (BS5_CUSTOMERS_REMIND_DOUBLE_OPT_IN == 'true' && SEND_EMAILS == 'true') {
               $this->sendRequestMail($mail);
-	            $this->message = BS5_TEXT_EMAIL_INPUT_REMINDER;
-	            $this->message_class = 'info';
+              $this->message = BS5_TEXT_EMAIL_INPUT_REMINDER;
+              $this->message_class = 'info';
             } else {
               $sql_data_array = array(
                 'mail_status' => '1',
@@ -250,10 +250,10 @@ class bs5_customersremind {
 
 
   function sendRequestMail($mail, $action = 'opt_in') {
-    
+
     $sendmail = false;
     $smarty = new Smarty();
-    
+
     $function = 'xtc_href_link';
     if (function_exists('xtc_href_link_from_admin')) {
       $function = 'xtc_href_link_from_admin';
@@ -266,36 +266,36 @@ class bs5_customersremind {
       'date_added' => 'now()'
     );
     xtc_db_perform(TABLE_BS5_CUSTOMERS_REMIND_RECIPIENTS_HISTORY, $sql_data_array);
-    
+
     switch ($action) {
       case 'opt_in':
         $sendmail = true;
         $link = $function(FILENAME_BS5_CUSTOMERS_REMIND, 'action=activate&language='.$_SESSION['language_code'].'&email='.md5($mail).'&key='.$this->vlCode, 'NONSSL', false);
         $smarty->assign('EMAIL', xtc_db_input($mail));
         $smarty->assign('LINK', $link);
-        
+
         //foreach(auto_include(DIR_FS_CATALOG.'includes/extra/newsletter/opt_in/','php') as $file) require_once ($file);
         break;
-      
+
       case 'unsubscribe':
         //foreach(auto_include(DIR_FS_CATALOG.'includes/extra/newsletter/unsubscribe/','php') as $file) require_once ($file);
         break;
-        
+
       case 'subscribe':
-        
+
         //foreach(auto_include(DIR_FS_CATALOG.'includes/extra/newsletter/subscribe/','php') as $file) require_once ($file);
         break;
     }
-    
+
     if ($sendmail === true) {
       $smarty->assign('language', $_SESSION['language']);
       $smarty->assign('tpl_path', HTTP_SERVER.DIR_WS_CATALOG.'templates/'.CURRENT_TEMPLATE.'/');
       $smarty->assign('logo_path', HTTP_SERVER.DIR_WS_CATALOG.'templates/'.CURRENT_TEMPLATE.'/img/');
-      
+
       $smarty->caching = 0;
       $html_mail = $smarty->fetch(CURRENT_TEMPLATE.'/mail/'.$_SESSION['language'].'/remind_activate_mail.html');
       $txt_mail = $smarty->fetch(CURRENT_TEMPLATE.'/mail/'.$_SESSION['language'].'/remind_activate_mail.txt');
-      
+
       xtc_php_mail(EMAIL_SUPPORT_ADDRESS,
                    EMAIL_SUPPORT_NAME,
                    xtc_db_input($mail),
@@ -307,7 +307,8 @@ class bs5_customersremind {
                    REMINDER_REG_MAIL_ADMIN === true ? EMAIL_SUPPORT_NAME : '',
                    STORE_NAME . ' - ' . BS5_TEXT_EMAIL_SUBJECT_REMINDER,
                    $html_mail,
-                   $txt_mail
+                   $txt_mail,
+                   2
                    );
     }
   }

@@ -1,10 +1,12 @@
 
-Vielen Dank für die Anmeldung zu unserem Service Kundenerinnerung.
+Vielen Dank für die Anmeldung zu unserem Service Produkterinnerung.
 
 {if isset($LINK)}
 Sie erhalten diese E-Mail, weil Sie unseren Service nutzen möchten.
 
-Bitte klicken Sie auf den Aktivierungslink, damit Ihre E-Mail-Adresse für die Kundenerinnerung freigeschaltet wird.
+Bitte klicken Sie auf den Aktivierungslink, damit Ihre E-Mail-Adresse für die Produkterinnerung freigeschaltet wird.
+
+Sollte der Link nicht anklickbar sein, kopieren Sie diesen bitte manuell in die Adresszeile Ihres Internetbrowsers.
 
 Ihr Aktivierungslink:
 {$LINK}

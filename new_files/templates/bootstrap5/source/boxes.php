@@ -1,6 +1,6 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   $Id: boxes.php 16350 2025-03-12 17:44:58Z GTB $
+   $Id: boxes.php 16486 2025-06-23 11:06:13Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
@@ -160,4 +160,28 @@
       $smarty->assign('content_size', 'big');
       Break;
 */
+  }
+
+  // tax status
+  if (MODULE_SMALL_BUSINESS != 'true') {
+    $tax_status = 1;
+    if ($_SESSION['customers_status']['customers_status_show_price_tax'] == 0) {
+      $tax_status = 0;
+    } elseif (isset($_SESSION['country'])) {
+      if (!isset($_SESSION['tax_status']) || $_SESSION['tax_status']['country'] != $_SESSION['country']) {
+        $_SESSION['tax_status'] = array(
+          'country' =>  $_SESSION['country'],
+          'status' => 1,
+        );
+        $country_query = xtDBquery("SELECT *
+                                      FROM ".TABLE_COUNTRIES."
+                                     WHERE countries_id = '".(int)$_SESSION['country']."'");
+        $country = xtc_db_fetch_array($country_query, true);
+        if ($main->getDeliveryDutyInfo($country['countries_iso_code_2'])) {
+          $_SESSION['tax_status']['status'] = 0;
+        }
+      }
+      $tax_status = $_SESSION['tax_status']['status'];
+    }
+    $smarty->assign('tax_status', $tax_status);
   }

@@ -206,7 +206,8 @@ if(defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 							'', //antwortname
 							BS5_CUSTOMERS_REMIND_TITLE, //emailbetreff
 							$create_html_body, // htmlnachricht
-							$create_text_body // textnachricht
+							$create_text_body, // textnachricht
+              2
 						);
 					}
 

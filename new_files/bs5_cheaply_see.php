@@ -230,7 +230,8 @@ if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
 			'', //anhang 2
 			$create_subject, //emailbetreff
 			$create_html_body, // htmlnachricht
-			$create_text_body // textnachricht
+			$create_text_body, // textnachricht
+      2
 		);
 
 		$smarty->assign('success', '1');

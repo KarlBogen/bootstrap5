@@ -9,7 +9,7 @@
 -------------------------------------------------------------- */
 
 $lang_array = array(
-  'TEXT_BS5_TPL_MANAGER_CONFIG_UPDATE_SYSTEMMODULE_WARNING' => 'New settings have been added - an update of the system module must be made.<br>
+  'TEXT_BS5_TPL_MANAGER_CONFIG_UPDATE_SYSTEMMODULE_WARNING' => 'The module version is no longer current - an update of the system module must be made.<br>
     The link takes you to the system module &nbsp;&nbsp;&nbsp;',
   'TEXT_BS5_TPL_MANAGER_CONFIG_HEADING_TITLE' => 'Bootstrap 5 template configuration',
   'TEXT_BS5_TPL_MANAGER_CONFIG_INFO' => 'Settings made here have a direct effect on the shop!',
@@ -241,6 +241,7 @@ $lang_array = array(
   'TEXT_BS5_TPL_MANAGER_CONFIG_PRODBOXES_NAME_LINES_INFO' => '<strong>Setting applies to all product boxes.</strong><br>Number of lines that the article name should max occupy (0 = auto).',
 
   'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_MODULES' => 'Modules',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_HEAD' => 'Customer reminder for sold out products:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND' => 'Customer remind:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_INFO' => 'Activate Customers Remind!<br>
     <strong>Hinweis:</strong><br>
@@ -259,6 +260,14 @@ $lang_array = array(
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_ASAP_INFO' => '<strong>Send email immediately?</strong><br>Compare the "Customer Reminder" table with the "Stock" and then <strong>send the email only once a day</strong>, then switch to "No" (recommended setting).<br>If you want to compare the "Customer Reminder" table with the "Stock" at every page load, set this switch to "Yes".',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL' => 'Customer remind:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_INFO' => 'Send an e-mail to the shop owner (contact - e-mail address) when a customer enters the reminder list?',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK_STATUS' => 'Customer remind:',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK_STATUS_INFO' => '<strong>Send message when minimum stock level is reached:</strong><br>Should the sending of messages be activated when the minimum stock level is reached?',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK' => 'Customer remind:',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK_INFO' => '<strong>Send message when minimum stock level is reached <span style="font-weight:normal;">(in percent)</span>:</strong><br>Here you can set the ratio of stock to remindlist entries when an email should be sent.<br><br>
+    In the following examples, the saved percentage should be <strong>80%</strong>.<br><br>
+    - The reminder list contains 3 customers, each with 1 piece.<br>&nbsp;&nbsp;Start mailing (3 x 80% = 2.4 => rounded down to 2) with 2 items in stock.<br><br>
+    - In the reminder list there is only 1 customer with 3 pieces.<br>&nbsp;&nbsp;Start mailing (3 x 80% = 2.4) from stock 3 pieces, because only 1 customer is entered.<br><br>
+    - The reminder list contains 4 customers with 50 pieces each.<br>&nbsp;&nbsp;Start mailing (200 x 80% = 160) from stock of 160 pieces.',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CHEAPLY_SEE' => 'Cheaply see:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CHEAPLY_SEE_INFO' => 'Activate Module "Cheaply see" and show the link in the product detail view!!<br>
     <strong>Note:</strong><br>

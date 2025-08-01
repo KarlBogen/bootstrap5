@@ -40,6 +40,7 @@ if (defined('BS5_PRODUCT_INQUIRY') && BS5_PRODUCT_INQUIRY == 'true') {
 -------------------------------------------------------------- */
 
 if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
+// prüft, ob Bestand kleiner 1 - wenn ja, dann Button hinzufügen
 
 	if ($product->data['products_quantity'] <= 0) {
 

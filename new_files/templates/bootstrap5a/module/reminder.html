@@ -72,14 +72,14 @@
 
 				{if $SUCCESS_MESSAGE == '1'}
 					<h3 class="text-success mb-4">{#BS5_customers_remind_box_success#}</h3>
-					{if $message_class == 'info' && $error_message}<div class="alert alert-info">{$error_message}</div>{/if}
+					{if $message_class == 'info' && $error_message}<div class="alert alert-warning">{$error_message}</div>{/if}
 				{/if}
 
 				{if $SUCCESS_MESSAGE == '2'}
 					<div class="text-success mb-4">{#BS5_customers_remind_added#}</div>
-					{if $message_class == 'info' && $error_message}<div class="alert alert-info">{$error_message}</div>{/if}
+					{if $message_class == 'info' && $error_message}<div class="alert alert-warning">{$error_message}</div>{/if}
 				{/if}
-					
+
 			{else}
 				<div class="alert alert-danger">{#BS5_customers_remind_box_guest#}</div>
 			{/if}

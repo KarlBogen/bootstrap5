@@ -1,6 +1,6 @@
 <?php
   /* --------------------------------------------------------------
-   $Id: cookieconsent.js.php 15749 2024-02-26 12:01:11Z GTB $
+   $Id: cookieconsent.js.php 16512 2025-07-30 04:43:00Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
@@ -51,7 +51,7 @@ if (defined('MODULE_COOKIE_CONSENT_STATUS') && strtolower(MODULE_COOKIE_CONSENT_
         "label_nocookie_head": "<?php echo TEXT_COOKIE_CONSENT_LABEL_NOCOOKIE_HEAD; ?>",
         "label_nocookie_text": "<?php echo TEXT_COOKIE_CONSENT_LABEL_NOCOOKIE_TEXT; ?>",
         "label_third_party": " ",
-        "label_imprint_links": "<?php echo $lang_links; ?><a href='<?php echo xtc_href_link(FILENAME_POPUP_CONTENT, "coID=2"); ?>' onclick='return cc_popup_content(this)' rel='nofollow'><?php echo TEXT_COOKIE_CONSENT_LABEL_INTRO_TEXT_PRIVACY; ?></a> <a href='<?php echo xtc_href_link(FILENAME_POPUP_CONTENT, "coID=4"); ?>' onclick='return cc_popup_content(this)' rel='nofollow'><?php echo TEXT_COOKIE_CONSENT_LABEL_INTRO_TEXT_IMPRINT; ?></a>"
+        "label_imprint_links": "<?php echo $lang_links; ?><a rel='nofollow' href='<?php echo xtc_href_link(FILENAME_POPUP_CONTENT, "coID=2"); ?>' onclick='return cc_popup_content(this)'><?php echo TEXT_COOKIE_CONSENT_LABEL_INTRO_TEXT_PRIVACY; ?></a> <a rel='nofollow' href='<?php echo xtc_href_link(FILENAME_POPUP_CONTENT, "coID=4"); ?>' onclick='return cc_popup_content(this)'><?php echo TEXT_COOKIE_CONSENT_LABEL_INTRO_TEXT_IMPRINT; ?></a>"
       }
     }
   }
@@ -82,14 +82,14 @@ if (defined('MODULE_COOKIE_CONSENT_STATUS') && strtolower(MODULE_COOKIE_CONSENT_
         let cookieDate = new Date;
         //  the oil.js cookie expires after 1 month
         cookieDate.setMonth(cookieDate.getMonth() + 1);
-      
+
         let cookieString = 'MODOilTrack=' + JSON.stringify(data.purposeConsents) + ';';
         cookieString += 'expires=' + cookieDate.toUTCString() + ';';
         cookieString += 'path=' + DIR_WS_CATALOG + ';SameSite=Lax;';
         if (typeof SetSecCookie !== 'undefined' && SetSecCookie == true) {
           cookieString += 'Secure;';
         }
-      
+
         document.cookie = cookieString;
       };
       if (event && event.data && (eventDataContains('oil_soi_optin_done'))) {
@@ -112,9 +112,9 @@ if (defined('MODULE_COOKIE_CONSENT_STATUS') && strtolower(MODULE_COOKIE_CONSENT_
 
     // Register event handler
     eventer(messageEvent, receiveMessage, false);
-  
+
     $(document).on('click', '[data-trigger-cookie-consent-panel]',  function () {
-	
+
       window.AS_OIL.showPreferenceCenter();
 
       if (!$('.as-oil.light').length) {

@@ -13,6 +13,7 @@ define('MODULE_BS5_TPL_MANAGER_TEXT_DESCRIPTION', 'Bootstrap 5 Template-Manager'
 define('MODULE_BS5_TPL_MANAGER_STATUS_TITLE', 'Modul aktivieren?');
 define('MODULE_BS5_TPL_MANAGER_STATUS_DESC', 'Bootstrap 5 Template-Manager aktivieren');
 define('MODULE_BS5_TPL_MANAGER_STATUS_INFO', 'Sobald das Modul deaktiviert ist, werden auch die in der "BS5 Konfiguration" gemachten Einstellungen deaktiviert!<br /><br />Es werden die Template-Standardwerte aus der Datei templates/bootstrap5/config/config.php &uuml;bernommen!');
+define('MODULE_BS5_TPL_MANAGER_VERSION_ERROR', '<div class="error_message div_header">Aktuelle Modulversion: %s - Ihre Version ist nicht mehr aktuell!<br /><br />Klicken Sie auf den grünen Button "Update"!<br /></div>');
 define('MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_OK', 'Tabelle fehlerfrei installiert - Tabelle: ');
 define('MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_ENTRY_OK', 'Tabelleeintr&auml;ge fehlerfrei installiert - Tabelle: ');
 define('MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_ERR', 'Fehler beim Installieren der Tabelle - Tabelle: ');

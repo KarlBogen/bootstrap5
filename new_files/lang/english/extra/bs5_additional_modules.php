@@ -8,14 +8,14 @@
 	Released under the GNU General Public License
 -------------------------------------------------------------- */
 
-define('BS5_CUSTOMERS_REMIND_TITLE' , 'Customer Remind');
-define('BS5_NAVBAR_TITLE_CUSTOMERS_REMIND' , 'Customer Remind');
+define('BS5_CUSTOMERS_REMIND_TITLE' , 'Product Remind');
+define('BS5_NAVBAR_TITLE_CUSTOMERS_REMIND' , 'Product Remind');
 define('BS5_CUSTOMERS_REMIND_NOTE' , 'Article currently not in stock!');
 define('BS5_CUSTOMERS_REMIND_LINK_TEXT', 'Advice of availability');
-define('BS5_CUSTOMERS_REMIND_EMAIL_HEADING', 'Customer remind when articles arrive again');
+define('BS5_CUSTOMERS_REMIND_EMAIL_HEADING', 'Product remind when articles arrive again');
 define('BS5_CUSTOMERS_REMIND_EMAIL_1', 'has registered for this article:');
 
-define('BS5_TEXT_EMAIL_SUBJECT_REMINDER','Your customers remind subscription');
+define('BS5_TEXT_EMAIL_SUBJECT_REMINDER','Your products remind subscription');
 define('BS5_TEXT_EMAIL_INPUT_REMINDER','<h1>Please note!</h1><p>Your e-mail address has been registered in our system.<br />An e-mail with a confirmation link has been sent out. Click the link to complete registration!</p>');
 define('BS5_TEXT_EMAIL_DEL_REMINDER','Your e-mail address was deleted successfully from our database.');
 define('BS5_TEXT_EMAIL_ACTIVE_REMINDER','Your e-mail address has successfully been registered for the remind mails!');

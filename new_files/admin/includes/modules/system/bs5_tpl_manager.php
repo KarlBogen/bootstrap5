@@ -14,22 +14,29 @@ defined('_VALID_XTC') or die('Direct Access to this location is not allowed.');
 class bs5_tpl_manager
 {
 
-  var $code;
-  var $title;
-  var $description;
-  var $sort_order;
-  var $enabled;
-  var $_check;
+  public $code;
+  public $title;
+  public $description;
+  public $sort_order;
+  public $enabled;
+  public $_check;
+  public $version;
 
   public function __construct()
   {
-    $this->code = 'bs5_tpl_manager';
-    $this->title = MODULE_BS5_TPL_MANAGER_TEXT_TITLE . ' © by <a href="https://github.com/KarlBogen" target="_blank" style="color: #e67e22; font-weight: bold;">Karl</a> - Version: 1.1.14';
-    // Wichtiger Hinweis: bei Versionsänderung in den Templates die letzte neu hinzugekommene Konstante in "config/config.php" eintragen.
+    $this->version = '1.1.15';
+    // Wichtiger Hinweis: bei Versionsänderung muss die Versionsnummer auch in admin/bs5_tpl_manager_config.php Zeile 111 geändert werden.
+    // Wichtiger Hinweis: neu hinzugekommene Konstante in "config/config.php" eintragen.
     // if (!defined('MODULE_BS5_TPL_MANAGER_STATUS') || MODULE_BS5_TPL_MANAGER_STATUS != 'true' || !defined('BS5_SHOW_PAYPAL_IN_BOX_CART')) {
     // Damit wird die Fehlermeldung zu einer fehlenden Konstante vermieden!
+    $this->code = 'bs5_tpl_manager';
+    $this->title = MODULE_BS5_TPL_MANAGER_TEXT_TITLE . ' © by <a href="https://github.com/KarlBogen" target="_blank" style="color: #e67e22; font-weight: bold;">Karl</a> - Version: ' . (defined('MODULE_BS5_TPL_MANAGER_VERSION') ? MODULE_BS5_TPL_MANAGER_VERSION : '');
     $this->description = '';
-    if (defined('MODULE_BS5_TPL_MANAGER_STATUS')) $this->description .= '<a class="button btnbox but_green" style="text-align:center;" onclick="this.blur();" href="' . xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=' . $this->code . '&action=update') . '">Update</a><br /><br />';
+    if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && (!defined('MODULE_BS5_TPL_MANAGER_VERSION') || version_compare(MODULE_BS5_TPL_MANAGER_VERSION, $this->version, '<')))
+    {
+        $this->description .= "<script>$('.main').after('" . sprintf(MODULE_BS5_TPL_MANAGER_VERSION_ERROR, $this->version) . "');</script>";
+        $this->description .= '<a class="button btnbox but_green" style="text-align:center;" onclick="this.blur();" href="' . xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=' . $this->code . '&action=update') . '">Update</a><br /><br />';
+    }
     $bs5_tpl = defined('BS5_CURRENT_TEMPLATE') && BS5_CURRENT_TEMPLATE != '' ? BS5_CURRENT_TEMPLATE : 'bootstrap5';
     $this->description .= '<a class="button btnbox but_red" style="text-align:center;" onclick="return confirmLink(\'' . sprintf(MODULE_BS5_TPL_MANAGER_DELETE_CONFIRM, $bs5_tpl) . '\', \'\' ,this);" href="' . xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=' . $this->code . '&action=custom') . '">' . MODULE_BS5_TPL_MANAGER_DELETE_BUTTON . '</a><br />';
     $this->description .= MODULE_BS5_TPL_MANAGER_TEXT_DESCRIPTION;
@@ -154,11 +161,15 @@ class bs5_tpl_manager
     $dirs_and_files[] = $shop_path . DIR_ADMIN . 'bs5_tpl_manager_theme_preview.php';
     $dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/bs5_template_manager';
     $dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/extra/application_top/application_top_begin/bs5_tpl_manager_config.php';
+    $dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/extra/modules/new_product/bs5_customers_remind.php';
     $dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/extra/filenames/bs5_tpl_manager.php';
     $dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/extra/menu/bs5_tpl_manager.php';
 
+    $dirs_and_files[] = $shop_path . 'api/scheduled_tasks/modules/bs5_send_customers_remind.php';
+
     $dirs_and_files[] = $shop_path . 'includes/classes/bs5_class.customers_remind.php';
     $dirs_and_files[] = $shop_path . 'includes/extra/ajax/bs5_awids_rating.php';
+    $dirs_and_files[] = $shop_path . 'includes/extra/ajax/bs5_customers_remind.php';
     $dirs_and_files[] = $shop_path . 'includes/extra/ajax/bs5_get_subcat.php';
     $dirs_and_files[] = $shop_path . 'includes/extra/application_bottom/bs5_customers_remind.php';
     $dirs_and_files[] = $shop_path . 'includes/extra/application_top/application_top_begin/bs5_tpl_manager_config.php';
@@ -335,6 +346,8 @@ class bs5_tpl_manager
     $values_config[] = "('BS5_CUSTOMERS_REMIND_PRIVACY_CHECK_REGISTERED', 'true')";
     $values_config[] = "('BS5_CUSTOMERS_REMIND_SENDMAIL_ASAP', 'false')";
     $values_config[] = "('BS5_CUSTOMERS_REMIND_SENDMAIL', 'false')";
+    $values_config[] = "('BS5_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK_STATUS', 'false')";
+    $values_config[] = "('BS5_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK', '80')";
     $values_config[] = "('BS5_CHEAPLY_SEE', 'false')";
     $values_config[] = "('BS5_CHEAPLY_SEE_CONTENT_GROUP', '')";
     $values_config[] = "('BS5_PRODUCT_INQUIRY', 'false')";
@@ -503,6 +516,7 @@ class bs5_tpl_manager
     // Klassenerweiterungsmodul "product" - "checkifnewproduct" wird mitinstalliert - wird benötigt für die Prüfung, ob ein Produkt neu ist
     if (
       !xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value,  configuration_group_id, sort_order, set_function, date_added) VALUES ('MODULE_BS5_TPL_MANAGER_STATUS', 'true',  '6', '1', 'xtc_cfg_select_option(array(\'true\', \'false\'), ', now())")
+      || !xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value,  configuration_group_id, sort_order, date_added) VALUES ('MODULE_BS5_TPL_MANAGER_VERSION', '" . $this->version . "',  '6', '1', now())")
       || !xtc_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) values ('MODULE_PRODUCT_BS5_CHECKIFNEWPRODUCT_STATUS', 'true','6', '1','xtc_cfg_select_option(array(\'true\', \'false\'), ', now())")
       || !xtc_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, date_added) values ('MODULE_PRODUCT_BS5_CHECKIFNEWPRODUCT_SORT_ORDER', '10','6', '2', now())")
     ) {
@@ -543,6 +557,12 @@ class bs5_tpl_manager
     global $messageStack;
     $check = true;
 
+    if (!defined('MODULE_BS5_TPL_MANAGER_VERSION')) {
+      xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, date_added) VALUES ('MODULE_BS5_TPL_MANAGER_VERSION', '" . $this->version . "', '6', '1', now())");
+    }
+    elseif (version_compare(MODULE_BS5_TPL_MANAGER_VERSION, $this->version, '<')) {
+      xtc_db_query("UPDATE " . TABLE_CONFIGURATION . " SET configuration_value = '" . $this->version . "', last_modified = now() WHERE configuration_key = 'MODULE_BS5_TPL_MANAGER_VERSION'");
+    }
     // Klassenerweiterungsmodul "product" - "checkifnewproduct" wird mitinstalliert - wird benötigt für die Prüfung, ob ein Produkt neu ist
     if (!defined('MODULE_PRODUCT_BS5_CHECKIFNEWPRODUCT_STATUS')) {
       xtc_db_query("insert into " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, set_function, date_added) values ('MODULE_PRODUCT_BS5_CHECKIFNEWPRODUCT_STATUS', 'true','6', '1','xtc_cfg_select_option(array(\'true\', \'false\'), ', now())");
@@ -762,7 +782,7 @@ class bs5_tpl_manager
         xtc_db_query("DROP TABLE " . TABLE_BS5_CUSTOMERS_REMIND);
         $messageStack->add_session(MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_REMOVED . TABLE_BS5_CUSTOMERS_REMIND, 'success');
         xtc_db_query("DROP TABLE " . TABLE_BS5_SIMULATED_CRON_RECORDS);
-        $messageStack->add_session(MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_REMOVED . TABLE_BS5_SIMULATED_CRON_RECORDS, 'success');
+        //$messageStack->add_session(MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_REMOVED . TABLE_BS5_SIMULATED_CRON_RECORDS, 'success');
     }
     return true;
   }
@@ -832,14 +852,18 @@ class bs5_tpl_manager
       PRIMARY KEY (history_id)
     )");
 
-    // Thanks to noRiddle - simulated cron job (code from https://trac.modified-shop.org/ticket/2252, see also https://www.modified-shop.org/forum/index.php?topic=12813.msg390607#msg390607)
-    xtc_db_query("CREATE TABLE IF NOT EXISTS " . TABLE_BS5_SIMULATED_CRON_RECORDS . " (
-      `application` varchar(64) NOT NULL,
-      `last_executed` DATE DEFAULT NULL,
-      PRIMARY KEY (`application`)
-    )");
-    xtc_db_query("INSERT INTO " . TABLE_BS5_SIMULATED_CRON_RECORDS . " (application, last_executed) VALUES ('bs5customers_remind', now()) on duplicate key update application='bs5customers_remind', last_executed=now()");
-
+    //Eintrag in Tabelle geplante Aufgaben
+    $scheduled_tasks_array = array();
+    $scheduled_query = xtc_db_query("SELECT *
+                                        FROM ".TABLE_SCHEDULED_TASKS);
+    while ($scheduled = xtc_db_fetch_array($scheduled_query)) {
+      $scheduled_tasks_array[] = $scheduled['tasks'];
+    }
+    if (!in_array('bs5_send_customers_remind', $scheduled_tasks_array))
+    {
+      xtc_db_query("INSERT INTO `scheduled_tasks` (`time_regularity`, `time_unit`, `status`, `edit`, `tasks`) VALUES (1, 'd', 1, 1, 'bs5_send_customers_remind')");
+    }
+    xtc_db_query("DROP TABLE " . TABLE_BS5_SIMULATED_CRON_RECORDS);
 
     return true;
   }

@@ -9,7 +9,7 @@
 -------------------------------------------------------------- */
 
 $lang_array = array(
-  'TEXT_BS5_TPL_MANAGER_CONFIG_UPDATE_SYSTEMMODULE_WARNING' => 'Neue Einstellungen sind hinzugekommen - vor der Nutzung muss ein Update des Systemmodules gemacht werden.<br>
+  'TEXT_BS5_TPL_MANAGER_CONFIG_UPDATE_SYSTEMMODULE_WARNING' => 'Die Modulversion ist nicht mehr aktuell - es muss ein Update des Systemmodules gemacht werden.<br>
     Der Link bringt Sie zum Systemmodul &nbsp;&nbsp;&nbsp;',
   'TEXT_BS5_TPL_MANAGER_CONFIG_HEADING_TITLE' => 'Bootstrap 5 Template Konfiguration',
   'TEXT_BS5_TPL_MANAGER_CONFIG_INFO' => 'Hier gemachte Einstellungen haben direkte Auswirkung auf den Shop!',
@@ -241,6 +241,7 @@ $lang_array = array(
   'TEXT_BS5_TPL_MANAGER_CONFIG_PRODBOXES_NAME_LINES_INFO' => '<strong>Einstellung gilt f&uuml;r alle Produktboxen.</strong><br>Anzahl der Zeilen, die der Artikelname maximal belegen soll (0 = auto).',
 
   'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_MODULES' => 'Module',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_HEAD' => 'Kundenerinnerung bei ausverkauften Artikeln:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND' => 'Kundenerinnerung:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_INFO' => 'Modul "Kundenerinnerung" aktivieren!<br>
     <strong>Hinweis:</strong><br>
@@ -259,6 +260,14 @@ $lang_array = array(
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_ASAP_INFO' => '<strong>Mailversand sofort?</strong><br>Abgleich der Tabelle "Kundenerinnerung" mit dem "Lagerbestand" und anschlie&szlig;ender <strong>Mailversand nur einmal t&auml;glich</strong>, dann Schalter auf "Nein" (empfohlene Einstellung).<br>Wenn bei jedem Seitenaufruf die Tabelle "Kundenerinnerung" mit dem "Lagerbestand" abgeglichen werden soll, dann stellen Sie diesen Schalter auf "Ja".',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL' => 'Kundenerinnerung:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_INFO' => 'E-Mail an den Shopbetreiber (Kontakt - E-Mail-Adresse) senden, wenn sich ein Kunde in die Erinnerungsliste eintr&auml;gt?',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK_STATUS' => 'Kundenerinnerung:',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK_STATUS_INFO' => '<strong>Benachrichtigung ab prozentualem Mindestlagerbestand:</strong><br>Soll die Benachrichtigung ab prozentualem Mindestlagerbestand aktiviert werden?',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK' => 'Kundenerinnerung:',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK_INFO' => '<strong>Benachrichtigung ab prozentualem Mindestlagerbestand <span style="font-weight:normal;">(Angabe in Prozent)</span>:</strong><br>Hier k&ouml;nnen Sie einstellen, ab welchem Verh&auml;ltnis vom Lagerbestand zu Verf&uuml;gbarkeitsanfragen, eine Benachrichtigung verschickt werden soll.<br><br>
+      Gespeicherte Prozentangabe soll in folgenden Beispielen <strong>80%</strong> sein.<br><br>
+      - In der Erinnerungsliste stehen 3 Kunden mit jeweils 1 St&uuml;ck.<br>&nbsp;&nbsp;Start Mailversand (3 x 80% = 2,4 => abgerundet 2) bei Lagerbestand 2 St&uuml;ck.<br><br>
+      - In der Erinnerungsliste steht nur 1 Kunden mit 3 St&uuml;ck.<br>&nbsp;&nbsp;Start Mailversand (3 x 80% = 2,4) ab Lagerbestand 3 St&uuml;ck, weil nur 1 Kunde eingetragen ist.<br><br>
+      - In der Erinnerungsliste stehen 4 Kunden mit jeweils 50 St&uuml;ck.<br>&nbsp;&nbsp;Start Mailversand (200 x 80% = 160) ab Lagerbestand 160 St&uuml;ck.',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CHEAPLY_SEE' => 'Billiger gesehen:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CHEAPLY_SEE_INFO' => 'Modul "Billiger gesehen" aktivieren und den Link in der Produktdetailansicht anzeigen!<br>
     <strong>Hinweis:</strong><br>
