@@ -288,11 +288,11 @@ $lang_array = array(
   'TEXT_BS5_TPL_MANAGER_CONFIG_MODULFUX_ATTRIBUTES_DEFAULT_TABLE_TEXT' => '"Bitte w&auml;hlen"<br>Templatevorlage <i>table</i>:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_MODULFUX_ATTRIBUTES_DEFAULT_TABLE_INFO' => 'Soll in der Templatevorlage <strong><i>product_options_v2_table.html</i></strong> als erste Option "Bitte w&auml;hlen" hinzugef&uuml;gt werden?',
   'TEXT_BS5_TPL_MANAGER_CONFIG_MODULFUX_ATTRIBUTES_DEFAULT_TABLE_CHECKED_TEXT' => 'Vorauswahl erste Option<br>Templatevorlage <i>table</i>:',
-  'TEXT_BS5_TPL_MANAGER_CONFIG_MODULFUX_ATTRIBUTES_DEFAULT_TABLE_CHECKED_INFO' => 'Soll in der Templatevorlage <strong><i>product_options_v2_table.html</i></strong> die erste Option vorausge&auml;ählt bzw. markiert werden, falls "Bitte w&auml;hlen" auf "Nein" steht?',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_MODULFUX_ATTRIBUTES_DEFAULT_TABLE_CHECKED_INFO' => 'Soll in der Templatevorlage <strong><i>product_options_v2_table.html</i></strong> die erste Option vorausgew&auml;hlt bzw. markiert werden, falls "Bitte w&auml;hlen" auf "Nein" steht?',
   'TEXT_BS5_TPL_MANAGER_CONFIG_MODULFUX_ATTRIBUTES_DEFAULT_RADIO_TEXT' => '"Bitte w&auml;hlen"<br>Templatevorlage <i>button</i>:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_MODULFUX_ATTRIBUTES_DEFAULT_RADIO_INFO' => 'Soll in der Templatevorlage <strong><i>product_options_v3_button.html</i></strong> als erste Option "Bitte w&auml;hlen" hinzugef&uuml;gt werden?',
   'TEXT_BS5_TPL_MANAGER_CONFIG_MODULFUX_ATTRIBUTES_DEFAULT_RADIO_CHECKED_TEXT' => 'Vorauswahl erste Option<br>Templatevorlage <i>button</i>:',
-  'TEXT_BS5_TPL_MANAGER_CONFIG_MODULFUX_ATTRIBUTES_DEFAULT_RADIO_CHECKED_INFO' => 'Soll in der Templatevorlage <strong><i>product_options_v3_button.html</i></strong> die erste Option vorausge&auml;ählt bzw. markiert werden, falls "Bitte w&auml;hlen" auf "Nein" steht?',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_MODULFUX_ATTRIBUTES_DEFAULT_RADIO_CHECKED_INFO' => 'Soll in der Templatevorlage <strong><i>product_options_v3_button.html</i></strong> die erste Option vorausgew&auml;hlt bzw. markiert werden, falls "Bitte w&auml;hlen" auf "Nein" steht?',
   'TEXT_BS5_TPL_MANAGER_CONFIG_ATTR_PRICE_UPDATER' => 'Automatische Preisberechnung:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_ATTR_PRICE_UPDATER_INFO' => 'Modul "Automatische Preisberechnung" aktivieren!<br>
     <strong>Hinweis:</strong><br>

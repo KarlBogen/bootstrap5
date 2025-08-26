@@ -341,7 +341,7 @@ li.kk-mega.level2 > a {
 	left:0;
   right:0;
 	top:auto;
-  z-index: 1000;
+  z-index: 1030;
   background-clip: padding-box;
   border: var(--bs-border-width) solid var(--bs-border-color-translucent);
   border-radius: var(--bs-border-radius);

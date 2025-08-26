@@ -31,12 +31,14 @@
           </div>
         {/if}
       {/if}
+    {/if}
+    {if $smarty.const.BS5_ATTR_PRICE_UPDATER == 'true' || $smarty.const.BS5_MODULFUX_ATTRIBUTES_DEFAULT == 'true'}
     <script>
       var attributePriceUpdater;
       function PriceUpdaterReady() {
         attributePriceUpdater = {
           calculate: function (This) {
-            var updateOrgPrice = {$smarty.const.BS5_ATTR_PRICE_UPDATER_UPDATE_PRICE},
+            var updateOrgPrice = {if $smarty.const.BS5_ATTR_PRICE_UPDATER == 'true'}{$smarty.const.BS5_ATTR_PRICE_UPDATER_UPDATE_PRICE}{else}false{/if},
               summe = 0,
               attrvpevalue = 0,
               symbolLeft = '',

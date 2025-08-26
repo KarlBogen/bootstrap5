@@ -2,6 +2,9 @@ UNRELEASED
 
 
 
+- JavaScript "Bitte wählen" und "price Updater" verändert - betrifft Produkt-Optionen-Templatedateien
+
+
 1.1.15 [01.08.2025]
 - Update zu Shopversion 3.1.5
 - Versionsnummer wird in der Tabelle "configuration" gespeichert
