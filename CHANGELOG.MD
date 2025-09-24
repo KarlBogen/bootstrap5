@@ -2,8 +2,11 @@ UNRELEASED
 
 
 
-- JavaScript "Bitte wählen" und "price Updater" verändert - betrifft Produkt-Optionen-Templatedateien
 
+
+1.1.16 [24.09.2025]
+- Update zu Shopversion 3.1.6
+- JavaScript "Bitte wählen" und "price Updater" verändert - betrifft Produkt-Optionen-Templatedateien
 
 1.1.15 [01.08.2025]
 - Update zu Shopversion 3.1.5
