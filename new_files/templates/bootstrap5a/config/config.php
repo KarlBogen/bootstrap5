@@ -17,7 +17,7 @@
 // laden der templatespezifischen Sprachdatei (dadurch entfallen die Dateien lang/jeweilige_sprache/extra/bs5_template.php
 require_once(DIR_FS_CATALOG . 'templates/' . CURRENT_TEMPLATE . '/lang/template_' . $_SESSION['language'] . '.php');
 
-if (!defined('MODULE_BS5_TPL_MANAGER_STATUS') || MODULE_BS5_TPL_MANAGER_STATUS != 'true' || !defined('BS5_SHOW_PAYPAL_IN_BOX_CART')) {
+if (!defined('MODULE_BS5_TPL_MANAGER_STATUS') || MODULE_BS5_TPL_MANAGER_STATUS != 'true' || !defined('BS5_SCALE_IMGAGES_ON_HOVER')) {
   // laden der config, falls Systemmodul deaktiviert oder neueste Konstante noch nicht definiert wurde
   require_once('defines.php');
 }

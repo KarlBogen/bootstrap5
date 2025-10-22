@@ -348,6 +348,13 @@ $lang_array = array(
   'TEXT_BS5_TPL_MANAGER_CONFIG_TRAFFIC_LIGHTS_STOCK_GREEN_INFO' => 'Enter the value from which a green traffic light should be displayed. All values below this up to the minimum value are provided with a yellow traffic light.',
 
   'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_MIXED' => 'Miscellaneous',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_USE_SCROLL_ENTRANCE_JS' => 'Animate sections:',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_USE_SCROLL_ENTRANCE_JS_INFO' => 'Should individual sections be animated as soon as they come into view?<br><br>
+    <strong>Note:</strong><br>
+     If the customer scrolls down in the shop and a section or box reaches a certain position, the element is faded into the visible area from below.<br><br>
+     A lightweight JavaScript file is loaded to detect the position or visible area.',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_SCALE_IMGAGES_ON_HOVER' => 'Scale images:',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_SCALE_IMGAGES_ON_HOVER_INFO' => 'Should images be slightly scaled/enlarged when hovering over them with the mouse?',
   'TEXT_BS5_TPL_MANAGER_CONFIG_PICTURESET_ACTIVE' => 'Product Thumbnails:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_PICTURESET_ACTIVE_INFO' => 'Should product thumbnails be replaced with mini or midi images?<br><br>
     <strong>Note:</strong><br>

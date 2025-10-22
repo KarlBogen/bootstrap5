@@ -1,7 +1,7 @@
 UNRELEASED
 
-
-
+- CSS-Animation hinzugefügt, damit werden Bilder beim Überfahren mit der Maus leicht skaliert / vergrößert
+- JavaScript scroll-entrance.js hinzugefügt, damit werden einzelne Abschnitte animiert sobald sie in den sichtbaren Bereich kommen
 
 
 1.1.16 [24.09.2025]

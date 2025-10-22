@@ -16,7 +16,7 @@
 			{if $smarty.const.BS5_PRODUCT_LIST_BOX == 'true'}
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2 mb-4">
 					{foreach name=aussen item=module_data from=$module_content}
-						<div class="listingbox col">
+						<div class="listingbox col" data-entrance="from-bottom">
 							<div class="card h-100">
 								<div class="card-body pb-2 flex-fill d-flex flex-column text-center">
 									{if $smarty.const.BS5_FLAG_SPECIAL_SHOW == 'true' && $module_data.PRODUCTS_PRICE_SAVE_PERCENT != ''}<div class="ribbon bg-danger text-white shadow-sm">{#BS5_special#}</div>
@@ -36,7 +36,7 @@
 												<div class="lb_attributes_item"><strong>{$item_data.NAME}:</strong> {$item_data.VALUE_NAME}</div>
 											{/foreach}
 										</div>
-									{/if}        
+									{/if}
 								</div>
 								<div class="p-1 text-center">
 									<div class="lb_buttons mb-2">{$module_data.PRODUCTS_BUTTON_BUY_NOW|replace:'<a':'<a class="btn btn-cart btn-outline-secondary" aria-label="buy now"'}&nbsp;&nbsp;{$module_data.PRODUCTS_BUTTON_DELETE|replace:'<a':'<a class="btn btn-danger"'}</div>
@@ -58,7 +58,7 @@
 				</div>
 			{else}
 				{foreach name=aussen item=module_data from=$module_content}
-					<div class="listingrow card mb-2">
+					<div class="listingrow card mb-2" data-entrance="from-bottom">
 						<div class="row mx-0">
 							{if $smarty.const.BS5_FLAG_SPECIAL_SHOW == 'true' && $module_data.PRODUCTS_PRICE_SAVE_PERCENT != ''}<div class="ribbon bg-danger text-white shadow-sm">{#BS5_special#}</div>
 							{elseif $smarty.const.BS5_FLAG_TOP_SHOW == 'true' && $module_data.PRODUCTS_STARTPAGE == '1'}<div class="ribbon bg-primary text-white shadow-sm">{#BS5_top#}</div>
@@ -82,7 +82,7 @@
 												<div class="lr_attributes_item"><strong>{$item_data.NAME}:</strong> {$item_data.VALUE_NAME}</div>
 											{/foreach}
 										</div>
-									{/if}        
+									{/if}
 									{if $module_data.PRODUCTS_SHORT_DESCRIPTION}<div class="lr_desc line-clamp lc-4">{$module_data.PRODUCTS_SHORT_DESCRIPTION}</div>{/if}
 								</div>
 								<hr class="d-block d-sm-none mb-0">

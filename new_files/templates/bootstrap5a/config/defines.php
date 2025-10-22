@@ -82,6 +82,9 @@ defined('BS5_PROD_DETAIL_SHOW_MANUIMAGE') or define('BS5_PROD_DETAIL_SHOW_MANUIM
 defined('BS5_PROD_LIST_BOX') or define('BS5_PROD_LIST_BOX', 'true'); // 'true' zeigt Artikel in Kategorie-Navigation (product_listing) als Box-Ansicht / 'false' zeigt Listen-Ansicht
 defined('BS5_PRODUCT_INFO_BOX') or define('BS5_PRODUCT_INFO_BOX', 'true'); // 'true' zeigt Cross-Selling-, Reverse-Cross-Selling- & Also-Purchased-Artikel auf Artikel-Detailseite als Box-Ansicht / 'false' zeigt als Listen-Ansicht
 
+// Animationen
+defined('BS5_USE_SCROLL_ENTRANCE_JS') or define('BS5_USE_SCROLL_ENTRANCE_JS', 'false'); // 'true' einzelne Abschnitte werden animiert sobald sie in den sichtbaren Bereich kommen
+defined('BS5_SCALE_IMGAGES_ON_HOVER') or define('BS5_SCALE_IMGAGES_ON_HOVER', 'false'); // 'true' Bilder werden beim Überfahren mit der Maus leicht skaliert / vergrößert
 // Flag "Neu", "TOP" und "Sonderangebot"
 defined('BS5_FLAG_NEW_SHOW') or define('BS5_FLAG_NEW_SHOW', 'true'); // true zeigt das Flag / false zeigt es nicht
 defined('BS5_FLAG_TOP_SHOW') or define('BS5_FLAG_TOP_SHOW', 'true'); // true zeigt das Flag / false zeigt es nicht

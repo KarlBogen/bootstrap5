@@ -375,7 +375,7 @@ ul.categorymenu a.active {
 .accordion label, label.stretched-link {
   cursor: pointer;
 }
-.accordion .form-check-input, #privacy.form-check-input {
+.accordion .form-check-input, #privacy.form-check-input, #conditions.form-check-input {
   border-color: var(--bs-secondary);
 }
 /* Gototop Button */
@@ -772,9 +772,14 @@ div[id^="trustbadge-container-"] {
     width:25%
   }
 }
+/* BOF Scroll Entrance is a lightweight JavaScript plugin to animate elements as the are scrolled into view */
+  .js [data-entrance] { visibility: hidden; }
+/* EOF Scroll Entrance */
 /* Produktbild skalieren bei Mauszeiger */
-/* Bereich auskommentiert
-.resCarousel .card:hover .prod_image img, .listingbox .card:hover .prod_image img, .listingrow.card:hover .prod_image img
+.scaleimg .cat .card:hover .cat_image img,
+.scaleimg .resCarousel .card:hover .prod_image img,
+.scaleimg .listingbox .card:hover .prod_image img,
+.scaleimg .listingrow.card:hover .prod_image img
 {
   -webkit-transform: scale(1);
   -moz-transform: scale(1);
@@ -782,7 +787,7 @@ div[id^="trustbadge-container-"] {
   -o-transform: scale(1);
   transform: scale(1);
 }
-.prod_image img {
+.scaleimg .prod_image img, .scaleimg .cat_image img {
   -webkit-transform: scale(0.95);
   -moz-transform: scale(0.95);
   -ms-transform: scale(0.95);
@@ -793,5 +798,4 @@ div[id^="trustbadge-container-"] {
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
-*/
 /* Ende Produktbild skalieren bei Mauszeiger */

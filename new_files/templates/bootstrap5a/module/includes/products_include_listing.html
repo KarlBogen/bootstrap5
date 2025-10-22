@@ -5,11 +5,11 @@
 {elseif (!isset($STARTPAGE) && $smarty.const.BS5_PRODUCT_LIST_BOX == 'true')}
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-2 mb-4">
       {foreach name=aussen item=module_data from=$module_content}
-        <div class="listingbox col">{include file="module/includes/product_box.html"}</div>
+        <div class="listingbox col" data-entrance="from-bottom">{include file="module/includes/product_box.html"}</div>
       {/foreach}
     </div>
 {else}
   {foreach name=aussen item=module_data from=$module_content}
-    {include file="module/includes/product_row.html"}    
+    {include file="module/includes/product_row.html"}
   {/foreach}
 {/if}

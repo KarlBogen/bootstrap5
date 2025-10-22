@@ -3,7 +3,7 @@
 	{config_load file="$language/lang_$language.conf" section="index"}
 	{config_load file="lang_`$language`.custom"}
 	{config_load file="lang_`$language`.section" section="new_products"}
-	<div id="bs5_TopCarousel" class="new-products-default mb-5">
+	<div id="bs5_TopCarousel" class="new-products-default mb-5" data-entrance="from-bottom">
 		{if $smarty.const.BS5_TOP_PROD_IN_SLIDER != 'true'}
 			<div class="d-flex justify-content-between border-bottom mb-3">
 				<div class="h2">

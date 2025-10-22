@@ -1,4 +1,4 @@
-	<div class="listingrow focus-ring card mb-2" tabindex="0" aria-label="{$module_data.PRODUCTS_NAME}">
+	<div class="listingrow focus-ring card mb-2" tabindex="0" aria-label="{$module_data.PRODUCTS_NAME}" data-entrance="from-bottom">
 		<div class="row mx-0">
      	{if $smarty.const.BS5_FLAG_SPECIAL_SHOW == 'true' && $module_data.PRODUCTS_PRICE_SAVE_PERCENT != ''}<div class="ribbon bg-danger text-white shadow-sm">{#BS5_special#}</div>
      	{elseif $smarty.const.BS5_FLAG_TOP_SHOW == 'true' && $module_data.PRODUCTS_STARTPAGE == '1'}<div class="ribbon bg-primary text-white shadow-sm">{#BS5_top#}</div>

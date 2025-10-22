@@ -348,6 +348,13 @@ $lang_array = array(
   'TEXT_BS5_TPL_MANAGER_CONFIG_TRAFFIC_LIGHTS_STOCK_GREEN_INFO' => 'Geben Sie hier den Wert ein, ab dem eine gr&uuml;ne Ampel anzeigt werden soll. Alle Werte darunter bis zum Minimum-Wert werden mit einer gelben Ampel versehen.',
 
   'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_MIXED' => 'Verschiedenes',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_USE_SCROLL_ENTRANCE_JS' => 'Abschnitte animieren:',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_USE_SCROLL_ENTRANCE_JS_INFO' => 'Sollen einzelne Abschnitte animiert werden sobald sie in den sichtbaren Bereich kommen?<br><br>
+    <strong>Hinweis:</strong><br>
+     Scrollt der Kunde im Shop nach unten und ein Abschnitt oder eine Box kommt an eine bestimmte Position, wird das Element von unten in den sichtbaren Bereich gebelndet.<br><br>
+     Eine kleine JavaScript-Datei wird geladen, damit die Position bzw. der sichtbare Bereich erkannt wird.',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_SCALE_IMGAGES_ON_HOVER' => 'Bilder skalieren:',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_SCALE_IMGAGES_ON_HOVER_INFO' => 'Sollen Bilder beim Überfahren mit der Maus leicht skaliert / vergrößert werden?',
   'TEXT_BS5_TPL_MANAGER_CONFIG_PICTURESET_ACTIVE' => 'Artikel-Thumbnails:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_PICTURESET_ACTIVE_INFO' => 'Sollen Artikel-Thumbnails mit Mini- bzw. Midibildern ersetzt werden?<br><br>
     <strong>Hinweis:</strong><br>

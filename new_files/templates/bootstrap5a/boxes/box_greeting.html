@@ -1,7 +1,7 @@
 {if (isset($TITLE) && $TITLE != '') || (isset($BOX_CONTENT) && $BOX_CONTENT != '')}
   {config_load file="$language/lang_$language.conf" section="boxes"}
   {config_load file="lang_`$language`.custom"}
-  <div class="box_greeting homesite mb-5">
+  <div class="box_greeting homesite mb-5" data-entrance="from-bottom">
     {if isset($TITLE)}
       <h1 class="border-bottom">{$TITLE}</h1>
     {/if}

@@ -25,7 +25,7 @@ class bs5_tpl_manager
   public function __construct()
   {
     $this->version = '1.1.16';
-    // Wichtiger Hinweis: bei Versionsänderung muss die Versionsnummer auch in admin/bs5_tpl_manager_config.php Zeile 111 geändert werden.
+    // Wichtiger Hinweis: bei Versionsänderung muss die Versionsnummer auch in admin/bs5_tpl_manager_config.php Zeile 112 geändert werden.
     // Wichtiger Hinweis: neu hinzugekommene Konstante in "config/config.php" eintragen.
     // if (!defined('MODULE_BS5_TPL_MANAGER_STATUS') || MODULE_BS5_TPL_MANAGER_STATUS != 'true' || !defined('BS5_SHOW_PAYPAL_IN_BOX_CART')) {
     // Damit wird die Fehlermeldung zu einer fehlenden Konstante vermieden!
@@ -316,6 +316,8 @@ class bs5_tpl_manager
     $values_config[] = "('BS5_PROD_DETAIL_SHOW_MANUIMAGE', 'true')";
     $values_config[] = "('BS5_PROD_LIST_BOX', 'true')";
     $values_config[] = "('BS5_PRODUCT_INFO_BOX', 'true')";
+    $values_config[] = "('BS5_USE_SCROLL_ENTRANCE_JS', 'false')";
+    $values_config[] = "('BS5_SCALE_IMGAGES_ON_HOVER', 'false')";
     $values_config[] = "('BS5_PICTURESET_ACTIVE', 'true')";
     $values_config[] = "('BS5_FLAG_NEW_SHOW', 'true')";
     $values_config[] = "('BS5_FLAG_TOP_SHOW', 'true')";

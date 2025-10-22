@@ -8,7 +8,7 @@
   {config_load file="lang_`$language`.custom"}
   {config_load file="lang_`$language`.section" section="cross_selling"}
   {foreach name=aussen item=xsell from=$BOX_CONTENT}
-    <div class="box_xsell mb-5">
+    <div class="box_xsell mb-5" data-entrance="from-bottom">
       <div class="d-flex justify-content-between border-bottom mb-3">
         <div class="h2">
           {if $xsell.GROUP != ''}{$xsell.GROUP}{else}{#heading_text#}{/if}

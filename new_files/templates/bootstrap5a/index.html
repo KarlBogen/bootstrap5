@@ -4,7 +4,7 @@
 {if isset($box_ADMIN)}{$box_ADMIN}{/if}
 
 {* BEGINN Hauptcontainer innerhalb body *}
-<div id="container" class="{$smarty.const.BS5_THEME} dm-{$display_mode}">
+<div id="container" class="{$smarty.const.BS5_THEME} dm-{$display_mode}{if $smarty.const.BS5_SCALE_IMGAGES_ON_HOVER == 'true'} scaleimg{/if}">
   <span id="focus" class="visually-hidden" tabindex="-1"></span>
 
   {if $display_mode != 'checkout'}
