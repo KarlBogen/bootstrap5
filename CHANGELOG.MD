@@ -1,5 +1,6 @@
 UNRELEASED
 
+- Update Bootstrap-Framework von 5.3.6 zu 5.3.8
 - CSS-Animation hinzugefügt, damit werden Bilder beim Überfahren mit der Maus leicht skaliert / vergrößert
 - JavaScript scroll-entrance.js hinzugefügt, damit werden einzelne Abschnitte animiert sobald sie in den sichtbaren Bereich kommen
 

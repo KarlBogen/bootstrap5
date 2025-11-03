@@ -534,6 +534,12 @@ legend {
 [type="search"] {
   -webkit-appearance: textfield; // 1
   outline-offset: -2px; // 2
+
+  // 3. Better affordance and consistent appearance for search cancel button
+  &::-webkit-search-cancel-button {
+    cursor: pointer;
+    filter: grayscale(1);
+  }
 }
 
 // 1. A few input types should stay LTR
@@ -541,6 +547,14 @@ legend {
 // 2. RTL only output
 // See https://rtlcss.com/learn/usage-guide/control-directives/#raw
 
+/* rtl:raw:
+[type="tel"],
+[type="url"],
+[type="email"],
+[type="number"] {
+  direction: ltr;
+}
+*/
 
 // Remove the inner padding in Chrome and Safari on macOS.
 
