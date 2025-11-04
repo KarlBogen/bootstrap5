@@ -1,9 +1,11 @@
 UNRELEASED
 
-- Update Bootstrap-Framework von 5.3.6 zu 5.3.8
-- CSS-Animation hinzugefügt, damit werden Bilder beim Überfahren mit der Maus leicht skaliert / vergrößert
-- JavaScript scroll-entrance.js hinzugefügt, damit werden einzelne Abschnitte animiert sobald sie in den sichtbaren Bereich kommen
 
+1.1.17 [04.11.2025]
+- Update Bootstrap-Framework von 5.3.6 zu 5.3.8
+- im Template Manager einstellbare, neu hinzugefügte Optionen
+<br> --- CSS-Animation hinzugefügt, damit werden Bilder beim Überfahren mit der Maus leicht skaliert / vergrößert
+<br> --- JavaScript scroll-entrance.js hinzugefügt, damit werden einzelne Abschnitte animiert sobald sie in den sichtbaren Bereich kommen
 
 1.1.16 [24.09.2025]
 - Update zu Shopversion 3.1.6
