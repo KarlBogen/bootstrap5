@@ -21,6 +21,7 @@ class bs5_tpl_manager
   public $enabled;
   public $_check;
   public $version;
+  public $properties;
 
   public function __construct()
   {
@@ -42,6 +43,7 @@ class bs5_tpl_manager
     $this->description .= MODULE_BS5_TPL_MANAGER_TEXT_DESCRIPTION;
     $this->sort_order = defined('MODULE_BS5_TPL_MANAGER_SORT_ORDER') ? MODULE_BS5_TPL_MANAGER_SORT_ORDER : 0;
     $this->enabled = ((defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS == 'true') ? true : false);
+    $this->properties = array('process_key' => false);
   }
 
   public function process($file) {}
@@ -756,6 +758,7 @@ class bs5_tpl_manager
         $messageStack->add_session(MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_ENTRY_REMOVED . TABLE_ADMIN_ACCESS, 'success');
       case $x > 2:
         xtc_db_query("DELETE FROM " . TABLE_CONFIGURATION . " WHERE configuration_key in ('" . implode("', '", $this->keys()) . "')");
+        xtc_db_query("DELETE FROM " . TABLE_CONFIGURATION . " WHERE configuration_key = 'MODULE_BS5_TPL_MANAGER_VERSION'");
         // Klassenerweiterungsmodul (bs5_checkifnewproduct.php) wird zeitgleich deinstalliert
         xtc_db_query("DELETE FROM " . TABLE_CONFIGURATION . " WHERE configuration_key LIKE 'MODULE_PRODUCT_BS5_CHECKIFNEWPRODUCT_%'");
         if (defined('MODULE_PRODUCT_INSTALLED')) {

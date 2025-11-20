@@ -1,6 +1,8 @@
 UNRELEASED
 
 
+- Änderung an Systemmoduldatei
+
 1.1.17 [04.11.2025]
 - Update Bootstrap-Framework von 5.3.6 zu 5.3.8
 - im Template Manager einstellbare, neu hinzugefügte Optionen
