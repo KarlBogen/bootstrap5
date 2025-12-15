@@ -1,69 +1,86 @@
 <?php
 /* ------------------------------------------------------------
-	Module "Bootstrap 5 Template-Manager" made by Karl
+  Module "Bootstrap 5 Template-Manager" made by Karl
 
-	modified eCommerce Shopsoftware
-	http://www.modified-shop.org
+  modified eCommerce Shopsoftware
+  http://www.modified-shop.org
 
-	Released under the GNU General Public License
+  Released under the GNU General Public License
 -------------------------------------------------------------- */
+
+if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS == 'true') {
+  // falls Produktbild 1 nicht gesetzt ist
+  if ($productDataArray['PRODUCTS_IMAGE'] == '') {
+    // prüfen, ob weitere Bilder existieren
+    if (!empty($more_images_data)) {
+      // Bild 1 wird ersetzt
+      $first_img = array_shift($more_images_data);
+
+      $info_smarty->clear_assign('PRODUCTS_IMAGE');
+      $info_smarty->clear_assign('more_images');
+
+      $info_smarty->assign('PRODUCTS_IMAGE', $first_img['PRODUCTS_IMAGE']);
+      $info_smarty->assign('more_images', $more_images_data);
+    }
+  }
+}
 
 // Zusatzmodul Billiger gesehen
 if (defined('BS5_CHEAPLY_SEE') && BS5_CHEAPLY_SEE == 'true') {
-	if ($request_type == 'NONSSL') {
-		$info_smarty->assign('PRODUCTS_CHEAPLY', '<a class="btn btn-sm btn-outline-secondary btn-block" title="'.BS5_TEXT_PRODUCTS_CHEAPLY.'" rel="nofollow" href="'.xtc_href_link(BS5_FILENAME_CHEAPLY_SEE, 'pID='.$product->data['products_id'].'&'.xtc_product_link($product->data['products_id'],$product->data['products_name']).'&view=nonssl').'"><span><span class="fa fa-envelope me-2"></span><span>'.BS5_TEXT_PRODUCTS_CHEAPLY.'</span></span></a>');
-	} else {
-		$info_smarty->assign('PRODUCTS_CHEAPLY', '<a class="iframe btn btn-sm btn-outline-secondary btn-block" title="'.BS5_TEXT_PRODUCTS_CHEAPLY.'" href="'.xtc_href_link(BS5_FILENAME_CHEAPLY_SEE, 'pID='.$product->data['products_id'].'&'.xtc_product_link($product->data['products_id'],$product->data['products_name'])).'"><span><span class="fa fa-envelope me-2"></span><span>'.BS5_TEXT_PRODUCTS_CHEAPLY.'</span></span></a>');
-	}
+  if ($request_type == 'NONSSL') {
+    $info_smarty->assign('PRODUCTS_CHEAPLY', '<a class="btn btn-sm btn-outline-secondary btn-block" title="' . BS5_TEXT_PRODUCTS_CHEAPLY . '" rel="nofollow" href="' . xtc_href_link(BS5_FILENAME_CHEAPLY_SEE, 'pID=' . $product->data['products_id'] . '&' . xtc_product_link($product->data['products_id'], $product->data['products_name']) . '&view=nonssl') . '"><span><span class="fa fa-envelope me-2"></span><span>' . BS5_TEXT_PRODUCTS_CHEAPLY . '</span></span></a>');
+  } else {
+    $info_smarty->assign('PRODUCTS_CHEAPLY', '<a class="iframe btn btn-sm btn-outline-secondary btn-block" title="' . BS5_TEXT_PRODUCTS_CHEAPLY . '" href="' . xtc_href_link(BS5_FILENAME_CHEAPLY_SEE, 'pID=' . $product->data['products_id'] . '&' . xtc_product_link($product->data['products_id'], $product->data['products_name'])) . '"><span><span class="fa fa-envelope me-2"></span><span>' . BS5_TEXT_PRODUCTS_CHEAPLY . '</span></span></a>');
+  }
 }
 // Zusatzmodul Frage zum Produkt
 if (defined('BS5_PRODUCT_INQUIRY') && BS5_PRODUCT_INQUIRY == 'true') {
-	if ($request_type == 'NONSSL') {
-		$info_smarty->assign('PRODUCT_INQUIRY', '<a class="btn btn-sm btn-outline-secondary btn-block" title="'.BS5_TEXT_PRODUCT_INQUIRY.'" rel="nofollow" href="'.xtc_href_link(BS5_FILENAME_PRODUCT_INQUIRY, 'pID='.$product->data['products_id'].'&'.xtc_product_link($product->data['products_id'],$product->data['products_name']).'&view=nonssl').'"><span><span class="fa fa-envelope me-2"></span><span>'.BS5_TEXT_PRODUCT_INQUIRY.'</span></span></a>');
-	} else {
-		$info_smarty->assign('PRODUCT_INQUIRY', '<a class="iframe btn btn-sm btn-outline-secondary btn-block" title="'.BS5_TEXT_PRODUCT_INQUIRY.'" href="'.xtc_href_link(BS5_FILENAME_PRODUCT_INQUIRY, 'pID='.$product->data['products_id'].'&'.xtc_product_link($product->data['products_id'],$product->data['products_name'])).'"><span><span class="fa fa-envelope me-2"></span><span>'.BS5_TEXT_PRODUCT_INQUIRY.'</span></span></a>');
-	}
+  if ($request_type == 'NONSSL') {
+    $info_smarty->assign('PRODUCT_INQUIRY', '<a class="btn btn-sm btn-outline-secondary btn-block" title="' . BS5_TEXT_PRODUCT_INQUIRY . '" rel="nofollow" href="' . xtc_href_link(BS5_FILENAME_PRODUCT_INQUIRY, 'pID=' . $product->data['products_id'] . '&' . xtc_product_link($product->data['products_id'], $product->data['products_name']) . '&view=nonssl') . '"><span><span class="fa fa-envelope me-2"></span><span>' . BS5_TEXT_PRODUCT_INQUIRY . '</span></span></a>');
+  } else {
+    $info_smarty->assign('PRODUCT_INQUIRY', '<a class="iframe btn btn-sm btn-outline-secondary btn-block" title="' . BS5_TEXT_PRODUCT_INQUIRY . '" href="' . xtc_href_link(BS5_FILENAME_PRODUCT_INQUIRY, 'pID=' . $product->data['products_id'] . '&' . xtc_product_link($product->data['products_id'], $product->data['products_name'])) . '"><span><span class="fa fa-envelope me-2"></span><span>' . BS5_TEXT_PRODUCT_INQUIRY . '</span></span></a>');
+  }
 }
 /* ------------------------------------------------------------
-	Module "Kundenerinnerung Modified Shop 3.0.2 mit Opt-in" made by Karl
+  Module "Kundenerinnerung Modified Shop 3.0.2 mit Opt-in" made by Karl
 
-	Based on: Kundenerinnerung_Multilingual_advanced_modified-shop-1.06
-	Based on: xt-module.de customers remind
-	erste Anpassung von: Fishnet Services - Gemsjäger 30.03.2012
-	Zusatzfunktionen eingefügt sowie Fehler beseitigt von Ralph_84
-	Aufgearbeitet für die Modified 1.06 rev4356 von Ralph_84
+  Based on: Kundenerinnerung_Multilingual_advanced_modified-shop-1.06
+  Based on: xt-module.de customers remind
+  erste Anpassung von: Fishnet Services - Gemsjäger 30.03.2012
+  Zusatzfunktionen eingefügt sowie Fehler beseitigt von Ralph_84
+  Aufgearbeitet für die Modified 1.06 rev4356 von Ralph_84
 
-	modified eCommerce Shopsoftware
-	http://www.modified-shop.org
+  modified eCommerce Shopsoftware
+  http://www.modified-shop.org
 
-	Released under the GNU General Public License
+  Released under the GNU General Public License
 -------------------------------------------------------------- */
 
 if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
-// prüft, ob Bestand kleiner 1 - wenn ja, dann Button hinzufügen
+  // prüft, ob Bestand kleiner 1 - wenn ja, dann Button hinzufügen
 
-	if ($product->data['products_quantity'] <= 0) {
+  if ($product->data['products_quantity'] <= 0) {
 
-		$remindlink = '';
-		$remindlink .= '<p class="text-danger mb-1">' . BS5_CUSTOMERS_REMIND_NOTE . '</p>'."\n";
+    $remindlink = '';
+    $remindlink .= '<p class="text-danger mb-1">' . BS5_CUSTOMERS_REMIND_NOTE . '</p>' . "\n";
 
-		$products_qty = '<input type="hidden" value="1" name="products_qty">';
+    $products_qty = '<input type="hidden" value="1" name="products_qty">';
 
-		if ($request_type == 'NONSSL') {
-			$remindlink .= '<a class="btn btn-secondary btn-block" title="'.BS5_CUSTOMERS_REMIND_LINK_TEXT.'" rel="nofollow" href="'.xtc_href_link(FILENAME_BS5_CUSTOMERS_REMIND, 'pID='.$product->data['products_id'].'&'.xtc_product_link($product->data['products_id'],$product->data['products_name']).'&view=nonssl').'"><span><span class="fa fa-envelope me-2"></span><span>'.BS5_CUSTOMERS_REMIND_LINK_TEXT.'</span></span></a>';
-		} else {
-			$remindlink .= '<a class="iframe btn btn-secondary btn-block" title="'.BS5_CUSTOMERS_REMIND_LINK_TEXT.'" href="'.xtc_href_link(FILENAME_BS5_CUSTOMERS_REMIND, 'pID='.$product->data['products_id'].'&'.xtc_product_link($product->data['products_id'],$product->data['products_name'])).'"><span><span class="fa fa-envelope me-2"></span><span>'.BS5_CUSTOMERS_REMIND_LINK_TEXT.'</span></span></a>';
-		}
+    if ($request_type == 'NONSSL') {
+      $remindlink .= '<a class="btn btn-secondary btn-block" title="' . BS5_CUSTOMERS_REMIND_LINK_TEXT . '" rel="nofollow" href="' . xtc_href_link(FILENAME_BS5_CUSTOMERS_REMIND, 'pID=' . $product->data['products_id'] . '&' . xtc_product_link($product->data['products_id'], $product->data['products_name']) . '&view=nonssl') . '"><span><span class="fa fa-envelope me-2"></span><span>' . BS5_CUSTOMERS_REMIND_LINK_TEXT . '</span></span></a>';
+    } else {
+      $remindlink .= '<a class="iframe btn btn-secondary btn-block" title="' . BS5_CUSTOMERS_REMIND_LINK_TEXT . '" href="' . xtc_href_link(FILENAME_BS5_CUSTOMERS_REMIND, 'pID=' . $product->data['products_id'] . '&' . xtc_product_link($product->data['products_id'], $product->data['products_name'])) . '"><span><span class="fa fa-envelope me-2"></span><span>' . BS5_CUSTOMERS_REMIND_LINK_TEXT . '</span></span></a>';
+    }
 
-		$info_smarty->clear_assign('ADD_QTY');
-		$info_smarty->clear_assign('ADD_CART_BUTTON');
-		$info_smarty->clear_assign('ADD_CART_BUTTON_EXPRESS');
-		$info_smarty->clear_assign('ADD_CART_BUTTON_PAYPAL');
-		$info_smarty->clear_assign('PAYPAL_INSTALLMENT');
-		$info_smarty->clear_assign('EASYCREDIT');
+    $info_smarty->clear_assign('ADD_QTY');
+    $info_smarty->clear_assign('ADD_CART_BUTTON');
+    $info_smarty->clear_assign('ADD_CART_BUTTON_EXPRESS');
+    $info_smarty->clear_assign('ADD_CART_BUTTON_PAYPAL');
+    $info_smarty->clear_assign('PAYPAL_INSTALLMENT');
+    $info_smarty->clear_assign('EASYCREDIT');
 
-		$info_smarty->assign('ADD_QTY', $products_qty . ' ' . $add_pid_to_qty);
-		$info_smarty->assign('ADD_QTY_HIDDEN', true);
-		$info_smarty->assign('ADD_CART_BUTTON', $remindlink);
-	}
+    $info_smarty->assign('ADD_QTY', $products_qty . ' ' . $add_pid_to_qty);
+    $info_smarty->assign('ADD_QTY_HIDDEN', true);
+    $info_smarty->assign('ADD_CART_BUTTON', $remindlink);
+  }
 }

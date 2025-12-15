@@ -8,7 +8,7 @@
   {$FORM_ACTION}
     <div id="product_details" class="clearfix">
 
-      <div class="pd_title col-md-6 float-md-end ps-md-2 mb-4">
+      <div class="pd_title col-md-6 float-md-{if $PRODUCTS_IMAGE!=''}end{else}start{/if} ps-md-2 mb-4">
         <div class="position-relative mb-3">
           {if isset($MANUFACTURER) && $MANUFACTURER != ''}
             <div class="pd_manu" itemprop="brand" itemscope itemtype="https://schema.org/Brand">
@@ -83,8 +83,8 @@
         {/if}
       </div>
 
-      <div class="pd_imagebox col-md-6 float-md-start pe-md-2 mb-4">
-        {if $PRODUCTS_IMAGE!=''}
+      {if $PRODUCTS_IMAGE!=''}
+        <div class="pd_imagebox col-md-6 float-md-start pe-md-2 mb-4">
           <div>
             <div id="ImgCarousel" class="resCarousel position-relative w-100 it1" data-items="1-1-1-1-1" data-slide="1" data-speed="900" aria-label="{#BS5_img_carousel#}">
               <div class="visually-hidden">{#BS5_img_carousel_info#}</div>
@@ -115,8 +115,8 @@
             {include file="module/includes/product_more_images.html"}
           </div>
           <div id="zoomtext" class="small text-secondary-emphasis mb-5">{#BS5_zoomtext#}</div>
-        {/if}
-      </div>
+        </div>
+      {/if}
 
       <div class="pd_content col-md-6 float-md-end ps-md-2 mb-4">
         <div class="pd_offer" itemprop="offers" itemscope itemtype="http://schema.org/Offer">

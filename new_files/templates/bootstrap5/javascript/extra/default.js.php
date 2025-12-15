@@ -191,7 +191,7 @@
   $(function() {
     if ($('#subnav').is(":visible")) {
       if ($('#subnav').height() > (window.innerHeight - 80)) {
-        $('#subnav').css('position','static');
+        $('#subnav').css('position', 'static');
       }
     }
   });
@@ -372,28 +372,30 @@
       }
       <?php if (BS5_USE_VIEWERJS == 'true') { ?>
         var pd_viewer = document.getElementById('pd_viewer');
-        var viewer = new Viewer(pd_viewer, {
-          url: 'data-org',
-          title: [1, (image, imageData) => `${image.alt}`],
-          maxZoomRatio: 1,
-          zIndex: 100001,
-          transition: true,
-          toolbar: {
-            zoomIn: 1,
-            reset: 1,
-            zoomOut: 1,
-            prev: 1,
-            next: 1,
-          },
-          shown() {
-            document.querySelector(".viewer-zoom-in").classList.add("fa", "fa-magnifying-glass-plus", "btn", "btn-secondary", "mx-2");
-            document.querySelector(".viewer-reset").classList.add("fa", "fa-magnifying-glass", "btn", "btn-secondary");
-            document.querySelector(".viewer-zoom-out").classList.add("fa", "fa-magnifying-glass-minus", "btn", "btn-secondary", "mx-2");
-            document.querySelector(".viewer-prev").classList.add("fa", "fa-chevron-left", "btn", "btn-secondary");
-            document.querySelector(".viewer-next").classList.add("fa", "fa-chevron-right", "btn", "btn-secondary");
-            document.querySelector(".viewer-close").classList.add("fa", "fa-xmark", "btn", "btn-secondary");
-          },
-        });
+        if (pd_viewer) {
+          var viewer = new Viewer(pd_viewer, {
+            url: 'data-org',
+            title: [1, (image, imageData) => `${image.alt}`],
+            maxZoomRatio: 1,
+            zIndex: 100001,
+            transition: true,
+            toolbar: {
+              zoomIn: 1,
+              reset: 1,
+              zoomOut: 1,
+              prev: 1,
+              next: 1,
+            },
+            shown() {
+              document.querySelector(".viewer-zoom-in").classList.add("fa", "fa-magnifying-glass-plus", "btn", "btn-secondary", "mx-2");
+              document.querySelector(".viewer-reset").classList.add("fa", "fa-magnifying-glass", "btn", "btn-secondary");
+              document.querySelector(".viewer-zoom-out").classList.add("fa", "fa-magnifying-glass-minus", "btn", "btn-secondary", "mx-2");
+              document.querySelector(".viewer-prev").classList.add("fa", "fa-chevron-left", "btn", "btn-secondary");
+              document.querySelector(".viewer-next").classList.add("fa", "fa-chevron-right", "btn", "btn-secondary");
+              document.querySelector(".viewer-close").classList.add("fa", "fa-xmark", "btn", "btn-secondary");
+            },
+          });
+        }
       <?php } ?>
     });
   <?php } ?>

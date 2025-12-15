@@ -1,6 +1,10 @@
 UNRELEASED
 
 
+- Fehlermeldung durch SMARTY_MODIFIER_IMGSIZE, wenn Modul Timestamp für Artikelbilder aktiviert ist - behoben
+- ist kein Artikelbild 1 gespeichert wird das erste weitere Artikelbild (falls vorhanden) eingesetzt
+- Änderung an Templatedateien "product_info..."
+- JavaScript Fehlermeldung viewer.js, wenn kein Artikelbild 1 gespeichert ist - behoben
 - Änderung an Systemmoduldatei
 
 1.1.17 [04.11.2025]
