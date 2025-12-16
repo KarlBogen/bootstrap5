@@ -110,20 +110,23 @@ class bs5_checkifnewproduct
     if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS == 'true') {
       // falls Produktbild 1 nicht gesetzt ist
       if ($productData['PRODUCTS_IMAGE'] == '') {
+        if (strpos($_SERVER['PHP_SELF'], 'product_info.php') === false) {
 
-        global $product;
+          global $product;
 
-        require_once(DIR_FS_INC . 'xtc_get_products_mo_images.inc.php');
-        // prüfen, ob weitere Bilder existieren
-        $mo_images = xtc_get_products_mo_images($array['products_id']);
-        if ($mo_images != false) {
-          // erstes Bild auswählen
-          $first_img = array_shift($mo_images);
-          // Produktbild ersetzen
-          $productData['PRODUCTS_IMAGE'] = $product->productImage($first_img['image_name'], 'thumbnail');
+          require_once(DIR_FS_INC . 'xtc_get_products_mo_images.inc.php');
+          // prüfen, ob weitere Bilder existieren
+          $mo_images = xtc_get_products_mo_images($array['products_id']);
+          if ($mo_images != false) {
+            // erstes Bild auswählen
+            $first_img = array_shift($mo_images);
+            // Produktbild ersetzen
+            $productData['PRODUCTS_IMAGE'] = $product->productImage($first_img['image_name'], 'thumbnail');
+          }
         }
       }
     }
+
 
     return $productData;
   }
