@@ -199,7 +199,7 @@ defined('BS5_SHOW_PAYPAL_IN_BOX_CART') or define('BS5_SHOW_PAYPAL_IN_BOX_CART', 
 defined('BS5_SHOW_BOX_INFO') or define('BS5_SHOW_BOX_INFO', 'true'); // Box Info Kundengruppe innerhalb Box Account Mein Konto anzeigen = 'true', nicht anzeigen = 'false'
 
 // BS5 Banner Manger
-defined('BS_DEFAULT_BANNER_SETTINGS') or define('BS_DEFAULT_BANNER_SETTINGS', 'n,btn-primary,n,j1,bg-white,n,4000'); // Standardwerteschema 'Controls(n,j1,j2),Controlsclass(Bootstrap-Btn-Klassen),Controlsrounded(n,j),Indicators(n,j1,j2),Indicatorsclass(Bootstrap-Btn-Klassen),Indicatorsrounded(n,j),Sliderduration(4000,5000... Millisekunden)'
+defined('BS5_DEFAULT_BANNER_SETTINGS') or define('BS5_DEFAULT_BANNER_SETTINGS', 'j1,btn-outline-light,n,j1,bg-light,n,0'); // Standardwerteschema 'Controls(n,j1,j2),Controlsclass(Bootstrap-Btn-Klassen),Controlsrounded(n,j),Indicators(n,j1,j2),Indicatorsclass(Bootstrap-Btn-Klassen),Indicatorsrounded(n,j),Sliderduration(4000,5000... Millisekunden)'
 
 
 // Bootstrap-Theme
