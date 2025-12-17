@@ -8,9 +8,9 @@
   Released under the GNU General Public License
 -------------------------------------------------------------- */
 
-if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS == 'true') {
+if ($productDataArray['PRODUCTS_IMAGE'] == '') {
   // falls Produktbild 1 nicht gesetzt ist
-  if ($productDataArray['PRODUCTS_IMAGE'] == '') {
+  if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS == 'true') {
     // prüfen, ob weitere Bilder existieren
     if (!empty($more_images_data)) {
       // Bild 1 wird ersetzt

@@ -107,9 +107,9 @@ class bs5_checkifnewproduct
       $productData = array_merge($productData, $DataArray);
     }
 
-    if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS == 'true') {
+    if ($productData['PRODUCTS_IMAGE'] == '') {
       // falls Produktbild 1 nicht gesetzt ist
-      if ($productData['PRODUCTS_IMAGE'] == '') {
+      if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS == 'true') {
         if (strpos($_SERVER['PHP_SELF'], 'product_info.php') === false) {
 
           global $product;
