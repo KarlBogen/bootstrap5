@@ -245,7 +245,7 @@ if ($messageStack->size('cheaply_see') > 0) {
 
 // ANREDE
 $gender_selected = $error ? $gender : (isset($_SESSION["customer_gender"]) ? $_SESSION["customer_gender"] : '');
-$select_gender = xtc_draw_pull_down_menu('gender', get_customers_gender(), $gender_selected, 'id="gender" class="form-select"');
+$select_gender = xtc_draw_pull_down_menu('gender', get_customers_gender(), $gender_selected, 'id="gender" class="form-select" autocomplete="sex"');
 
 // FORMULAR
 $view = '';
@@ -258,9 +258,9 @@ if (!isset($_SESSION['customer_id']) || MODULE_CAPTCHA_LOGGED_IN == 'True') {
 	$smarty->assign('INPUT_CODE', $mod_captcha->get_input_code());
 }
 $smarty->assign('SELECT_GENDER', $select_gender);
-$smarty->assign('INPUT_FIRSTNAME', xtc_draw_input_field('firstname', ($error ? $_POST['firstname'] : (isset($_SESSION["customer_first_name"]) ? $_SESSION["customer_first_name"] : '')), 'id="firstname" class="form-control"'));
-$smarty->assign('INPUT_LASTNAME', xtc_draw_input_field('lastname', ($error ? $_POST['lastname'] : (isset($_SESSION["customer_last_name"]) ? $_SESSION["customer_last_name"] : '')), 'id="lastname" class="form-control"'));
-$smarty->assign('INPUT_EMAIL', xtc_draw_input_field('email', ($error ? $_POST['email'] : (isset($_SESSION["customer_email_address"]) ? $_SESSION["customer_email_address"] : '')), 'id="email" class="form-control"'));
+$smarty->assign('INPUT_FIRSTNAME', xtc_draw_input_field('firstname', ($error ? $_POST['firstname'] : (isset($_SESSION["customer_first_name"]) ? $_SESSION["customer_first_name"] : '')), 'id="firstname" class="form-control" autocomplete="given-name"'));
+$smarty->assign('INPUT_LASTNAME', xtc_draw_input_field('lastname', ($error ? $_POST['lastname'] : (isset($_SESSION["customer_last_name"]) ? $_SESSION["customer_last_name"] : '')), 'id="lastname" class="form-control" autocomplete="family-name"'));
+$smarty->assign('INPUT_EMAIL', xtc_draw_input_field('email', ($error ? $_POST['email'] : (isset($_SESSION["customer_email_address"]) ? $_SESSION["customer_email_address"] : '')), 'id="email" class="form-control" autocomplete="email"'));
 $smarty->assign('SELECT_SUBJECT', xtc_draw_input_field('subject', BS5_CONTACT_SUBJECT_4, 'id="subject" class="form-control" disabled readonly'));
 $smarty->assign('INPUT_COMPETITOR_URL', xtc_draw_input_field('competitorurl', ($error ? $_POST['competitorurl'] : ''), 'id="competitorurl" class="form-control"'));
 $smarty->assign('INPUT_COMPETITOR_PRICE', xtc_draw_input_field('competitorprice', ($error ? $_POST['competitorprice'] : ''), 'id="competitorprice" class="form-control"'));

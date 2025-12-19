@@ -1,6 +1,6 @@
 <?php
   /* ---------------------------------------------------------------------------------------
-   $Id$
+   $Id: close_ul_tags.inc.php 15291 2023-07-06 11:46:25Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org

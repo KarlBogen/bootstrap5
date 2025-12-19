@@ -1,48 +1,53 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   $Id: infobox.php 15291 2023-07-06 11:46:25Z GTB $
+   $Id: infobox.php 16697 2025-12-10 10:35:04Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
 
    Copyright (c) 2009 - 2013 [www.modified-shop.org]
    -----------------------------------------------------------------------------------------
-   Released under the GNU General Public License 
+   Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-  // include smarty
-  include(DIR_FS_BOXES_INC . 'smarty_default.php');
+// include smarty
+include(DIR_FS_BOXES_INC . 'smarty_default.php');
 
-  // set cache id
-  $cache_id = md5('lID:'.$_SESSION['language'].'|csID:'.$_SESSION['customers_status']['customers_status_id']);
+// set cache id
+$cache_id = md5('lID:' . $_SESSION['language'] . '|csID:' . $_SESSION['customers_status']['customers_status_id']);
 
-  if (!$box_smarty->is_cached(CURRENT_TEMPLATE.'/boxes/box_infobox.html', $cache_id) || !$cache) {
+if (!$box_smarty->is_cached(CURRENT_TEMPLATE . '/boxes/box_infobox.html', $cache_id) || !$cache) {
 
-    $box_content = '';
-    if ($_SESSION['customers_status']['customers_status_image'] != '') {
-      //$box_content .= xtc_image('images/icons/' . $_SESSION['customers_status']['customers_status_image']) . '<br>';
-    }
-
-    $box_content .= BOX_LOGINBOX_STATUS . ' <strong>' . $_SESSION['customers_status']['customers_status_name'] . '</strong>';
-
-    if ($_SESSION['customers_status']['customers_status_show_price'] == 0) {
-      $box_content .= '<span class="small">';
-      $box_content .= '<br>' . NOT_ALLOWED_TO_SEE_PRICES_TEXT;
-      $box_content .= '</span>';
-    } else {
-      $box_content .= '<span class="small">';
-      if ($_SESSION['customers_status']['customers_status_discount'] != '0.00') {
-        $box_content .= '<br>' . BOX_LOGINBOX_DISCOUNT . ' ' . $_SESSION['customers_status']['customers_status_discount'] . '%';
-      }
-      if ($_SESSION['customers_status']['customers_status_ot_discount_flag'] == 1 && $_SESSION['customers_status']['customers_status_ot_discount'] != '0.00') {
-        $box_content .= '<br>' . BOX_LOGINBOX_DISCOUNT_TEXT . ' ' . $_SESSION['customers_status']['customers_status_ot_discount'] . ' % ' . BOX_LOGINBOX_DISCOUNT_OT . '';
-      }
-      $box_content .= '</span>';
-    }
-
-    $box_smarty->assign('BOX_CONTENT', $box_content);
+  $box_content = '';
+  if ($_SESSION['customers_status']['customers_status_image'] != '') {
+    //$box_content .= xtc_image('images/icons/' . $_SESSION['customers_status']['customers_status_image']) . '<br>';
   }
 
-  $box_infobox = $box_smarty->fetch(CURRENT_TEMPLATE.'/boxes/box_infobox.html', $cache_id);
+  $box_content .= BOX_LOGINBOX_STATUS . ' <strong>' . $_SESSION['customers_status']['customers_status_name'] . '</strong>';
 
-  $smarty->assign('box_INFOBOX', $box_infobox);
+  if ($_SESSION['customers_status']['customers_status_show_price'] == 0) {
+    $box_content .= '<span class="small">';
+    $box_content .= '<br>' . NOT_ALLOWED_TO_SEE_PRICES_TEXT;
+    $box_content .= '</span>';
+  } else {
+    $box_content .= '<span class="small">';
+    if ($_SESSION['customers_status']['customers_status_discount'] != '0.00') {
+      $box_content .= '<br>' . BOX_LOGINBOX_DISCOUNT . ' ' . $_SESSION['customers_status']['customers_status_discount'] . '%';
+    }
+    if (
+      $_SESSION['customers_status']['customers_status_ot_discount_flag'] == '1'
+      && $_SESSION['customers_status']['customers_status_ot_discount'] != '0.00'
+      && defined('MODULE_ORDER_TOTAL_DISCOUNT_STATUS')
+      && MODULE_ORDER_TOTAL_DISCOUNT_STATUS == 'true'
+    ) {
+      $box_content .= '<br>' . BOX_LOGINBOX_DISCOUNT_TEXT . ' ' . $_SESSION['customers_status']['customers_status_ot_discount'] . ' % ' . BOX_LOGINBOX_DISCOUNT_OT . '';
+    }
+    $box_content .= '</span>';
+  }
+
+  $box_smarty->assign('BOX_CONTENT', $box_content);
+}
+
+$box_infobox = $box_smarty->fetch(CURRENT_TEMPLATE . '/boxes/box_infobox.html', $cache_id);
+
+$smarty->assign('box_INFOBOX', $box_infobox);

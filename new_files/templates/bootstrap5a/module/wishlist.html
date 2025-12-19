@@ -29,7 +29,7 @@
 											{/if}
 										</div>
 									</div>
-									<h2 class="lb_title fs-5 text-secondary-emphasis mt-2 mb-0"><a class="stretched-link link-secondary{if $smarty.const.BS5_PRODBOX_NAME_LINES != 0}  line-clamp lc-{$smarty.const.BS5_PRODBOX_NAME_LINES}{/if}" href="{$module_data.PRODUCTS_LINK}" title="{$module_data.PRODUCTS_NAME|onlytext}">{$module_data.PRODUCTS_NAME}</a></h2>
+									<div class="lb_title h2 fs-5 text-secondary-emphasis mt-2 mb-0"><a class="stretched-link link-secondary{if $smarty.const.BS5_PRODBOX_NAME_LINES != 0}  line-clamp lc-{$smarty.const.BS5_PRODBOX_NAME_LINES}{/if}" href="{$module_data.PRODUCTS_LINK}" title="{$module_data.PRODUCTS_NAME|onlytext}">{$module_data.PRODUCTS_NAME}</a></div>
 									{if is_array($module_data.ATTRIBUTES) && count($module_data.ATTRIBUTES) > 0}
 										<div class="lb_attributes small mt-2">
 											{foreach key=key_data item=item_data from=$module_data.ATTRIBUTES}
@@ -74,7 +74,7 @@
 							</div>
 							<div class="card-body lr_content col-12 col-lg-6 order-sm-last">
 								<hr class="d-block d-lg-none mt-0">
-								<h2 class="lr_title fs-5 mb-2"><a class="stretched-link link-secondary" href="{$module_data.PRODUCTS_LINK}" title="{$module_data.PRODUCTS_NAME|onlytext}">{$module_data.PRODUCTS_NAME}</a></h2>
+								<div class="lr_title h2 fs-5 mb-2"><a class="stretched-link link-secondary" href="{$module_data.PRODUCTS_LINK}" title="{$module_data.PRODUCTS_NAME|onlytext}">{$module_data.PRODUCTS_NAME}</a></div>
 								<div class="lr_desc_box mb-2">
 									{if is_array($module_data.ATTRIBUTES) && count($module_data.ATTRIBUTES) > 0}
 										<div class="lr_attributes small mt-2">

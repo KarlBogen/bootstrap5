@@ -16,7 +16,7 @@
 			</div>
 			<div class="card-body lr_content col-12 col-lg-6 order-sm-last">
 				<hr class="d-block d-lg-none mt-0">
-				<h2 class="lr_title fs-5 text-secondary-emphasis mb-1">{$module_data.PRODUCTS_NAME}</h2>
+				<div class="lr_title h2 fs-5 text-secondary-emphasis mb-1">{$module_data.PRODUCTS_NAME}</div>
 				{if $smarty.const.BS5_AWIDSRATINGBREAKDOWN == 'true' && ((isset($module_data.BS5_AWIDS_PRODUCTS_SUM_REVIEWS) && $module_data.BS5_AWIDS_PRODUCTS_SUM_REVIEWS > 0 || $smarty.const.BS5_AWIDSRATINGBREAKDOWN_SHOW_NULL_REVIEWS == 'true') && $smarty.const.BS5_AWIDSRATINGBREAKDOWN_PRODLIST == 'true')}
 					<div class="lr_ratings mb-3 small">
 						{if $module_data.BS5_AWIDS_PRODUCTS_SUM_REVIEWS > 0}

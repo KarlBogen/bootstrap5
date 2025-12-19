@@ -1,13 +1,13 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   $Id: newsletter.php 15291 2023-07-06 11:46:25Z GTB $
+   $Id: newsletter.php 16630 2025-11-16 11:05:19Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
 
    Copyright (c) 2009 - 2013 [www.modified-shop.org]
    -----------------------------------------------------------------------------------------
-   Released under the GNU General Public License 
+   Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
   // include smarty

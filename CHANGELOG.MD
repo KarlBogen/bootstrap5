@@ -1,6 +1,10 @@
 UNRELEASED
 
 
+
+
+1.1.18 [19.12.2025]
+- Update zu Shopversion 3.2.0
 - Schreibfehler in define.php - behoben
 - Fehlermeldung durch SMARTY_MODIFIER_IMGSIZE, wenn Modul Timestamp für Artikelbilder aktiviert ist - behoben
 - ist kein Artikelbild 1 gespeichert wird das erste weitere Artikelbild (falls vorhanden) eingesetzt

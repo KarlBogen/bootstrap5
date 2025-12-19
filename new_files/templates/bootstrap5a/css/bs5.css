@@ -567,8 +567,11 @@ textarea#message {
 a:hover {
     text-decoration: none;
 }
-#container {
+body {
 	overflow-x:hidden;
+}
+#container {
+	/* overflow-x:hidden; */
   width: 100%;
 }
 .sitemaplist ul {

@@ -1,13 +1,13 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   $Id: login.php 16178 2024-10-15 12:23:58Z Markus $
+   $Id: login.php 16630 2025-11-16 11:05:19Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
 
    Copyright (c) 2009 - 2013 [www.modified-shop.org]
    -----------------------------------------------------------------------------------------
-   Released under the GNU General Public License 
+   Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
   // include smarty
@@ -16,10 +16,10 @@
   if (!isset($_SESSION['customer_id'])) {
     // include needed functions
     require_once (DIR_FS_INC.'xtc_draw_password_field.inc.php');
-  
+
     $box_smarty->assign('FORM_ACTION', xtc_draw_form('loginbox', xtc_href_link(FILENAME_LOGIN, 'action=process', 'SSL'), 'post', 'class="box-login"'));
     $box_smarty->assign('FIELD_EMAIL', xtc_draw_input_field('email_address', '', 'id="email" class="form-control" aria-label="email" autocomplete="email"'));
-    $box_smarty->assign('FIELD_PWD', xtc_draw_password_field('password', '', 'id="pw" class="form-control" aria-label="password"'));
+    $box_smarty->assign('FIELD_PWD', xtc_draw_password_field('password', '', 'id="pw" class="form-control" aria-label="password" autocomplete="current-password"'));
     $box_smarty->assign('BUTTON', xtc_image_submit('button_login_small.gif', IMAGE_BUTTON_LOGIN));
     $box_smarty->assign('LINK_LOST_PASSWORD', xtc_href_link(FILENAME_PASSWORD_DOUBLE_OPT, '', 'SSL'));
     $box_smarty->assign('LINK_CREATE_ACCOUNT', xtc_href_link(FILENAME_CREATE_ACCOUNT, '', 'SSL'));
@@ -45,5 +45,5 @@
 
   $box_smarty->caching = 0;
   $box_login = $box_smarty->fetch(CURRENT_TEMPLATE.'/boxes/box_login.html');
-  
+
   $smarty->assign('box_LOGIN', $box_login);

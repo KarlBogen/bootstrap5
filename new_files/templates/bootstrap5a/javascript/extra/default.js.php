@@ -226,22 +226,18 @@
   if (basename($PHP_SELF) != FILENAME_SHOPPING_CART && strpos($PHP_SELF, 'checkout') === false) {
   ?>
     $(function() {
-      <?php if (DISPLAY_CART == 'false' && isset($_SESSION['new_products_id_in_cart'])) {
-        unset($_SESSION['new_products_id_in_cart']); ?>
+      <?php if (DISPLAY_CART == 'false' && isset($_SESSION['new_products_id_in_cart'])) { ?>
         var canvas_cart = document.getElementById('canvas_cart');
         var bscanvas_cart = new bootstrap.Offcanvas(canvas_cart);
         bscanvas_cart.show();
       <?php } ?>
     });
   <?php
-  } else {
-    unset($_SESSION['new_products_id_in_cart']);
   }
   if (basename($PHP_SELF) != FILENAME_WISHLIST && strpos($PHP_SELF, 'checkout') === false) {
   ?>
     $(function() {
       <?php if (DISPLAY_CART == 'false' && isset($_SESSION['new_products_id_in_wishlist'])) {
-        unset($_SESSION['new_products_id_in_wishlist']);
       ?>
         var canvas_wish = document.getElementById('canvas_wish');
         var bscanvas_wish = new bootstrap.Offcanvas(canvas_wish);

@@ -231,9 +231,9 @@ if(defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 				$mail = isset($_POST['customers_input_email']) ? xtc_db_prepare_input($_POST['customers_input_email']) : (isset($_SESSION['customer_email_address']) ? $_SESSION['customer_email_address'] : '');
 				$st = isset($_POST['customers_input_st']) ? xtc_db_prepare_input($_POST['customers_input_st']) : 1;
 
-				$smarty->assign('CUSTOMERS_FIRSTNAME_INPUT', xtc_draw_input_field('customers_input_firstname', $firstname, 'id="firstname" class="form-control"'));
-				$smarty->assign('CUSTOMERS_LASTNAME_INPUT', xtc_draw_input_field('customers_input_lastname', $lastname, 'id="lastname" class="form-control"'));
-				$smarty->assign('CUSTOMERS_MAIL_INPUT', xtc_draw_input_field('customers_input_email', $mail, 'id="email" class="form-control"'));
+				$smarty->assign('CUSTOMERS_FIRSTNAME_INPUT', xtc_draw_input_field('customers_input_firstname', $firstname, 'id="firstname" class="form-control" autocomplete="given-name"'));
+				$smarty->assign('CUSTOMERS_LASTNAME_INPUT', xtc_draw_input_field('customers_input_lastname', $lastname, 'id="lastname" class="form-control" autocomplete="family-name"'));
+				$smarty->assign('CUSTOMERS_MAIL_INPUT', xtc_draw_input_field('customers_input_email', $mail, 'id="email" class="form-control" autocomplete="email"'));
 				$smarty->assign('CUSTOMERS_INPUT_ST', xtc_draw_input_field('customers_input_st', $st, 'id="qty" class="form-control"'));
 
         $smarty->assign('FORM_END_REMIND', '</form>');
