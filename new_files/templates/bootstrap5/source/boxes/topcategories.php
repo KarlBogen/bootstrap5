@@ -29,7 +29,8 @@
     $category_tree_array = xtc_get_category_tree_array();
 
     $bs5_type = BS5_MENUCASE == '2' ? 'dropd' : 'mega';
-    if (count($category_tree_array) > 0) {
+    //if (count($category_tree_array) > 0) {
+    if(!empty($category_tree_array)) { //better and faster, noRiddle, 01-2026
       bs5_xtc_show_category(0, '', $category_tree_array, $bs5_type);    
     }
 

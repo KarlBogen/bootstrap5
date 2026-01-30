@@ -1,6 +1,6 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   $Id: categories.php 15291 2023-07-06 11:46:25Z GTB $
+   $Id: categories.php 16761 2026-01-09 10:52:59Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
@@ -25,7 +25,7 @@
     $categories_string = '';
     $category_tree_array = xtc_get_category_tree_array();
   
-    if (count($category_tree_array) > 0) {
+    if(!empty($category_tree_array)) { //better and faster, noRiddle, 01-2026
       xtc_show_category(0, '', $category_tree_array);    
     }
 

@@ -18,6 +18,7 @@ define('REMINDER_REG_MAIL_ADMIN', false);
 
 // include needed function
 require_once (DIR_FS_INC.'ip_clearing.inc.php');
+require_once (DIR_FS_INC.'xtc_php_mail.inc.php');
 
 // include needed classes
 require_once (DIR_FS_CATALOG.'includes/classes/modified_captcha.php');

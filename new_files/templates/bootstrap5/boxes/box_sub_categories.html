@@ -8,7 +8,7 @@
     	{if isset($BOX_CONTENT_HOVER) && count($BOX_CONTENT_HOVER) > 0}
         {foreach name=aussen item=module_data from=$BOX_CONTENT_HOVER}
           <li class="level0 hassub dropdown position-relative nav-item border-bottom dropend">
-						<a class="nav-link hstack" href="#/" data-href="{$module_data.DATA.link}" role="button" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" title="{if $module_data.DATA.name == ''}{#subcats_total_heading#}{else}{$module_data.DATA.name}{/if}">{if $module_data.DATA.name == ''}{#subcats_total_heading#}{else}{$module_data.DATA.name}{/if}{if isset($module_data.DATA.count) && $module_data.DATA.count != ''}<span class="counts small">&nbsp;({$module_data.DATA.count})</span>{/if}<span class="fa fa-chevron-right ms-auto"></span></a>
+						<a class="nav-link hstack" href="javascript:void(0);" data-href="{$module_data.DATA.link}" role="button" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" title="{if $module_data.DATA.name == ''}{#subcats_total_heading#}{else}{$module_data.DATA.name}{/if}">{if $module_data.DATA.name == ''}{#subcats_total_heading#}{else}{$module_data.DATA.name}{/if}{if isset($module_data.DATA.count) && $module_data.DATA.count != ''}<span class="counts small">&nbsp;({$module_data.DATA.count})</span>{/if}<span class="fa fa-chevron-right ms-auto"></span></a>
             {if is_array($module_data.SUBS)}
               <ul class="dropdown-menu px-2 py-1 w-100 bg-body-tertiary">
               {foreach name=innen item=subs_data from=$module_data.SUBS}

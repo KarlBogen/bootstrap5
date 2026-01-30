@@ -83,7 +83,7 @@ class bs5_checkifnewproduct
    * @param array $array
    * @return array
    */
-  function buildDataArray($productData, $array, $image = 'thumbnail', $precision = 0)
+  function buildDataArray($productData, $array, $image = 'thumbnail')
   {
 
     if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {

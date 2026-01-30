@@ -3,6 +3,14 @@ UNRELEASED
 
 
 
+1.1.19 [30.01.2026]
+- Update zu Shopversion 3.3.0
+- Links ohne HREF einheitlich gestaltet
+- Templatedateien für Attribute / Optionen verändert (Anzeige FULL_PRICE)
+- Fehler Lagerampel im Merkzettel - behoben
+- Fehler in der Listensicht CSS Produkt- und Attributlagerampel - behoben
+- Leerzeichen bei Lieferzeit fehlte bei eingeschalteter Komprimierung - behoben
+
 1.1.18 [19.12.2025]
 - Update zu Shopversion 3.2.0
 - Schreibfehler in define.php - behoben

@@ -5,6 +5,14 @@
   <div id="optionen{$smarty.get.products_id|intval}" class="border-bottom">
     <div class="productoptions mb-2">
       {foreach name=outer item=options_data from=$options}
+        {if count($options) == 1}
+          {foreach key=key_data item=item_data from=$options_data.DATA}
+            {if !empty($item_data.PRICE)}
+              {assign var=show_full_price value="1"}
+              {break}
+            {/if}
+          {/foreach}
+        {/if}
       <div class="product_options_select row mb-3">
         <div class="col-lg-3">
           <label for="sel_{$smarty.foreach.outer.iteration}" class="options_name fs-5 form-label">{$options_data.NAME}</label>
@@ -12,7 +20,7 @@
         <div class="col-lg-9">
           <select id="sel_{$smarty.foreach.outer.iteration}" class="form-select" name="id[{$options_data.ID}]" aria-label="{$options_data.NAME}">
             {foreach key=key_data item=item_data from=$options_data.DATA}
-              <option data-attrdata="{$item_data.JSON_ATTRDATA}" value="{$item_data.ID}"{if $item_data.CHECKED == '1'} selected="selected"{/if}>{$item_data.TEXT} {if $item_data.FULL_PRICE && $options|count == 1}&nbsp;&nbsp;|&nbsp;&nbsp;{$item_data.FULL_PRICE}{if $item_data.VPE}&nbsp;({$item_data.VPE}){/if}{elseif $item_data.PRICE != ''}&nbsp;{$item_data.PREFIX}&nbsp;{$item_data.PRICE}{/if}</option>
+              <option data-attrdata="{$item_data.JSON_ATTRDATA}" value="{$item_data.ID}"{if $item_data.CHECKED == '1'} selected="selected"{/if}>{$item_data.TEXT} {if isset($show_full_price)}&nbsp;&nbsp;|&nbsp;&nbsp;{$item_data.FULL_PRICE}{if $item_data.VPE}&nbsp;({$item_data.VPE}){/if}{elseif $item_data.PRICE != ''}&nbsp;{$item_data.PREFIX}&nbsp;{$item_data.PRICE}{/if}</option>
               {if $smarty.const.BS5_TRAFFIC_LIGHTS == 'true' && $smarty.const.BS5_TRAFFIC_LIGHTS_PRODATTRIBUTES != 'false'}
                 {traffic_light stock=$item_data.STOCK modul='attributes' select='ots'}
               {/if}
@@ -38,7 +46,7 @@
       function PriceUpdaterReady() {
         attributePriceUpdater = {
           calculate: function (This) {
-            var updateOrgPrice = {$smarty.const.BS5_ATTR_PRICE_UPDATER_UPDATE_PRICE},
+            var updateOrgPrice = {if $smarty.const.BS5_ATTR_PRICE_UPDATER == 'true'}{$smarty.const.BS5_ATTR_PRICE_UPDATER_UPDATE_PRICE}{else}false{/if},
               summe = 0,
               attrvpevalue = 0,
               symbolLeft = '',

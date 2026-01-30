@@ -18,7 +18,7 @@
     {if $smarty.const.BS5_AWIDSRATINGBREAKDOWN == 'true' && ((isset($module_data.BS5_AWIDS_PRODUCTS_SUM_REVIEWS) && $module_data.BS5_AWIDS_PRODUCTS_SUM_REVIEWS > 0 || $smarty.const.BS5_AWIDSRATINGBREAKDOWN_SHOW_NULL_REVIEWS == 'true') && $smarty.const.BS5_AWIDSRATINGBREAKDOWN_PRODLIST == 'true')}
     <div class="lb_ratings mb-3 small">
       {if $module_data.BS5_AWIDS_PRODUCTS_SUM_REVIEWS > 0}
-      <a class="bs5_avg_container link-secondary" href="#" tabindex="-1" data-pid="{$module_data.PRODUCTS_ID}" data-class="list" title="{$smarty.const.BS5_AWIDSRATINGBREAKDOWN_ARROW_TITLE}">
+      <a class="bs5_avg_container link-secondary" href="javascript:void(0);" tabindex="-1" data-pid="{$module_data.PRODUCTS_ID}" data-class="list" title="{$smarty.const.BS5_AWIDSRATINGBREAKDOWN_ARROW_TITLE}">
         <span class="visually-hidden">{#info_review#}: {$smarty.const.TEXT_OF_5_STARS|sprintf:$module_data.BS5_AWIDS_PRODUCTS_AVERAGE}</span>
         <span class="ratings">
           <span class="fas empty-stars"></span><span class="fas full-stars" style="width: {$module_data.BS5_AWIDS_PRODUCTS_AVERAGE_PERCENT}%"></span>
@@ -45,7 +45,7 @@
   <div class="card-footer">
     <div class="lb_shipping small mb-1">
       {if $module_data.PRODUCTS_SHIPPING_NAME}
-        <i class="fa fa-truck-fast me-2"></i>{#text_shippingtime_box#}
+        <i class="fa fa-truck-fast me-2"></i>{#text_shippingtime_box#} 
         {if $module_data.PRODUCTS_SHIPPING_IMAGE}<span class="lb_shipping_image pe-2 display_inline-block"><img class="img-fluid" src="{$module_data.PRODUCTS_SHIPPING_IMAGE}" alt="{$module_data.PRODUCTS_SHIPPING_NAME|onlytext}"></span>{/if}
         {$module_data.PRODUCTS_SHIPPING_NAME_LINK|replace:'<a':'<a tabindex="-1"'}
       {else}
@@ -57,7 +57,7 @@
       <div class="lb_date text-center mb-2">
         <div class="badge text-wrap lh-sm text-bg-primary">{#text_upcomming_prod#}<i class="fa fa-calendar-days mx-2"></i>{$module_data.PRODUCTS_DATE}</div>
       </div>
-    {elseif $smarty.const.BS5_TRAFFIC_LIGHTS == ' true' && $smarty.const.BS5_TRAFFIC_LIGHTS_PRODLISTING !='false' } <div class="lb_stock mb-2 small">{traffic_light stock=$module_data.PRODUCTS_QUANTITY modul='listing'}
+    {elseif $smarty.const.BS5_TRAFFIC_LIGHTS == 'true' && $smarty.const.BS5_TRAFFIC_LIGHTS_PRODLISTING != 'false'} <div class="lb_stock mb-2 small">{traffic_light stock=$module_data.PRODUCTS_QUANTITY modul='listing'}
     </div>
     {/if}
     <div class="lb_price text-end mb-1">

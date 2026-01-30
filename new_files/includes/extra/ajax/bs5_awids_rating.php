@@ -103,7 +103,7 @@ function bs5_awids_rating() {
 			$breakdown_content .= '<div class="avg_bar ' . $textclass . '"><span class="ratings-text"><strong>'.sprintf(BS5_AWIDSRATINGBREAKDOWN_HEADLINE,$data['BS5_AWIDS_PRODUCTS_AVERAGE']).'</strong></span>'.$rating.'</div>';
 			foreach (array_reverse($breakdown) as $content) {
 			$breakdown_content .= '<div class="avg_bar">
-										'.(($popup == 'true') ? '<a class="'.((defined('TPL_POPUP_CONTENT_LINK_CLASS')) ? TPL_POPUP_CONTENT_LINK_CLASS : POPUP_CONTENT_LINK_CLASS).' text-body" href="#" data-bs-toggle="modal" data-bs-target="#modal" data-src="'.$content['link'].'" title="Information">' : '').'
+										'.(($popup == 'true') ? '<a class="'.((defined('TPL_POPUP_CONTENT_LINK_CLASS')) ? TPL_POPUP_CONTENT_LINK_CLASS : POPUP_CONTENT_LINK_CLASS).' text-body" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#modal" data-src="'.$content['link'].'" title="Information">' : '').'
 										<div class="d-flex">
 											<div class="avg_left text-nowrap">
 												'.$content['stars'].'

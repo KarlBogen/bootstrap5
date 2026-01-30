@@ -58,7 +58,7 @@
           {if isset($box_TOPCATEGORIES)}{$box_TOPCATEGORIES}{/if}
           {if $smarty.const.BS5_MANUFACTURERS_LINK == 'true' && isset($box_MANUFACTURERS)}
             <li id="liman" class="nav-item level1 hassub dropdown{if $smarty.const.BS5_MENUCASE != '2'} kk-mega{/if}">
-              <a class="nav-link dropdown-toggle{if isset($smarty.get.manufacturers_id)} active{/if}" href="#/" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{#heading_manufacturers#}">{#heading_manufacturers#}</a>
+              <a class="nav-link dropdown-toggle{if isset($smarty.get.manufacturers_id)} active{/if}" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{#heading_manufacturers#}">{#heading_manufacturers#}</a>
               <ul class="dropdown-menu p-2{if $smarty.const.BS5_MENUCASE != '2'} row row-cols-1 row-cols-lg-3 kk-mega{/if}">
                 {$box_MANUFACTURERS}
               </ul>
@@ -281,7 +281,7 @@
     </div>
   </footer>
   {* ENDE FOOTER *}
-  <a href="#" class="go2top btn btn-secondary" aria-label="go to top"><i class="fa fa-chevron-up"></i></a>
+  <a href="javascript:void(0);" class="go2top btn btn-secondary" aria-label="go to top"><i class="fa fa-chevron-up"></i></a>
 
   {if $display_mode != 'checkout'}
     {if (isset($box_CURRENCIES) && $box_CURRENCIES != '') || (isset($box_SHIPPING_COUNTRY) && $box_SHIPPING_COUNTRY != '') || (isset($box_LANGUAGES) && $box_LANGUAGES != '')}

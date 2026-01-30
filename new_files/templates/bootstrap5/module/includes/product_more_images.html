@@ -2,7 +2,7 @@
   {if $smarty.const.BS5_PROD_DETAIL_MI_AS_SLIDER != 'true'}
     <div class="row">
       <div class="col-4 col-sm-3 col-lg-2 mb-2">
-        <a role="button" href="#/" class="swap d-inline-block" tabindex="0" data-goto="0" aria-describedby="zoomtext">
+        <a role="button" href="javascript:void(0);" class="swap d-inline-block" tabindex="0" data-goto="0" aria-describedby="zoomtext">
           {if $smarty.const.PICTURESET_ACTIVE === true}
             <img class="lazyload img-fluid img-thumbnail" data-src="{$PRODUCTS_IMAGE|replace:"info_":"mini_"}" alt="{$PRODUCTS_NAME|onlytext}" title="{$PRODUCTS_NAME|onlytext}">
           {else}
@@ -13,7 +13,7 @@
       {foreach key=i item=more_images_data from=$more_images}
         {if $more_images_data.PRODUCTS_IMAGE != ''}
           <div class="col-4 col-sm-3 col-lg-2 mb-2">
-            <a role="button" href="#/" class="swap d-inline-block" tabindex="0" data-goto="{$i}" aria-describedby="zoomtext">
+            <a role="button" href="javascript:void(0);" class="swap d-inline-block" tabindex="0" data-goto="{$i}" aria-describedby="zoomtext">
               {if $smarty.const.PICTURESET_ACTIVE === true}
                 <img class="lazyload img-fluid img-thumbnail" data-src="{$more_images_data.PRODUCTS_IMAGE|replace:"info_":"mini_"}" alt="{if $more_images_data.IMAGE_ALT != ''}{$more_images_data.IMAGE_ALT|onlytext}{else}{$PRODUCTS_NAME|onlytext}{/if}" title="{if $more_images_data.IMAGE_TITLE != ''}{$more_images_data.IMAGE_TITLE|onlytext}{else}{$PRODUCTS_NAME|onlytext}{/if}">
               {else}
@@ -30,7 +30,7 @@
     <button type="button" class="resBtn btn btn-light leftRs" tabindex="-1"><i class="fa fa-fw fa-angle-left"></i><span class="visually-hidden">{#BS5_previous#}</span></button>
     <div class="resCarousel-inner" tabindex="-1">
       <div class="item text-center">
-        <a role="button" href="#/" class="swap d-inline-block" tabindex="-1" data-goto="0" aria-describedby="zoomtext">
+        <a role="button" href="javascript:void(0);" class="swap d-inline-block" tabindex="-1" data-goto="0" aria-describedby="zoomtext">
           {if $smarty.const.PICTURESET_ACTIVE === true}
             <img class="lazyload img-fluid img-thumbnail" data-src="{$PRODUCTS_IMAGE|replace:"info_":"mini_"}" alt="{$PRODUCTS_NAME|onlytext}" title="{$PRODUCTS_NAME|onlytext}">
           {else}
@@ -40,7 +40,7 @@
       </div>
       {foreach key=i item=more_images_data from=$more_images}
         <div class="item text-center">
-          <a role="button" href="#/" class="swap d-inline-block" tabindex="-1" data-goto="{$i}" aria-describedby="zoomtext">
+          <a role="button" href="javascript:void(0);" class="swap d-inline-block" tabindex="-1" data-goto="{$i}" aria-describedby="zoomtext">
             {if $more_images_data.PRODUCTS_IMAGE != ''}
               {if $smarty.const.PICTURESET_ACTIVE === true}
                 <img class="lazyload img-fluid img-thumbnail" data-src="{$more_images_data.PRODUCTS_IMAGE|replace:"info_":"mini_"}" alt="{if $more_images_data.IMAGE_ALT != ''}{$more_images_data.IMAGE_ALT|onlytext}{else}{$PRODUCTS_NAME|onlytext}{/if}" title="{if $more_images_data.IMAGE_TITLE != ''}{$more_images_data.IMAGE_TITLE|onlytext}{else}{$PRODUCTS_NAME|onlytext}{/if}">

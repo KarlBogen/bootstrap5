@@ -31,7 +31,7 @@
             <div class="pd_inforow small mb-3" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
               {if $BS5_AWIDS_PRODUCTS_AVERAGE_PERCENT}
                 <div class="d-inline">
-                  <a class="bs5_avg_container link-secondary" href="#" data-pid="{$PRODUCTS_ID}" data-class="prod" title="{$smarty.const.BS5_AWIDSRATINGBREAKDOWN_ARROW_TITLE}">
+                  <a class="bs5_avg_container link-secondary" href="javascript:void(0);" data-pid="{$PRODUCTS_ID}" data-class="prod" title="{$smarty.const.BS5_AWIDSRATINGBREAKDOWN_ARROW_TITLE}">
                     <span class="visually-hidden">{#info_review#}: {$smarty.const.TEXT_OF_5_STARS|sprintf:$BS5_AWIDS_PRODUCTS_AVERAGE}</span>
                     <span class="ratings">
                       <span class="fas empty-stars"></span><span class="fas full-stars" style="width:{$BS5_AWIDS_PRODUCTS_AVERAGE_PERCENT}%"></span>
@@ -74,7 +74,7 @@
             <div class="pd_shippingrow">
               <i class="fa fa-truck-fast me-2"></i>
               <span class="small">
-                <strong>{#text_shippingtime#}</strong>
+                <strong>{#text_shippingtime#}</strong> 
                 {if $SHIPPING_IMAGE}<img src="{$SHIPPING_IMAGE}" alt="{$SHIPPING_NAME}" />{/if}
                 {$SHIPPING_NAME_LINK}
               </span>
@@ -162,7 +162,7 @@
               <div class="col-sm-7 col-xl-{if $smarty.const.BS5_PROD_DETAIL_FULLCONTENT == 'true'}8{else}9{/if} d-grid gap-2">
                 {$ADD_CART_BUTTON|replace:'<button':'<button class="btn btn-cart btn-secondary"'}
                 {* Ausblenden der Links, wenn Modul Kundenerinnerung aktiviert und Lagerbestand kleiner 0 ist *}
-                {if $PRODUCTS_QUANTITY > 0 || ($PRODUCTS_QUANTITY <= 0 && $smarty.const.BS5_CUSTOMERS_REMIND != ' true')}
+                {if $PRODUCTS_QUANTITY > 0 || ($PRODUCTS_QUANTITY <= 0 && $smarty.const.BS5_CUSTOMERS_REMIND != 'true')}
                   {if (isset($ADD_CART_BUTTON_EXPRESS)) || $ADD_CART_BUTTON_PAYPAL}
                     {if isset($ADD_CART_BUTTON_EXPRESS) && !$PAYPALPLAN}
                       {$ADD_CART_BUTTON_EXPRESS|replace:'<button':'<button class="btn btn-outline-secondary"'}
@@ -179,7 +179,7 @@
             </div>
           </div>
         {/if}
-        {if $ADD_CART_BUTTON == '' && $PRODUCTS_FSK18 == ' true'}<div class="fskmessage alert alert-danger small mb-2">{#products_fsk18_check#}</div>{/if}
+        {if $ADD_CART_BUTTON == '' && $PRODUCTS_FSK18 == '1'}<div class="fskmessage alert alert-danger small mb-2">{#products_fsk18_check#}</div>{/if}
         {if $ADD_CART_BUTTON == '' && $PRODUCTS_GIFT_FORBIDDEN == 'true'}<div class=" alert alert-danger small mb-2">{#products_gift_forbidden#}</div>{/if}
         {if $PAYPAL_INSTALLMENT && !$PAYPALPLAN}<div class="py-2">{$PAYPAL_INSTALLMENT}</div>{/if}
         {if $PAYPALPLAN}<div class="py-2">{$PAYPALPLAN}</div>{/if}

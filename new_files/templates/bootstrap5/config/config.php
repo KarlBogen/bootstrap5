@@ -1,18 +1,18 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-	$Id: config.php 14256 2022-04-01 14:43:10Z Tomcraft $
+   $Id: config.php 16797 2026-01-26 09:35:21Z GTB $
 
-	modified eCommerce Shopsoftware
-	http://www.modified-shop.org
+  modified eCommerce Shopsoftware
+  http://www.modified-shop.org
 
-	Copyright (c) 2009 - 2013 [www.modified-shop.org]
-	-----------------------------------------------------------------------------------------
-	Released under the GNU General Public License
-	---------------------------------------------------------------------------------------*/
+  Copyright (c) 2009 - 2013 [www.modified-shop.org]
+  -----------------------------------------------------------------------------------------
+  Released under the GNU General Public License
+  ---------------------------------------------------------------------------------------*/
 
 /*
-	*  template specific defines
-	*/
+  *  template specific defines
+  */
 
 // laden der templatespezifischen Sprachdatei (dadurch entfallen die Dateien lang/jeweilige_sprache/extra/bs5_template.php
 require_once(DIR_FS_CATALOG . 'templates/' . CURRENT_TEMPLATE . '/lang/template_' . $_SESSION['language'] . '.php');
@@ -81,6 +81,7 @@ define('TPL_POPUP_PRINT_ORDER_SIZE', '');
 define('TEMPLATE_ENGINE', 'smarty_4'); // 'smarty_4' oder 'smarty_3' oder 'smarty_2' -> Nicht ändern! (Nur "smarty_4" oder "smarty_3" unterstützt die custom Sprachdateien (lang_english.custom & lang_german.custom) aus dem Ordner "../lang/" des Templates!)
 define('TEMPLATE_HTML_ENGINE', 'html5'); // 'html5' oder 'xhtml' -> Nicht ändern!
 define('TEMPLATE_RESPONSIVE', 'true'); // 'true' oder 'false' -> Nicht ändern!
+define('TEMPLATE_PAGINATION', 'true'); // 'true' oder 'false' -> Nicht ändern!
 defined('COMPRESS_JAVASCRIPT') or define('COMPRESS_JAVASCRIPT', 'false'); // 'true' kombiniert & komprimiert die zusätzliche JS-Dateien / 'false' bindet alle JS-Dateien einzeln ein
 
 // set base

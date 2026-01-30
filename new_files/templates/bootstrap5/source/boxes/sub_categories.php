@@ -1,6 +1,6 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   $Id: sub_categories.php 15840 2024-04-24 16:17:07Z GTB $
+   $Id: sub_categories.php 16761 2026-01-09 10:52:59Z GTB $
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
@@ -67,7 +67,7 @@
         }
         
         $subs = xtc_get_categories_tree_data($categories_id, 1);
-        if (count($subs) > 0) {                   
+        if(!empty($subs)) { //faster and more efficient, noRiddle, 01-2026                   
           foreach ($subs as $subs_id => $subs_data) {
             if (mod_count_products_in_category($subs_data['id']) > 0) {
               $link_path = $path . (($path != '') ? '_' : '') . $subs_data['id'];
@@ -102,7 +102,7 @@
       }      
     }
         
-    if (count($category_tree_array) > 0) {
+    if(!empty($category_tree_array)) { //faster and more efficient, noRiddle, 01-2026
       $box_smarty->assign('BOX_CONTENT', array(array_pop($category_tree_array)));
       $box_smarty->assign('BOX_CONTENT_HOVER', $category_tree_array);
     }

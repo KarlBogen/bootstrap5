@@ -5,6 +5,14 @@
   <div id="optionen{$smarty.get.products_id|intval}" class="border-bottom">
     <div class="productoptions mb-2">
       {foreach name=outer item=options_data from=$options}
+        {if count($options) == 1}
+          {foreach key=key_data item=item_data from=$options_data.DATA}
+            {if !empty($item_data.PRICE)}
+              {assign var=show_full_price value="1"}
+              {break}
+            {/if}
+          {/foreach}
+        {/if}
       <div class="product_options_table p-2">
         <div class="options_name fs-5 border-bottom mb-2">{$options_data.NAME}</div>
         {foreach key=key_data name=key_data item=item_data from=$options_data.DATA}
@@ -12,7 +20,7 @@
             <div class="form-check small clearfix">
               <input class="form-check-input" data-attrdata="{$item_data.JSON_ATTRDATA}" aria-label="{$item_data.TEXT}" type="radio" name="id[{$options_data.ID}]" id="rdb_{$smarty.foreach.outer.iteration}_{$item_data.ID}" value="{$item_data.ID}"{if $item_data.CHECKED == '1'} checked="checked"{/if}>
               <label class="form-check-label d-block fw-bold" for="rdb_{$smarty.foreach.outer.iteration}_{$item_data.ID}">{$item_data.TEXT}
-                {if $item_data.FULL_PRICE && $options|count == 1}<span class="options_selection_price float-end">{$item_data.FULL_PRICE}</span>{if $item_data.VPE}&nbsp;<span class="small fw-normal">({$item_data.VPE})</span>{/if}{elseif $item_data.PRICE}<span class="options_selection_price float-end">{$item_data.PREFIX}{$item_data.PRICE}</span>{/if}
+                {if isset($show_full_price)}<span class="options_selection_price float-end">{$item_data.FULL_PRICE}</span>{if $item_data.VPE}&nbsp;<span class="small fw-normal">({$item_data.VPE})</span>{/if}{elseif $item_data.PRICE != ''}<span class="options_selection_price float-end">{$item_data.PREFIX}{$item_data.PRICE}</span>{/if}
                 <br>{if $item_data.MODEL}<span class="fw-normal"><em>{#model#} {$item_data.MODEL}</em></span>{/if}
                 {if $smarty.const.BS5_TRAFFIC_LIGHTS == 'true' && $smarty.const.BS5_TRAFFIC_LIGHTS_PRODATTRIBUTES != 'false'}
                   <span class="fw-normal float-end">{traffic_light stock=$item_data.STOCK modul='attributes'}</span>

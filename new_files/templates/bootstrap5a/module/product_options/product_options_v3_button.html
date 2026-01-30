@@ -5,6 +5,14 @@
   <div id="optionen{$smarty.get.products_id|intval}" class="border-bottom">
     <div class="productoptions mb-2">
       {foreach name=outer item=options_data from=$options}
+        {if count($options) == 1}
+          {foreach key=key_data item=item_data from=$options_data.DATA}
+            {if !empty($item_data.PRICE)}
+              {assign var=show_full_price value="1"}
+              {break}
+            {/if}
+          {/foreach}
+        {/if}
       <div class="product_options_button p-2">
         <div class="options_name fs-5 border-bottom mb-2">{$options_data.NAME}</div>
         <div class="btn-group flex-wrap gap-2" role="group" aria-label="{#button_group_info#}">
@@ -12,7 +20,7 @@
             <div{if $item_data.ID == 0} class="visually-hidden-focusable"{/if}>
               <input class="btn-check" data-attrdata="{$item_data.JSON_ATTRDATA}" aria-label="{$item_data.TEXT}" type="radio" name="id[{$options_data.ID}]" id="rdb_{$smarty.foreach.outer.iteration}_{$item_data.ID}" autocomplete="off" value="{$item_data.ID}"{if $item_data.CHECKED == '1'} checked="checked"{/if}>
               <label class="btn btn-outline-secondary h-100" for="rdb_{$smarty.foreach.outer.iteration}_{$item_data.ID}">{$item_data.TEXT}
-                {if $item_data.FULL_PRICE && $options|count == 1}<div class="options_selection_price small">{$item_data.FULL_PRICE}</div>{if $item_data.VPE}<div class="xsmall">({$item_data.VPE})</div>{/if}{elseif $item_data.PRICE}<div class="options_selection_price xsmall">{$item_data.PREFIX}{$item_data.PRICE}</div>{/if}
+                {if isset($show_full_price)}<div class="options_selection_price small">{$item_data.FULL_PRICE}</div>{if $item_data.VPE}<div class="xsmall">({$item_data.VPE})</div>{/if}{elseif $item_data.PRICE != ''}<div class="options_selection_price xsmall">{$item_data.PREFIX}{$item_data.PRICE}</div>{/if}
               </label>
             </div>
           {/foreach}

@@ -82,7 +82,7 @@
 							<div class="h-100 small">
 									<div class="h6 border-bottom">{#text_payment_method#}{if isset($PAYMENT_EDIT)} <a class="link-secondary" title="{#text_payment_method#} {#text_edit#}" href="{$PAYMENT_EDIT}">{#text_edit#}</a>{/if}</div>
 									{$PAYMENT_METHOD}
-									{if $PAYMENT_INFORMATION != ''}<a class="inline ms-1" title="{#text_payment_info#}" href="#/" data-bs-toggle="modal" data-bs-target="#paymentinfoModal">({#text_payment_info_layertext#})</a>{/if}
+									{if $PAYMENT_INFORMATION != ''}<a class="inline ms-1" title="{#text_payment_info#}" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#paymentinfoModal">({#text_payment_info_layertext#})</a>{/if}
     
 									{if $PAYMENT_INFORMATION != ''}
 										<div class="modal modal-xl fade" id="paymentinfoModal" tabindex="-1" aria-labelledby="paymentinfoLabel" aria-hidden="true">
