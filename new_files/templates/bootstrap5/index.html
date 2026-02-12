@@ -58,7 +58,7 @@
           {if isset($box_TOPCATEGORIES)}{$box_TOPCATEGORIES}{/if}
           {if $smarty.const.BS5_MANUFACTURERS_LINK == 'true' && isset($box_MANUFACTURERS)}
             <li id="liman" class="nav-item level1 hassub dropdown{if $smarty.const.BS5_MENUCASE != '2'} kk-mega{/if}">
-              <a class="nav-link dropdown-toggle{if isset($smarty.get.manufacturers_id)} active{/if}" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{#heading_manufacturers#}">{#heading_manufacturers#}</a>
+              <a class="nav-link dropdown-toggle{if isset($smarty.get.manufacturers_id)} active{/if}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{#heading_manufacturers#}">{#heading_manufacturers#}</a>
               <ul class="dropdown-menu p-2{if $smarty.const.BS5_MENUCASE != '2'} row row-cols-1 row-cols-lg-3 kk-mega{/if}">
                 {$box_MANUFACTURERS}
               </ul>
@@ -281,13 +281,13 @@
     </div>
   </footer>
   {* ENDE FOOTER *}
-  <a href="javascript:void(0);" class="go2top btn btn-secondary" aria-label="go to top"><i class="fa fa-chevron-up"></i></a>
+  <a role="button" class="go2top btn btn-secondary" aria-label="go to top"><i class="fa fa-chevron-up"></i></a>
 
   {if $display_mode != 'checkout'}
     {if (isset($box_CURRENCIES) && $box_CURRENCIES != '') || (isset($box_SHIPPING_COUNTRY) && $box_SHIPPING_COUNTRY != '') || (isset($box_LANGUAGES) && $box_LANGUAGES != '')}
       <div id="settings" class="offcanvas offcanvas-start" tabindex="-1">
         <div class="offcanvas-header bg-secondary-subtle">
-          <h4 class="offcanvas-title">{#BS5_heading_settingbox#}</h4>
+          <div class="offcanvas-title h4">{#BS5_heading_settingbox#}</div>
           <button type="button" class="btn btn-dark fa fa-xmark ms-auto" data-bs-dismiss="offcanvas" data-bs-target="#settings" aria-label="{#BS5_close#}"></button>
         </div>
         <div class="offcanvas-body">
@@ -300,7 +300,7 @@
     {if isset($box_LOGIN) || isset($box_INFOBOX)}
       <div id="account" class="offcanvas offcanvas-start" tabindex="-1">
         <div class="offcanvas-header bg-secondary-subtle">
-          <h4 class="offcanvas-title">{#link_account#}</h4>
+          <div class="offcanvas-title h4">{#link_account#}</div>
           <button type="button" class="btn btn-dark fa fa-xmark ms-auto" data-bs-dismiss="offcanvas" data-bs-target="#account" aria-label="{#BS5_close#}"></button>
         </div>
         <div class="offcanvas-body">

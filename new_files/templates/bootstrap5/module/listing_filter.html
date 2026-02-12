@@ -12,7 +12,7 @@
 			{$FILTER_SET|replace:'<select':'<select class="form-select"'}
 		</div>
 		<div class="view-buttons col ms-auto">
-			<a  class="view_box btn btn-outline-secondary{if $smarty.const.BS5_PRODUCT_LIST_BOX == 'true'} disabled" tabindex="-1{/if}" href="{$LINK_DISPLAY_BOX}#filterBar" title="{#listing_boxview#}"><span class="fa fa-table-cells"></span></a>&nbsp;&nbsp;
+			<a  class="view_box btn btn-outline-secondary{if $smarty.const.BS5_PRODUCT_LIST_BOX == 'true'} disabled me-2" tabindex="-1{/if}" href="{$LINK_DISPLAY_BOX}#filterBar" title="{#listing_boxview#}"><span class="fa fa-table-cells"></span></a>
 			<a  class="view_list btn btn-outline-secondary{if $smarty.const.BS5_PRODUCT_LIST_BOX != 'true'} disabled" tabindex="-1{/if}" href="{$LINK_DISPLAY_LIST}#filterBar" title="{#listing_listview#}"><span class="fa fa-table-list"></span></a>
 		</div>
 	</div>

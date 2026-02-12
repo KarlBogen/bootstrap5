@@ -49,7 +49,7 @@
     $content_string .= $tab; 
     $content_string .= '<li class="nav-item level'.$level.$content_active_parent.'">';
     $content_string .= '<a class="nav-link'.$content_active.'" href="'.xtc_href_link(FILENAME_CONTENT, xtc_content_link($content_array[$counter]['coID'], $content_array[$counter]['name'])).'" title="'. $content_array[$counter]['name'] . '">';
-    $content_string .= '<span class="fa fa-chevron-right"></span>&nbsp;&nbsp;'.$content_array[$counter]['name'];
+    $content_string .= '<span class="fa fa-chevron-right me-2"></span>'.$content_array[$counter]['name'];
     $content_string .= '</a></li>';
     $content_string .= "\n";
 

@@ -39,7 +39,7 @@
 									{/if}
 								</div>
 								<div class="p-1 text-center">
-									<div class="lb_buttons mb-2">{$module_data.PRODUCTS_BUTTON_BUY_NOW|replace:'<a':'<a class="btn btn-cart btn-outline-secondary" aria-label="buy now"'}&nbsp;&nbsp;{$module_data.PRODUCTS_BUTTON_DELETE|replace:'<a':'<a class="btn btn-danger"'}</div>
+									<div class="lb_buttons mb-2">{$module_data.PRODUCTS_BUTTON_BUY_NOW|replace:'<a':'<a class="btn btn-cart btn-outline-secondary me-2" aria-label="buy now"'}{$module_data.PRODUCTS_BUTTON_DELETE|replace:'<a':'<a class="btn btn-danger"'}</div>
 								</div>
 								<div class="card-footer">
 									{if $module_data.PRODUCTS_SHIPPING_NAME}<div class="lb_shipping small mb-1"><i class="fa fa-truck-fast me-2"></i>{#text_shippingtime#} {if $module_data.PRODUCTS_SHIPPING_IMAGE}<span class="lb_shipping_image"><img class="img-fluid" src="{$module_data.PRODUCTS_SHIPPING_IMAGE}" alt="{$module_data.PRODUCTS_SHIPPING_NAME|onlytext}"></span>{/if}{$module_data.PRODUCTS_SHIPPING_NAME_LINK}</div>{/if}
@@ -97,7 +97,7 @@
 								{if $smarty.const.BS5_TRAFFIC_LIGHTS == 'true' && $smarty.const.BS5_TRAFFIC_LIGHTS_PRODLISTING != 'false'}
 									<div class="lr_stock mb-2 small">{traffic_light stock=$module_data.PRODUCTS_STOCK modul='listing'}</div>
 								{/if}
-								<div class="lr_buttons text-center">{$module_data.PRODUCTS_BUTTON_BUY_NOW|replace:'<a':'<a class="btn btn-cart btn-outline-secondary" aria-label="buy now"'}&nbsp;&nbsp;{$module_data.PRODUCTS_BUTTON_DELETE|replace:'<a':'<a class="btn btn-danger"'}</div>
+								<div class="lr_buttons text-center">{$module_data.PRODUCTS_BUTTON_BUY_NOW|replace:'<a':'<a class="btn btn-cart btn-outline-secondary me-2" aria-label="buy now"'}{$module_data.PRODUCTS_BUTTON_DELETE|replace:'<a':'<a class="btn btn-danger"'}</div>
 							</div>
 						</div>
 					</div>

@@ -8,7 +8,7 @@
 	<div class="d-flex flex-wrap flex-md-nowrap gap-2">
 		{if $PRODUCTS_IMAGE != ''}
 			<div class="col-auto mw-100">
-				<a class="cbimages d-block text-center" title="{$PRODUCTS_NAME|onlytext}" href="javascript:void(0);" data-bs-toggle="modal" data-title="{$PRODUCTS_NAME|onlytext}" data-image="{$PRODUCTS_IMAGE}" data-bs-target="#modal">
+				<a class="cbimages d-block text-center" title="{$PRODUCTS_NAME|onlytext}" role="button" data-bs-toggle="modal" data-title="{$PRODUCTS_NAME|onlytext}" data-image="{$PRODUCTS_IMAGE}" data-bs-target="#modal">
 					<img class="lazyload img-thumbnail" data-src="{$PRODUCTS_IMAGE|replace:"info_":"thumbnail_"}" alt="{$PRODUCTS_NAME|onlytext}" title="{$PRODUCTS_NAME|onlytext}">
 				</a>
 			</div>

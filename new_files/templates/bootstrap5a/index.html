@@ -292,13 +292,13 @@
     </div>
   </footer>
   {* ENDE FOOTER *}
-  <a href="javascript:void(0);" class="go2top btn btn-secondary" aria-label="go to top"><i class="fa fa-chevron-up"></i></a>
+  <a role="button" class="go2top btn btn-secondary" aria-label="go to top"><i class="fa fa-chevron-up"></i></a>
 
   {if $display_mode != 'checkout'}
     {if (isset($box_CURRENCIES) && $box_CURRENCIES != '') || (isset($box_SHIPPING_COUNTRY) && $box_SHIPPING_COUNTRY != '') || (isset($box_LANGUAGES) && $box_LANGUAGES != '')}
       <div id="settings" class="offcanvas offcanvas-start" tabindex="-1">
         <div class="offcanvas-header bg-secondary-subtle">
-          <h4 class="offcanvas-title">{#BS5_heading_settingbox#}</h4>
+          <div class="offcanvas-title h4">{#BS5_heading_settingbox#}</div>
           <button type="button" class="btn btn-dark fa fa-xmark ms-auto" data-bs-dismiss="offcanvas" data-bs-target="#settings" aria-label="{#BS5_close#}"></button>
         </div>
         <div class="offcanvas-body">
@@ -311,7 +311,7 @@
     {if isset($box_LOGIN) || isset($box_INFOBOX)}
       <div id="account" class="offcanvas offcanvas-start" tabindex="-1">
         <div class="offcanvas-header bg-secondary-subtle">
-          <h4 class="offcanvas-title">{#link_account#}</h4>
+          <div class="offcanvas-title h4">{#link_account#}</div>
           <button type="button" class="btn btn-dark fa fa-xmark ms-auto" data-bs-dismiss="offcanvas" data-bs-target="#account" aria-label="{#BS5_close#}"></button>
         </div>
         <div class="offcanvas-body">

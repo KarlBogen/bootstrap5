@@ -15,7 +15,7 @@
   {/if}
   <div id="canvas_cart" class="offcanvas offcanvas-start" tabindex="-1">
     <div class="offcanvas-header bg-secondary-subtle">
-      <h5 class="offcanvas-title">{#heading_cart#}</h5>
+      <div class="offcanvas-title h5">{#heading_cart#}</div>
       <button type="button" class="btn btn-dark fa fa-xmark ms-auto" data-bs-dismiss="offcanvas" data-bs-target="#canvas_cart" aria-label="{#BS5_close#}"></button>
     </div>
     <div class="offcanvas-body">
@@ -94,7 +94,7 @@
       {/if}
       {if $smarty.const.BS5_SHOW_BOX_ADD_QUICKIE == 'true'}
         <div class="border-top border-3 mt-5">
-          <h5 class="offcanvas-title py-3">{#heading_add_a_quickie#}</h5>
+          <div class="offcanvas-title h5 py-3">{#heading_add_a_quickie#}</div>
           {$FORM_ACTION}
           <label for="input_quick_add" class="small">{#text_quickie#}</label>
             <div class="input-group">

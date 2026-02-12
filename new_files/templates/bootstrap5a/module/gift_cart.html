@@ -40,7 +40,7 @@
 				{if isset($GV_AMOUNT) && $GV_AMOUNT > 0}
 					<div class="gift_row p-2">
 						{#voucher_info_text#} <strong>{$GV_AMOUNT}</strong>
-						<a class="inline" title="{#voucher_heading_text_popup#}" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#inline_gift"><i class="fa fa-circle-info mx-2"></i></a>
+						<a class="inline" title="{#voucher_heading_text_popup#}" role="button" data-bs-toggle="modal" data-bs-target="#inline_gift"><i class="fa fa-circle-info mx-2"></i></a>
 						<div class="modal modal-xl fade" id="inline_gift" tabindex="-1" aria-labelledby="gifttinfoLabel" aria-hidden="true">
 							<div class="modal-dialog">
 								<div class="modal-content">

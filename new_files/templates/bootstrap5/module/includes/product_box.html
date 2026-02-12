@@ -18,7 +18,7 @@
     {if $smarty.const.BS5_AWIDSRATINGBREAKDOWN == 'true' && ((isset($module_data.BS5_AWIDS_PRODUCTS_SUM_REVIEWS) && $module_data.BS5_AWIDS_PRODUCTS_SUM_REVIEWS > 0 || $smarty.const.BS5_AWIDSRATINGBREAKDOWN_SHOW_NULL_REVIEWS == 'true') && $smarty.const.BS5_AWIDSRATINGBREAKDOWN_PRODLIST == 'true')}
     <div class="lb_ratings mb-3 small">
       {if $module_data.BS5_AWIDS_PRODUCTS_SUM_REVIEWS > 0}
-      <a class="bs5_avg_container link-secondary" href="javascript:void(0);" tabindex="-1" data-pid="{$module_data.PRODUCTS_ID}" data-class="list" title="{$smarty.const.BS5_AWIDSRATINGBREAKDOWN_ARROW_TITLE}">
+      <a class="bs5_avg_container link-secondary" role="button" tabindex="-1" data-pid="{$module_data.PRODUCTS_ID}" data-class="list" title="{$smarty.const.BS5_AWIDSRATINGBREAKDOWN_ARROW_TITLE}">
         <span class="visually-hidden">{#info_review#}: {$smarty.const.TEXT_OF_5_STARS|sprintf:$module_data.BS5_AWIDS_PRODUCTS_AVERAGE}</span>
         <span class="ratings">
           <span class="fas empty-stars"></span><span class="fas full-stars" style="width: {$module_data.BS5_AWIDS_PRODUCTS_AVERAGE_PERCENT}%"></span>
@@ -40,7 +40,7 @@
       </span>&nbsp;({$module_data.PRODUCTS_REVIEWS_COUNT}<span class="visually-hidden">&nbsp;{#info_reviews#}</span>)
     </div>
     {/if}
-    <div class="lb_buttons mb-2">{if $module_data.PRODUCTS_BUTTON_BUY_NOW || ($module_data.PRODUCTS_FSK18 != '0' && $smarty.const.SHOW_BUTTON_BUY_NOW != 'false')}{$module_data.PRODUCTS_BUTTON_BUY_NOW|replace:'class="add_cart"':'class="add_cart btn btn-cart btn-outline-secondary btn-sm" aria-label="buy now" tabindex="-1"'}&nbsp;&nbsp;{/if}{if $module_data.PRODUCTS_LINK_WISHLIST_NOW}<a class="btn btn-wish btn-outline-secondary btn-sm" href="{$module_data.PRODUCTS_LINK_WISHLIST_NOW}" title="{$smarty.const.TEXT_TO_WISHLIST}" tabindex="-1"><i class="fa fa fa-heart"></i></a>&nbsp;&nbsp;{/if}<a class="stretched-link btn btn-secondary btn-sm" href="{$module_data.PRODUCTS_LINK}"><i class="fa fa-eye"></i>{$smarty.const.TEXT_INFO_DETAILS}</a></div>
+    <div class="lb_buttons mb-2">{if $module_data.PRODUCTS_BUTTON_BUY_NOW || ($module_data.PRODUCTS_FSK18 != '0' && $smarty.const.SHOW_BUTTON_BUY_NOW != 'false')}{$module_data.PRODUCTS_BUTTON_BUY_NOW|replace:'class="add_cart"':'class="add_cart btn btn-cart btn-outline-secondary btn-sm me-2" aria-label="buy now" tabindex="-1"'}{/if}{if $module_data.PRODUCTS_LINK_WISHLIST_NOW}<a class="btn btn-wish btn-outline-secondary btn-sm me-2" href="{$module_data.PRODUCTS_LINK_WISHLIST_NOW}" title="{$smarty.const.TEXT_TO_WISHLIST}" tabindex="-1"><i class="fa fa fa-heart"></i></a>{/if}<a class="stretched-link btn btn-secondary btn-sm" href="{$module_data.PRODUCTS_LINK}"><i class="fa fa-eye"></i>{$smarty.const.TEXT_INFO_DETAILS}</a></div>
   </div>
   <div class="card-footer">
     <div class="lb_shipping small mb-1">

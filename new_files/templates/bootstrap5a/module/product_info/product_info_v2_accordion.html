@@ -31,7 +31,7 @@
             <div class="pd_inforow small mb-3" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
               {if $BS5_AWIDS_PRODUCTS_AVERAGE_PERCENT}
                 <div class="d-inline">
-                  <a class="bs5_avg_container link-secondary" href="javascript:void(0);" data-pid="{$PRODUCTS_ID}" data-class="prod" title="{$smarty.const.BS5_AWIDSRATINGBREAKDOWN_ARROW_TITLE}">
+                  <a class="bs5_avg_container link-secondary" role="button" data-pid="{$PRODUCTS_ID}" data-class="prod" title="{$smarty.const.BS5_AWIDSRATINGBREAKDOWN_ARROW_TITLE}">
                     <span class="visually-hidden">{#info_review#}: {$smarty.const.TEXT_OF_5_STARS|sprintf:$BS5_AWIDS_PRODUCTS_AVERAGE}</span>
                     <span class="ratings">
                       <span class="fas empty-stars"></span><span class="fas full-stars" style="width:{$BS5_AWIDS_PRODUCTS_AVERAGE_PERCENT}%"></span>

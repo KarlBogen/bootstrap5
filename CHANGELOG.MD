@@ -3,6 +3,8 @@ UNRELEASED
 
 
 
+- Lighthouse SEO-Kriterien verändert - Verlinkungen angepasst
+
 1.1.19 [30.01.2026]
 - Update zu Shopversion 3.3.0
 - Links ohne HREF einheitlich gestaltet
