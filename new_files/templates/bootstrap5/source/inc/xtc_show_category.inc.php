@@ -26,7 +26,7 @@
   
   
   function mod_count_products_in_category($categories_id) {
-    if (!defined('BS5_HIDE_EMPTY_CATEGORIES') || BS5_HIDE_EMPTY_CATEGORIES === false) {
+    if (!defined('BS5_HIDE_EMPTY_CATEGORIES') || BS5_HIDE_EMPTY_CATEGORIES == 'false') {
       return 1;
     }
     
@@ -127,8 +127,6 @@ function xtc_show_category($parent_id = 0, $path = '', $category_tree_array = ar
       $hasSubs = $hasSubsClass = '';
       $children = xtc_get_categories_tree_data($categories['id'], $level + 1);
       $count_children = !empty($children);
-
-      defined('CATEGORIES_CHECK_SUBS') or define('CATEGORIES_CHECK_SUBS', true);
 
       if (defined('CATEGORIES_CHECK_SUBS') && (CATEGORIES_CHECK_SUBS == true)) {
         if ($count_children === true) {
@@ -238,8 +236,7 @@ function bs5_xtc_show_category($parent_id = 0, $path = '', $category_tree_array 
       $count_children = !empty($children);
       if (defined('CATEGORIES_CHECK_SUBS') && (CATEGORIES_CHECK_SUBS == true)) {
         $close_li = false; // Link im Mega-Menü schließen
-        // Use the cached tree data to check for children instead of a new DB query, benax, 12-2025
-        if ($count_children === true) { //let's use our new var, noRiddle, 01-2026
+        if ($count_children === true) {
           $hasSubs = $li_class_hassub_mega;
           $hasSubsClass = $a_class_hassub_mega;
           if ($bs5_type == 'mega') {
@@ -272,10 +269,7 @@ function bs5_xtc_show_category($parent_id = 0, $path = '', $category_tree_array 
 
       $bs5_categories_string .= '</a>';
       if (isset($category_tree_array[$categories['id']])) {
-        //BOC make it a little bit more efficient, noRiddle, 12-2025
-        //if (xtc_count_products_in_category_array($categories['id'], $category_tree_array) > 0) {
-        if ($count_children === true) { //let's use our new var, noRiddle, 01-2026
-          //BOC make it a littgle bit more efficient, noRiddle, 12-2025
+        if ($count_children === true) {
           $bs5_categories_string .= "\n";
           bs5_xtc_show_sub_category($level, true);
 

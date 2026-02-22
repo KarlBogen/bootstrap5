@@ -58,6 +58,8 @@ define('PICTURESET_ACTIVE', $pictureset_active);
 define('PICTURESET_BOX', '575.98:midi,767.98:thumbnail,1199.98:midi');
 define('PICTURESET_ROW', '767.98:thumbnail');
 
+define('CATEGORIES_CHECK_SUBS', true);
+
 // -----------------------------------------------------------------------------------
 // 	Ab hier nichts ändern
 // -----------------------------------------------------------------------------------

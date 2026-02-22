@@ -1,8 +1,8 @@
 UNRELEASED
 
 
-
-
+- Menüaufbau Kategoriemenü optimiert
+- Sprungmarken für Barrierefreiheit bootstrap5a angepasst
 - Lighthouse SEO-Kriterien verändert - Verlinkungen angepasst
 
 1.1.19 [30.01.2026]
