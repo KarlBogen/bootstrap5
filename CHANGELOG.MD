@@ -1,6 +1,9 @@
 UNRELEASED
 
 
+- Button "Bearbeiten" im Systemmodul hinzugefügt
+- Hinweis Kundenerinnerungsliste in Ansicht "Produkt bearbeiten" jetzt auch bei einem Eintrag sichtbar
+- Sprachkonstante "BS5_CUSTOMERS_REMIND_MINSTOCK_INFO" geändert
 - Menüaufbau Kategoriemenü optimiert
 - Sprungmarken für Barrierefreiheit bootstrap5a angepasst
 - Lighthouse SEO-Kriterien verändert - Verlinkungen angepasst

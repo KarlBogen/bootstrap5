@@ -16,7 +16,8 @@ define('BS5_BOX_CUSTOMERS_REMIND', 'BS5 Customers Remind');
 define('BS5_BOX_CUSTOMERS_REMIND_SUB1', 'Remind list');
 define('BS5_BOX_CUSTOMERS_REMIND_SUB2', 'Registered customers');
 define('BS5_CUSTOMERS_REMIND_STOCK_INFO', 'Current stock: <strong> %s</strong>.<br>');
-define('BS5_CUSTOMERS_REMIND_MINSTOCK_INFO', '<strong> %s</strong> customers are registered for <strong>%s</strong> products.<br>If stock is <strong>%s</strong> automatic email sending starts.');
+define('BS5_CUSTOMERS_REMIND_MINSTOCK_INFO_SINGLE', '<strong> %s</strong> customer is registered for total<strong>%s</strong> products.<br>If stock is <strong>%s</strong> automatic email sending starts.');
+define('BS5_CUSTOMERS_REMIND_MINSTOCK_INFO', '<strong> %s</strong> customers are registered for total <strong>%s</strong> products.<br>If stock is <strong>%s</strong> automatic email sending starts.');
 define('BS5_CUSTOMERS_REMIND_START_SENDING', 'Send mails');
 define('BS5_CUSTOMERS_REMIND_CONFIRMSEND', 'Are you sure?<br>Do you really want to send the reminders?');
 // geplante Aufgaben

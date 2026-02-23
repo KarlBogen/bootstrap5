@@ -33,6 +33,7 @@ class bs5_tpl_manager
     $this->code = 'bs5_tpl_manager';
     $this->title = MODULE_BS5_TPL_MANAGER_TEXT_TITLE . ' © by <a href="https://github.com/KarlBogen" target="_blank" style="color: #e67e22; font-weight: bold;">Karl</a> - Version: ' . (defined('MODULE_BS5_TPL_MANAGER_VERSION') ? MODULE_BS5_TPL_MANAGER_VERSION : '');
     $this->description = '';
+    $this->description .= '<a class="button btnbox" style="text-align:center;" href="' . xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=' . $this->code . '&action=edit') . '">' . BUTTON_EDIT . '</a><br />';
     if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && (!defined('MODULE_BS5_TPL_MANAGER_VERSION') || version_compare(MODULE_BS5_TPL_MANAGER_VERSION, $this->version, '<')))
     {
         $this->description .= "<script>$('.main').after('" . sprintf(MODULE_BS5_TPL_MANAGER_VERSION_ERROR, $this->version) . "');</script>";

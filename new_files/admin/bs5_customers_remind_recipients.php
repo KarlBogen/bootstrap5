@@ -257,6 +257,11 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
                 }
               ?>
             </table>
+            <table>
+              <tr>
+                <td class="txta-l"><a class="button" style="font-size:10px;" onclick="this.blur();" href="<?php echo xtc_href_link(FILENAME_BS5_CUSTOMERS_REMIND); ?>"><?php echo BS5_BOX_CUSTOMERS_REMIND . ' => ' . BS5_BOX_CUSTOMERS_REMIND_SUB1; ?></a></td>
+              </tr>
+            </table>
 
             <div class="smallText pdg2 flt-l"><?php echo $reminder_split->display_count($reminder_query_numrows, $page_max_display_results, $page, TEXT_DISPLAY_NUMBER_OF_CUSTOMERS_REMIND_RECIPIENTS); ?></div>
             <div class="smallText pdg2 flt-r"><?php echo $reminder_split->display_links($reminder_query_numrows, $page_max_display_results, MAX_DISPLAY_PAGE_LINKS, $page, xtc_get_all_get_params(array('page'))); ?></div>

@@ -239,7 +239,7 @@ require (DIR_WS_INCLUDES.'head.php');
                   <td class="smallText txta-l"><?php echo KD_REG; ?></td>
                 </tr>
                 <tr>
-                  <td class="txta-r">&nbsp;</td>
+                  <td class="txta-l"><a class="button" style="font-size:10px;" onclick="this.blur();" href="<?php echo xtc_href_link(FILENAME_BS5_CUSTOMERS_REMIND_RECIPIENTS); ?>"><?php echo BS5_BOX_CUSTOMERS_REMIND . ' => ' . BS5_BOX_CUSTOMERS_REMIND_SUB2; ?></a></td>
                 </tr>
                 <tr>
                   <td class="smallText txta-l"><?php echo FOOTER_INFO; ?></td>
