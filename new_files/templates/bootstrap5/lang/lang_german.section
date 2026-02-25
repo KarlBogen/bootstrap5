@@ -163,6 +163,7 @@ button_group_info = 'Auswahlfelder als Button-Gruppe'
 text_navigator = 'Artikelnavigation innerhalb dieser Kategorie'
 
 [reviews]
+show_all = 'Alle anzeigen'
 heading_reviews = 'Kundenrezensionen'
 text_reviews_avg = 'Durchschnittliche Bewertung'
 text_reviews_based = 'Basierend auf'
@@ -173,6 +174,10 @@ text_review_show_2 = 'Bewertungen anzeigen'
 text_review_show = 'Bewertung anzeigen'
 reviews_signs = 'Zeichen'
 reviews_min = 'Mindestens'
+reviews_info_checked = 'Jede Verbraucherbewertung wird vor ihrer Ver&ouml;ffentlichung auf ihre Echtheit &uuml;berpr&uuml;ft, sodass sichergestellt ist, dass Bewertungen nur von Verbrauchern stammen, die die bewerteten Produkte auch tats&auml;chlich erworben/genutzt haben.'
+reviews_info_unchecked = 'Die Bewertungen werden vor ihrer Ver&ouml;ffentlichung nicht auf ihre Echtheit &uuml;berpr&uuml;ft. Sie k&ouml;nnen daher auch von Verbrauchern stammen, die die bewerteten Produkte tats&auml;chlich gar nicht erworben/genutzt haben.'
+reviews_checked = 'Bewertung stammt ausschlie&szlig;lich von verifizierten K&auml;ufern.'
+reviews_unchecked = 'Bewertung ist nicht verifiziert.'
 bs5_explain_rating = 'Bewertung abgeben - aktivieren Sie mit der TAB-Taste das n&auml;chste Inputfeld, mit den Pfeiltasten rechts/links w&auml;hlen eine Bewertung und quittieren mit TAB die Eingabe (Maximum 5 von 5 Sternen).'
 
 [product_tags]

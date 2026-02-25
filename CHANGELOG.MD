@@ -1,6 +1,10 @@
 UNRELEASED
 
-
+- Anpassung Kundenbewertungen an Praxistipp Händlerbund
+<br> -- Weitere Informationen zur Omnibus-Richtlinie (Links zu haendlerbund.de)
+<br> --- https://ohn.haendlerbund.de/recht/politik-gesetze/136371-echtheit-kundenrezensionen-shop-pruefen
+<br> --- https://ohn.haendlerbund.de/recht/rechtsfragen/hinweis-echtheit-bewertungen-vermeidest-aerger
+  Anmerkung: Hinweistexte sind in lang_german.section Abschnitt "reviews" zu bearbeiten
 - Button "Bearbeiten" im Systemmodul hinzugefügt
 - Hinweis Kundenerinnerungsliste in Ansicht "Produkt bearbeiten" jetzt auch bei einem Eintrag sichtbar
 - Sprachkonstante "BS5_CUSTOMERS_REMIND_MINSTOCK_INFO" geändert

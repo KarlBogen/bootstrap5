@@ -163,6 +163,7 @@ button_group_info = 'Basic radio toggle button group'
 text_navigator = 'Productsnavigation inside the category'
 
 [reviews]
+show_all = 'Show all'
 heading_reviews = 'Customer reviews'
 text_reviews_avg = 'Average rating'
 text_reviews_based = 'Based on'
@@ -173,6 +174,10 @@ text_review_show_2 = 'Show reviews'
 text_review_show = 'Show review'
 reviews_signs = 'signs'
 reviews_min = 'min.'
+reviews_info_checked = 'Each consumer review is checked for authenticity before publication, ensuring that reviews only come from consumers who have actually purchased/used the reviewed products.'
+reviews_info_unchecked = 'The reviews are not verified for authenticity before publication. Therefore, they may also come from consumers who have not actually purchased/used the reviewed products.'
+reviews_checked = 'Review come exclusively from verified buyers.'
+reviews_unchecked = 'Review is not verified.'
 bs5_explain_rating = 'To give a rating, use the TAB key to activate the next input field, use the right/left arrow keys to select a rating and confirm with TAB (Maximum 5 of 5 stars).'
 
 [product_tags]
