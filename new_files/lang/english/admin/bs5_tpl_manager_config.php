@@ -241,6 +241,9 @@ $lang_array = array(
   'TEXT_BS5_TPL_MANAGER_CONFIG_PRODBOXES_NAME_LINES_INFO' => '<strong>Setting applies to all product boxes.</strong><br>Number of lines that the article name should max occupy (0 = auto).',
 
   'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_MODULES' => 'Modules',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_SENDMAIL_IF_NEW_REVIEW_HEAD' => 'Email notification for new product reviews:',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_SENDMAIL_IF_NEW_REVIEW' => 'Product reviews:',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_SENDMAIL_IF_NEW_REVIEW_INFO' => '<strong>Should an email be sent when a new product review is posted?</strong><br>If "Yes" an eMail will be send to "Contact Us - E-Mail Address" and "Contact Us - Forwarding-To". This only works if send eMails is activated.',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_HEAD' => 'Customer reminder for sold out products:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND' => 'Customer remind:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_INFO' => 'Activate Customers Remind!<br>

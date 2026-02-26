@@ -45,6 +45,9 @@ define('BS5_SUBJECT', 'Subject: ');
 define('BS5_TEXT_PRODUCT_INQUIRY', 'Question to article');
 define('BS5_ENTRY_MESSAGE_BODY_ERROR', 'Please enter the message to us!');
 
+define('BS5_TEXT_EMAIL_REVIEW_SUBJECT', 'New product review');
+define('BS5_TEXT_EMAIL_REVIEW_BODY', 'A new product review has been submitted for the product with ID %s!');
+
 define('BS5_TOGGLE_PWFIELD_SHOW', 'Show password');
 define('BS5_TOGGLE_PWFIELD_HIDE', 'Hide password');
 

@@ -109,7 +109,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
         <!-- body_text //-->
         <td class="boxCenter">
           <?php // updateinfo
-          if (!defined('MODULE_BS5_TPL_MANAGER_VERSION') || version_compare(MODULE_BS5_TPL_MANAGER_VERSION, '1.1.18', '<')) {
+          if (!defined('MODULE_BS5_TPL_MANAGER_VERSION') || version_compare(MODULE_BS5_TPL_MANAGER_VERSION, '1.2.0', '<')) {
             echo '<div class="messageStackWarning"><h3>' . TEXT_BS5_TPL_MANAGER_CONFIG_UPDATE_SYSTEMMODULE_WARNING . '<a class="button but_red" href="' . xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=bs5_tpl_manager') . '">Bootstrap 5 Template-Manager</a></h3></div><br />';
           }
           ?>
@@ -677,6 +677,16 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
                         <td class="txta-r" colspan="3" style="border:none;">
                           <input type="submit" class="button" name="submit" value="<?php echo BUTTON_UPDATE; ?>">
                         </td>
+                      </tr>
+                      <tr>
+                        <td class="dataTableConfig" colspan="3">
+                          <h3><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_SENDMAIL_IF_NEW_REVIEW_HEAD; ?></h3>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_SENDMAIL_IF_NEW_REVIEW; ?></td>
+                        <td class="dataTableConfig col-middle"><?php echo xtc_cfg_select_option($yes_no_array, $bs5_conf['BS5_SENDMAIL_IF_NEW_REVIEW'], 'BS5_SENDMAIL_IF_NEW_REVIEW'); ?></td>
+                        <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_SENDMAIL_IF_NEW_REVIEW_INFO; ?></td>
                       </tr>
                       <tr>
                         <td class="dataTableConfig" colspan="3">

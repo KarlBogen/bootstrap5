@@ -45,6 +45,9 @@ define('BS5_SUBJECT', 'Betreff: ');
 define('BS5_TEXT_PRODUCT_INQUIRY', 'Frage zum Artikel');
 define('BS5_ENTRY_MESSAGE_BODY_ERROR', 'Bitte geben Sie die Nachricht an uns ein!');
 
+define('BS5_TEXT_EMAIL_REVIEW_SUBJECT', 'Neue Produktrezession');
+define('BS5_TEXT_EMAIL_REVIEW_BODY', 'Eine neue Produktrezession f&uuml;r den Artikel mit der ID %s ist abgegeben worden!');
+
 define('BS5_TOGGLE_PWFIELD_SHOW', 'Passwort anzeigen');
 define('BS5_TOGGLE_PWFIELD_HIDE', 'Passwort verbergen');
 

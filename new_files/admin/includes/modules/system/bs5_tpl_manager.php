@@ -25,7 +25,7 @@ class bs5_tpl_manager
 
   public function __construct()
   {
-    $this->version = '1.1.19';
+    $this->version = '1.2.0';
     // Wichtiger Hinweis: bei Versionsänderung muss die Versionsnummer auch in admin/bs5_tpl_manager_config.php Zeile 112 geändert werden.
     // Wichtiger Hinweis: neu hinzugekommene Konstante in "config/config.php" eintragen.
     // if (!defined('MODULE_BS5_TPL_MANAGER_STATUS') || MODULE_BS5_TPL_MANAGER_STATUS != 'true' || !defined('BS5_SHOW_PAYPAL_IN_BOX_CART')) {
@@ -176,6 +176,7 @@ class bs5_tpl_manager
     $dirs_and_files[] = $shop_path . 'includes/extra/ajax/bs5_get_subcat.php';
     $dirs_and_files[] = $shop_path . 'includes/extra/application_bottom/bs5_customers_remind.php';
     $dirs_and_files[] = $shop_path . 'includes/extra/application_top/application_top_begin/bs5_tpl_manager_config.php';
+    $dirs_and_files[] = $shop_path . 'includes/extra/application_top/application_top_end/bs5_sendmail_if_new_review.php';
     $dirs_and_files[] = $shop_path . 'includes/extra/application_top_callback/application_top_callback_begin/bs5_tpl_manager_config.php';
     $dirs_and_files[] = $shop_path . 'includes/extra/cart_actions/add_product_before_redirect/bs5_agi_reduce_cart.php';
     $dirs_and_files[] = $shop_path . 'includes/extra/cart_actions/add_product_prepare_post/bs5_attributes_default.php';
@@ -191,6 +192,7 @@ class bs5_tpl_manager
     $dirs_and_files[] = $shop_path . 'includes/extra/modules/product_info_end/zzz_bs5_additional_module_links.php';
     $dirs_and_files[] = $shop_path . 'includes/extra/modules/product_info_end/zzz_bs5_agi_reduce_cart.php';
     $dirs_and_files[] = $shop_path . 'includes/extra/modules/product_listing_begin/bs5_banners.php';
+    $dirs_and_files[] = $shop_path . 'includes/extra/modules/product_reviews_write/bs5_check_if_new_review.php';
     $dirs_and_files[] = $shop_path . 'includes/extra/modules/products_attributes_data/bs5_attribute_price_updater.php';
     $dirs_and_files[] = $shop_path . 'includes/extra/modules/products_attributes_end/bs5_modulfux_attributes_default.php';
     $dirs_and_files[] = $shop_path . 'includes/extra/shopping_cart/cart_requirements/bs5_agi_reduce_cart.php';
@@ -345,6 +347,7 @@ class bs5_tpl_manager
     $values_config[] = "('BS5_TOP2_BG', 'body-tertiary')";
     $values_config[] = "('BS5_FOOTER_NAVBAR', '')";
     $values_config[] = "('BS5_FOOTER_BG', 'body-tertiary')";
+    $values_config[] = "('BS5_SENDMAIL_IF_NEW_REVIEW', 'false')";
     $values_config[] = "('BS5_CUSTOMERS_REMIND', 'false')";
     $values_config[] = "('BS5_CUSTOMERS_REMIND_DOUBLE_OPT_IN', 'true')";
     $values_config[] = "('BS5_CUSTOMERS_REMIND_ONLY_REGISTERED', 'false')";
@@ -787,7 +790,7 @@ class bs5_tpl_manager
         // Zusatzmodule entfernen
         xtc_db_query("DROP TABLE " . TABLE_BS5_CUSTOMERS_REMIND);
         $messageStack->add_session(MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_REMOVED . TABLE_BS5_CUSTOMERS_REMIND, 'success');
-        xtc_db_query("DROP TABLE " . TABLE_BS5_SIMULATED_CRON_RECORDS);
+        xtc_db_query("DROP TABLE IF EXISTS " . TABLE_BS5_SIMULATED_CRON_RECORDS);
         //$messageStack->add_session(MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_REMOVED . TABLE_BS5_SIMULATED_CRON_RECORDS, 'success');
     }
     return true;
@@ -869,7 +872,7 @@ class bs5_tpl_manager
     {
       xtc_db_query("INSERT INTO `scheduled_tasks` (`time_regularity`, `time_unit`, `status`, `edit`, `tasks`) VALUES (1, 'd', 1, 1, 'bs5_send_customers_remind')");
     }
-    xtc_db_query("DROP TABLE " . TABLE_BS5_SIMULATED_CRON_RECORDS);
+    xtc_db_query("DROP TABLE IF EXISTS " . TABLE_BS5_SIMULATED_CRON_RECORDS);
 
     return true;
   }

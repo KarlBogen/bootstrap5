@@ -1,5 +1,10 @@
 UNRELEASED
 
+
+
+
+1.2.0 [26.02.2026]
+- E-Mail bei neuer Kundenrezension erhalten - im Template Manager einstellbare, neue Option
 - Anpassung Kundenbewertungen an Praxistipp Händlerbund
 <br> -- Weitere Informationen zur Omnibus-Richtlinie (Links zu haendlerbund.de)
 <br> --- https://ohn.haendlerbund.de/recht/politik-gesetze/136371-echtheit-kundenrezensionen-shop-pruefen

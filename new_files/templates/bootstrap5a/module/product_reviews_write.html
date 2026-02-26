@@ -33,7 +33,7 @@
 					</div>
 					<div class="mb-2 stern clearfix">
 						<label class="form-label" for="review">{#text_input#}</label>
-						{$INPUT_TEXT|replace:'rows="15"':'class="form-control"'}<span class="inputRequirement">*</span>
+						{$INPUT_TEXT|replace:'rows="15"':'class="form-control" rows="5"'}<span class="inputRequirement">*</span>
 					</div>
 					<div class="small my-3"><strong>{#text_note#}</strong><br /><i>{#reviews_min#} {$smarty.const.REVIEW_TEXT_MIN_LENGTH} {#reviews_signs#} | <span id="review_count">0</span> {#reviews_signs#}</i></div>
 					{if $VVIMG}

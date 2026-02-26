@@ -241,6 +241,9 @@ $lang_array = array(
   'TEXT_BS5_TPL_MANAGER_CONFIG_PRODBOXES_NAME_LINES_INFO' => '<strong>Einstellung gilt f&uuml;r alle Produktboxen.</strong><br>Anzahl der Zeilen, die der Artikelname maximal belegen soll (0 = auto).',
 
   'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_MODULES' => 'Module',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_SENDMAIL_IF_NEW_REVIEW_HEAD' => 'E-Mail bei neuer Produktrezension:',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_SENDMAIL_IF_NEW_REVIEW' => 'Produktrezension:',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_SENDMAIL_IF_NEW_REVIEW_INFO' => '<strong>Soll eine E-Mail bei einer neuen Produktrezension gesendet werden?</strong><br>Bei "Ja" wird eine E-Mail an die "Kontakt - E-Mail-Adresse" und an die "Kontakt - Weiterleitungs-E-Mail-Adressen" geschickt. Es muss hierf&uuml;r in den E-Mail Optionen das Senden von E-Mails aktiviert sein.',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_HEAD' => 'Kundenerinnerung bei ausverkauften Artikeln:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND' => 'Kundenerinnerung:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_INFO' => 'Modul "Kundenerinnerung" aktivieren!<br>
