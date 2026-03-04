@@ -10,8 +10,7 @@
     {if $smarty.const.REVIEWS_PURCHASED_ONLY == 'true'}{#reviews_info_checked#}{else}{#reviews_info_unchecked#}{/if}
     {if isset($reviews_note)}<div class="mt-2">{$reviews_note|replace:'class="':'class="link-secondary '}</div>{/if}
   </div>
-  {if $reviews_count > 0}
-  <div class="d-flex flex-wrap flex-md-nowrap justify-content-center gap-2">
+  <div class="d-flex flex-wrap flex-md-nowrap justify-content-center gap-4">
     <div class="col col-md-auto text-center px-4 mw-100">
       <div class="fs-5 py-2 border-bottom">
         {#text_reviews_avg#}: {$reviews_avg}
@@ -24,13 +23,14 @@
       </div>
       {if $reviews_count > $smarty.const.PRODUCT_REVIEWS_VIEW}
       <div class="mb-3">
-        <a class="link-secondary" href="{FILENAME_PRODUCT_REVIEWS|xtc_href_link:"products_id=`$smarty.get.products_id`"}">
+        <a class="link-secondary" href="{FILENAME_PRODUCT_REVIEWS|xtc_href_link:" products_id=`$smarty.get.products_id`"}">
           <i class="fa fa-arrow-right me-2"></i>{#text_review_show_1#} {$reviews_count} {#text_review_show_2#}
         </a>
       </div>
       {/if}
     </div>
     <div class="flex-grow-md-1 w-100">
+      {if $reviews_count > 0}
       <div class="small mb-2">
         {foreach name=aussen item=module_data from=$module_content}
         <div class="card mb-2" itemprop="review" itemscope itemtype="http://schema.org/Review">
@@ -70,11 +70,11 @@
         </div>
         {/foreach}
       </div>
+      {else}
+      <div class="py-2">{#text_write_first_review#}</div>
+      {/if}
+      <div class="my-3">{$BUTTON_WRITE|replace:'<a':'<a class="btn btn-secondary"'}</div>
     </div>
   </div>
-  {else}
-  <div>{#text_write_first_review#}</div>
-  {/if}
-  <div class="my-3">{$BUTTON_WRITE|replace:'<a':'<a class="btn btn-secondary"'}</div>
 	</div>
 {/if}

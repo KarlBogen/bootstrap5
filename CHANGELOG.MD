@@ -3,6 +3,10 @@ UNRELEASED
 
 
 
+
+- Produkt-Infoansicht - Berechnung Bildgröße der weiteren Produktbilder angepasst
+- Spaltenabstand bei Rezensionen leicht geändert
+
 1.2.0 [26.02.2026]
 - E-Mail bei neuer Kundenrezension erhalten - im Template Manager einstellbare, neue Option
 - Anpassung Kundenbewertungen an Praxistipp Händlerbund

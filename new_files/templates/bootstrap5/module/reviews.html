@@ -38,7 +38,7 @@
               {if $module_data.PRODUCTS_IMAGE != ''}
               <a href="{$module_data.PRODUCTS_LINK}">
                 {if $smarty.const.PICTURESET_ACTIVE === true}
-                <img class="lazyload img-fluid" data-src="{$module_data.PRODUCTS_IMAGE|replace:"thumbnail_":"midi_"}" alt="{$module_data.PRODUCTS_NAME|onlytext}" title="{$module_data.PRODUCTS_NAME|onlytext}">
+                <img class="lazyload img-fluid" data-src="{$module_data.PRODUCTS_IMAGE|replace:'thumbnail_':'midi_'}" alt="{$module_data.PRODUCTS_NAME|onlytext}" title="{$module_data.PRODUCTS_NAME|onlytext}">
                 {else}
                 <img class="lazyload img-fluid" data-src="{$module_data.PRODUCTS_IMAGE}" alt="{$module_data.PRODUCTS_NAME|onlytext}" title="{$module_data.PRODUCTS_NAME|onlytext}">
                 {/if}

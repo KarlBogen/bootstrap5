@@ -9,7 +9,7 @@
   </div>
   {if $error_message}<div class="alert alert-danger">{$error_message}</div>{/if}
   {if $success_message}<div class="alert alert-success">{$success_message}</div>{/if}
-  <div class="d-flex flex-wrap flex-md-nowrap gap-2">
+  <div class="d-flex flex-wrap flex-md-nowrap gap-4">
     {if $module_content.0.PRODUCTS_IMAGE != ''}
     <div class="col-auto mw-100">
       <img class="lazyload img-thumbnail" data-src="{$module_content.0.PRODUCTS_IMAGE}" alt="{$module_content.0.PRODUCTS_NAME|onlytext}" title="{$module_content.0.PRODUCTS_NAME|onlytext}">

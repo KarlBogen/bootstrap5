@@ -398,8 +398,8 @@ li.kk-mega.level2 > a {
 	max-width: 540px;
 }
 .input-group #cat_search {
-	width: 80px;
-	max-width: 80px;
+	width: 100px;
+	max-width: 100px;
   text-overflow: ellipsis;
 }
 .suggestionList .special_percent {
