@@ -310,7 +310,7 @@ if (file_exists($css_file))	$time = filemtime($css_file);
 							</ul>
 						</div>
 						<div class="box_login list-group list-group-flush my-4">
-							<h5 class="list-group-item">Willkommen zurück!</h5>
+							<div class="h5 list-group-item">Willkommen zurück!</div>
 							<div class="list-group-item">
 								<div class="mb-2">
 									<label for="email" class="form-label small">E-Mail-Adresse:</label>
@@ -983,7 +983,7 @@ if (file_exists($css_file))	$time = filemtime($css_file);
 							</ul>
 						</div>
 						<div class="box_login list-group list-group-flush my-4">
-							<h5 class="list-group-item">Welcome back!</h5>
+							<div class="h5 list-group-item">Welcome back!</div>
 							<div class="list-group-item">
 								<div class="mb-2">
 									<label for="email" class="form-label small">E-mail address:</label>

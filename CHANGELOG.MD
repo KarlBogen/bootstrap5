@@ -4,6 +4,7 @@ UNRELEASED
 
 
 - Screenreader Sprungmenü angepasst
+- W3C valide Off-Canvas-Überschriften
 - Produkt-Infoansicht - Berechnung Bildgröße der weiteren Produktbilder angepasst
 - Spaltenabstand bei Rezensionen leicht geändert
 
