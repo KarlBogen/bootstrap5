@@ -36,9 +36,9 @@
     $('.categorymenu').on('click', '.category_button', function() {
       var $this = $(this);
       if ($this.next('ul').length > 0) {
-        $this.next('ul').slideToggle();
+        $this.next('ul').slideToggle(1000);
         $this.children('i').toggleClass("fa-chevron-right fa-chevron-up");
-        $(this).attr('aria-expanded', function(i, attr) {
+        $this.attr('aria-expanded', function(i, attr) {
           return attr == 'true' ? 'false' : 'true'
         });
       } else {
@@ -52,11 +52,9 @@
         }, function(data) {
           if (data != '' && data != undefined) {
             $this.after(data);
-            $this.next('ul').slideToggle();
+            $this.next('ul').slideToggle(1000);
+            $this.attr('aria-expanded', 'true');
             $this.children('i').toggleClass("fa-chevron-right fa-chevron-up");
-            $(this).attr('aria-expanded', function(i, attr) {
-              return attr == 'true' ? 'false' : 'true'
-            });
           } else {
             $this.insertAfter('AJAX-FEHLER');
           }

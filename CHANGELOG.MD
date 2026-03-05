@@ -2,7 +2,8 @@ UNRELEASED
 
 
 
-
+1.2.1 [05.03.2026]
+- Kategoriemenü Bootstrap5a - Fehler beim Ajax-Nachladen von Unterketagorien behoben
 - Screenreader Sprungmenü angepasst
 - W3C valide Off-Canvas-Überschriften
 - Produkt-Infoansicht - Berechnung Bildgröße der weiteren Produktbilder angepasst
