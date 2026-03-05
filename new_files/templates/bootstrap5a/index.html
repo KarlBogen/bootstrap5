@@ -5,34 +5,35 @@
 
 {* BEGINN Hauptcontainer innerhalb body *}
 <div id="container" class="{$smarty.const.BS5_THEME} dm-{$display_mode}{if $smarty.const.BS5_SCALE_IMGAGES_ON_HOVER == 'true'} scaleimg{/if}">
-  <span id="focus" class="visually-hidden" tabindex="-1"></span>
+  <span id="focus" class="d-none" tabindex="-1"></span>
 
   {if $display_mode != 'checkout'}
 
     {* BEGINN Screenreadernavigation *}
-    <div class="visually-hidden-focusable flex-column navbar bg-body-secondary border p-3 position-absolute z-3">
-      <div class="navbar-brand w-100 border-bottom mb-2">{#BS5_skip_nav#}</div>
-      <ul class="nav flex-column">
-        <li class="nav-item d-none d-lg-block">
-          <a class="nav-link" href="#mainnav">{#BS5_skip_to_nav#}</a>
-        </li>
-        <li class="nav-item d-lg-none">
-          <a class="nav-link" href="#resmenu">{#BS5_skip_to_nav#}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#content">{#BS5_skip_to_content#}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#login">{#BS5_skip_to_login#}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#setbtn">{#BS5_skip_to_sets#}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#layout_footer">{#BS5_skip_to_footer#}</a>
-        </li>
-      </ul>
-    </div>
+      <nav class="visually-hidden-focusable flex-column navbar bg-body-secondary border p-3 position-absolute z-3">
+        <span class="visually-hidden">{#BS5_skip_nav_desc#}</span>
+        <div class="navbar-brand w-100 border-bottom mb-2">{#BS5_skip_nav#}</div>
+        <ul class="nav flex-column">
+          <li class="nav-item d-none d-lg-block">
+            <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#mainnav').focus()">{#BS5_skip_to_nav#}</a>
+          </li>
+          <li class="nav-item d-lg-none">
+            <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#resmenu').focus()">{#BS5_skip_to_nav#}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#content').focus()">{#BS5_skip_to_content#}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#login').focus()">{#BS5_skip_to_login#}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#setbtn').focus()">{#BS5_skip_to_sets#}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#layout_footer').focus()">{#BS5_skip_to_footer#}</a>
+          </li>
+        </ul>
+      </nav>
     {* ENDE Screenreadernavigation *}
 
     {* BEGINN Topleiste*}
@@ -95,10 +96,10 @@
     {* BEGINN Maincontainer 2 *}
     <main id="container2" class="container-xxl mb-4">
       <div class="row">
-        <div id="mainnav" class="col-lg-3 d-none d-lg-block">
+        <div id="mainnav" class="col-lg-3 d-none d-lg-block" tabindex="-1">
           {if isset($box_CATEGORIES)}{$box_CATEGORIES}{/if}
         </div>
-        <div id="content" class="col-lg-9">
+        <div id="content" class="col-lg-9" tabindex="-1">
           {if $error_message}<div class="alert alert-danger my-2">{$error_message}</div>{/if}
           {* BEGINN Banner *}
           {if isset($BANNER) && $BANNER != ''}
@@ -131,10 +132,10 @@
         <nav class="border-bottom mb-3" aria-label="breadcrumb">{$navtrail}</nav>
       {/if}
       <div class="row">
-        <div id="mainnav" class="col-lg-3 d-none d-lg-block">
+        <div id="mainnav" class="col-lg-3 d-none d-lg-block" tabindex="-1">
           {if isset($box_CATEGORIES)}{$box_CATEGORIES}{/if}
         </div>
-        <div id="content" class="col-lg-9">
+        <div id="content" class="col-lg-9" tabindex="-1">
           {if isset($main_content)}{$main_content}{/if}
           {if isset($box_LAST_VIEWED)}{$box_LAST_VIEWED}{/if}
           {if isset($box_BESTSELLERS)}{$box_BESTSELLERS}{/if}
@@ -154,7 +155,7 @@
         <nav class="border-bottom mb-3" aria-label="breadcrumb">{$navtrail}</nav>
       {/if}
       <div class="row">
-        <div id="mainnav" class="col-lg-3 d-none d-lg-block">
+        <div id="mainnav" class="col-lg-3 d-none d-lg-block" tabindex="-1">
           {if isset($box_CATEGORIES)}{$box_CATEGORIES}{/if}
         </div>
         <div id="content" class="col-lg-9">
@@ -173,16 +174,16 @@
       {/if}
       {if $smarty.const.BS5_PROD_DETAIL_FULLCONTENT == 'true'}
         <div class="row">
-          <div id="mainnav" class="col-lg-3 d-none d-lg-block">
+          <div id="mainnav" class="col-lg-3 d-none d-lg-block" tabindex="-1">
             {if isset($box_CATEGORIES)}{$box_CATEGORIES}{/if}
           </div>
-          <div id="content" class="col-lg-9">
+          <div id="content" class="col-lg-9" tabindex="-1">
             {if isset($main_content)}{$main_content}{/if}
             {if isset($box_LAST_VIEWED)}{$box_LAST_VIEWED}{/if}
           </div>
         </div>
       {else}
-        <div id="content">
+        <div id="content" tabindex="-1">
           {if isset($main_content)}{$main_content}{/if}
           {if isset($box_LAST_VIEWED)}{$box_LAST_VIEWED}{/if}
         </div>
@@ -220,10 +221,10 @@
       {/if}
       {if $fullcontent != true}
         <div class="row">
-          <div id="mainnav" class="col-lg-3 d-none d-lg-block">
+          <div id="mainnav" class="col-lg-3 d-none d-lg-block" tabindex="-1">
             {if isset($box_CATEGORIES)}{$box_CATEGORIES}{/if}
           </div>
-          <div id="content" class="col-lg-9">
+          <div id="content" class="col-lg-9" tabindex="-1">
             {if isset($main_content)}{$main_content}{/if}
 
             {if isset($box_XSELL)}{$box_XSELL}{/if}
@@ -234,7 +235,7 @@
           </div>
         </div>
       {else}
-        <div id="content">
+        <div id="content" tabindex="-1">
           {if isset($main_content)}{$main_content}{/if}
 
           {if isset($box_XSELL)}{$box_XSELL}{/if}
@@ -268,7 +269,7 @@
   {/if}
 
   {* BEGINN FOOTER *}
-  <footer id="layout_footer" class="container-fluid bg-{$smarty.const.BS5_FOOTER_BG} border-top border-light-subtle py-4" {if $smarty.const.BS5_FOOTER_NAVBAR=='dark' } data-bs-theme="dark" {/if}>
+  <footer id="layout_footer" class="container-fluid bg-{$smarty.const.BS5_FOOTER_BG} border-top border-light-subtle py-4" tabindex="-1" {if $smarty.const.BS5_FOOTER_NAVBAR=='dark' } data-bs-theme="dark" {/if}>
     <div class="container-xxl navbar">
       <div id="layout_footer_inner" class="row">
         <div class="col-lg-3 col-md-6 mb-3">

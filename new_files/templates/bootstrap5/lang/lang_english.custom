@@ -9,6 +9,7 @@ BS5_skip_to_nav = 'Skip to main navigation
 BS5_skip_to_login = 'Skip to login button'
 BS5_skip_to_sets = 'Skip to settings button'
 BS5_skip_to_footer = 'Skip to general information'
+BS5_skip_nav_desc = 'This skip link navigation can be accessed at any time; refresh the page (F5 key) and open the navigation with the Tab key.'
 
 BS5_catlist_title = 'Our offer'
 BS5_catlist_imgalt = 'category image'

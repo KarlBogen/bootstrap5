@@ -3,7 +3,7 @@ UNRELEASED
 
 
 
-
+- Screenreader Sprungmenü angepasst
 - Produkt-Infoansicht - Berechnung Bildgröße der weiteren Produktbilder angepasst
 - Spaltenabstand bei Rezensionen leicht geändert
 
