@@ -1,6 +1,8 @@
 UNRELEASED
 
 
+1.2.2 [09.03.2026]
+- Sitemapfehler im Template "bootstrap5a" - behoben
 
 1.2.1 [05.03.2026]
 - Kategoriemenü Bootstrap5a - Fehler beim Ajax-Nachladen von Unterketagorien behoben

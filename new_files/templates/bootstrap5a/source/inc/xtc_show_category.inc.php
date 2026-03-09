@@ -36,7 +36,7 @@ function mod_count_products_in_category($categories_id)
 }
 
 
-function xtc_get_category_tree_array($parent_id = 0, $max_depth = CATEGORIES_MAX_DEPTH, $level = 1, $category_tree_array = array())
+function xtc_get_category_tree_array($parent_id = 0, $max_depth = BS5_CATEGORIESMENU_MAXLEVEL == 'false' ? 100 : BS5_CATEGORIESMENU_MAXLEVEL, $level = 1, $category_tree_array = array())
 {
   $categories_data_array = xtc_get_categories_tree_data($parent_id, $level);
 
@@ -95,8 +95,83 @@ function xtc_get_categories_tree_data($parent_id, $level)
   return $result;
 }
 
+function xtc_show_category($parent_id = 0, $path = '', $category_tree_array = array())
+{
+  global $categories_string, $cPath;
 
-function xtc_show_category($parent_id = 0, $path = '', $category_tree_array = array(), $link_title = '')
+  $li_class_bs5 = $a_class_bs5 = '';
+  if (defined('SITEMAP_CASE') && SITEMAP_CASE === 3) {
+    $li_class_bs5 = " nav-item";
+    $a_class_bs5 = "nav-link";
+  }
+
+  foreach ($category_tree_array[$parent_id] as $categories) {
+    if (mod_count_products_in_category($categories['id']) > 0) {
+      $level = $categories['level'];
+      $tab = str_repeat("\t", $level);
+      $category_path = explode('_', $cPath);
+      $link_path = $path . (($path != '') ? '_' : '') . $categories['id'];
+      $link = xtc_href_link(FILENAME_DEFAULT, 'cPath=' . $link_path, 'NONSSL');
+
+      $cat_active = '';
+      if (end($category_path) == $categories['id']) {
+        // Selected for mmenulight
+        $cat_active = " Selected active";
+      } elseif (in_array($categories['id'], $category_path)) {
+        $cat_active = " active parent";
+      }
+
+      // mark subs
+      $hasSubs = $hasSubsClass = '';
+      $children = xtc_get_categories_tree_data($categories['id'], $level + 1);
+      $count_children = !empty($children);
+
+      if (defined('CATEGORIES_CHECK_SUBS') && (CATEGORIES_CHECK_SUBS == true)) {
+        if ($count_children === true) {
+          $hasSubs = ' hassub';
+        }
+      }
+      $categories_string .= $tab . '<li class="level' . $level . $cat_active . $hasSubs . $li_class_bs5 . '">';
+      $categories_string .= '<a class="' . $a_class_bs5 . $cat_active . $hasSubsClass . '" href="' . $link . '" title="' . encode_htmlentities($categories['name']) . '">';
+
+      $categories_string .= $categories['name'];
+      if (SHOW_COUNTS == 'true') {
+        $products_in_category = xtc_count_products_in_category($categories['id']);
+        if ($products_in_category > 0) {
+          $categories_string .= '<span class="counts small">&nbsp;(' . $products_in_category . ')</span>';
+        }
+      }
+
+      $categories_string .= '</a>';
+      if (isset($category_tree_array[$categories['id']])) {
+        if ($count_children === true) {
+          $categories_string .= "\n";
+          xtc_show_sub_category($level, true);
+
+          $categories_string .= "\n";
+          xtc_show_category($categories['id'], $link_path, $category_tree_array);
+          xtc_show_sub_category($level, false);
+          $categories_string .= "\n" . $tab;
+        }
+      }
+      $categories_string .= '</li>';
+      $categories_string .= "\n";
+    }
+  }
+}
+
+function xtc_show_sub_category($level, $open = true)
+{
+  global $categories_string, $tab;
+
+  if ($open === true) {
+    $categories_string .= $tab . '<ul>';
+  } else {
+    $categories_string .= $tab . '</ul>';
+  }
+}
+
+function bs5_xtc_show_category($parent_id = 0, $path = '', $category_tree_array = array(), $link_title = '')
 {
   global $categories_string;
 
@@ -143,9 +218,9 @@ function xtc_show_category($parent_id = 0, $path = '', $category_tree_array = ar
       if (isset($category_tree_array[$categories['id']])) {
         if ($categories['hasSubs'] == 1) {
           $categories_string .= "\n";
-          xtc_show_sub_category(true);
-          xtc_show_category($categories['id'], '', $category_tree_array);
-          xtc_show_sub_category(false);
+          bs5_xtc_show_sub_category(true);
+          bs5_xtc_show_category($categories['id'], '', $category_tree_array);
+          bs5_xtc_show_sub_category(false);
           $categories_string .= "\n" . $tab;
         }
       }
@@ -157,7 +232,7 @@ function xtc_show_category($parent_id = 0, $path = '', $category_tree_array = ar
 }
 
 
-function xtc_show_sub_category($open = true)
+function bs5_xtc_show_sub_category($open = true)
 {
   global $categories_string, $tab;
 

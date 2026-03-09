@@ -79,7 +79,7 @@ if (!$box_smarty->is_cached(CURRENT_TEMPLATE . '/boxes/box_categories.html', $ca
   $categories_string = '';
 
   if (!empty($category_tree_array)) {
-    xtc_show_category(0, $cPath_array, $category_tree_array);
+    bs5_xtc_show_category(0, $cPath_array, $category_tree_array);
   }
 
   if (BS5_MANUFACTURERS_LINK == 'true') {

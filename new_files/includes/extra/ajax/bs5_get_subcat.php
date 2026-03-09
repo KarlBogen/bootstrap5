@@ -86,7 +86,7 @@ function bs5_get_subcat()
 
   if (!empty($category_tree_array)) {
     $categories_string .= '<ul class="navbar-nav flex-column" style="display:none;">';
-    $categories_string .= xtc_show_category($categories_id, '', $category_tree_array, strip_tags($_REQUEST['title']));
+    $categories_string .= bs5_xtc_show_category($categories_id, '', $category_tree_array, strip_tags($_REQUEST['title']));
     $categories_string .= '</ul>';
   }
 
