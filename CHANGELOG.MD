@@ -1,6 +1,9 @@
 UNRELEASED
 
 
+- Templatedateien Merkzettel - IF-Abfragen verändert
+- kleine CSS-Klassen-Änderungen an Templatedateien
+
 1.2.2 [09.03.2026]
 - Sitemapfehler im Template "bootstrap5a" - behoben
 
