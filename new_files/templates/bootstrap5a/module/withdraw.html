@@ -1,0 +1,228 @@
+{config_load file="$language/lang_$language.conf" section="account"}
+{config_load file="$language/lang_$language.conf" section="newsletter"}
+{config_load file="$language/lang_$language.conf" section="create_account"}
+{config_load file="$language/lang_$language.conf" section="contact_us"}
+{config_load file="lang_`$language`.custom"}
+{config_load file="lang_`$language`.section" section="contact_us"}
+<div class="withdraw">
+
+  <h1>{$WITHDRAW_HEADING}</h1>
+
+  {if $error_message}<div class="alert alert-danger my-3">{$error_message}</div>{/if}
+  {if $success_message}<div class="alert alert-success my-3">{$success_message}</div>{/if}
+
+  {if $FORM_TYPE == 'auth'}
+
+    <div class="row row-cols-1 row-cols-md-2 g-3">
+      <div class="col">
+        <div class="fs-4 border-bottom">{$smarty.const.TEXT_WITHDRAW_HEADING}</div>
+        <div class="content my-4 clearfix">
+          {$WITHDRAW_CONTENT}
+        </div>
+      </div>
+      <div class="col">
+        {$FORM_ACTION}
+        <div class="fs-4 border-bottom">{#text_data#}&nbsp; <span class="fields_required">({#text_hint#})</span></div>
+
+        <div class="content my-4 clearfix">
+          <div class="mb-3 stern clearfix">
+            <label class="form-label" for="mail">{#text_email#}</label>
+            {$INPUT_EMAIL|replace:'type="text"':'id="mail" class="form-control" type="email"'}
+          </div>
+          <div class="mb-3 stern clearfix">
+            <label class="form-label" for="oID">{#text_oid#}</label>
+            {$INPUT_ORDER|replace:'<input':'<input id="oID" class="form-control"'}
+          </div>
+          {if $VVIMG}
+            <div class="vvcode_img mb-3 stern clearfix">
+              <span class="form-label d-inline-block">{#text_sec_code#}</span><br>
+              {$VVIMG}
+            </div>
+          {/if}
+          {if $INPUT_VVCODE}
+            <div class="vvcode_sec mb-3 stern clearfix">
+              <label class="form-label" for="code">{#text_inp_code#}</label>
+              {$INPUT_CODE|replace:'<input':'<input id="code" class="form-control"'}
+            </div>
+          {/if}
+
+          {if "SIGN_CONDITIONS_ON_CHECKOUT"|defined}
+            <div class="mb-2 p-2 position-relative clearfix">
+              <div class="form-check">
+                {if $PRIVACY_CHECKBOX}
+                  {$PRIVACY_CHECKBOX|replace:'<input':'<input class="form-check-input"'}
+                  <label class="form-check-label stretched-link" for="privacy">{#text_privacy_accept#|sprintf:$smarty.const.STORE_OWNER_EMAIL_ADDRESS} {$PRIVACY_LINK|replace:'iframe':'iframe z-2 position-relative'}</label>
+                {else}
+                  <div>{#text_privacy_accept#|sprintf:$smarty.const.STORE_OWNER_EMAIL_ADDRESS} {$PRIVACY_LINK|replace:'iframe':'iframe z-2 position-relative'}</div>
+                {/if}
+              </div>
+            </div>
+          {else}
+            {if $PRIVACY_CHECKBOX}
+              <div class="mb-2 p-2 position-relative clearfix">
+                <div class="form-check">
+                  {$PRIVACY_CHECKBOX|replace:'<input':'<input class="form-check-input"'}
+                  <label class="form-check-label stretched-link" for="privacy">{#text_privacy_accept#|sprintf:$smarty.const.STORE_OWNER_EMAIL_ADDRESS} {$PRIVACY_LINK|replace:'iframe':'iframe z-2 position-relative'}</label>
+                </div>
+              </div>
+            {/if}
+          {/if}
+
+        </div>
+        <div class="d-grid d-sm-flex justify-content-sm-end">
+          {$BUTTON_SUBMIT|replace:'<button':'<button class="btn btn-secondary px-5"'}
+        </div>
+        {$FORM_END}
+      </div>
+    </div>
+
+  {elseif $FORM_TYPE == 'products'}
+
+    {$FORM_ACTION}
+
+    {if isset($PRODUCTS) && is_array($PRODUCTS) && count($PRODUCTS) > 0}
+
+      <p class="my-3">{$smarty.const.TEXT_WITHDRAW_PRODUCTS_SELECT}</p>
+
+      <div class="order_details list-group">
+        <div class="list-group-item">
+          <div class="row">
+            <div class="d-flex justify-content-between fw-bold">
+              <div class="col-md-8 pe-3">{$smarty.const.HEADER_ARTICLE}</div>
+              <div class="col-md-4 ps-3">
+                <div class="d-flex justify-content-between">
+                  <div class="d-none d-md-block">{$smarty.const.HEADER_QTY}</div>
+                  <div>{$smarty.const.HEADER_SINGLE}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {foreach name=aussen item=order_data from=$PRODUCTS}
+          <div class="list-group-item">
+            <div class="row">
+              <div class="col-12 col-md-8">
+                <div class="d-flex">
+                  <div class="pe-3">
+                    {$order_data.PRODUCTS_QUANTITY} x
+                  </div>
+                  <div class="flex-grow-1">
+                    <div class="of_productname">
+                      <strong>{$order_data.PRODUCTS_NAME}</strong>
+                    </div>
+                    {if $order_data.PRODUCTS_MODEL}
+                      <div class="of_infoline mt-2 small">{$smarty.const.HEADER_MODEL}: {$order_data.PRODUCTS_MODEL}</div>
+                    {/if}
+                    {if count($order_data.PRODUCTS_ATTRIBUTES) > 0}
+                      <ul class="attributes_list small my-2">
+                        {foreach name=inner item=attributes_data from=$order_data.PRODUCTS_ATTRIBUTES}
+                          <li><strong>{$attributes_data.OPTIONS_NAME}</strong>: {$attributes_data.VALUES_NAME}</li>
+                        {/foreach}
+                      </ul>
+                    {/if}
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="d-block d-md-none border-top w-100 my-2"></div>
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex flex-md-column text-center">
+                    <div class="d-block d-md-none fw-bold small me-3">{$smarty.const.HEADER_QTY}</div>
+                    <div>{$order_data.PRODUCTS_QTY|replace:'<input':'<input class="form-control text-center" size="3" aria-label="[aria]"'|replace:'[aria]':$smarty.const.HEADER_QTY}</div>
+                  </div>
+                  <div class="of_total">
+                    {$order_data.PRODUCTS_PRICE}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        {/foreach}
+      </div>
+
+    {else}
+      <div class="alert alert-info my-2">{$smarty.const.TEXT_WITHDRAW_NO_PRODUCTS}</div>
+    {/if}
+
+    <div class="d-grid gap-2 d-sm-flex justify-content-sm-between my-3">
+      {if isset($BUTTON_BACK)}
+        {$BUTTON_BACK|replace:'<a':'<a class="btn btn-outline-secondary px-5"'}
+      {/if}
+
+      {if isset($BUTTON_SUBMIT)}
+        {$BUTTON_SUBMIT|replace:'<button':'<button class="btn btn-secondary px-5"'}
+      {/if}
+    </div>
+    {$FORM_END}
+
+  {elseif $FORM_TYPE == 'success'}
+
+    <p class="my-3">{$smarty.const.TEXT_WITHDRAW_SUCCESS}</p>
+
+    {if isset($PRODUCTS) && is_array($PRODUCTS) && count($PRODUCTS) > 0}
+      <p class="pt-3 mb-3 fw-bold">{$smarty.const.TEXT_WITHDRAW_PRODUCTS_SUCCESS}</p>
+
+      <div class="order_details list-group">
+        <div class="list-group-item">
+          <div class="row">
+            <div class="d-flex justify-content-between fw-bold">
+              <div class="col-md-8 pe-3">{$smarty.const.HEADER_ARTICLE}</div>
+              <div class="col-md-4 ps-3">
+                <div class="d-flex justify-content-between">
+                  <div class="d-none d-md-block">{$smarty.const.HEADER_QTY}</div>
+                  <div>{$smarty.const.HEADER_SINGLE}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {foreach name=aussen item=order_data from=$PRODUCTS}
+          <div class="list-group-item">
+            <div class="row">
+              <div class="col-12 col-md-8">
+                <div class="d-flex">
+                  <div class="flex-grow-1">
+                    <div class="of_productname">
+                      <strong>{$order_data.PRODUCTS_NAME}</strong>
+                    </div>
+                    {if $order_data.PRODUCTS_MODEL}
+                      <div class="of_infoline mt-2 small">{$smarty.const.HEADER_MODEL}: {$order_data.PRODUCTS_MODEL}</div>
+                    {/if}
+                    {if count($order_data.PRODUCTS_ATTRIBUTES) > 0}
+                      <ul class="attributes_list small my-2">
+                        {foreach name=inner item=attributes_data from=$order_data.PRODUCTS_ATTRIBUTES}
+                          <li><strong>{$attributes_data.OPTIONS_NAME}</strong>: {$attributes_data.VALUES_NAME}</li>
+                        {/foreach}
+                      </ul>
+                    {/if}
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="d-block d-md-none border-top w-100 my-2"></div>
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex flex-md-column text-center">
+                    <div class="d-block d-md-none fw-bold small me-3">{$smarty.const.HEADER_QTY}</div>
+                    <div>{$order_data.PRODUCTS_QUANTITY}</div>
+                  </div>
+                  <div class="of_total">
+                    {$order_data.PRODUCTS_PRICE}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        {/foreach}
+      </div>
+
+    {/if}
+
+    <div class="d-flex justify-content-end my-3">
+      {$BUTTON_CONTINUE|replace:'<a':'<a class="btn btn-secondary px-5"'}
+    </div>
+
+  {/if}
+
+</div>

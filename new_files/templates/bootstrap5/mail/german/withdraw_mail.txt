@@ -1,0 +1,18 @@
+Anfrage für einen Widerruf
+
+Name: {$NAME}
+E-Mail Adresse: {$EMAIL}
+Bestellnummer: {$ORDERS_ID}
+
+{foreach name=aussen item=order_data from=$PRODUCTS} 
+{$order_data.PRODUCTS_QUANTITY} x {$order_data.PRODUCTS_NAME} {$order_data.PRODUCTS_PRICE}
+Art.-Nr. {$order_data.PRODUCTS_MODEL}
+{if count($order_data.PRODUCTS_ATTRIBUTES) > 0}
+{foreach name=inner item=attributes_data from=$order_data.PRODUCTS_ATTRIBUTES}
+{$attributes_data.OPTIONS_NAME}: {$attributes_data.VALUES_NAME}
+{/foreach}
+{/if}
+
+{/foreach}
+
+[SIGNATUR]

@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- Templatedateien für Systemmodul "Widerrufsformular" hinzugefügt
 - einheitliche Formatierung - Tab entspricht zwei Leerzeichen
 - Templatedateien Merkzettel - IF-Abfragen verändert
 - kleine CSS-Klassen-Änderungen an Templatedateien
