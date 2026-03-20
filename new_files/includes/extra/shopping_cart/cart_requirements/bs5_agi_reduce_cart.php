@@ -7,15 +7,15 @@
 |     Contact: info@andreas-guder.de / http://www.andreas-guder.de          |
 | Copyright (c) 2019, Andreas Guder [info@andreas-guder.de]                 |
 |               GNU General Public License  (Version 2)                     |
-'---------------------------------------------------------------------------ü
+'---------------------------------------------------------------------------ï¿½
 */
 if (defined('BS5_AGI_REDUCE_CART') && BS5_AGI_REDUCE_CART == 'true') {
   if (STOCK_CHECK == 'true' && STOCK_ALLOW_CHECKOUT != 'true') {
-    if($_SESSION['any_realy_out_of_stock']) {
+    if ($_SESSION['any_realy_out_of_stock']) {
       $_SESSION['allow_checkout'] = 'false';
       $messageStack->add('shopping_cart', BS5_AGI_REDUCE_CART_MESSAGE_SOMETHING_OUT_OF_STOCK);
     }
-    if($_SESSION['any_stock_reduced']) {
+    if ($_SESSION['any_stock_reduced']) {
       $messageStack->add('shopping_cart', BS5_AGI_REDUCE_CART_MESSAGE_SOMETHING_REDUCED);
     }
   }

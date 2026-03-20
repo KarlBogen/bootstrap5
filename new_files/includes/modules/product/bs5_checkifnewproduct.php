@@ -1,11 +1,13 @@
 <?php
 /* ------------------------------------------------------------
-	Module "Bootstrap 5 Template-Manager" made by Karl
+  Module "Bootstrap 5 Template-Manager" made by Karl
 
-	modified eCommerce Shopsoftware
-	http://www.modified-shop.org
+  modified eCommerce Shopsoftware
+  http://www.modified-shop.org
 
-	Released under the GNU General Public License
+ÄNDERUNG FÜR WENN BILD 1 NICHT DA, DANN BILD / usw.
+
+  Released under the GNU General Public License
 -------------------------------------------------------------- */
 
 class bs5_checkifnewproduct

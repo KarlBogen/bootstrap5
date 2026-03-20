@@ -1,15 +1,15 @@
 <?php
 /* ------------------------------------------------------------
-	Module "Bootstrap 5 Template-Manager" made by Karl
+  Module "Bootstrap 5 Template-Manager" made by Karl
 
-	modified eCommerce Shopsoftware
-	http://www.modified-shop.org
+  modified eCommerce Shopsoftware
+  http://www.modified-shop.org
 
-	Released under the GNU General Public License
+  Released under the GNU General Public License
 -------------------------------------------------------------- */
 
 // Zusatzmodul Kundenerinnerung
-define('FILENAME_BS5_CUSTOMERS_REMIND','bs5_customers_remind.php');
+define('FILENAME_BS5_CUSTOMERS_REMIND', 'bs5_customers_remind.php');
 // Zusatzmodul Billiger gesehen
 define('BS5_FILENAME_CHEAPLY_SEE', 'bs5_cheaply_see.php');
 // Zusatzmodul Frage zum Produkt

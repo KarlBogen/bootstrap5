@@ -1,11 +1,11 @@
 <?php
 /* ------------------------------------------------------------
-	Module "Bootstrap 5 Template-Manager" made by Karl
+  Module "Bootstrap 5 Template-Manager" made by Karl
 
-	modified eCommerce Shopsoftware
-	http://www.modified-shop.org
+  modified eCommerce Shopsoftware
+  http://www.modified-shop.org
 
-	Released under the GNU General Public License
+  Released under the GNU General Public License
 -------------------------------------------------------------- */
 
 define('TEXT_BS5_BANNER_MANAGER_HEADING_TITLE', 'Bootstrap 5 - Banner Manager');
@@ -43,4 +43,3 @@ define('BS5_BANNER_DATA_UPDATED', 'Data saved!');
 define('BS5_NO_DATA', 'No data available!');
 define('BS5_CLASSES_NOTE', 'The colors shown here are Bootstrap standard colors, colors in the shop can be different!');
 defined('TEXT_IMAGE_NONEXISTENT') or define('TEXT_IMAGE_NONEXISTENT', 'Image does not exist');
-?>

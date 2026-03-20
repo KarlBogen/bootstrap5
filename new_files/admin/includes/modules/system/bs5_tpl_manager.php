@@ -34,10 +34,9 @@ class bs5_tpl_manager
     $this->title = MODULE_BS5_TPL_MANAGER_TEXT_TITLE . ' © by <a href="https://github.com/KarlBogen" target="_blank" style="color: #e67e22; font-weight: bold;">Karl</a> - Version: ' . (defined('MODULE_BS5_TPL_MANAGER_VERSION') ? MODULE_BS5_TPL_MANAGER_VERSION : '');
     $this->description = '';
     $this->description .= '<a class="button btnbox" style="text-align:center;" href="' . xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=' . $this->code . '&action=edit') . '">' . BUTTON_EDIT . '</a><br />';
-    if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && (!defined('MODULE_BS5_TPL_MANAGER_VERSION') || version_compare(MODULE_BS5_TPL_MANAGER_VERSION, $this->version, '<')))
-    {
-        $this->description .= "<script>$('.main').after('" . sprintf(MODULE_BS5_TPL_MANAGER_VERSION_ERROR, $this->version) . "');</script>";
-        $this->description .= '<a class="button btnbox but_green" style="text-align:center;" onclick="this.blur();" href="' . xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=' . $this->code . '&action=update') . '">Update</a><br /><br />';
+    if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && (!defined('MODULE_BS5_TPL_MANAGER_VERSION') || version_compare(MODULE_BS5_TPL_MANAGER_VERSION, $this->version, '<'))) {
+      $this->description .= "<script>$('.main').after('" . sprintf(MODULE_BS5_TPL_MANAGER_VERSION_ERROR, $this->version) . "');</script>";
+      $this->description .= '<a class="button btnbox but_green" style="text-align:center;" onclick="this.blur();" href="' . xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=' . $this->code . '&action=update') . '">Update</a><br /><br />';
     }
     $bs5_tpl = defined('BS5_CURRENT_TEMPLATE') && BS5_CURRENT_TEMPLATE != '' ? BS5_CURRENT_TEMPLATE : 'bootstrap5';
     $this->description .= '<a class="button btnbox but_red" style="text-align:center;" onclick="return confirmLink(\'' . sprintf(MODULE_BS5_TPL_MANAGER_DELETE_CONFIRM, $bs5_tpl) . '\', \'\' ,this);" href="' . xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=' . $this->code . '&action=custom') . '">' . MODULE_BS5_TPL_MANAGER_DELETE_BUTTON . '</a><br />';
@@ -567,8 +566,7 @@ class bs5_tpl_manager
 
     if (!defined('MODULE_BS5_TPL_MANAGER_VERSION')) {
       xtc_db_query("INSERT INTO " . TABLE_CONFIGURATION . " (configuration_key, configuration_value, configuration_group_id, sort_order, date_added) VALUES ('MODULE_BS5_TPL_MANAGER_VERSION', '" . $this->version . "', '6', '1', now())");
-    }
-    elseif (version_compare(MODULE_BS5_TPL_MANAGER_VERSION, $this->version, '<')) {
+    } elseif (version_compare(MODULE_BS5_TPL_MANAGER_VERSION, $this->version, '<')) {
       xtc_db_query("UPDATE " . TABLE_CONFIGURATION . " SET configuration_value = '" . $this->version . "', last_modified = now() WHERE configuration_key = 'MODULE_BS5_TPL_MANAGER_VERSION'");
     }
     // Klassenerweiterungsmodul "product" - "checkifnewproduct" wird mitinstalliert - wird benötigt für die Prüfung, ob ein Produkt neu ist
@@ -864,12 +862,11 @@ class bs5_tpl_manager
     //Eintrag in Tabelle geplante Aufgaben
     $scheduled_tasks_array = array();
     $scheduled_query = xtc_db_query("SELECT *
-                                        FROM ".TABLE_SCHEDULED_TASKS);
+                                        FROM " . TABLE_SCHEDULED_TASKS);
     while ($scheduled = xtc_db_fetch_array($scheduled_query)) {
       $scheduled_tasks_array[] = $scheduled['tasks'];
     }
-    if (!in_array('bs5_send_customers_remind', $scheduled_tasks_array))
-    {
+    if (!in_array('bs5_send_customers_remind', $scheduled_tasks_array)) {
       xtc_db_query("INSERT INTO `scheduled_tasks` (`time_regularity`, `time_unit`, `status`, `edit`, `tasks`) VALUES (1, 'd', 1, 1, 'bs5_send_customers_remind')");
     }
     xtc_db_query("DROP TABLE IF EXISTS " . TABLE_BS5_SIMULATED_CRON_RECORDS);

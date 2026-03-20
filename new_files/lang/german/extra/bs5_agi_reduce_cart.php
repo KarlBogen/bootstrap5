@@ -7,7 +7,7 @@
 |     Contact: info@andreas-guder.de / http://www.andreas-guder.de          |
 | Copyright (c) 2019, Andreas Guder [info@andreas-guder.de]                 |
 |               GNU General Public License  (Version 2)                     |
-'---------------------------------------------------------------------------ü
+'---------------------------------------------------------------------------ï¿½
 */
 define('BS5_AGI_REDUCE_CART_MESSAGE_SOMETHING_OUT_OF_STOCK', 'Die mit ' . STOCK_MARK_PRODUCT_OUT_OF_STOCK . ' markierten Artikel sind leider nicht mehr auf Lager. Die Bestellung kann nicht ausgef&uuml;hrt werden.');
 define('BS5_AGI_REDUCE_CART_MESSAGE_SOMETHING_REDUCED', 'Die mit ' . STOCK_MARK_PRODUCT_OUT_OF_STOCK . ' markierten Artikel sind leider nicht in der von Ihnen gew&uuml;nschten Menge auf Lager. Die Anzahl wurde automatisch reduziert.');

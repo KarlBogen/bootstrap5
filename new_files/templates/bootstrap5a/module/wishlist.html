@@ -21,8 +21,7 @@
                 <div class="card-body pb-2 flex-fill d-flex flex-column text-center">
                   {if $smarty.const.BS5_FLAG_SPECIAL_SHOW == 'true' && $module_data.PRODUCTS_PRICE_SAVE_PERCENT != ''}<div class="ribbon bg-danger text-white shadow-sm">{#BS5_special#}</div>
                   {elseif $smarty.const.BS5_FLAG_TOP_SHOW == 'true' && $module_data.PRODUCTS_STARTPAGE == '1'}<div class="ribbon bg-primary text-white shadow-sm">{#BS5_top#}</div>
-                  {elseif $smarty.const.BS5_FLAG_NEW_SHOW == 'true' && isset($module_data.PRODUCTS_FLAG_NEW) && ($module_data.PRODUCTS_FLAG_NEW == 1)}<div class="ribbon bg-success text-white shadow-sm">{#BS5_new#}</div>
-                  {/if}
+                  {elseif $smarty.const.BS5_FLAG_NEW_SHOW == 'true' && isset($module_data.PRODUCTS_FLAG_NEW) && ($module_data.PRODUCTS_FLAG_NEW == 1)}<div class="ribbon bg-success text-white shadow-sm">{#BS5_new#}</div>{/if}
                   <div class="lb_image w-100 img_container mx-auto">
                     <div class="prod_image mb-2">
                       {if $module_data.PRODUCTS_IMAGE != ''}
@@ -63,8 +62,7 @@
             <div class="row mx-0">
               {if $smarty.const.BS5_FLAG_SPECIAL_SHOW == 'true' && $module_data.PRODUCTS_PRICE_SAVE_PERCENT != ''}<div class="ribbon bg-danger text-white shadow-sm">{#BS5_special#}</div>
               {elseif $smarty.const.BS5_FLAG_TOP_SHOW == 'true' && $module_data.PRODUCTS_STARTPAGE == '1'}<div class="ribbon bg-primary text-white shadow-sm">{#BS5_top#}</div>
-              {elseif $smarty.const.BS5_FLAG_NEW_SHOW == 'true' && isset($module_data.PRODUCTS_FLAG_NEW) && ($module_data.PRODUCTS_FLAG_NEW == 1)}<div class="ribbon bg-success text-white shadow-sm">{#BS5_new#}</div>
-              {/if}
+              {elseif $smarty.const.BS5_FLAG_NEW_SHOW == 'true' && isset($module_data.PRODUCTS_FLAG_NEW) && ($module_data.PRODUCTS_FLAG_NEW == 1)}<div class="ribbon bg-success text-white shadow-sm">{#BS5_new#}</div>{/if}
               <div class="card-body col-sm-5 col-md-6 col-lg-3 text-center">
                 {if $module_data.PRODUCTS_IMAGE != ''}
                   <div class="lr_image img_container mx-auto">

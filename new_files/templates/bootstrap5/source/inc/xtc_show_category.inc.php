@@ -11,87 +11,91 @@
    ---------------------------------------------------------------------------------------*/
 
 
-  function xtc_count_products_in_category_array($parent_id, $category_tree_array) {
-    $products_in_category = 0;
-    if (mod_count_products_in_category($categories['id']) > 1) {
-      foreach ($category_tree_array[$parent_id] as $categories) {
-        $products_in_category += mod_count_products_in_category($categories['id']);
+function xtc_count_products_in_category_array($parent_id, $category_tree_array)
+{
+  $products_in_category = 0;
+  if (mod_count_products_in_category($categories['id']) > 1) {
+    foreach ($category_tree_array[$parent_id] as $categories) {
+      $products_in_category += mod_count_products_in_category($categories['id']);
+    }
+  } else {
+    $products_in_category = 1;
+  }
+
+  return $products_in_category;
+}
+
+
+function mod_count_products_in_category($categories_id)
+{
+  if (!defined('BS5_HIDE_EMPTY_CATEGORIES') || BS5_HIDE_EMPTY_CATEGORIES == 'false') {
+    return 1;
+  }
+
+  return xtc_count_products_in_category($categories_id);
+}
+
+
+function xtc_get_category_tree_array($parent_id = 0, $max_depth = BS5_CATEGORIESMENU_MAXLEVEL == 'false' ? 100 : BS5_CATEGORIESMENU_MAXLEVEL, $level = 1, $category_tree_array = array())
+{
+  $categories_data_array = xtc_get_categories_tree_data($parent_id, $level);
+
+  if (!empty($categories_data_array)) {
+    $category_tree_array[$parent_id] =  $categories_data_array;
+
+    foreach ($categories_data_array as $categories_data) {
+      $category_tree_array[$parent_id][$categories_data['id']]['level'] = $level;
+
+      if ($categories_data['level'] < $max_depth) {
+        $category_tree_array = xtc_get_category_tree_array($categories_data['id'], $max_depth, $level + 1, $category_tree_array);
       }
-    } else {
-      $products_in_category = 1;
     }
-    
-    return $products_in_category;
-  }
-  
-  
-  function mod_count_products_in_category($categories_id) {
-    if (!defined('BS5_HIDE_EMPTY_CATEGORIES') || BS5_HIDE_EMPTY_CATEGORIES == 'false') {
-      return 1;
-    }
-    
-    return xtc_count_products_in_category($categories_id);
-  }
-  
-  
-  function xtc_get_category_tree_array($parent_id = 0, $max_depth = BS5_CATEGORIESMENU_MAXLEVEL == 'false' ? 100 : BS5_CATEGORIESMENU_MAXLEVEL, $level = 1, $category_tree_array = array()) {
-    $categories_data_array = xtc_get_categories_tree_data($parent_id, $level);
-
-    if (!empty($categories_data_array)) {
-      $category_tree_array[$parent_id] =  $categories_data_array;
-      
-      foreach ($categories_data_array as $categories_data) {
-        $category_tree_array[$parent_id][$categories_data['id']]['level'] = $level;
-        
-        if ($categories_data['level'] < $max_depth) {
-          $category_tree_array = xtc_get_category_tree_array($categories_data['id'], $max_depth, $level + 1, $category_tree_array);
-        }
-      }
-    }
-    
-    return $category_tree_array;
   }
 
+  return $category_tree_array;
+}
 
-  function xtc_get_categories_tree_data($parent_id, $level) {
-    static $category_data_array = null;
-    
-    if ($category_data_array === null) {
-      $category_data_array = array();
-      
-      $categories_query = xtDBquery("SELECT c.categories_id,
+
+function xtc_get_categories_tree_data($parent_id, $level)
+{
+  static $category_data_array = null;
+
+  if ($category_data_array === null) {
+    $category_data_array = array();
+
+    $categories_query = xtDBquery("SELECT c.categories_id,
                                             cd.categories_name,
                                             c.parent_id
-                                       FROM ".TABLE_CATEGORIES." c
-                                       JOIN ".TABLE_CATEGORIES_DESCRIPTION." cd
+                                       FROM " . TABLE_CATEGORIES . " c
+                                       JOIN " . TABLE_CATEGORIES_DESCRIPTION . " cd
                                             ON cd.categories_id = c.categories_id
-                                               AND cd.language_id = '".(int)$_SESSION['languages_id']."'
+                                               AND cd.language_id = '" . (int)$_SESSION['languages_id'] . "'
                                                AND trim(cd.categories_name) != ''
                                       WHERE c.categories_status = '1'
-                                            ".CATEGORIES_CONDITIONS_C."
+                                            " . CATEGORIES_CONDITIONS_C . "
                                    ORDER BY c.sort_order, cd.categories_name");
 
-      while ($categories = xtc_db_fetch_array($categories_query, true)) {
-        $category_data_array[$categories['parent_id']][$categories['categories_id']] = array(
-          'name' => $categories['categories_name'],
-          'parent' => $categories['parent_id'],
-          'id' => $categories['categories_id'],
-        );
-      }
+    while ($categories = xtc_db_fetch_array($categories_query, true)) {
+      $category_data_array[$categories['parent_id']][$categories['categories_id']] = array(
+        'name' => $categories['categories_name'],
+        'parent' => $categories['parent_id'],
+        'id' => $categories['categories_id'],
+      );
     }
-        
-    $result = array();
-    if (isset($category_data_array[$parent_id])) {
-      foreach ($category_data_array[$parent_id] as $id => $category) {
-        $category['level'] = $level;
-        $result[$id] = $category;
-      }
-    }
-    
-    return $result;
   }
-  
-  
+
+  $result = array();
+  if (isset($category_data_array[$parent_id])) {
+    foreach ($category_data_array[$parent_id] as $id => $category) {
+      $category['level'] = $level;
+      $result[$id] = $category;
+    }
+  }
+
+  return $result;
+}
+
+
 function xtc_show_category($parent_id = 0, $path = '', $category_tree_array = array(), $bs5_type = '')
 {
   global $categories_string, $cPath;

@@ -8,28 +8,32 @@
   Released under the GNU General Public License
 -------------------------------------------------------------- */
 
-defined( '_VALID_XTC' ) or die( 'Direct Access to this location is not allowed.' );
+defined('_VALID_XTC') or die('Direct Access to this location is not allowed.');
 
-  // Leafo scssphp
-  if (!(PHP_VERSION_ID >= 80100)) {
-    require_once "scssphp/scss.inc.php";
-  } else {
-    require_once "scssphp/vendor/autoload.php";
-  }
-  require_once "scssphp/server/Server.php";
-  use ScssPhp\ScssPhp\Compiler;
-  use ScssPhp\ScssPhp\OutputStyle;
-  use ScssPhp\Server\Server;
+// Leafo scssphp
+if (!(PHP_VERSION_ID >= 80100)) {
+  require_once "scssphp/scss.inc.php";
+} else {
+  require_once "scssphp/vendor/autoload.php";
+}
+require_once "scssphp/server/Server.php";
 
-class Bs5TplManager {
+use ScssPhp\ScssPhp\Compiler;
+use ScssPhp\ScssPhp\OutputStyle;
+use ScssPhp\Server\Server;
+
+class Bs5TplManager
+{
 
   // call compiler
-    public function compileTheme($theme) {
+  public function compileTheme($theme)
+  {
     $this->compile($theme);
-    }
+  }
 
   // Sass-Compiler create the file includes/bs5_template_manager/css/bootstrap.min.css
-    protected function compile($theme) {
+  protected function compile($theme)
+  {
     global $messageStack;
 
     try {
@@ -43,26 +47,27 @@ class Bs5TplManager {
 
       $messageStack->add(BOOTSTRAP_CSS_COMPILED, 'success');
     } catch (Exception $e) {
-      $messageStack->add(BS5_TPL_MANAGER_THEME_ERROR.$e->getMessage(), 'error');
+      $messageStack->add(BS5_TPL_MANAGER_THEME_ERROR . $e->getMessage(), 'error');
     }
-    }
+  }
 
   // call copy_theme
-    public function copy2template($path, $action = 'update')
-    {
+  public function copy2template($path, $action = 'update')
+  {
     $this->copy_theme($path, $action);
-    }
+  }
 
   // copy bootstrap.min.css and fonts to template
-    protected function copy_theme($path, $action) {
+  protected function copy_theme($path, $action)
+  {
     global $messageStack;
 
-    $tpl_path = DIR_FS_CATALOG.'templates/'.$path.'/';
+    $tpl_path = DIR_FS_CATALOG . 'templates/' . $path . '/';
     $admincss_path = 'css/admindemo/bootstrap.min';
     $css_path = 'css/bootstrap/bootstrap.min';
-    $admincss_file = $tpl_path.$admincss_path;
-    $css_file = $tpl_path.$css_path;
-//		$font_path = 'css/fonts/';
+    $admincss_file = $tpl_path . $admincss_path;
+    $css_file = $tpl_path . $css_path;
+    //		$font_path = 'css/fonts/';
 
     // if template path exists
     if (!file_exists($tpl_path) || $path == '') {
@@ -71,44 +76,44 @@ class Bs5TplManager {
     }
     // seit Version 2.0.5.0 Vorschau Datei im Templateordner
     // rename bootstrap.min.css to bootstrap.min.bak
-    if (@rename($admincss_file.'.css', $admincss_file.'.bak')) {
-      $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_CSS_FILE_RENAMED, $admincss_file.'.css', $admincss_file.'.bak'), 'success');
+    if (@rename($admincss_file . '.css', $admincss_file . '.bak')) {
+      $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_CSS_FILE_RENAMED, $admincss_file . '.css', $admincss_file . '.bak'), 'success');
     } else {
-            $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_CSS_FILE_NOT_RENAMED, $admincss_file.'.css'), 'error');
+      $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_CSS_FILE_NOT_RENAMED, $admincss_file . '.css'), 'error');
       return false;
     }
     // copy bootstrap.min.css to template
-    if (@copy(dirname(__FILE__).'/css/bootstrap.min.css', $admincss_file.'.css')) {
-      $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_FILE_COPIED, dirname(__FILE__).'/css/bootstrap.min.css', $admincss_file.'.css'), 'success');
+    if (@copy(dirname(__FILE__) . '/css/bootstrap.min.css', $admincss_file . '.css')) {
+      $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_FILE_COPIED, dirname(__FILE__) . '/css/bootstrap.min.css', $admincss_file . '.css'), 'success');
     } else {
-      @rename($admincss_file.'bak', $admincss_file.'css');
-            $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_FILE_NOT_COPIED, dirname(__FILE__).'/css/bootstrap.min.css', $admincss_file.'bak', $admincss_file.'.css'), 'error');
+      @rename($admincss_file . 'bak', $admincss_file . 'css');
+      $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_FILE_NOT_COPIED, dirname(__FILE__) . '/css/bootstrap.min.css', $admincss_file . 'bak', $admincss_file . '.css'), 'error');
       return false;
     }
 
     if ($action == 'copy') {
       // if template file bootstrap.min.css exists
-      if (!file_exists($css_file.'.css')) {
-        $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_CSS_FILE_NOT_EXISTS, $css_file.'.css'), 'error');
+      if (!file_exists($css_file . '.css')) {
+        $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_CSS_FILE_NOT_EXISTS, $css_file . '.css'), 'error');
         return false;
       }
       // rename bootstrap.min.css to bootstrap.min.bak
-      $time = date("Y-m-d")."-".time();
-      if (@rename($css_file.'.css', $css_file.'_'.$time.'.bak')) {
-        $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_CSS_FILE_RENAMED, $css_file.'.css', $css_file.'_'.$time.'.bak'), 'success');
+      $time = date("Y-m-d") . "-" . time();
+      if (@rename($css_file . '.css', $css_file . '_' . $time . '.bak')) {
+        $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_CSS_FILE_RENAMED, $css_file . '.css', $css_file . '_' . $time . '.bak'), 'success');
       } else {
-              $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_CSS_FILE_NOT_RENAMED, $css_file.'.css'), 'error');
+        $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_CSS_FILE_NOT_RENAMED, $css_file . '.css'), 'error');
         return false;
       }
       // copy bootstrap.min.css to template
-      if (@copy($admincss_file.'.css', $css_file.'.css')) {
-        $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_FILE_COPIED, $admincss_file.'.css', $css_file.'.css'), 'success');
+      if (@copy($admincss_file . '.css', $css_file . '.css')) {
+        $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_FILE_COPIED, $admincss_file . '.css', $css_file . '.css'), 'success');
       } else {
-        @rename($css_file.'_'.$time.'.bak', $css_file.'css');
-              $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_FILE_NOT_COPIED, dirname(__FILE__).'/css/bootstrap.min.css', $css_file.'bak', $css_file.'.css'), 'error');
+        @rename($css_file . '_' . $time . '.bak', $css_file . 'css');
+        $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_FILE_NOT_COPIED, dirname(__FILE__) . '/css/bootstrap.min.css', $css_file . 'bak', $css_file . '.css'), 'error');
         return false;
       }
-/*			// if template folder fonts exists
+      /*			// if template folder fonts exists
       if(!is_dir($tpl_path.$font_path)){
          mkdir($tpl_path.$font_path);
       }
@@ -128,30 +133,33 @@ class Bs5TplManager {
 */
       $messageStack->add(BS5_TPL_MANAGER_THEME_COPY_COMPLIED, 'success');
     }
-    }
+  }
 
   // load configuration
-    public function get_conf() {
+  public function get_conf()
+  {
     $conf_query = xtc_db_query('select config_key, config_value from ' . TABLE_BS5_TPL_MANAGER_CONFIG . '');
     while ($conf = xtc_db_fetch_array($conf_query)) {
       $bs5_conf[$conf['config_key']] = stripslashes($conf['config_value']);
     }
     return $bs5_conf;
-    }
+  }
 
   // save configuration
-  public function set_conf($config_data) {
+  public function set_conf($config_data)
+  {
     foreach ($config_data as $key => $value) {
-      xtc_db_query("UPDATE ".TABLE_BS5_TPL_MANAGER_CONFIG." SET config_value = '".$value."' WHERE config_key = '".$key."'");
+      xtc_db_query("UPDATE " . TABLE_BS5_TPL_MANAGER_CONFIG . " SET config_value = '" . $value . "' WHERE config_key = '" . $key . "'");
     }
-    if (COMPRESS_STYLESHEET == 'true' || COMPRESS_JAVASCRIPT == 'true'){
+    if (COMPRESS_STYLESHEET == 'true' || COMPRESS_JAVASCRIPT == 'true') {
       $this->touch_config_php();
     }
   }
 
   // touch template config.php, if settings changed and compress is true
-  protected function touch_config_php() {
-    $tpl_config_file = DIR_FS_CATALOG.'templates/'.BS5_CURRENT_TEMPLATE.'/config/config.php';
+  protected function touch_config_php()
+  {
+    $tpl_config_file = DIR_FS_CATALOG . 'templates/' . BS5_CURRENT_TEMPLATE . '/config/config.php';
 
     if (file_exists($tpl_config_file)) {
       touch($tpl_config_file);
@@ -159,147 +167,156 @@ class Bs5TplManager {
   }
 
   // load defaults - custom1 and custom2 together
-    public function get_theme_settings() {
+  public function get_theme_settings()
+  {
     $theme_query = xtc_db_query("select theme_key, defaults from " . TABLE_BS5_TPL_MANAGER_THEME . "");
     while ($defaults = xtc_db_fetch_array($theme_query)) {
-      $theme_settings[$defaults['theme_key']] = array	(	'defaults' => json_decode($defaults['defaults'], true),
-                                                );
+      $theme_settings[$defaults['theme_key']] = array(
+        'defaults' => json_decode($defaults['defaults'], true),
+      );
     }
     return $theme_settings;
-    }
+  }
 
   // save defaults - custom1 und custom2 separated
-    public function set_theme_settings($theme_key, $theme_defaults) {
-        $value = array();
-    for($i=0; $i < count($theme_defaults[$theme_key]); $i++){
-      foreach ($theme_defaults[$theme_key][$i] as $k => $v){
+  public function set_theme_settings($theme_key, $theme_defaults)
+  {
+    $value = array();
+    for ($i = 0; $i < count($theme_defaults[$theme_key]); $i++) {
+      foreach ($theme_defaults[$theme_key][$i] as $k => $v) {
         $value[] = $v;
       }
     }
-    xtc_db_query("UPDATE ".TABLE_BS5_TPL_MANAGER_THEME." SET defaults = '".json_encode($value, true)."' WHERE theme_key = '".$theme_key."'");
-    }
+    xtc_db_query("UPDATE " . TABLE_BS5_TPL_MANAGER_THEME . " SET defaults = '" . json_encode($value, true) . "' WHERE theme_key = '" . $theme_key . "'");
+  }
 
   // execute the copy of _bootswatch.scss folder custom1 or custom2
-    public function copyBootswatch($theme_name, $folder_name = '') {
+  public function copyBootswatch($theme_name, $folder_name = '')
+  {
     // copy _bootswatch.scss
-    if ($folder_name != ''){
+    if ($folder_name != '') {
       $this->copyBootswatchFile($theme_name, $folder_name);
     }
     return;
-    }
+  }
 
   // copy file
-    protected function copyBootswatchFile($theme_name, $folder_name)
-    {
+  protected function copyBootswatchFile($theme_name, $folder_name)
+  {
     global $messageStack;
 
-    $file = dirname(__FILE__).'/themes/'.$theme_name.'/_bootswatch.scss';
-    $copy = dirname(__FILE__).'/themes/'.$folder_name.'/_bootswatch.scss';
-        // check if the data is a file
-        if (file_exists($file) && is_file($file)) {
+    $file = dirname(__FILE__) . '/themes/' . $theme_name . '/_bootswatch.scss';
+    $copy = dirname(__FILE__) . '/themes/' . $folder_name . '/_bootswatch.scss';
+    // check if the data is a file
+    if (file_exists($file) && is_file($file)) {
       if (@copy($file, $copy)) {
         $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_FILE_COPIED, $file, $copy), 'success');
       } else {
-              $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_FILE_COPIED, $file, $copy), 'error');
+        $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_FILE_COPIED, $file, $copy), 'error');
         return false;
       }
-        } else {
-            $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_CSS_FILE_NOT_EXISTS, $file), 'error');
+    } else {
+      $messageStack->add(sprintf(BS5_TPL_MANAGER_THEME_TPL_CSS_FILE_NOT_EXISTS, $file), 'error');
       return false;
     }
-    }
+  }
 
   // load colors and variables - custom1 and custom2 separated
-    public function get_theme($theme_name, $return_name ='') {
+  public function get_theme($theme_name, $return_name = '')
+  {
     $bs5_theme = array();
     // load _variables.scss from the corresponding folder
     $var_string = $this->load($theme_name);
     $var_string = str_replace(' !default', '', $var_string);
     // aufbereiten der Daten
-    if ($var_string != ''){
+    if ($var_string != '') {
       $variables = explode(';', trim(trim($var_string), ';'));
-            for($i=0; $i < count($variables); $i++){
+      for ($i = 0; $i < count($variables); $i++) {
         $variable = explode(':', $variables[$i]);
         $bs5_theme[$return_name][$i] = array(trim($variable[0]) => trim($variable[1]));
       }
     }
     return $bs5_theme;
-    }
+  }
 
   // load file
-    protected function load($theme_name, $file_name = 'variables')
-    {
-    $file = dirname(__FILE__).'/themes/'.$theme_name.'/_'.$file_name.'.scss';
-        // check if the data is a file
-        if (file_exists($file) && is_file($file)) {
-            if (($data = file_get_contents($file)) !== false) {
+  protected function load($theme_name, $file_name = 'variables')
+  {
+    $file = dirname(__FILE__) . '/themes/' . $theme_name . '/_' . $file_name . '.scss';
+    // check if the data is a file
+    if (file_exists($file) && is_file($file)) {
+      if (($data = file_get_contents($file)) !== false) {
         return $data;
-            }
-        }
-    return false;
+      }
     }
+    return false;
+  }
 
   // Prepare / save colors and variables - custom1 und custom2 separated
-    public function set_theme($theme_data) {
+  public function set_theme($theme_data)
+  {
     $data = '';
-    foreach ($theme_data as $key => $val){
+    foreach ($theme_data as $key => $val) {
       $folder = $key;
-            for($i=0; $i < count($theme_data[$key]); $i++){
-        foreach ($theme_data[$key][$i] as $k => $v){
-          $data .= $k.': '.$v.' !default;'."\n";
+      for ($i = 0; $i < count($theme_data[$key]); $i++) {
+        foreach ($theme_data[$key][$i] as $k => $v) {
+          $data .= $k . ': ' . $v . ' !default;' . "\n";
         }
       }
       $this->write($folder, $data);
       $data = '';
     }
-    }
+  }
 
   // write file scss
-    protected function write($folder, $data, $file = 'variables')
-    {
-    $file = dirname(__FILE__).'/themes/'.$folder.'/_'.$file.'.scss';
+  protected function write($folder, $data, $file = 'variables')
+  {
+    $file = dirname(__FILE__) . '/themes/' . $folder . '/_' . $file . '.scss';
     if (($data = file_put_contents($file, $data)) !== false) {
-        return true;
-        }
-    return false;
+      return true;
     }
+    return false;
+  }
 
   // load file
-    public function get_add($theme_name, $file = 'add')
-    {
-    $file_name = dirname(__FILE__).'/themes/'.$theme_name.'/_'.$file.'.scss';
-    if (filesize($file_name) > 0){
+  public function get_add($theme_name, $file = 'add')
+  {
+    $file_name = dirname(__FILE__) . '/themes/' . $theme_name . '/_' . $file . '.scss';
+    if (filesize($file_name) > 0) {
       $data = $this->load($theme_name, $file);
       return $data;
     }
     return false;
-    }
+  }
 
   // write file scss
-    public function set_add($theme_name, $data, $file = 'add')
-    {
-    if ($file == 'addfontdef'){
-      if ($data != ''){
-        $data = sprintf(BS5_DEFAULT_FONT_FAMILY ,$data);
+  public function set_add($theme_name, $data, $file = 'add')
+  {
+    if ($file == 'addfontdef') {
+      if ($data != '') {
+        $data = sprintf(BS5_DEFAULT_FONT_FAMILY, $data);
       }
     }
     $this->write($theme_name, stripcslashes($data), $file);
-    }
+  }
 
-    public function get_yes_no() {
+  public function get_yes_no()
+  {
     $yes_no_array = array('true', 'false');
     return $yes_no_array;
-    }
+  }
 
-    public function get_menucase() {
+  public function get_menucase()
+  {
     $menucase = array(
       array('id' => '1', 'text' => 'Megamenu'),
       array('id' => '2', 'text' => 'Dropdown'),
     );
     return $menucase;
-    }
+  }
 
-    public function get_superfish_level() {
+  public function get_superfish_level()
+  {
     $superfish_level = array(
       array('id' => 'false', 'text' => TEXT_BS5_TPL_MANAGER_CONFIG_SUPERFISH_MAXLEVEL_ALL),
       array('id' => '1', 'text' => TEXT_BS5_TPL_MANAGER_CONFIG_SUPERFISH_MAXLEVEL_1),
@@ -310,26 +327,29 @@ class Bs5TplManager {
       array('id' => '6', 'text' => TEXT_BS5_TPL_MANAGER_CONFIG_SUPERFISH_MAXLEVEL_6),
     );
     return $superfish_level;
-    }
+  }
 
-    public function get_carousel_show() {
+  public function get_carousel_show()
+  {
     $carousel_show = array(
       array('id' => 'false', 'text' => TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_SHOW_NONE),
       array('id' => 'screen', 'text' => TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_SHOW_SCREEN),
       array('id' => 'shop', 'text' => TEXT_BS5_TPL_MANAGER_CONFIG_CAROUSEL_SHOW_SHOP),
     );
     return $carousel_show;
-    }
+  }
 
-    public function get_fade_slide() {
+  public function get_fade_slide()
+  {
     $fade_slide = array(
       array('id' => 'true', 'text' => 'fade'),
       array('id' => 'false', 'text' => 'slide'),
     );
     return $fade_slide;
-    }
+  }
 
-    public function get_bg_classes() {
+  public function get_bg_classes()
+  {
     $bg_classes = array(
       array('id' => 'none', 'text' => TEXT_BS5_TPL_MANAGER_CONFIG_NONE),
       array('id' => 'primary', 'text' => 'bg-primary'),
@@ -357,9 +377,10 @@ class Bs5TplManager {
       array('id' => 'custom', 'text' => 'bg-custom'),
     );
     return $bg_classes;
-    }
+  }
 
-    public function get_border_classes() {
+  public function get_border_classes()
+  {
     $border_classes = array(
       array('id' => 'none', 'text' => TEXT_BS5_TPL_MANAGER_CONFIG_NONE),
       array('id' => 'primary', 'text' => 'border-primary'),
@@ -382,9 +403,10 @@ class Bs5TplManager {
       array('id' => 'white', 'text' => 'border-white'),
     );
     return $border_classes;
-    }
+  }
 
-    public function get_navbar_classes() {
+  public function get_navbar_classes()
+  {
     $navbar_classes = array(
       array('id' => '', 'text' => TEXT_BS5_TPL_MANAGER_CONFIG_NONE),
       array('id' => 'dark', 'text' => 'navbar-dark'),
@@ -392,7 +414,8 @@ class Bs5TplManager {
     return $navbar_classes;
   }
 
-    public function get_text_classes() {
+  public function get_text_classes()
+  {
     $text_classes = array(
       array('id' => '', 'text' => TEXT_BS5_TPL_MANAGER_CONFIG_NONE),
       array('id' => 'text-primary', 'text' => 'text-primary'),
@@ -422,9 +445,10 @@ class Bs5TplManager {
       array('id' => 'text-custom', 'text' => 'text-custom'),
     );
     return $text_classes;
-    }
+  }
 
-    public function get_traffic_styles() {
+  public function get_traffic_styles()
+  {
     $traffic_styles = array(
       array('id' => 'false', 'text' => TEXT_BS5_TPL_MANAGER_CONFIG_TRAFFIC_LIGHTS_SHOW_NONE),
       array('id' => 'l', 'text' => TEXT_BS5_TPL_MANAGER_CONFIG_TRAFFIC_LIGHTS_SHOW_L),
@@ -435,9 +459,10 @@ class Bs5TplManager {
       array('id' => 'ts', 'text' => TEXT_BS5_TPL_MANAGER_CONFIG_TRAFFIC_LIGHTS_SHOW_TS),
     );
     return $traffic_styles;
-    }
+  }
 
-    public function get_remind_minstock() {
+  public function get_remind_minstock()
+  {
     $remind_minstock = array(
       array('id' => '40', 'text' => '40'),
       array('id' => '50', 'text' => '50'),
@@ -454,14 +479,15 @@ class Bs5TplManager {
       array('id' => '160', 'text' => '160'),
     );
     return $remind_minstock;
-    }
+  }
 
-  public function get_templates() {
-    if ($dir = opendir(DIR_FS_CATALOG.'templates/')) {
-      $templates_array[] = array ('id' => '', 'text' => TEXT_BS5_TPL_MANAGER_THEME_CURRENT_TEMPLATE0);
+  public function get_templates()
+  {
+    if ($dir = opendir(DIR_FS_CATALOG . 'templates/')) {
+      $templates_array[] = array('id' => '', 'text' => TEXT_BS5_TPL_MANAGER_THEME_CURRENT_TEMPLATE0);
       while (($templates = readdir($dir)) !== false) {
-        if (is_dir(DIR_FS_CATALOG.'templates/'.$templates) && ($templates != "CVS") && substr($templates, 0, 1) != ".") {
-          $templates_array[] = array ('id' => $templates, 'text' => $templates);
+        if (is_dir(DIR_FS_CATALOG . 'templates/' . $templates) && ($templates != "CVS") && substr($templates, 0, 1) != ".") {
+          $templates_array[] = array('id' => $templates, 'text' => $templates);
         }
       }
       closedir($dir);
@@ -470,7 +496,8 @@ class Bs5TplManager {
     }
   }
 
-    public function get_themes($plus = false) {
+  public function get_themes($plus = false)
+  {
     $themes_array = array(
       array('id' => 'default', 'text' => 'Bootstrap Default'),
       array('id' => 'bs5-blue', 'text' => 'BS5 blau - blue'),
@@ -516,9 +543,10 @@ class Bs5TplManager {
       $themes_array[] = array('id' => 'custom2', 'text' => TEXT_BS5_TPL_MANAGER_THEME_CUSTOM2);
     }
     return $themes_array;
-    }
+  }
 
-    public function get_bs5_themes() {
+  public function get_bs5_themes()
+  {
     $bs5_themes_array = array(
       array('id' => '', 'text' => 'Bootstrap (bootstrap.min.css)'),
       array('id' => 'default', 'text' => 'BS5 standard - default'),
@@ -535,42 +563,44 @@ class Bs5TplManager {
       array('id' => 'red', 'text' => 'BS5 rot - red'),
     );
     return $bs5_themes_array;
-    }
+  }
 
-  public function get_color_vars($plus = false) {
+  public function get_color_vars($plus = false)
+  {
     $color_vars = array(
-      array('id' => '$white', 'text' => '$white '.COLOR_2),
-      array('id' => '$gray-100', 'text' => '$gray-100 '.COLOR_3),
-      array('id' => '$gray-200', 'text' => '$gray-200 '.COLOR_4),
-      array('id' => '$gray-300', 'text' => '$gray-300 '.COLOR_5),
-      array('id' => '$gray-400', 'text' => '$gray-400 '.COLOR_6),
-      array('id' => '$gray-500', 'text' => '$gray-500 '.COLOR_7),
-      array('id' => '$gray-600', 'text' => '$gray-600 '.COLOR_8),
-      array('id' => '$gray-700', 'text' => '$gray-700 '.COLOR_9),
-      array('id' => '$gray-800', 'text' => '$gray-800 '.COLOR_10),
-      array('id' => '$gray-900', 'text' => '$gray-900 '.COLOR_11),
-      array('id' => '$black', 'text' => '$black '.COLOR_12),
-      array('id' => '$blue', 'text' => '$blue '.COLOR_13),
-      array('id' => '$indigo', 'text' => '$indigo '.COLOR_14),
-      array('id' => '$purple', 'text' => '$purple '.COLOR_15),
-      array('id' => '$pink', 'text' => '$pink '.COLOR_16),
-      array('id' => '$red', 'text' => '$red '.COLOR_17),
-      array('id' => '$orange', 'text' => '$orange '.COLOR_18),
-      array('id' => '$yellow', 'text' => '$yellow '.COLOR_19),
-      array('id' => '$green', 'text' => '$green '.COLOR_20),
-      array('id' => '$teal', 'text' => '$teal '.COLOR_21),
-      array('id' => '$cyan', 'text' => '$cyan '.COLOR_22),
-      array('id' => '$custom-bg', 'text' => '$custom-bg '.COLOR_0),
-      array('id' => '$custom-color', 'text' => '$custom-color '.COLOR_1),
+      array('id' => '$white', 'text' => '$white ' . COLOR_2),
+      array('id' => '$gray-100', 'text' => '$gray-100 ' . COLOR_3),
+      array('id' => '$gray-200', 'text' => '$gray-200 ' . COLOR_4),
+      array('id' => '$gray-300', 'text' => '$gray-300 ' . COLOR_5),
+      array('id' => '$gray-400', 'text' => '$gray-400 ' . COLOR_6),
+      array('id' => '$gray-500', 'text' => '$gray-500 ' . COLOR_7),
+      array('id' => '$gray-600', 'text' => '$gray-600 ' . COLOR_8),
+      array('id' => '$gray-700', 'text' => '$gray-700 ' . COLOR_9),
+      array('id' => '$gray-800', 'text' => '$gray-800 ' . COLOR_10),
+      array('id' => '$gray-900', 'text' => '$gray-900 ' . COLOR_11),
+      array('id' => '$black', 'text' => '$black ' . COLOR_12),
+      array('id' => '$blue', 'text' => '$blue ' . COLOR_13),
+      array('id' => '$indigo', 'text' => '$indigo ' . COLOR_14),
+      array('id' => '$purple', 'text' => '$purple ' . COLOR_15),
+      array('id' => '$pink', 'text' => '$pink ' . COLOR_16),
+      array('id' => '$red', 'text' => '$red ' . COLOR_17),
+      array('id' => '$orange', 'text' => '$orange ' . COLOR_18),
+      array('id' => '$yellow', 'text' => '$yellow ' . COLOR_19),
+      array('id' => '$green', 'text' => '$green ' . COLOR_20),
+      array('id' => '$teal', 'text' => '$teal ' . COLOR_21),
+      array('id' => '$cyan', 'text' => '$cyan ' . COLOR_22),
+      array('id' => '$custom-bg', 'text' => '$custom-bg ' . COLOR_0),
+      array('id' => '$custom-color', 'text' => '$custom-color ' . COLOR_1),
       array('id' => 'null', 'text' => 'null ohne')
     );
     if ($plus != false) {
-      $color_vars[] = array('id' => 'inherit', 'text' => 'inherit '.INHERIT);
+      $color_vars[] = array('id' => 'inherit', 'text' => 'inherit ' . INHERIT);
     }
     return $color_vars;
   }
 
-    public function get_color_classes() {
+  public function get_color_classes()
+  {
     $color_classes = array(
       array('id' => '$primary', 'text' => '$primary'),
       array('id' => '$secondary', 'text' => '$secondary'),
@@ -585,6 +615,5 @@ class Bs5TplManager {
     $color_vars = $this->get_color_vars();
     $color_classes = array_merge($color_classes, $color_vars);
     return $color_classes;
-    }
-
+  }
 }

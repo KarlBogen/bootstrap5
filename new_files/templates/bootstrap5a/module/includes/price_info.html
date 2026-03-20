@@ -10,14 +10,14 @@
                 {$smarty.const.YOU_SAVE} <span class="save_percent">{$price_data.PRODUCTS_PRICE_SAVE_PERCENT}</span>% / {$price_data.PRODUCTS_PRICE_SAVE_DIFF}
               </div>
               {if $price_data.PRODUCTS_PRICE_GROUP_DISCOUNT != ''}
-              <div class="save_price small">
-                {$smarty.const.BOX_LOGINBOX_DISCOUNT}: {$price_data.PRODUCTS_PRICE_GROUP_DISCOUNT}%
-              </div>
+                <div class="save_price small">
+                  {$smarty.const.BOX_LOGINBOX_DISCOUNT}: {$price_data.PRODUCTS_PRICE_GROUP_DISCOUNT}%
+                </div>
               {/if}
               <meta itemprop="price" content="{$price_data.PRODUCTS_PRICE_PLAIN}" />
               {* ENDE Produkt Sonderpreis Langform mit Ausgabe Alter Preis, Neuer Preis, Sie sparen *}
             {elseif $price_data.PRODUCTS_PRICE_FLAG == 'SpecialGraduated'}
-              {if $price_data.PRODUCTS_PRICE_UVP != ''} 
+              {if $price_data.PRODUCTS_PRICE_UVP != ''}
                 {* START Produkt UVP Preis mit Ausgabe Ihr Preis, UVP *}
                 <div class="uvp_price fs-4">
                   <span class="small_price">{$smarty.const.YOUR_PRICE}</span> <span class="value_price">{$price_data.PRODUCTS_PRICE_SPECIAL_PRICE}</span>

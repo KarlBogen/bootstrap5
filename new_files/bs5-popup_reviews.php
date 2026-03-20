@@ -1,15 +1,15 @@
 <?php
 /* ------------------------------------------------------------
-	Module "Bootstrap 5 Template-Manager" made by Karl
+  Module "Bootstrap 5 Template-Manager" made by Karl
 
-	modified eCommerce Shopsoftware
-	http://www.modified-shop.org
+  modified eCommerce Shopsoftware
+  http://www.modified-shop.org
 
-	Released under the GNU General Public License
+  Released under the GNU General Public License
 -------------------------------------------------------------- */
 
 /*
-	Zusatzmodul Awids Rating Breakdown - Rezensionsaufgliederung nach vergebenen Sternen
+  Zusatzmodul Awids Rating Breakdown - Rezensionsaufgliederung nach vergebenen Sternen
 */
 
 

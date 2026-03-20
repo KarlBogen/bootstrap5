@@ -10,30 +10,30 @@
   {if $display_mode != 'checkout'}
 
     {* BEGINN Screenreadernavigation *}
-      <nav class="visually-hidden-focusable flex-column navbar bg-body-secondary border p-3 position-absolute z-3">
-        <span class="visually-hidden">{#BS5_skip_nav_desc#}</span>
-        <div class="navbar-brand w-100 border-bottom mb-2">{#BS5_skip_nav#}</div>
-        <ul class="nav flex-column">
-          <li class="nav-item d-none d-lg-block">
-            <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#mainnav').focus()">{#BS5_skip_to_nav#}</a>
-          </li>
-          <li class="nav-item d-lg-none">
-            <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#resmenu').focus()">{#BS5_skip_to_nav#}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#content').focus()">{#BS5_skip_to_content#}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#login').focus()">{#BS5_skip_to_login#}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#setbtn').focus()">{#BS5_skip_to_sets#}</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#layout_footer').focus()">{#BS5_skip_to_footer#}</a>
-          </li>
-        </ul>
-      </nav>
+    <nav class="visually-hidden-focusable flex-column navbar bg-body-secondary border p-3 position-absolute z-3">
+      <span class="visually-hidden">{#BS5_skip_nav_desc#}</span>
+      <div class="navbar-brand w-100 border-bottom mb-2">{#BS5_skip_nav#}</div>
+      <ul class="nav flex-column">
+        <li class="nav-item d-none d-lg-block">
+          <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#mainnav').focus()">{#BS5_skip_to_nav#}</a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#resmenu').focus()">{#BS5_skip_to_nav#}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#content').focus()">{#BS5_skip_to_content#}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#login').focus()">{#BS5_skip_to_login#}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#setbtn').focus()">{#BS5_skip_to_sets#}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#layout_footer').focus()">{#BS5_skip_to_footer#}</a>
+        </li>
+      </ul>
+    </nav>
     {* ENDE Screenreadernavigation *}
 
     {* BEGINN Topleiste*}
@@ -46,7 +46,9 @@
       <div class="container-xxl">
         {* BEGINN Javascript-Hinweis *}
         {if $smarty.const.BS5_SHOW_JS_DISABLED == 'true'}
-          <noscript><div class="alert alert-warning my-2">{#BS5_noscript#}</div></noscript>
+          <noscript>
+            <div class="alert alert-warning my-2">{#BS5_noscript#}</div>
+          </noscript>
         {/if}
         {* ENDE Javascript-Hinweis *}
         {* BEGINN Logo, Sprache, Account, Merkliste, Warenkorb und Suche *}
@@ -63,7 +65,9 @@
       <div class="container-xxl" class="mb-4 border-bottom">
         {* BEGINN Javascript-Hinweis *}
         {if $smarty.const.BS5_SHOW_JS_DISABLED == 'true'}
-          <noscript><div class="alert alert-warning my-2">{#BS5_noscript#}</div></noscript>
+          <noscript>
+            <div class="alert alert-warning my-2">{#BS5_noscript#}</div>
+          </noscript>
         {/if}
         {* ENDE Javascript-Hinweis *}
         <div id="checkout_logobar" class="pt-3 mb-3 border-bottom">
@@ -245,7 +249,7 @@
           {if isset($box_SPECIALS)}{$box_SPECIALS}{/if}
         </div>
       {/if}
-      </main>
+    </main>
     {* ENDE Maincontainer 2 *}
 
   {/if}
@@ -269,7 +273,7 @@
   {/if}
 
   {* BEGINN FOOTER *}
-  <footer id="layout_footer" class="container-fluid bg-{$smarty.const.BS5_FOOTER_BG} border-top border-light-subtle py-4" tabindex="-1" {if $smarty.const.BS5_FOOTER_NAVBAR=='dark' } data-bs-theme="dark" {/if}>
+  <footer id="layout_footer" class="container-fluid bg-{$smarty.const.BS5_FOOTER_BG} border-top border-light-subtle py-4" tabindex="-1" {if $smarty.const.BS5_FOOTER_NAVBAR=='dark'} data-bs-theme="dark"{/if}>
     <div class="container-xxl navbar">
       <div id="layout_footer_inner" class="row">
         <div class="col-lg-3 col-md-6 mb-3">

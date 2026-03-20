@@ -47,9 +47,9 @@ function sendremindmails($prodId = '', $mail = '')
                           AND crr.customers_email_address = cr.customers_email_address
                     JOIN " . TABLE_PRODUCTS . " p
                           ON p.products_id = cr.products_id"
-                          . $and . "
+    . $and . "
                           AND p.products_quantity >= cr.customers_st"
-                          . $where;
+    . $where;
 
   $resstockQuery = xtc_db_query($strstockQuery);
 

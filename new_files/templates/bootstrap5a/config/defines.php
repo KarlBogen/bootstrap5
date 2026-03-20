@@ -1,18 +1,18 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-	$Id: config.php 14256 2022-04-01 14:43:10Z Tomcraft $
+  $Id: config.php 14256 2022-04-01 14:43:10Z Tomcraft $
 
-	modified eCommerce Shopsoftware
-	http://www.modified-shop.org
+  modified eCommerce Shopsoftware
+  http://www.modified-shop.org
 
-	Copyright (c) 2009 - 2013 [www.modified-shop.org]
-	-----------------------------------------------------------------------------------------
-	Released under the GNU General Public License
-	---------------------------------------------------------------------------------------*/
+  Copyright (c) 2009 - 2013 [www.modified-shop.org]
+  -----------------------------------------------------------------------------------------
+  Released under the GNU General Public License
+  ---------------------------------------------------------------------------------------*/
 
 /*
-	*  template specific defines
-	*/
+  *  template specific defines
+  */
 
 // laden der config, falls Systemmodul deaktiviert
 
@@ -31,29 +31,29 @@ defined('BS5_SHOW_ICON_WITH_NAMES') or define('BS5_SHOW_ICON_WITH_NAMES', 'true'
 // Superfishmenü
 defined('BS5_MENUCASE') or define('BS5_MENUCASE', 1);   // Menu - 1 = Megamenu, 2 = Dropdown
 defined('BS5_SHOW_HOMEBUTTON_IN_TOPCATMENU') or define('BS5_SHOW_HOMEBUTTON_IN_TOPCATMENU', 'true'); // true zeigt den Button / false zeigt ihn nicht
-defined('BS5_ADD_LINK_IN_TOPCATMENU_LAST') or define('BS5_ADD_LINK_IN_TOPCATMENU_LAST', ''); 	// Zusätzliche Links im Menü z.B. 'https://www.mein_shop.com/shop_content.php?coID=3|Service,https://www.modified-shop.org|Modified'.
+defined('BS5_ADD_LINK_IN_TOPCATMENU_LAST') or define('BS5_ADD_LINK_IN_TOPCATMENU_LAST', '');   // Zusätzliche Links im Menü z.B. 'https://www.mein_shop.com/shop_content.php?coID=3|Service,https://www.modified-shop.org|Modified'.
 // Für Mehrsprachigkeit wird z.B. 'https://www.example.com|BS5_Linktext' eingetragen - wichtig ist das "BS5_" am Beginn!
 // Zusätzlich muss in der Datei "templates/bootstrap5/lang/lang_german.custom" eine Sprachvariable angelegt werden - BS5_Linktext = 'Mein Link'
 // KK-Megamenü
 defined('BS5_KK_MEGAS') or define('BS5_KK_MEGAS', ''); // Standard "" - falls gewünscht, hier die Kategorien und Anzahl der Reihen gem. den Beispielen eintragen
 /*
-	Beispiele KK-Megamenü:
+  Beispiele KK-Megamenü:
 
-	Alle Kategorien sollen als Mega-Menü mit 3 Spalten dargestellt werden.
-	defined('BS5_KK_MEGAS') or define('BS5_KK_MEGAS', 'main-3');
-	Eingetragen wird die ID der Navbar 'main', dahinter die Anzahl der Spalten.
-	Alle Kategorien sollen als Mega-Menü mit 3 Spalten dargestellt werden, ab dem 5. Link der untersten Kategorieebene soll ein Link "mehr anzeigen ..." eingefügt werden.
-	defined('BS5_KK_MEGAS') or define('BS5_KK_MEGAS', 'main-3-5');
-	Eingetragen wird die ID der Navbar 'main', dahinter die Anzahl der Spalten und die Stelle an der der Link eingefügt werden soll.
+  Alle Kategorien sollen als Mega-Menü mit 3 Spalten dargestellt werden.
+  defined('BS5_KK_MEGAS') or define('BS5_KK_MEGAS', 'main-3');
+  Eingetragen wird die ID der Navbar 'main', dahinter die Anzahl der Spalten.
+  Alle Kategorien sollen als Mega-Menü mit 3 Spalten dargestellt werden, ab dem 5. Link der untersten Kategorieebene soll ein Link "mehr anzeigen ..." eingefügt werden.
+  defined('BS5_KK_MEGAS') or define('BS5_KK_MEGAS', 'main-3-5');
+  Eingetragen wird die ID der Navbar 'main', dahinter die Anzahl der Spalten und die Stelle an der der Link eingefügt werden soll.
 
-	Es sollen die Kategorien mit der ID 5 (3-spaltig) und ID 22 (4-spaltig) als Mega-Menü dargestellt werden.
-	defined('BS5_KK_MEGAS') or define('BS5_KK_MEGAS', 'li5-3,li22-4');
-	Eingetragen werden die ID's der Kategorienlinks 'li5' und 'li22' - die Schreibweise ist hier wichtig, dahinter die Anzahl der Spalten.
-	Es sollen die Kategorien mit der ID 5 (3-spaltig) und ID 22 (4-spaltig) als Mega-Menü dargestellt werden, ab dem 4. bzw. 5. Link der untersten Kategorieebene soll ein Link "mehr anzeigen ..." eingefügt werden.
-	defined('BS5_KK_MEGAS') or define('BS5_KK_MEGAS', 'li5-3-4,li22-4-5');
-	Eingetragen werden die ID's der Kategorienlinks 'li5' und 'li22' - die Schreibweise ist hier wichtig, dahinter die Anzahl der Spalten.
+  Es sollen die Kategorien mit der ID 5 (3-spaltig) und ID 22 (4-spaltig) als Mega-Menü dargestellt werden.
+  defined('BS5_KK_MEGAS') or define('BS5_KK_MEGAS', 'li5-3,li22-4');
+  Eingetragen werden die ID's der Kategorienlinks 'li5' und 'li22' - die Schreibweise ist hier wichtig, dahinter die Anzahl der Spalten.
+  Es sollen die Kategorien mit der ID 5 (3-spaltig) und ID 22 (4-spaltig) als Mega-Menü dargestellt werden, ab dem 4. bzw. 5. Link der untersten Kategorieebene soll ein Link "mehr anzeigen ..." eingefügt werden.
+  defined('BS5_KK_MEGAS') or define('BS5_KK_MEGAS', 'li5-3-4,li22-4-5');
+  Eingetragen werden die ID's der Kategorienlinks 'li5' und 'li22' - die Schreibweise ist hier wichtig, dahinter die Anzahl der Spalten.
 
-	 */
+   */
 // Ende KK-Megamenü
 
 // categories - das Modified Standardmenü
@@ -116,60 +116,60 @@ defined('BS5_FOOTER_BG') or define('BS5_FOOTER_BG', 'bg-body-tertiary');
 defined('BS5_SENDMAIL_IF_NEW_REVIEW') or define('BS5_SENDMAIL_IF_NEW_REVIEW', 'false'); // 'false' = deaktiviert / 'true' = aktiviert - E-Mail bei neuer Produktrezension senden
 defined('BS5_CUSTOMERS_REMIND') or define('BS5_CUSTOMERS_REMIND', 'false'); // 'false' = deaktiviert / 'true' = aktiviert
 /* Modul "Kundererinnerung" aktivieren!
-		Hinweis:
-		Dieses Modul bietet Ihren angemeldeten Kunden die Möglichkeit, sich eine Erinnerungs-E-Mail schicken zu lassen, sobald ein Artikel wieder auf Lager ist.
-		Sobald ein Artikel nicht mehr auf Lager ist, erscheint auf der Produktdetail-Seite ein Button, womit der Kunde sich in die Erinnerungsliste eintragen kann.
-		Die Erinnerungsliste finden Sie im Adminbereich unter "Kunden -> Kundenerinnerungen".
-		Ist ein Artikel (in ausreichender Anzahl) wieder auf Lager, bekommt der Kunde automatisch eine Erinnerungsmail mit einem Link, der direkt zum Produkt im Shop führt.
-		Link zum Originalmodul: https://www.modified-shop.org/forum/index.php?topic=12813.0 */
+    Hinweis:
+    Dieses Modul bietet Ihren angemeldeten Kunden die Möglichkeit, sich eine Erinnerungs-E-Mail schicken zu lassen, sobald ein Artikel wieder auf Lager ist.
+    Sobald ein Artikel nicht mehr auf Lager ist, erscheint auf der Produktdetail-Seite ein Button, womit der Kunde sich in die Erinnerungsliste eintragen kann.
+    Die Erinnerungsliste finden Sie im Adminbereich unter "Kunden -> Kundenerinnerungen".
+    Ist ein Artikel (in ausreichender Anzahl) wieder auf Lager, bekommt der Kunde automatisch eine Erinnerungsmail mit einem Link, der direkt zum Produkt im Shop führt.
+    Link zum Originalmodul: https://www.modified-shop.org/forum/index.php?topic=12813.0 */
 defined('BS5_CUSTOMERS_REMIND_SENDMAIL') or define('BS5_CUSTOMERS_REMIND_SENDMAIL', 'false'); // 'true' = E-Mail an den Shopbetreiber (Kontakt - E-Mail-Adresse) senden, wenn sich ein Kunde in die Erinnerungsliste einträgt?
 defined('BS5_CHEAPLY_SEE') or define('BS5_CHEAPLY_SEE', 'false'); // 'false' = deaktiviert / 'true' = aktiviert
 defined('BS5_CHEAPLY_SEE_CONTENT_GROUP') or define('BS5_CHEAPLY_SEE_CONTENT_GROUP', '16'); // '' = es wird kein Content angezeigt / Group ID aus Content Manager eintragen
 /* Modul "Billiger gesehen" aktivieren und den Link in der Produktdetailansicht anzeigen!
-		Hinweis:
-		Der im oberen Bereich angezeigte Text kann im Content Manager geändert werden!
-		Link zum Originalmodul: http://www.xtc-load.de/2009/02/billiger-gesehen-by-southbridgede */
+    Hinweis:
+    Der im oberen Bereich angezeigte Text kann im Content Manager geändert werden!
+    Link zum Originalmodul: http://www.xtc-load.de/2009/02/billiger-gesehen-by-southbridgede */
 defined('BS5_PRODUCT_INQUIRY') or define('BS5_PRODUCT_INQUIRY', 'false'); // 'false' = deaktiviert / 'true' = aktiviert
 defined('BS5_PRODUCT_INQUIRY_CONTENT_GROUP') or define('BS5_PRODUCT_INQUIRY_CONTENT_GROUP', '15'); // '' = es wird kein Content angezeigt / Group ID aus Content Manager eintragen
 /* Modul "Frage zum Artikel" aktivieren und den Link in der Produktdetailansicht anzeigen!
-		Hinweis:
-		Der im oberen Bereich angezeigte Text kann im Content Manager geändert werden!
-		Link zum Originalmodul: https://www.modified-shop.org/forum/index.php?topic=2153.0 */
+    Hinweis:
+    Der im oberen Bereich angezeigte Text kann im Content Manager geändert werden!
+    Link zum Originalmodul: https://www.modified-shop.org/forum/index.php?topic=2153.0 */
 defined('BS5_MODULFUX_ATTRIBUTES_DEFAULT') or define('BS5_MODULFUX_ATTRIBUTES_DEFAULT', 'false'); // 'false' = deaktiviert / 'true' = aktiviert
 defined('BS5_MODULFUX_ATTRIBUTES_DEFAULT_TABLE') or define('BS5_MODULFUX_ATTRIBUTES_DEFAULT_TABLE', 'false'); // "Bitte wählen" Templatevorlage table - 'false' = deaktiviert / 'true' = aktiviert
 defined('BS5_MODULFUX_ATTRIBUTES_DEFAULT_TABLE_CHECKED') or define('BS5_MODULFUX_ATTRIBUTES_DEFAULT_TABLE_CHECKED', 'false'); // Vorauswahl erste Option Templatevorlage table - 'false' = deaktiviert / 'true' = aktiviert
 defined('BS5_MODULFUX_ATTRIBUTES_DEFAULT_RADIO') or define('BS5_MODULFUX_ATTRIBUTES_DEFAULT_RADIO', 'false'); // "Bitte wählen" Templatevorlage button - 'false' = deaktiviert / 'true' = aktiviert
 defined('BS5_MODULFUX_ATTRIBUTES_DEFAULT_RADIO_CHECKED') or define('BS5_MODULFUX_ATTRIBUTES_DEFAULT_RADIO_CHECKED', 'false'); // Vorauswahl erste Option Templatevorlage button - 'false' = deaktiviert / 'true' = aktiviert
 /* Modul "Bitte wählen" aktivieren!
-		Hinweis:
-		Modul "Attributauswahl als Pflichtfeld und vorbelegt mit (Bitte wählen)" aktivieren!
-		Es handelt sich hier um das Modul MODULE_MODULFUX_ATTRIBUTES_DEFAULT.
-		Link zum Originalmodul: https://www.modified-shop.org/forum/index.php?topic=38117.0 */
+    Hinweis:
+    Modul "Attributauswahl als Pflichtfeld und vorbelegt mit (Bitte wählen)" aktivieren!
+    Es handelt sich hier um das Modul MODULE_MODULFUX_ATTRIBUTES_DEFAULT.
+    Link zum Originalmodul: https://www.modified-shop.org/forum/index.php?topic=38117.0 */
 defined('BS5_ATTR_PRICE_UPDATER') or define('BS5_ATTR_PRICE_UPDATER', 'false'); // 'false' = deaktiviert / 'true' = aktiviert
 defined('BS5_ATTR_PRICE_UPDATER_UPDATE_PRICE') or define('BS5_ATTR_PRICE_UPDATER_UPDATE_PRICE', 'true'); // der Artikelpreis wird automatisch angepasst - 'false' = deaktiviert / 'true' = aktiviert
 /* Modul "Automatische Preisberechnung" aktivieren!
-		Hinweis:
-		Aufpreispflichtige Optionen/Attribute werden automatisch zum Artikelpreis hinzugerechnet.
-		Link zum Originalmodul: https://www.modified-shop.org/forum/index.php?topic=20125.0 */
+    Hinweis:
+    Aufpreispflichtige Optionen/Attribute werden automatisch zum Artikelpreis hinzugerechnet.
+    Link zum Originalmodul: https://www.modified-shop.org/forum/index.php?topic=20125.0 */
 defined('BS5_AGI_REDUCE_CART') or define('BS5_AGI_REDUCE_CART', 'false'); // 'false' = deaktiviert / 'true' = aktiviert
 /* Modul "AGI: Anzahl im Warenkorb reduzieren" aktivieren!
-		Hinweis:
-		Das Modul reduziert die Anzahl eines Artikels im Warenkorb auf die maximal verfügbare Menge, wenn eine größere Anzahl bestellt werden sollte. Der Kunde wird direkt über die Anpassung informiert und muss die passende Anzahl nicht durch probieren herausfinden
-		© andreas-guder.de.
-		Link zum Originalmodul: https://www.modified-shop.org/forum/index.php?topic=40416.0 */
+    Hinweis:
+    Das Modul reduziert die Anzahl eines Artikels im Warenkorb auf die maximal verfügbare Menge, wenn eine größere Anzahl bestellt werden sollte. Der Kunde wird direkt über die Anpassung informiert und muss die passende Anzahl nicht durch probieren herausfinden
+    © andreas-guder.de.
+    Link zum Originalmodul: https://www.modified-shop.org/forum/index.php?topic=40416.0 */
 defined('BS5_AGI_REDUCE_CART_SHOW_AVAILABLE') or define('BS5_AGI_REDUCE_CART_SHOW_AVAILABLE', 'false'); // 'false' = nein / 'true' = ja / Anzahl im Warenkorb anzeigen? Zeigt dem Kunden an, welche Anzahl er ursprünglich wollte, und auf welche Anzahl reduziert wurde.
 /* Modul "Rezensionsaufgliederung nach vergebenen Sternen" aktivieren!
-		Hinweis:
-		Dieses Modul gliedert die vergebenen Bewertungen je Sterne-Anzahl in einzelne Progress-Bars auf, sodass der Kunde mit einem Blick erkennen kann, welche Bewertungen am häufigsten vergeben wurden.
-		Link zum Originalmodul: https://www.modified-shop.org/forum/index.php?topic=40793.0 */
+    Hinweis:
+    Dieses Modul gliedert die vergebenen Bewertungen je Sterne-Anzahl in einzelne Progress-Bars auf, sodass der Kunde mit einem Blick erkennen kann, welche Bewertungen am häufigsten vergeben wurden.
+    Link zum Originalmodul: https://www.modified-shop.org/forum/index.php?topic=40793.0 */
 defined('BS5_AWIDSRATINGBREAKDOWN') or define('BS5_AWIDSRATINGBREAKDOWN', 'false'); // 'false' = deaktiviert / 'true' = aktiviert
 defined('BS5_AWIDSRATINGBREAKDOWN_PRODLIST') or define('BS5_AWIDSRATINGBREAKDOWN_PRODLIST', 'true'); // Modul auch in Produktlisten anzeigen? 'false' = deaktiviert / 'true' = aktiviert
 defined('BS5_AWIDSRATINGBREAKDOWN_SHOW_NULL_REVIEWS') or define('BS5_AWIDSRATINGBREAKDOWN_SHOW_NULL_REVIEWS', 'true'); // Sterne auch ohne gespeicherte Bewertung anzeigen? 'false' = deaktiviert / 'true' = aktiviert
 defined('BS5_AWIDSRATINGBREAKDOWN_URL') or define('BS5_AWIDSRATINGBREAKDOWN_URL', 'true'); // Filter-PopUp aktivieren? Diese Einstellung ermöglicht es, die Bewertungen in einem PopUp anzuzeigen und nach Anzahl der vergebenen Sterne zu filtern. - 'false' = deaktiviert / 'true' = aktiviert
 /* Modul "CSS Produkt- & Attributlagerampel" aktivieren!
-		Hinweis:
-		Dieses Modul zeigt eine Produkt- und Attribut-Lagerampel, welche wahlweise eine grafische Lagerampel oder den Lagerbestand als Text abbildet.
-		Link zum Originalmodul: https://www.modified-shop.org/forum/index.php?topic=37371.0 */
+    Hinweis:
+    Dieses Modul zeigt eine Produkt- und Attribut-Lagerampel, welche wahlweise eine grafische Lagerampel oder den Lagerbestand als Text abbildet.
+    Link zum Originalmodul: https://www.modified-shop.org/forum/index.php?topic=37371.0 */
 defined('BS5_TRAFFIC_LIGHTS') or define('BS5_TRAFFIC_LIGHTS', 'false'); // 'false' = deaktiviert / 'true' = aktiviert
 defined('BS5_TRAFFIC_LIGHTS_PRODLISTING') or define('BS5_TRAFFIC_LIGHTS_PRODLISTING', 'false'); // Anzeige im Listing 'false' = nicht anzeigen, 'l' = light, 'ls' = light and stock, 'lt' = light and text, 'lts' = light and text and stock, 't' = text, 'ts' = text and stock
 defined('BS5_TRAFFIC_LIGHTS_PRODINFO') or define('BS5_TRAFFIC_LIGHTS_PRODINFO', 'false'); // Anzeige Produktdetailseite 'false' = nicht anzeigen, 'l' = light, 'ls' = light and stock, 'lt' = light and text, 'lts' = light and text and stock, 't' = text, 'ts' = text and stock
@@ -205,5 +205,5 @@ defined('BS5_DEFAULT_BANNER_SETTINGS') or define('BS5_DEFAULT_BANNER_SETTINGS', 
 
 // Bootstrap-Theme
 defined('BS5_BOOTSTRAP_THEME') or define('BS5_BOOTSTRAP_THEME', 'default'); 	// Folgende Themes stehen dank https://bootswatch.com zur Verfügung (dort können Sie auch die Less- und Sass-Dateien finden):
-																					// default, cerulean, cosmo, cyborg, darkly, flatly, journal, litera, lumen, lux, materia, minty, pulse, sandstone, simplex, sketchy, slate, solar, spacelab, superhero, united, yeti
-																					// einfach den jeweiligen Name einsetzen z.B. "define('BS5_BOOTSTRAP_THEME', 'flatly');" steht für das Theme 'flatly'.
+                                          // default, cerulean, cosmo, cyborg, darkly, flatly, journal, litera, lumen, lux, materia, minty, pulse, sandstone, simplex, sketchy, slate, solar, spacelab, superhero, united, yeti
+                                          // einfach den jeweiligen Name einsetzen z.B. "define('BS5_BOOTSTRAP_THEME', 'flatly');" steht für das Theme 'flatly'.

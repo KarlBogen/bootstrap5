@@ -1,26 +1,26 @@
 <?php
 /* ------------------------------------------------------------
-	Module "Bootstrap 5 Template-Manager" made by Karl
+  Module "Bootstrap 5 Template-Manager" made by Karl
 
-	modified eCommerce Shopsoftware
-	http://www.modified-shop.org
+  modified eCommerce Shopsoftware
+  http://www.modified-shop.org
 
-	Released under the GNU General Public License
+  Released under the GNU General Public License
 -------------------------------------------------------------- */
 
-define('BS5_CUSTOMERS_REMIND_TITLE' , 'Produkterinnerung');
-define('BS5_NAVBAR_TITLE_CUSTOMERS_REMIND' , 'Produkterinnerung');
-define('BS5_CUSTOMERS_REMIND_NOTE' , 'Artikel zur Zeit nicht auf Lager!');
+define('BS5_CUSTOMERS_REMIND_TITLE', 'Produkterinnerung');
+define('BS5_NAVBAR_TITLE_CUSTOMERS_REMIND', 'Produkterinnerung');
+define('BS5_CUSTOMERS_REMIND_NOTE', 'Artikel zur Zeit nicht auf Lager!');
 define('BS5_CUSTOMERS_REMIND_LINK_TEXT', 'Benachrichtigung bei Wiederverf&uuml;gbarkeit');
 define('BS5_CUSTOMERS_REMIND_EMAIL_HEADING', 'Produkterinnerungen bei erneutem Eintreffen von Artikeln');
 define('BS5_CUSTOMERS_REMIND_EMAIL_1', 'hat sich f&uuml;r diesen Artikel eingetragen:');
 
-define('BS5_TEXT_EMAIL_SUBJECT_REMINDER','Ihre Produkterinnerungs-Anmeldung');
-define('BS5_TEXT_EMAIL_INPUT_REMINDER','<h1>Bitte beachten!</h1><p>Ihre E-Mail-Adresse wurde in unser System eingetragen.<br><br>Gleichzeitig wurde Ihnen vom System eine E-Mail mit einem Aktivierungslink geschickt.<br><br>Bitte klicken Sie nach dem Erhalt der E-Mail auf den Link, um Ihre Eintragung zu best&auml;tigen.<br>Ansonsten bekommen Sie keine Verf&uuml;gbarkeitsnachricht von uns zugestellt!</p>');
-define('BS5_TEXT_EMAIL_DEL_REMINDER','Ihre E-Mail-Adresse wurde aus unserer Datenbank gel&ouml;scht.');
-define('BS5_TEXT_EMAIL_ACTIVE_REMINDER','Ihre E-Mail-Adresse wurde erfolgreich f&uuml;r den Empfang der Produkterinnerung freigeschaltet!');
-define('BS5_TEXT_EMAIL_EXIST_NO_REMINDER','<h1>Bitte beachten!</h1><p>Diese E-Mail-Adresse existiert bereits in unserer Datenbank, ist aber noch nicht f&uuml;r den Empfang der Kundenerinnerung freigeschaltet!<br><br>Es wurde Ihnen vom System eine E-Mail mit einem Aktivierungslink geschickt.<br>Bitte klicken Sie nach dem Erhalt der E-Mail auf den Link, um Ihre Eintragung zu best&auml;tigen.<br>Ansonsten bekommen Sie keine Verf&uuml;gbarkeitsnachricht von uns zugestellt!</p>');
-define('BS5_TEXT_EMAIL_EXIST_REMINDER','Diese E-Mail-Adresse ist f&uuml;r den Empfang der Produkterinnerung bereits freigeschaltet!');
+define('BS5_TEXT_EMAIL_SUBJECT_REMINDER', 'Ihre Produkterinnerungs-Anmeldung');
+define('BS5_TEXT_EMAIL_INPUT_REMINDER', '<h1>Bitte beachten!</h1><p>Ihre E-Mail-Adresse wurde in unser System eingetragen.<br><br>Gleichzeitig wurde Ihnen vom System eine E-Mail mit einem Aktivierungslink geschickt.<br><br>Bitte klicken Sie nach dem Erhalt der E-Mail auf den Link, um Ihre Eintragung zu best&auml;tigen.<br>Ansonsten bekommen Sie keine Verf&uuml;gbarkeitsnachricht von uns zugestellt!</p>');
+define('BS5_TEXT_EMAIL_DEL_REMINDER', 'Ihre E-Mail-Adresse wurde aus unserer Datenbank gel&ouml;scht.');
+define('BS5_TEXT_EMAIL_ACTIVE_REMINDER', 'Ihre E-Mail-Adresse wurde erfolgreich f&uuml;r den Empfang der Produkterinnerung freigeschaltet!');
+define('BS5_TEXT_EMAIL_EXIST_NO_REMINDER', '<h1>Bitte beachten!</h1><p>Diese E-Mail-Adresse existiert bereits in unserer Datenbank, ist aber noch nicht f&uuml;r den Empfang der Kundenerinnerung freigeschaltet!<br><br>Es wurde Ihnen vom System eine E-Mail mit einem Aktivierungslink geschickt.<br>Bitte klicken Sie nach dem Erhalt der E-Mail auf den Link, um Ihre Eintragung zu best&auml;tigen.<br>Ansonsten bekommen Sie keine Verf&uuml;gbarkeitsnachricht von uns zugestellt!</p>');
+define('BS5_TEXT_EMAIL_EXIST_REMINDER', 'Diese E-Mail-Adresse ist f&uuml;r den Empfang der Produkterinnerung bereits freigeschaltet!');
 
 define('BS5_CONTACT_SUBJECT_0', '-- Bitte w&auml;hlen -- ');
 define('BS5_CONTACT_SUBJECT_4', 'Preisanfrage');
@@ -32,8 +32,8 @@ define('BS5_TEXT_PRODUCTS_CHEAPLY_NOTE2', 'Jedoch habe ich diesen Artikel zu ein
 define('BS5_ENTRY_COMPETITORURL_CHECK_ERROR', 'Bitte geben Sie die Mitbewerber-URL ein!');
 define('BS5_ENTRY_COMPETITORURL_VALIDATION_ERROR', 'Die Mitbewerber-URL ist keine valide URL!');
 define('BS5_ENTRY_COMPETITORPRICE_CHECK_ERROR', 'Bitte geben Sie den Mitbewerber-Preis ein!');
-define('BS5_NAVBAR_TITLE_CHEAPLY_SEE','Billiger gesehen');
-define('BS5_CHEAPLY_SEE_HEADING_FORMULAR','Preisanfrage Formular');
+define('BS5_NAVBAR_TITLE_CHEAPLY_SEE', 'Billiger gesehen');
+define('BS5_CHEAPLY_SEE_HEADING_FORMULAR', 'Preisanfrage Formular');
 define('BS5_CHEAPLY_SEE_TO_PRODUCT', 'Zum Produkt');
 define('BS5_ENTRY_VVCODE_CHECK_ERROR', 'Bitte geben Sie den Spamschutzcode ein!');
 define('BS5_EMAIL', 'E-Mail: ');
@@ -107,19 +107,19 @@ define('BS5_AWIDSRATINGBREAKDOWN_ALL_LANGS', 'alle Sprachen anzeigen');
 
    ----------------------------------------------------------------------------------------------------------------*/
 
-define('BS5_MODULE_TRAFFIC_LIGHTS_STOCK','Bestand');
-define('BS5_MODULE_TRAFFIC_LIGHTS_QTY_RED','nicht auf Lager');
-define('BS5_MODULE_TRAFFIC_LIGHTS_QTY_YELL','wenige auf Lager');
-define('BS5_MODULE_TRAFFIC_LIGHTS_QTY_GREEN','auf Lager');
+define('BS5_MODULE_TRAFFIC_LIGHTS_STOCK', 'Bestand');
+define('BS5_MODULE_TRAFFIC_LIGHTS_QTY_RED', 'nicht auf Lager');
+define('BS5_MODULE_TRAFFIC_LIGHTS_QTY_YELL', 'wenige auf Lager');
+define('BS5_MODULE_TRAFFIC_LIGHTS_QTY_GREEN', 'auf Lager');
 
 /* Metatags für Angebote und Neue Artikel
-	- werden von Modified nicht bereitgestellt, aber von Lighthouse als SEO-Mangel erkannt
-	Keywords kommagetrennt erfassen
+  - werden von Modified nicht bereitgestellt, aber von Lighthouse als SEO-Mangel erkannt
+  Keywords kommagetrennt erfassen
 */
-define('BS5_METATAG_SPECIALS_DESC','Unsere Top-Angebote und alle aktuellen Aktionen, Schn&auml;ppchen und sonstigen Angebote.');
-define('BS5_METATAG_SPECIALS_KEYWORDS','Angebote, Aktionen, Schn&auml;ppchen');
-define('BS5_METATAG_NEWPRODS_DESC','Neue Artikel und eben eingetroffene Produkte die sie interessieren k&ouml;nnten.');
-define('BS5_METATAG_NEWPRODS_KEYWORDS','Neu, Aktuell, News');
+define('BS5_METATAG_SPECIALS_DESC', 'Unsere Top-Angebote und alle aktuellen Aktionen, Schn&auml;ppchen und sonstigen Angebote.');
+define('BS5_METATAG_SPECIALS_KEYWORDS', 'Angebote, Aktionen, Schn&auml;ppchen');
+define('BS5_METATAG_NEWPRODS_DESC', 'Neue Artikel und eben eingetroffene Produkte die sie interessieren k&ouml;nnten.');
+define('BS5_METATAG_NEWPRODS_KEYWORDS', 'Neu, Aktuell, News');
 
 define('BS5_PAGINATION_LABEL', 'Seitennavigation');
 define('BS5_PAGINATION_SCROLLTOP', 'Zum ersten Artikel scrollen');

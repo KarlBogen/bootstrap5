@@ -15,12 +15,12 @@
         </div>
       </div>
       <div class="visually-hidden">{#BS5_slider_info#}</div>
-  		<div id="xsCarousel" class="resCarousel position-relative w-100 it5" data-items="1-2-3-4-5" data-slide="5" data-speed="900">
+      <div id="xsCarousel" class="resCarousel position-relative w-100 it5" data-items="1-2-3-4-5" data-slide="5" data-speed="900">
         <button type="button" class="resBtn btn btn-light leftRs" tabindex="-1"><i class="fa fa-fw fa-angle-left"></i><span class="visually-hidden">{#BS5_previous#}</span></button>
-  			<div class="resCarousel-inner py-1" tabindex="-1">
-            {foreach name=aussen item=module_data from=$xsell.PRODUCTS}
-    					<div class="item">{include file="module/includes/products_include_box.html"}</div>
-            {/foreach}
+        <div class="resCarousel-inner py-1" tabindex="-1">
+          {foreach name=aussen item=module_data from=$xsell.PRODUCTS}
+            <div class="item">{include file="module/includes/products_include_box.html"}</div>
+          {/foreach}
         </div>
         <button type="button" class="resBtn btn btn-light rightRs" tabindex="-1"><i class="fa fa-fw fa-angle-right"></i><span class="visually-hidden">{#BS5_next#}</span></button>
       </div>

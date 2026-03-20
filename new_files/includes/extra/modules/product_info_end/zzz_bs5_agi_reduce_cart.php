@@ -7,17 +7,16 @@
 |     Contact: info@andreas-guder.de / http://www.andreas-guder.de          |
 | Copyright (c) 2019, Andreas Guder [info@andreas-guder.de]                 |
 |               GNU General Public License  (Version 2)                     |
-'---------------------------------------------------------------------------ü
+'---------------------------------------------------------------------------ï¿½
 */
 if (defined('BS5_AGI_REDUCE_CART') && BS5_AGI_REDUCE_CART == 'true') {
   $msg = $messageStack->output('product_info');
-  if(!empty($msg)) {
+  if (!empty($msg)) {
     $err_msg = $info_smarty->getTemplateVars('error');
-    if(empty($err_msg)) {
-      $info_smarty->assign('error_message',$msg);
-    }
-    else {
-      $info_smarty->assign('error_message',$err_msg.$msg);
+    if (empty($err_msg)) {
+      $info_smarty->assign('error_message', $msg);
+    } else {
+      $info_smarty->assign('error_message', $err_msg . $msg);
     }
   }
 }

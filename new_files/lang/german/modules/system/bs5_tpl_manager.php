@@ -1,11 +1,11 @@
 <?php
 /* ------------------------------------------------------------
-	Module "Bootstrap 5 Template-Manager" made by Karl
+  Module "Bootstrap 5 Template-Manager" made by Karl
 
-	modified eCommerce Shopsoftware
-	http://www.modified-shop.org
+  modified eCommerce Shopsoftware
+  http://www.modified-shop.org
 
-	Released under the GNU General Public License
+  Released under the GNU General Public License
 -------------------------------------------------------------- */
 
 define('MODULE_BS5_TPL_MANAGER_TEXT_TITLE', 'Bootstrap 5 Template-Manager');
@@ -35,4 +35,3 @@ define('MODULE_BS5_TPL_MANAGER_DELETE_SUCCESS', '<h4>Alle Datenbankeintr&auml;ge
 define('MODULE_BS5_TPL_MANAGER_DELETE_ERR', 'Beim Versuch alle Datenbankeintr&auml;ge, Templateordner und alle zugeh&ouml;rigen Dateien zu entfernen sind Fehler aufgetreten!');
 define('MODULE_BS5_TPL_MANAGER_START_DELETE_TABLES', 'Beginne mit dem L&ouml;schen der Datenbanktabellen!');
 define('MODULE_BS5_TPL_MANAGER_START_DELETE_FILES', 'Beginne mit dem L&ouml;schen der Dateien!');
-?>

@@ -11,44 +11,44 @@
   {if $success_message}<div class="alert alert-success">{$success_message}</div>{/if}
   <div class="d-flex flex-wrap flex-md-nowrap gap-4">
     {if $module_content.0.PRODUCTS_IMAGE != ''}
-    <div class="col-auto mw-100">
-      <img class="lazyload img-thumbnail" data-src="{$module_content.0.PRODUCTS_IMAGE}" alt="{$module_content.0.PRODUCTS_NAME|onlytext}" title="{$module_content.0.PRODUCTS_NAME|onlytext}">
-    </div>
+      <div class="col-auto mw-100">
+        <img class="lazyload img-thumbnail" data-src="{$module_content.0.PRODUCTS_IMAGE}" alt="{$module_content.0.PRODUCTS_NAME|onlytext}" title="{$module_content.0.PRODUCTS_NAME|onlytext}">
+      </div>
     {/if}
     <div class="flex-grow-md-1 w-100">
       {foreach name=aussen item=module_data from=$module_content}
-      <div class="small mb-2">
-        <div class="card h-100">
-          <div class="card-header d-flex flex-wrap gap-2">
-            <div>
-              <span class="fw-bold">{#text_rating#} </span>
-              <span class="text-nowrap">
-                {if isset($module_data.RATING_VOTE)}
-                <span class="visually-hidden">{#info_review#}: {$smarty.const.TEXT_OF_5_STARS|sprintf:$module_data.RATING_VOTE}</span>
-                <span class="ratings">
-                  <span class="fas empty-stars"></span><span class="fas full-stars" style="width:{math equation = " x * 20" x=$module_data.RATING_VOTE|intval}%"></span>
+        <div class="small mb-2">
+          <div class="card h-100">
+            <div class="card-header d-flex flex-wrap gap-2">
+              <div>
+                <span class="fw-bold">{#text_rating#} </span>
+                <span class="text-nowrap">
+                  {if isset($module_data.RATING_VOTE)}
+                    <span class="visually-hidden">{#info_review#}: {$smarty.const.TEXT_OF_5_STARS|sprintf:$module_data.RATING_VOTE}</span>
+                    <span class="ratings">
+                      <span class="fas empty-stars"></span><span class="fas full-stars" style="width:{math equation = "x * 20" x=$module_data.RATING_VOTE|intval}%"></span>
+                    </span>
+                  {else}
+                    {$module_data.RATING|replace:".gif":".png"}
+                  {/if}
                 </span>
-                {else}
-                {$module_data.RATING|replace:".gif":".png"}
-                {/if}
-              </span>
+              </div>
+              <div class="vr"></div>
+              <div><span class="fw-bold">{#text_author#}</span><span class="text-nowrap"> {$module_data.AUTHOR}</span></div>
+              <div class="vr"></div>
+              <div><span class="fw-bold">{#title_date#}:</span><span class="text-nowrap"> {$module_data.DATE}</span></div>
             </div>
-            <div class="vr"></div>
-            <div><span class="fw-bold">{#text_author#}</span><span class="text-nowrap"> {$module_data.AUTHOR}</span></div>
-            <div class="vr"></div>
-            <div><span class="fw-bold">{#title_date#}:</span><span class="text-nowrap"> {$module_data.DATE}</span></div>
-          </div>
-          <div class="card-body">
-            <div class="fw-bold">{#text_text#}</div>
-            {$module_data.TEXT_PLAIN|onlytext}
-            <div class="small mt-3">
-              <div class="small text-note">
-                {if $smarty.const.REVIEWS_PURCHASED_ONLY == 'true'}{#reviews_checked#}{else}{#reviews_unchecked#}{/if}
+            <div class="card-body">
+              <div class="fw-bold">{#text_text#}</div>
+              {$module_data.TEXT_PLAIN|onlytext}
+              <div class="small mt-3">
+                <div class="small text-note">
+                  {if $smarty.const.REVIEWS_PURCHASED_ONLY == 'true'}{#reviews_checked#}{else}{#reviews_unchecked#}{/if}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
       {/foreach}
     </div>
   </div>

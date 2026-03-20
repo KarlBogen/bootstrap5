@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- einheitliche Formatierung - Tab entspricht zwei Leerzeichen
 - Templatedateien Merkzettel - IF-Abfragen verändert
 - kleine CSS-Klassen-Änderungen an Templatedateien
 

@@ -179,6 +179,7 @@ ul.printinfolist {
   padding:2px;
   margin: 0px 10px 10px 0px;
   position:relative;
+  break-inside: avoid;
 }
 .moimages:nth-child(5n) {
   margin-right:0px;

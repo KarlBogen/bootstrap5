@@ -1,26 +1,26 @@
 <?php
 /* ------------------------------------------------------------
-	Module "Bootstrap 5 Template-Manager" made by Karl
+  Module "Bootstrap 5 Template-Manager" made by Karl
 
-	modified eCommerce Shopsoftware
-	http://www.modified-shop.org
+  modified eCommerce Shopsoftware
+  http://www.modified-shop.org
 
-	Released under the GNU General Public License
+  Released under the GNU General Public License
 -------------------------------------------------------------- */
 
-define('BS5_CUSTOMERS_REMIND_TITLE' , 'Product Remind');
-define('BS5_NAVBAR_TITLE_CUSTOMERS_REMIND' , 'Product Remind');
-define('BS5_CUSTOMERS_REMIND_NOTE' , 'Article currently not in stock!');
+define('BS5_CUSTOMERS_REMIND_TITLE', 'Product Remind');
+define('BS5_NAVBAR_TITLE_CUSTOMERS_REMIND', 'Product Remind');
+define('BS5_CUSTOMERS_REMIND_NOTE', 'Article currently not in stock!');
 define('BS5_CUSTOMERS_REMIND_LINK_TEXT', 'Advice of availability');
 define('BS5_CUSTOMERS_REMIND_EMAIL_HEADING', 'Product remind when articles arrive again');
 define('BS5_CUSTOMERS_REMIND_EMAIL_1', 'has registered for this article:');
 
-define('BS5_TEXT_EMAIL_SUBJECT_REMINDER','Your products remind subscription');
-define('BS5_TEXT_EMAIL_INPUT_REMINDER','<h1>Please note!</h1><p>Your e-mail address has been registered in our system.<br />An e-mail with a confirmation link has been sent out. Click the link to complete registration!</p>');
-define('BS5_TEXT_EMAIL_DEL_REMINDER','Your e-mail address was deleted successfully from our database.');
-define('BS5_TEXT_EMAIL_ACTIVE_REMINDER','Your e-mail address has successfully been registered for the remind mails!');
-define('BS5_TEXT_EMAIL_EXIST_NO_REMINDER','<h1>Please note!</h1><p>This e-mail address is registered but not yet activated!<br />An e-mail with a confirmation link has been sent out. Click the link to complete registration!</p>');
-define('BS5_TEXT_EMAIL_EXIST_REMINDER','This e-mail address is already registered for the remind mails!');
+define('BS5_TEXT_EMAIL_SUBJECT_REMINDER', 'Your products remind subscription');
+define('BS5_TEXT_EMAIL_INPUT_REMINDER', '<h1>Please note!</h1><p>Your e-mail address has been registered in our system.<br />An e-mail with a confirmation link has been sent out. Click the link to complete registration!</p>');
+define('BS5_TEXT_EMAIL_DEL_REMINDER', 'Your e-mail address was deleted successfully from our database.');
+define('BS5_TEXT_EMAIL_ACTIVE_REMINDER', 'Your e-mail address has successfully been registered for the remind mails!');
+define('BS5_TEXT_EMAIL_EXIST_NO_REMINDER', '<h1>Please note!</h1><p>This e-mail address is registered but not yet activated!<br />An e-mail with a confirmation link has been sent out. Click the link to complete registration!</p>');
+define('BS5_TEXT_EMAIL_EXIST_REMINDER', 'This e-mail address is already registered for the remind mails!');
 
 define('BS5_CONTACT_SUBJECT_0', '-- Please Select -- ');
 define('BS5_CONTACT_SUBJECT_4', 'Price Inquiry');
@@ -29,11 +29,11 @@ define('BS5_TEXT_PRODUCTS_CHEAPLY_NAME', 'Products Name: ');
 define('BS5_TEXT_PRODUCTS_CHEAPLY_NUMBER', 'Model-No.: ');
 define('BS5_TEXT_PRODUCTS_CHEAPLY_NOTE', 'I am interested in the article: ');
 define('BS5_TEXT_PRODUCTS_CHEAPLY_NOTE2', 'However I saw this article at a favourable price with one of your competitors. Please let me know if you can undercut the above mentioned article..');
-define('BS5_ENTRY_COMPETITORURL_CHECK_ERROR','Register please those to competitor URL!');
+define('BS5_ENTRY_COMPETITORURL_CHECK_ERROR', 'Register please those to competitor URL!');
 define('BS5_ENTRY_COMPETITORURL_VALIDATION_ERROR', 'The competitor URL is no valide URL!');
-define('BS5_ENTRY_COMPETITORPRICE_CHECK_ERROR','Please register the competitor price!');
-define('BS5_NAVBAR_TITLE_CHEAPLY_SEE','Have You see this Product cheaply?');
-define('BS5_CHEAPLY_SEE_HEADING_FORMULAR','Price inquiry form');
+define('BS5_ENTRY_COMPETITORPRICE_CHECK_ERROR', 'Please register the competitor price!');
+define('BS5_NAVBAR_TITLE_CHEAPLY_SEE', 'Have You see this Product cheaply?');
+define('BS5_CHEAPLY_SEE_HEADING_FORMULAR', 'Price inquiry form');
 define('BS5_CHEAPLY_SEE_TO_PRODUCT', 'To the product');
 define('BS5_ENTRY_VVCODE_CHECK_ERROR', 'Please enter the spam protection code!');
 define('BS5_EMAIL', 'E-mail: ');
@@ -107,19 +107,19 @@ define('BS5_AWIDSRATINGBREAKDOWN_ALL_LANGS', 'show all languages');
 
    ----------------------------------------------------------------------------------------------------------------*/
 
-define('BS5_MODULE_TRAFFIC_LIGHTS_STOCK','Stock');
-define('BS5_MODULE_TRAFFIC_LIGHTS_QTY_RED','not on stock');
-define('BS5_MODULE_TRAFFIC_LIGHTS_QTY_YELL','few on stock');
-define('BS5_MODULE_TRAFFIC_LIGHTS_QTY_GREEN','on stock');
+define('BS5_MODULE_TRAFFIC_LIGHTS_STOCK', 'Stock');
+define('BS5_MODULE_TRAFFIC_LIGHTS_QTY_RED', 'not on stock');
+define('BS5_MODULE_TRAFFIC_LIGHTS_QTY_YELL', 'few on stock');
+define('BS5_MODULE_TRAFFIC_LIGHTS_QTY_GREEN', 'on stock');
 
 /* Metatags for specials and new products
-	- are not provided by Modified but recognized by Lighthouse as an SEO deficiency
-	enter keywords separated by commas
+  - are not provided by Modified but recognized by Lighthouse as an SEO deficiency
+  enter keywords separated by commas
 */
-define('BS5_METATAG_SPECIALS_DESC','Our top offers and all current promotions, bargains and other offers.');
-define('BS5_METATAG_SPECIALS_KEYWORDS','Offers, promotions, bargains');
-define('BS5_METATAG_NEWPRODS_DESC','New articles and products that have just arrived that might interest you.');
-define('BS5_METATAG_NEWPRODS_KEYWORDS','New, latest, news');
+define('BS5_METATAG_SPECIALS_DESC', 'Our top offers and all current promotions, bargains and other offers.');
+define('BS5_METATAG_SPECIALS_KEYWORDS', 'Offers, promotions, bargains');
+define('BS5_METATAG_NEWPRODS_DESC', 'New articles and products that have just arrived that might interest you.');
+define('BS5_METATAG_NEWPRODS_KEYWORDS', 'New, latest, news');
 
 define('BS5_PAGINATION_LABEL', 'Page navigation');
 define('BS5_PAGINATION_SCROLLTOP', 'Scroll to first product');

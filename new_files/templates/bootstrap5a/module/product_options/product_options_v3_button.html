@@ -13,47 +13,48 @@
             {/if}
           {/foreach}
         {/if}
-      <div class="product_options_button p-2">
-        <div class="options_name fs-5 border-bottom mb-2">{$options_data.NAME}</div>
-        <div class="btn-group flex-wrap gap-2" role="group" aria-label="{#button_group_info#}">
-          {foreach key=key_data name=key_data item=item_data from=$options_data.DATA}
-            <div{if $item_data.ID == 0} class="visually-hidden-focusable"{/if}>
-              <input class="btn-check" data-attrdata="{$item_data.JSON_ATTRDATA}" aria-label="{$item_data.TEXT}" type="radio" name="id[{$options_data.ID}]" id="rdb_{$smarty.foreach.outer.iteration}_{$item_data.ID}" autocomplete="off" value="{$item_data.ID}"{if $item_data.CHECKED == '1'} checked="checked"{/if}>
-              <label class="btn btn-outline-secondary h-100" for="rdb_{$smarty.foreach.outer.iteration}_{$item_data.ID}">{$item_data.TEXT}
-                {if isset($show_full_price)}<div class="options_selection_price small">{$item_data.FULL_PRICE}</div>{if $item_data.VPE}<div class="xsmall">({$item_data.VPE})</div>{/if}{elseif $item_data.PRICE != ''}<div class="options_selection_price xsmall">{$item_data.PREFIX}{$item_data.PRICE}</div>{/if}
-              </label>
+        <div class="product_options_button p-2">
+          <div class="options_name fs-5 border-bottom mb-2">{$options_data.NAME}</div>
+          <div class="btn-group flex-wrap gap-2" role="group" aria-label="{#button_group_info#}">
+            {foreach key=key_data name=key_data item=item_data from=$options_data.DATA}
+              <div{if $item_data.ID == 0} class="visually-hidden-focusable" {/if}>
+                <input class="btn-check" data-attrdata="{$item_data.JSON_ATTRDATA}" aria-label="{$item_data.TEXT}" type="radio" name="id[{$options_data.ID}]" id="rdb_{$smarty.foreach.outer.iteration}_{$item_data.ID}" autocomplete="off" value="{$item_data.ID}" {if $item_data.CHECKED == '1'} checked="checked" {/if}>
+                <label class="btn btn-outline-secondary h-100" for="rdb_{$smarty.foreach.outer.iteration}_{$item_data.ID}">{$item_data.TEXT}
+                  {if isset($show_full_price)}<div class="options_selection_price small">{$item_data.FULL_PRICE}</div>{if $item_data.VPE}<div class="xsmall">({$item_data.VPE})</div>{/if}{elseif $item_data.PRICE != ''}<div class="options_selection_price xsmall">{$item_data.PREFIX}{$item_data.PRICE}</div>{/if}
+                </label>
             </div>
           {/foreach}
         </div>
       </div>
-      {/foreach}
-    </div>
-    {if $smarty.const.BS5_ATTR_PRICE_UPDATER == 'true'}
-      {if $smarty.session.customers_status.customers_status_show_price != 0}
-        {if !$item_data.FULL_PRICE || $options|count > 1}
-          <div class="calculatePriceUpdater p-2 m-0">
-            <span class="small"><strong>{$smarty.const.BS5_TEXT_ATTRIBUTE_PRICE_UPDATER_A}</strong></span><br>
-            <span>{$smarty.const.BS5_TEXT_ATTRIBUTE_PRICE_UPDATER_B}</span>
-            <span class="cuPrice"></span><br>
-            <span class="cuVpePrice small"></span>
-          </div>
-        {/if}
+    {/foreach}
+  </div>
+  {if $smarty.const.BS5_ATTR_PRICE_UPDATER == 'true'}
+    {if $smarty.session.customers_status.customers_status_show_price != 0}
+      {if !$item_data.FULL_PRICE || $options|count > 1}
+        <div class="calculatePriceUpdater p-2 m-0">
+          <span class="small"><strong>{$smarty.const.BS5_TEXT_ATTRIBUTE_PRICE_UPDATER_A}</strong></span><br>
+          <span>{$smarty.const.BS5_TEXT_ATTRIBUTE_PRICE_UPDATER_B}</span>
+          <span class="cuPrice"></span><br>
+          <span class="cuVpePrice small"></span>
+        </div>
       {/if}
     {/if}
-    {if $smarty.const.BS5_ATTR_PRICE_UPDATER == 'true' || $smarty.const.BS5_MODULFUX_ATTRIBUTES_DEFAULT == 'true'}
+  {/if}
+  {if $smarty.const.BS5_ATTR_PRICE_UPDATER == 'true' || $smarty.const.BS5_MODULFUX_ATTRIBUTES_DEFAULT == 'true'}
     <script>
       var attributePriceUpdater;
+
       function PriceUpdaterReady() {
         attributePriceUpdater = {
-          calculate: function (This) {
+          calculate: function(This) {
             var updateOrgPrice = {if $smarty.const.BS5_ATTR_PRICE_UPDATER == 'true'}{$smarty.const.BS5_ATTR_PRICE_UPDATER_UPDATE_PRICE}{else}false{/if},
-              summe = 0,
+            summe = 0,
               attrvpevalue = 0,
               symbolLeft = '',
               symbolRight = '',
               data = This.data('attrdata'),
               el = $('div[id^="optionen' + data.pid + '"] select').length ? ' option:selected' : ' input:checked';
-            $.each($('div[id^="optionen' + data.pid + '"]' + el), function () {
+            $.each($('div[id^="optionen' + data.pid + '"]' + el), function() {
               data = $(this).data('attrdata');
               if (data.aprice != 0) {
                 if (data.prefix == '-') {
@@ -116,22 +117,21 @@
             if ($('div[id^="optionen"] div[class*="product_options_select"]').length) {
               div = 'product_options_select';
               selector = 'option:selected';
-            }
-            else if ($('div[id^="optionen"] div[class*="product_options_table"]').length) {
+            } else if ($('div[id^="optionen"] div[class*="product_options_table"]').length) {
               div = 'product_options_table';
               selector = 'input:checked';
-            }
-            else if ($('div[id^="optionen"] div[class*="product_options_button"]').length) {
+            } else if ($('div[id^="optionen"] div[class*="product_options_button"]').length) {
               div = 'product_options_button';
               selector = 'input:checked';
-            }
-            else {
+            } else {
               div = 'product_options_select';
               selector = 'option:selected';
             }
           },
           check: function() {
-            var checked = 0, i = 0, z = 0;
+            var checked = 0,
+              i = 0,
+              z = 0;
             $('div[id^="optionen"] div[class*="' + div + '"]').each(function() {
               i++;
               var val = $(this).find(selector).val();
@@ -140,20 +140,20 @@
             if (i == z) checked = 1;
             return checked;
           },
-          calculateAll: function () {
-            $.each($('div[id^="optionen"] input[type=radio], div[id^="optionen"] input[type=checkbox], div[id^="optionen"] option:not([disabled])'), function () {
+          calculateAll: function() {
+            $.each($('div[id^="optionen"] input[type=radio], div[id^="optionen"] input[type=checkbox], div[id^="optionen"] option:not([disabled])'), function() {
               attributePriceUpdater.calculate($(this));
             });
           }
         };
-        $(document).ready(function () {
+        $(document).ready(function() {
           attributePriceUpdater.setParams();
           attributePriceUpdater.calculateAll();
           $(".calculatePriceUpdater").show();
-          $('div[id^="optionen"] select').on('change click', function () {
-          attributePriceUpdater.calculate($('option', this));
+          $('div[id^="optionen"] select').on('change click', function() {
+            attributePriceUpdater.calculate($('option', this));
           });
-          $('div[id^="optionen"] input').on('change click', function () {
+          $('div[id^="optionen"] input').on('change click', function() {
             attributePriceUpdater.calculate($(this));
           });
           $('#cart_quantity').on('submit', function() {
@@ -167,6 +167,6 @@
         });
       }
     </script>
-    {/if}
+  {/if}
   </div>
 {/if}

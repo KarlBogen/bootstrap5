@@ -1,11 +1,11 @@
 <?php
 /* ------------------------------------------------------------
-	Module "Bootstrap 5 Template-Manager" made by Karl
+  Module "Bootstrap 5 Template-Manager" made by Karl
 
-	modified eCommerce Shopsoftware
-	http://www.modified-shop.org
+  modified eCommerce Shopsoftware
+  http://www.modified-shop.org
 
-	Released under the GNU General Public License
+  Released under the GNU General Public License
 -------------------------------------------------------------- */
 if (basename($PHP_SELF) == FILENAME_PRODUCT_REVIEWS) {
   if (defined('BS5_SENDMAIL_IF_NEW_REVIEW') && BS5_SENDMAIL_IF_NEW_REVIEW == 'true') {

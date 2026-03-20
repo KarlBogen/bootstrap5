@@ -10,21 +10,21 @@
    Released under the GNU General Public License
    ---------------------------------------------------------------------------------------*/
 
-  $register_php_plugins = array(
-    'defined',
-    'sizeof',
-    'strpos',
-    'substr',
-    'strlen',
-    'count',
-    'intval',
-    'nl2br',
-    'sprintf',
-    'strtotime',
-    'number_format',
-    'stripslashes',
-    'array_reverse',
-    'xtc_href_link',
-    'htmlentities',
-    'xtc_date_short',
-  );
+$register_php_plugins = array(
+  'defined',
+  'sizeof',
+  'strpos',
+  'substr',
+  'strlen',
+  'count',
+  'intval',
+  'nl2br',
+  'sprintf',
+  'strtotime',
+  'number_format',
+  'stripslashes',
+  'array_reverse',
+  'xtc_href_link',
+  'htmlentities',
+  'xtc_date_short',
+);

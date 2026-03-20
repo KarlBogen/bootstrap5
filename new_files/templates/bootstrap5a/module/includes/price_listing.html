@@ -11,7 +11,7 @@
               </div>
               {* ENDE Produkt Sonderpreis Langform mit Ausgabe Alter Preis, Neuer Preis, Sie sparen *}
             {elseif $price_data.PRODUCTS_PRICE_FLAG == 'SpecialGraduated'}
-              {if $price_data.PRODUCTS_PRICE_UVP != ''} 
+              {if $price_data.PRODUCTS_PRICE_UVP != ''}
                 {* START Produkt UVP Preis mit Ausgabe Ihr Preis, UVP *}
                 <div class="uvp_price fs-5">
                   <span class="small_price">{$smarty.const.YOUR_PRICE}</span> <span class="value_price">{$price_data.PRODUCTS_PRICE_SPECIAL_PRICE}</span>
