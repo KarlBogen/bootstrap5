@@ -39,10 +39,10 @@
               {$VVIMG}
             </div>
           {/if}
-          {if $INPUT_VVCODE}
+          {if $INPUT_CODE}
             <div class="vvcode_sec mb-3 stern clearfix">
               <label class="form-label" for="code">{#text_inp_code#}</label>
-              {$INPUT_CODE|replace:'<input':'<input id="code" class="form-control"'}
+              {$INPUT_CODE|replace:'<input':'<input id="code" class="form-control"'}<span class="inputRequirement">*</span>
             </div>
           {/if}
 
