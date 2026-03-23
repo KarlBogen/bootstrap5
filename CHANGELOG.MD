@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- Templatedateien source/inc/xtc_show_content.inc.php für Systemmodul "Widerrufsformular" geändert
 - Templatedateien für Systemmodul "Widerrufsformular" hinzugefügt
 - einheitliche Formatierung - Tab entspricht zwei Leerzeichen
 - Templatedateien Merkzettel - IF-Abfragen verändert
