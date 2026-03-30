@@ -35,7 +35,7 @@ if (BS5_USE_VIEWERJS == 'true') {
   $css_array_async[] = DIR_TMPL_CSS . 'jquery.viewer.min.css';
 }
 
-$css_array_async[] = DIR_TMPL_CSS . 'jquery.mmenulight.min.css';
+$css_array_async[] = DIR_TMPL_CSS . 'hc-offcanvas-nav.min.css';
 $css_array_async[] = DIR_TMPL_CSS . 'jquery.alertable.min.css';
 
 if (file_exists(DIR_FS_CATALOG . DIR_TMPL_CSS . 'custom.css')) {

@@ -28,7 +28,7 @@ $script_array = array(
 );
 
 $script_array_defer = array(
-  DIR_TMPL_JS . 'jquery.mmenulight.js',
+  DIR_TMPL_JS . 'hc-offcanvas-nav.js',
   DIR_TMPL_JS . 'jquery.alertable.min.js',
 );
 

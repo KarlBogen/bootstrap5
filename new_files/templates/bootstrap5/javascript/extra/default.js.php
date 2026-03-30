@@ -317,45 +317,6 @@
   <?php
   // Ende KK-Megamenü
   ?>
-  <?php if ((strpos(basename($PHP_SELF), 'checkout') === false && strpos(basename($PHP_SELF), 'bs5_') === false)
-    || strpos(basename($PHP_SELF), 'account_checkout_express') !== false
-  ) { ?>
-
-    let mobilemenu = document.getElementById('mmenu');
-    if (mobilemenu !== null) {
-      document.addEventListener(
-        "DOMContentLoaded", () => {
-          const menu = new MmenuLight(
-            document.querySelector("#mmenu"),
-            'all'
-          );
-
-          const navigator = menu.navigation({
-            selectedClass: 'Selected',
-            slidingSubmenus: true,
-            theme: 'light',
-            title: '<?php echo TEXT_MENU_TITLE; ?>'
-          });
-          const drawer = menu.offcanvas({
-            position: 'left'
-          });
-
-          document.querySelector('#mmopener')
-            .addEventListener("click", (evnt) => {
-              evnt.preventDefault();
-              drawer.open();
-            });
-
-          document.querySelector('.mmcloser')
-            .addEventListener("click", (evnt) => {
-              evnt.preventDefault();
-              drawer.close();
-            });
-
-        }
-      );
-    }
-  <?php } ?>
   <?php if (basename($PHP_SELF) == FILENAME_PRODUCT_INFO) { ?>
     window.addEventListener('DOMContentLoaded', function() {
       // Plus-/Minus-Button

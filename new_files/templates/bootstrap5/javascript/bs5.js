@@ -54,7 +54,8 @@ $(document).ready(function(){
 	/* Attribut Price Updater */
 	if (typeof PriceUpdaterReady !== 'undefined' && $.isFunction(PriceUpdaterReady)) {PriceUpdaterReady();}
 	/* Go to top */
-	$(window).scroll(function() {if ($(this).scrollTop()) {$('.go2top').fadeIn();} else {$('.go2top').fadeOut();}});$(".go2top").click(function() {$("html, body").animate({scrollTop: 0}, 1000);});
+	$(window).scroll(function() {if ($(this).scrollTop()) {$('.go2top').fadeIn();} else {$('.go2top').fadeOut();}});$(".go2top").on('click',function() {$("html, body").animate({scrollTop: 0}, 1000);});
+	$(window).scroll(function() {if ($(this).scrollTop()) {$('.go2bot').fadeIn();} else {$('.go2bot').fadeOut();}});$(".go2bot").on('click',function() {$("html, body").animate({scrollTop: $(document).height()}, 1000);});
 	/* Modalbox */
 	$("#modal").on('hidden.bs.modal', function () {
 		$('.modal-title').empty();

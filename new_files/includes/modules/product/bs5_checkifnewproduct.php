@@ -90,7 +90,7 @@ class bs5_checkifnewproduct
 
     if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 
-      if ($array["products_quantity"] < 1) {
+      if (isset($array["products_quantity"]) && $array["products_quantity"] < 1) {
 
         $productData['PRODUCTS_BUTTON_BUY_NOW'] = '';
       }

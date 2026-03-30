@@ -1,6 +1,13 @@
 UNRELEASED
 
 
+
+1.2.3 [30.03.2026]
+- HC Off-canvas Nav ersetzt Mmenu Light - jetzt tastaturbedienbar
+- Mmenu Light entfernt
+- Skip Links in index.html Lighthouse SEO-optimiert
+- Button "Go2Bottom" hinzugefügt
+- Undefined array key "products_quantity" in includes/modules/product/customers_remind.php - behoben
 - Templatedateien source/inc/xtc_show_content.inc.php für Systemmodul "Widerrufsformular" geändert
 - Templatedateien für Systemmodul "Widerrufsformular" hinzugefügt
 - einheitliche Formatierung - Tab entspricht zwei Leerzeichen

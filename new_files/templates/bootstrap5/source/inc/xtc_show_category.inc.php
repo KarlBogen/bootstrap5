@@ -98,7 +98,7 @@ function xtc_get_categories_tree_data($parent_id, $level)
 
 function xtc_show_category($parent_id = 0, $path = '', $category_tree_array = array(), $bs5_type = '')
 {
-  global $categories_string, $cPath;
+  global $bs5_categories_string, $categories_string, $cPath;
 
   $li_class_bs5 = $a_class_bs5 = $a_class_hassub_bs5 = '';
   if ($bs5_type == 'sub') {
@@ -110,83 +110,6 @@ function xtc_show_category($parent_id = 0, $path = '', $category_tree_array = ar
     $li_class_bs5 = " nav-item";
     $a_class_bs5 = "nav-link";
   }
-
-  foreach ($category_tree_array[$parent_id] as $categories) {
-    if (mod_count_products_in_category($categories['id']) > 0) {
-      $level = $categories['level'];
-      $tab = str_repeat("\t", $level);
-      $category_path = explode('_', $cPath);
-      $link_path = $path . (($path != '') ? '_' : '') . $categories['id'];
-      $link = xtc_href_link(FILENAME_DEFAULT, 'cPath=' . $link_path, 'NONSSL');
-
-      $cat_active = '';
-      if (end($category_path) == $categories['id']) {
-        // Selected for mmenulight
-        $cat_active = " Selected active";
-      } elseif (in_array($categories['id'], $category_path)) {
-        $cat_active = " active parent";
-      }
-
-      // mark subs
-      $hasSubs = $hasSubsClass = '';
-      $children = xtc_get_categories_tree_data($categories['id'], $level + 1);
-      $count_children = !empty($children);
-
-      if (defined('CATEGORIES_CHECK_SUBS') && (CATEGORIES_CHECK_SUBS == true)) {
-        if ($count_children === true) {
-          $hasSubs = ' hassub';
-          $hasSubsClass = $a_class_hassub_bs5;
-        }
-      }
-      $categories_string .= $tab . '<li class="level' . $level . $cat_active . $hasSubs . $li_class_bs5 . '">';
-      $categories_string .= '<a class="' . $a_class_bs5 . $cat_active . $hasSubsClass . '" href="' . $link . '" title="' . encode_htmlentities($categories['name']) . '">';
-
-      $categories_string .= $categories['name'];
-      if (SHOW_COUNTS == 'true') {
-        $products_in_category = xtc_count_products_in_category($categories['id']);
-        if ($products_in_category > 0) {
-          $categories_string .= '<span class="counts small">&nbsp;(' . $products_in_category . ')</span>';
-        }
-      }
-
-      if ($level == 1 && $bs5_type == 'sub') {
-        if ($hasSubs != '') {
-          $categories_string .= '<span class="fa fa-chevron-down ms-auto"></span>';
-        }
-      }
-
-      $categories_string .= '</a>';
-      if (isset($category_tree_array[$categories['id']])) {
-        if ($count_children === true) {
-          $categories_string .= "\n";
-          xtc_show_sub_category($level, true);
-
-          $categories_string .= "\n";
-          xtc_show_category($categories['id'], $link_path, $category_tree_array);
-          xtc_show_sub_category($level, false);
-          $categories_string .= "\n" . $tab;
-        }
-      }
-      $categories_string .= '</li>';
-      $categories_string .= "\n";
-    }
-  }
-}
-
-function xtc_show_sub_category($level, $open = true)
-{
-  global $categories_string, $tab;
-
-  if ($open === true) {
-    $categories_string .= $tab . '<ul>';
-  } else {
-    $categories_string .= $tab . '</ul>';
-  }
-}
-
-function bs5_xtc_show_category($parent_id = 0, $path = '', $category_tree_array = array(), $bs5_type = '')
-{
-  global $bs5_categories_string, $cPath;
 
   $li_class_mega = $li_class_hassub_mega = $a_class_mega = $a_class_hassub_mega = '';
   foreach ($category_tree_array[$parent_id] as $categories) {
@@ -211,18 +134,19 @@ function bs5_xtc_show_category($parent_id = 0, $path = '', $category_tree_array 
         }
       }
 
-      $cat_active = $btn_role = '';
+      $cat_active = $hc_cat_active = $btn_role = '';
       if (end($category_path) == $categories['id']) {
         // Selected for mmenulight
         $cat_active = " Selected active";
+        $hc_cat_active = " data-nav-highlight";
       } elseif (in_array($categories['id'], $category_path)) {
         $cat_active = " active parent";
+        $hc_cat_active = " data-nav-active";
       }
 
       // mark subs
-      $hasSubs = $hasSubsClass = '';
+      $hasSubs = $hasSubsClass = $bs5_hasSubs = $bs5_hasSubsClass = '';
       defined('CATEGORIES_CHECK_SUBS') or define('CATEGORIES_CHECK_SUBS', true);
-      $max_depth = BS5_CATEGORIESMENU_MAXLEVEL == 'false' ? 100 : BS5_CATEGORIESMENU_MAXLEVEL;
       if ($bs5_type == 'dropd' && $level > 1) {
         $li_class_mega = "";
         $li_class_hassub_mega = " dropdown";
@@ -241,8 +165,10 @@ function bs5_xtc_show_category($parent_id = 0, $path = '', $category_tree_array 
       if (defined('CATEGORIES_CHECK_SUBS') && (CATEGORIES_CHECK_SUBS == true)) {
         $close_li = false; // Link im Mega-Menü schließen
         if ($count_children === true) {
-          $hasSubs = $li_class_hassub_mega;
-          $hasSubsClass = $a_class_hassub_mega;
+          $hasSubs = ' hassub';
+          $hasSubsClass = $a_class_hassub_bs5;
+          $bs5_hasSubs = $li_class_hassub_mega;
+          $bs5_hasSubsClass = $a_class_hassub_mega;
           if ($bs5_type == 'mega') {
             if ($level == 1) $btn_role = '#/" data-href="' . $link . '" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false';
             if ($level > 1) $close_li = true;
@@ -253,8 +179,10 @@ function bs5_xtc_show_category($parent_id = 0, $path = '', $category_tree_array 
       }
       $bs5_categories_string .= ($bs5_type == 'mega' && $level == 2) ? $tab . '<ul class="navbar-nav flex-column col" data-level="' . $level . '">' : '';
 
-      $bs5_categories_string .= $tab . '<li id="li' . $categories['id'] . '" class="level' . $level . $cat_active . $hasSubs . $li_class_mega . '">';
-      $bs5_categories_string .= '<a class="' . $a_class_mega . $cat_active . $hasSubsClass . '" href="' . ($href = $btn_role != '' ? $btn_role : $link) . '" title="' . encode_htmlentities($categories['name']) . '">';
+      $categories_string .= $tab . '<li id="li' . $categories['id'] . '" class="level' . $level . $cat_active . $hasSubs . $li_class_bs5 . '"' . $hc_cat_active . '>';
+      $categories_string .= '<a class="' . $a_class_bs5 . $cat_active . $hasSubsClass . '" href="' . $link . '" title="' . encode_htmlentities($categories['name']) . '">';
+      $bs5_categories_string .= $tab . '<li id="li' . $categories['id'] . '" class="level' . $level . $cat_active . $bs5_hasSubs . $li_class_mega . '">';
+      $bs5_categories_string .= '<a class="' . $a_class_mega . $cat_active . $bs5_hasSubsClass . '" href="' . ($href = $btn_role != '' ? $btn_role : $link) . '" title="' . encode_htmlentities($categories['name']) . '">';
 
       if ($bs5_type == 'mega' && $level > 1) {
         $sign = '';
@@ -262,20 +190,30 @@ function bs5_xtc_show_category($parent_id = 0, $path = '', $category_tree_array 
         $bs5_categories_string .= $sign . ' ';
       }
 
+      $categories_string .= $categories['name'];
       $bs5_categories_string .= $categories['name'];
 
       if (SHOW_COUNTS == 'true') {
         $products_in_category = xtc_count_products_in_category($categories['id']);
         if ($products_in_category > 0) {
+          $categories_string .= '<span class="counts small">&nbsp;(' . $products_in_category . ')</span>';
           $bs5_categories_string .= '<span class="counts small">&nbsp;(' . $products_in_category . ')</span>';
         }
       }
 
+      if ($level == 1 && $bs5_type == 'sub') {
+        if ($hasSubs != '') {
+          $categories_string .= '<span class="fa fa-chevron-down ms-auto"></span>';
+        }
+      }
+
+      $categories_string .= '</a>';
       $bs5_categories_string .= '</a>';
       if (isset($category_tree_array[$categories['id']])) {
         if ($count_children === true) {
+          $categories_string .= "\n";
           $bs5_categories_string .= "\n";
-          bs5_xtc_show_sub_category($level, true);
+          xtc_show_sub_category($level, true);
 
           // show all
           if (BS5_MENUCASE == '1' && $level == 1) {
@@ -293,13 +231,15 @@ function bs5_xtc_show_category($parent_id = 0, $path = '', $category_tree_array 
             $bs5_categories_string .= '</li><li><hr class="dropdown-divider"></li>';
           }
 
+          $categories_string .= "\n";
           $bs5_categories_string .= "\n";
           if ($close_li) {
             $bs5_categories_string .= '</li>';
             $bs5_categories_string .= "\n";
           }
-          bs5_xtc_show_category($categories['id'], $link_path, $category_tree_array, $bs5_type);
-          bs5_xtc_show_sub_category($level, false);
+          xtc_show_category($categories['id'], $link_path, $category_tree_array, $bs5_type);
+          xtc_show_sub_category($level, false);
+          $categories_string .= "\n" . $tab;
           $bs5_categories_string .= "\n" . $tab;
         }
       }
@@ -307,41 +247,40 @@ function bs5_xtc_show_category($parent_id = 0, $path = '', $category_tree_array 
         $bs5_categories_string .= '</li>';
         $bs5_categories_string .= "\n";
       }
+      $categories_string .= '</li>';
+      $categories_string .= "\n";
       $bs5_categories_string .= ($bs5_type == 'mega' && $level == 2) ? $tab . '</ul>' . "\n" : '';
     }
   }
+  //  return array($categories_string, $bs5_categories_string);
 }
 
-function bs5_xtc_show_sub_category($level, $open = true)
+
+function xtc_show_sub_category($level, $open = true)
 {
-  global $bs5_categories_string, $tab;
+  global $bs5_categories_string, $categories_string, $tab;
+
+  defined('CATEGORIES_CASE') or define('CATEGORIES_CASE', 1);
 
   // 1 = Megamenu, 2 = Dropdown
-  switch (BS5_MENUCASE) {
-    case '1':
-      if ($level == 1) {
-        if ($open === true) {
-          $bs5_categories_string .= $tab . '<div class="row row-cols-1 row-cols-lg-3 dropdown-menu p-2 kk-mega">';
-        } else {
-          $bs5_categories_string .= $tab . '</div>';
-        }
-      }
-      break;
-
-    case '2':
+  if (BS5_MENUCASE == '1') {
+    if ($level == 1) {
       if ($open === true) {
-        $bs5_categories_string .= $tab . '<ul class="dropdown-menu">';
+        $bs5_categories_string .= $tab . '<div class="row row-cols-1 row-cols-lg-3 dropdown-menu p-2 kk-mega">';
       } else {
-        $bs5_categories_string .= $tab . '</ul>';
+        $bs5_categories_string .= $tab . '</div>';
       }
-      break;
-
-    default:
-      if ($open === true) {
-        $bs5_categories_string .= $tab . '<ul>';
-      } else {
-        $bs5_categories_string .= $tab . '</ul>';
-      }
-      break;
+    }
+  } elseif (BS5_MENUCASE == '2') {
+    if ($open === true) {
+      $bs5_categories_string .= $tab . '<ul class="dropdown-menu">';
+    } else {
+      $bs5_categories_string .= $tab . '</ul>';
+    }
+  }
+  if ($open === true) {
+    $categories_string .= $tab . '<ul>';
+  } else {
+    $categories_string .= $tab . '</ul>';
   }
 }

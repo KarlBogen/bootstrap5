@@ -59,7 +59,7 @@ if (defined('BS5_PRODUCT_INQUIRY') && BS5_PRODUCT_INQUIRY == 'true') {
 if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
   // prüft, ob Bestand kleiner 1 - wenn ja, dann Button hinzufügen
 
-  if ($product->data['products_quantity'] <= 0) {
+  if (isset($product->data['products_quantity']) && $product->data['products_quantity'] <= 0) {
 
     $remindlink = '';
     $remindlink .= '<p class="text-danger mb-1">' . BS5_CUSTOMERS_REMIND_NOTE . '</p>' . "\n";

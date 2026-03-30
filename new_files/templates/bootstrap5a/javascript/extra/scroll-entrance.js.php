@@ -66,12 +66,12 @@ Define the behaviour of your custom animation in your css file
 
 // This is the initial state before animating
 [data-entrance="my-custom-animation"]{
-      transform: rotate(180deg);
+  transform: rotate(180deg);
     opacity: 0;
 }
 // This is the state after animating
 [data-entrance="my-custom-animation"].has-animated{
-      transform: rotate(0deg);
+  transform: rotate(0deg);
     opacity: 1;
 }
    --------------------------------------------------------------*/

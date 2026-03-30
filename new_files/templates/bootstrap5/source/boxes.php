@@ -39,7 +39,7 @@ $smarty->assign('display_mode', $display_mode);
 //	always visible
 // -----------------------------------------------------------------------------------------
 require_once(DIR_FS_BOXES . 'categories.php');
-require_once(DIR_FS_BOXES . 'topcategories.php');
+//require_once(DIR_FS_BOXES . 'topcategories.php');
 require_once(DIR_FS_BOXES . 'search.php');
 require_once(DIR_FS_BOXES . 'content.php');
 require_once(DIR_FS_BOXES . 'information.php');

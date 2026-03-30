@@ -232,19 +232,16 @@
     });
   <?php
   }
-  if (basename($PHP_SELF) != FILENAME_WISHLIST && strpos($PHP_SELF, 'checkout') === false) {
+  if (basename($PHP_SELF) != FILENAME_WISHLIST && strpos($PHP_SELF, 'checkout') === false) { 
   ?>
     $(function() {
-      <?php if (DISPLAY_CART == 'false' && isset($_SESSION['new_products_id_in_wishlist'])) {
-      ?>
+      <?php if (DISPLAY_CART == 'false' && isset($_SESSION['new_products_id_in_wishlist'])) { ?>
         var canvas_wish = document.getElementById('canvas_wish');
         var bscanvas_wish = new bootstrap.Offcanvas(canvas_wish);
         bscanvas_wish.show();
       <?php } ?>
     });
   <?php
-  } else {
-    unset($_SESSION['new_products_id_in_wishlist']);
   }
   // Ende Aufklappen Warenkorb und Merkzettel
   // Beginn Erweiterte Validation im Registrierungsformular

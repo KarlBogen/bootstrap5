@@ -15,19 +15,22 @@
       <div class="navbar-brand w-100 border-bottom mb-2">{#BS5_skip_nav#}</div>
       <ul class="nav flex-column">
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#content').focus()">{#BS5_skip_to_content#}</a>
+          <a class="nav-link" role="button" href="javascript:void(0);" onclick="document.querySelector('#content').focus()">{#BS5_skip_to_content#}</a>
+        </li>
+        <li class="nav-item d-none d-lg-block">
+          <a class="nav-link" role="button" href="javascript:void(0);" onclick="document.querySelector('#nav_container').focus()">{#BS5_skip_to_nav#}</a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="nav-link" role="button" href="javascript:void(0);" onclick="document.querySelector('#hc-nav-opener').focus()">{#BS5_skip_to_nav#}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#nav_container').focus()">{#BS5_skip_to_nav#}</a>
+          <a class="nav-link" role="button" href="javascript:void(0);" onclick="document.querySelector('#login').focus()">{#BS5_skip_to_login#}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#login').focus()">{#BS5_skip_to_login#}</a>
+          <a class="nav-link" role="button" href="javascript:void(0);" onclick="document.querySelector('#setbtn').focus()">{#BS5_skip_to_sets#}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#setbtn').focus()">{#BS5_skip_to_sets#}</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0);" onclick="document.querySelector('#layout_footer').focus()">{#BS5_skip_to_footer#}</a>
+          <a class="nav-link" role="button" href="javascript:void(0);" onclick="document.querySelector('#layout_footer').focus()">{#BS5_skip_to_footer#}</a>
         </li>
       </ul>
     </nav>
@@ -55,7 +58,7 @@
     </div>
     {* ENDE Maincontainer 1 *}
     {* BEGINN Topnavcontainer *}
-    <nav id="nav_container" class="container-fluid bg-{$smarty.const.BS5_TOP2_BG} border-top border-bottom mb-3" tabindex="-1" {if $smarty.const.BS5_TOP2_NAVBAR == 'dark'} data-bs-theme="dark"{/if}>
+    <nav id="nav_container" class="container-fluid bg-{$smarty.const.BS5_TOP2_BG} border-top border-bottom mb-3" tabindex="-1" {if $smarty.const.BS5_TOP2_NAVBAR == 'dark'} data-bs-theme="dark" {/if}>
       <div id="navbar" class="container-xxl top2 navbar navbar-expand d-none d-lg-block">
         <ul id="main" class="navbar-nav d-flex flex-wrap me-auto">
           {if isset($box_TOPCATEGORIES)}{$box_TOPCATEGORIES}{/if}
@@ -262,7 +265,7 @@
   {/if}
 
   {* BEGINN FOOTER *}
-  <footer id="layout_footer" class="container-fluid bg-{$smarty.const.BS5_FOOTER_BG} border-top border-light-subtle py-4" tabindex="-1" {if $smarty.const.BS5_FOOTER_NAVBAR=='dark' } data-bs-theme="dark"{/if}>
+  <footer id="layout_footer" class="container-fluid bg-{$smarty.const.BS5_FOOTER_BG} border-top border-light-subtle py-4" tabindex="-1" {if $smarty.const.BS5_FOOTER_NAVBAR=='dark' } data-bs-theme="dark" {/if}>
     <div class="container-xxl navbar">
       <div id="layout_footer_inner" class="row">
         <div class="col-lg-3 col-md-6 mb-3">
@@ -287,6 +290,7 @@
   </footer>
   {* ENDE FOOTER *}
   <a role="button" class="go2top btn btn-secondary" aria-label="go to top"><i class="fa fa-chevron-up"></i></a>
+  <a role="button" class="go2bot btn btn-secondary" aria-label="go to bottom"><i class="fa fa-chevron-down"></i></a>
 
   {if $display_mode != 'checkout'}
     {if (isset($box_CURRENCIES) && $box_CURRENCIES != '') || (isset($box_SHIPPING_COUNTRY) && $box_SHIPPING_COUNTRY != '') || (isset($box_LANGUAGES) && $box_LANGUAGES != '')}
@@ -315,11 +319,11 @@
       </div>
     {/if}
     {if isset($box_CATEGORIES)}
-      <div id="mmenu">
-        <ul class="mmenu">
+      <div id="respnav">
+        <ul>
           {$box_CATEGORIES}
           {if $smarty.const.BS5_MANUFACTURERS_LINK == 'true' && isset($box_MANUFACTURERS)}
-            <li class="level1 manu hassub">
+            <li class="level1 manu hassub"{if isset($smarty.get.manufacturers_id)} data-nav-active{/if}>
               <span {if isset($smarty.get.manufacturers_id)}class="active parent" {/if}title="{#heading_manufacturers#}">{#heading_manufacturers#}</span>
               <ul>
                 {$box_MANUFACTURERS}
@@ -327,10 +331,10 @@
             </li>
           {/if}
           {if $smarty.const.SPECIALS_EXISTS == 'true'}
-            <li class="level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false} Selected active{/if}"><a class="{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false}active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_SPECIALS|xtc_href_link}">{#heading_specials#}</a></li>
+            <li class="level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false} Selected active{/if}"{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false} data-nav-highlight{/if}><a class="{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false}active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_SPECIALS|xtc_href_link}">{#heading_specials#}</a></li>
           {/if}
           {if $smarty.const.WHATSNEW_EXISTS == 'true'}
-            <li class="level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false} Selected active{/if}"><a class="{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false}active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_PRODUCTS_NEW|xtc_href_link}">{#heading_whatsnew#}</a></li>
+            <li class="level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false} Selected active{/if}"{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false} data-nav-highlight{/if}><a class="{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false}active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_PRODUCTS_NEW|xtc_href_link}">{#heading_whatsnew#}</a></li>
           {/if}
           {if $smarty.const.BS5_ADD_LINK_IN_TOPCATMENU_LAST != ''}
             {assign var=BOX_LINKS value=$smarty.const.BS5_ADD_LINK_IN_TOPCATMENU_LAST|addedLinks}
