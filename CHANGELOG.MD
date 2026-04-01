@@ -2,6 +2,9 @@ UNRELEASED
 
 
 
+
+- Attribut "title" in account-Dateien ergänzt
+
 1.2.3 [30.03.2026]
 - HC Off-canvas Nav ersetzt Mmenu Light - jetzt tastaturbedienbar
 - Mmenu Light entfernt
