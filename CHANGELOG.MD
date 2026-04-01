@@ -2,7 +2,7 @@ UNRELEASED
 
 
 
-
+- Hinweis für Widerruf-Button im Template Manager ergänzt
 - Attribut "title" in account-Dateien ergänzt
 
 1.2.3 [30.03.2026]

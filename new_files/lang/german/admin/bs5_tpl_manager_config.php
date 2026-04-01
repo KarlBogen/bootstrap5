@@ -47,7 +47,12 @@ $lang_array = array(
   'TEXT_BS5_TPL_MANAGER_CONFIG_BS5_THEME' => 'BS5 Themes:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_BS5_THEME_INFO' => 'Hier k&ouml;nnen Sie eines der vorgefertigten Themes einstellen!<br>
     <strong>Hinweis:</strong><br>
-    Im "BS5 Theme Manager" erstellte eigene Themes werden nur bei Einstellung "Bootstrap (bootstrap.min.css)" geladen.',
+    Im "BS5 Theme Manager" erstellte eigene Themes werden nur bei Einstellung "Bootstrap (bootstrap.min.css)" geladen.<br><br>
+    <strong>Wichtig f&uuml;r das Systemmodul "Widerrufsformular":</strong><br>
+    Wer dieses Modul nutzt muss die Hervorhebung des Links im Footer kontrollieren.<br>
+    Die Farb&auml;nderung bzw. das Aussehen kann updatesicher mit zus&auml;tzlichem CSS erledigt werden.<br>
+    Falls noch nicht vorhanden, eine Datei "templates/bootstrap5[a]/css/tpl_custom.css" erstellen und z.B. hineinschreiben:<br><br>
+    <i>/* Widerrufsbutton */<br>li.withdraw_link .nav-link {<br>&nbsp;&nbsp;color: orange;<br>}</i>',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CLASSES' => 'CSS-Klassen (Einstellungen wirken sich nur bei den Themes "Bootstrap" und "BS5 standard" aus)',
   'TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_BG' => 'TOP1 Hintergrund:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_BG_INFO' => 'Hintergrundklasse der Navbar ganz oben!<br>

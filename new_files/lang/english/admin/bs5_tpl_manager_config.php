@@ -47,7 +47,12 @@ $lang_array = array(
   'TEXT_BS5_TPL_MANAGER_CONFIG_BS5_THEME' => 'BS5 Themes:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_BS5_THEME_INFO' => 'Here you can set one of the ready-made themes!<br>
     <strong>Note:</strong><br>
-    Custom themes created in the “BS5 Theme Manager” are only loaded with the “Bootstrap (bootstrap.min.css)” setting.',
+    Custom themes created in the “BS5 Theme Manager” are only loaded with the “Bootstrap (bootstrap.min.css)” setting.<br><br>
+    <strong>Important for the system module "Withdrawal form":</strong><br>
+    Anyone using this module must check the highlighting of the link in the footer.<br>
+    The color change can be done update-safe using additional CSS.<br>
+    If it does not already exist, create a file "templates/bootstrap5[a]/css/tpl_custom.css" and write the following in it, for example:<br><br>
+    <i>/* Withdrawal button */<br>li.withdraw_link .nav-link {<br>&nbsp;&nbsp;color: orange;<br>}</i>',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CLASSES' => 'CSS-Classes (Settings only have an effect on the “Bootstrap” and “BS5 default” themes)',
   'TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_BG' => 'TOP1 background:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_TOP1_BG_INFO' => 'Background class of the top navbar!<br>
