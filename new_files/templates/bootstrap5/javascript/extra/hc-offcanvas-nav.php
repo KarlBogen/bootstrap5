@@ -24,6 +24,7 @@ if (strpos(basename($PHP_SELF), 'checkout') === false
         submenu: 'Submenu'
       }
     });
+    //Nav.querySelectorAll('li.nav-item.overview').forEach(e => e.remove());
     Nav.on('open', function() {
       var activeNav = document.querySelector('.hc-offcanvas-nav');
       var activeLink = activeNav.querySelector('li.nav-highlight a');

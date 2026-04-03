@@ -2,6 +2,7 @@ UNRELEASED
 
 
 
+- HC Off-canvas Nav - CSS und JS verändert
 - Hinweis für Widerruf-Button im Template Manager ergänzt
 - Attribut "title" in account-Dateien ergänzt
 
