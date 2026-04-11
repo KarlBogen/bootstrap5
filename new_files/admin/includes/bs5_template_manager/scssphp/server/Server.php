@@ -316,7 +316,7 @@ class Server
 
         $this->scss->addImportPath($pi['dirname'] . '/');
 
-        $result  = $this->scss->compileString(file_get_contents($in), $in);
+        $result  = $this->scss->compileFile($in);
 
         $compiled = $result->getCss();
 
