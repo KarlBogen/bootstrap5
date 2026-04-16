@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- Kategoriedropdown im Suchfeld wird auf kleinen Bildschirmen ausgeblendet
 - Update scssphp zu Version 2.1.0
 - HC Off-canvas Nav - CSS und JS verändert
 - Hinweis für Widerruf-Button im Template Manager ergänzt

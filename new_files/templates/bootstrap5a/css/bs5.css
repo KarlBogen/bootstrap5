@@ -367,6 +367,14 @@ ul.categorymenu a.active {
   max-width: 100px;
   text-overflow: ellipsis;
 }
+@media (max-width: 575.98px) {
+  #cat_search {
+    display: none;
+  }
+  #inputString {
+    border-radius: var(--bs-border-radius);
+  }
+}
 .suggestionList .special_percent {
     display: none;
 }
