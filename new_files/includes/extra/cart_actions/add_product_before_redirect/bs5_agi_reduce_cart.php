@@ -9,6 +9,9 @@
 |               GNU General Public License  (Version 2)                     |
 '---------------------------------------------------------------------------?
 */
+
+use KarlK\ProductCombiManager\Classes\ProductCombi;
+
 if (defined('BS5_AGI_REDUCE_CART') && BS5_AGI_REDUCE_CART == 'true') {
   if (STOCK_CHECK == 'true' && STOCK_ALLOW_CHECKOUT != 'true' && $goto != FILENAME_SHOPPING_CART) {
     if (!$wishlist) {
@@ -45,6 +48,15 @@ if (defined('BS5_AGI_REDUCE_CART') && BS5_AGI_REDUCE_CART == 'true') {
                 $rest = $agi_attributes_data['attributes_stock'];
             }
           }
+        }
+
+        // Kombination Manager - $combi_attribute_id ist nur gesetzt, wenn Systemmodul installiert und Status true ist
+        if (!empty($combi_attribute_id)) {
+          require_once DIR_FS_EXTERNAL . 'productscombi/vendor-no-composer/karlk/autoload.php';
+          $ProductCombi = new ProductCombi();
+          $combi_stock = $ProductCombi->getCombiStock($agi_products_id,  $combi_attribute_id);
+          unset($combi_attribute_id); // brauchen wir nicht mehr
+          $rest = (int)$combi_stock;
         }
 
         if ($rest < $agi_qty) {
