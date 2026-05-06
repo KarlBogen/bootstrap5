@@ -26,6 +26,10 @@
 
         <div class="content my-4 clearfix">
           <div class="mb-3 stern clearfix">
+            <label class="form-label" for="lastname">{#text_lastname#}</label>
+            {$INPUT_NAME|replace:'<input':'<input id="lastname" class="form-control"'}
+          </div>
+          <div class="mb-3 stern clearfix">
             <label class="form-label" for="mail">{#text_email#}</label>
             {$INPUT_EMAIL|replace:'type="text"':'id="mail" class="form-control" type="email"'}
           </div>
@@ -67,7 +71,6 @@
               </div>
             {/if}
           {/if}
-
         </div>
         <div class="d-grid d-sm-flex justify-content-sm-end">
           {$BUTTON_SUBMIT|replace:'<button':'<button class="btn btn-secondary px-5"'}
@@ -80,69 +83,84 @@
 
     {$FORM_ACTION}
 
+    <div class="h4 border-bottom my-3">{$WITHDRAW_INFO}</div>
+
     {if isset($PRODUCTS) && is_array($PRODUCTS) && count($PRODUCTS) > 0}
 
-      <p class="my-3">{$smarty.const.TEXT_WITHDRAW_PRODUCTS_SELECT}</p>
+      {if $VERIFIED === true}
 
-      <div class="order_details list-group">
-        <div class="list-group-item">
-          <div class="row">
-            <div class="d-flex justify-content-between fw-bold">
-              <div class="col-md-8 pe-3">{$smarty.const.HEADER_ARTICLE}</div>
-              <div class="col-md-4 ps-3">
-                <div class="d-flex justify-content-between">
-                  <div class="d-none d-md-block">{$smarty.const.HEADER_QTY}</div>
-                  <div>{$smarty.const.HEADER_SINGLE}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        {foreach name=aussen item=order_data from=$PRODUCTS}
+        <p class="py-3">{$smarty.const.TEXT_WITHDRAW_PRODUCTS_SELECT}</p>
+
+        <div class="order_details list-group">
           <div class="list-group-item">
             <div class="row">
-              <div class="col-12 col-md-8">
-                <div class="d-flex">
-                  <div class="pe-3">
-                    {$order_data.PRODUCTS_QUANTITY} x
-                  </div>
-                  <div class="flex-grow-1">
-                    <div class="of_productname">
-                      <strong>{$order_data.PRODUCTS_NAME}</strong>
-                    </div>
-                    {if $order_data.PRODUCTS_MODEL}
-                      <div class="of_infoline mt-2 small">{$smarty.const.HEADER_MODEL}: {$order_data.PRODUCTS_MODEL}</div>
-                    {/if}
-                    {if count($order_data.PRODUCTS_ATTRIBUTES) > 0}
-                      <ul class="attributes_list small my-2">
-                        {foreach name=inner item=attributes_data from=$order_data.PRODUCTS_ATTRIBUTES}
-                          <li><strong>{$attributes_data.OPTIONS_NAME}</strong>: {$attributes_data.VALUES_NAME}</li>
-                        {/foreach}
-                      </ul>
-                    {/if}
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 col-md-4">
-                <div class="d-block d-md-none border-top w-100 my-2"></div>
-                <div class="d-flex justify-content-between">
-                  <div class="d-flex flex-md-column text-center">
-                    <div class="d-block d-md-none fw-bold small me-3">{$smarty.const.HEADER_QTY}</div>
-                    <div>{$order_data.PRODUCTS_QTY|replace:'<input':'<input class="form-control text-center" size="3" aria-label="[aria]"'|replace:'[aria]':$smarty.const.HEADER_QTY}</div>
-                  </div>
-                  <div class="of_total">
-                    {$order_data.PRODUCTS_PRICE}
+              <div class="d-flex justify-content-between fw-bold">
+                <div class="col-md-8 pe-3">{$smarty.const.HEADER_ARTICLE}</div>
+                <div class="col-md-4 ps-3">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-none d-md-block">{$smarty.const.HEADER_QTY}</div>
+                    <div>{$smarty.const.HEADER_SINGLE}</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          {foreach name=aussen item=order_data from=$PRODUCTS}
+            <div class="list-group-item">
+              <div class="row">
+                <div class="col-12 col-md-8">
+                  <div class="d-flex">
+                    <div class="pe-3">
+                      {$order_data.PRODUCTS_QUANTITY} x
+                    </div>
+                    <div class="flex-grow-1">
+                      <div class="of_productname">
+                        <strong>{$order_data.PRODUCTS_NAME}</strong>
+                      </div>
+                      {if $order_data.PRODUCTS_MODEL}
+                        <div class="of_infoline mt-2 small">{$smarty.const.HEADER_MODEL}: {$order_data.PRODUCTS_MODEL}</div>
+                      {/if}
+                      {if count($order_data.PRODUCTS_ATTRIBUTES) > 0}
+                        <ul class="attributes_list small my-2">
+                          {foreach name=inner item=attributes_data from=$order_data.PRODUCTS_ATTRIBUTES}
+                            <li><strong>{$attributes_data.OPTIONS_NAME}</strong>: {$attributes_data.VALUES_NAME}</li>
+                          {/foreach}
+                        </ul>
+                      {/if}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="d-block d-md-none border-top w-100 my-2"></div>
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex flex-md-column text-center">
+                      <div class="d-block d-md-none fw-bold small me-3">{$smarty.const.HEADER_QTY}</div>
+                      <div>{$order_data.PRODUCTS_QTY|replace:'<input':'<input class="form-control text-center" size="3" aria-label="[aria]"'|replace:'[aria]':$smarty.const.HEADER_QTY}</div>
+                    </div>
+                    <div class="of_total">
+                      {$order_data.PRODUCTS_PRICE}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          {/foreach}
+        </div>
 
+      {else}
+
+        <p class="py-3">{$TEXT_WITHDRAW_PARTLY}</p>
+
+        {foreach name=aussen item=data from=$HIDDEN_DATA}
+          {$data}
         {/foreach}
-      </div>
+
+      {/if}
 
     {else}
+
       <div class="alert alert-info my-2">{$smarty.const.TEXT_WITHDRAW_NO_PRODUCTS}</div>
+
     {/if}
 
     <div class="d-grid gap-2 d-sm-flex justify-content-sm-between my-3">
@@ -154,13 +172,14 @@
         {$BUTTON_SUBMIT|replace:'<button':'<button class="btn btn-secondary px-5"'}
       {/if}
     </div>
+
     {$FORM_END}
 
   {elseif $FORM_TYPE == 'success'}
 
     <p class="my-3">{$smarty.const.TEXT_WITHDRAW_SUCCESS}</p>
 
-    {if isset($PRODUCTS) && is_array($PRODUCTS) && count($PRODUCTS) > 0}
+    {if $VERIFIED === true && isset($PRODUCTS) && is_array($PRODUCTS) && count($PRODUCTS) > 0}
       <p class="pt-3 mb-3 fw-bold">{$smarty.const.TEXT_WITHDRAW_PRODUCTS_SUCCESS}</p>
 
       <div class="order_details list-group">
@@ -213,7 +232,6 @@
               </div>
             </div>
           </div>
-
         {/foreach}
       </div>
 

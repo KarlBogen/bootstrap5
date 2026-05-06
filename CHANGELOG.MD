@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- Update Templatedateien für Systemmodul "Widerrufsformular"
 - AGI_REDUCE_CART angepasst an Attribut Kombinationen Verwaltung
 - Kategoriedropdown im Suchfeld wird auf kleinen Bildschirmen ausgeblendet
 - Update scssphp zu Version 2.1.0
