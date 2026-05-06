@@ -45,3 +45,11 @@ define('TEXT_EMAIL_DEL_ERROR', 'Es ist ein Fehler aufgetreten, die E-Mail-Adress
 define('BS5_TEXT_EMAIL_EXIST_NO_REMINDER', 'Die Opt-in E-Mail wurde erneut versendet.');
 
 define('TEXT_DISPLAY_NUMBER_OF_CUSTOMERS_REMIND_RECIPIENTS', 'Angezeigt werden <b>%d</b> bis <b>%d</b> (von insgesamt <b>%d</b> Registrierten Empf&auml;ngern)');
+
+define('BS5_DELETE_INACTIVE_RECIPIENTS_TITLE', 'Nicht aktivierte E-Mail Adressen abmelden und Erinnerungsliste aktualisieren');
+define('BS5_DELETE_INACTIVE_RECIPIENTS_INFO', 'Nicht aktivierte E-Mail Adressen k&ouml;nnen abh&auml;ngig vom Anmeldedatum abgemeldet und aus der Erinnerungsliste entfernt werden!<br>
+    Empf&auml;nger deren Anmeldung &auml;lter als die eingestellten Tage sind werden verarbeitet!');
+define('BS5_DELETE_INACTIVE_RECIPIENTS_TEXT_DAYS', ' Tage');
+define('BS5_DELETE_INACTIVE_RECIPIENTS_SELECT_LABEL', 'Anmeldungen &auml;lter als: ');
+define('BS5_DELETE_INACTIVE_RECIPIENTS_BUTTONTEXT', 'E-Mails suchen');
+define('BS5_DELETE_INACTIVE_RECIPIENTS_NO_ENTRYS_FOUND', 'Es sind keine "nicht aktivierten Empf&auml;nger" &auml;lter als <b>%s</b> Tage zu finden!');

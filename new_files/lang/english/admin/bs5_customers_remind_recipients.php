@@ -45,3 +45,11 @@ define('TEXT_EMAIL_DEL_ERROR', 'An Error occured, E-Mail address has not been re
 define('BS5_TEXT_EMAIL_EXIST_NO_REMINDER', 'Opt-in E-Mail sent.');
 
 define('TEXT_DISPLAY_NUMBER_OF_CUSTOMERS_REMIND_RECIPIENTS', 'Displaying <b>%d</b> to <b>%d</b> (of <b>%d</b> registered recipients)');
+
+define('BS5_DELETE_INACTIVE_RECIPIENTS_TITLE', 'Unsubscribe inactive email addresses and update reminder list');
+define('BS5_DELETE_INACTIVE_RECIPIENTS_INFO', 'Inactive email addresses can be unsubscribed and removed from the reminder list, depending on the registration date!<br>
+    Recipients whose registration is older than the specified number of days will be processed!');
+define('BS5_DELETE_INACTIVE_RECIPIENTS_TEXT_DAYS', ' Days');
+define('BS5_DELETE_INACTIVE_RECIPIENTS_SELECT_LABEL', 'Registrations older than: ');
+define('BS5_DELETE_INACTIVE_RECIPIENTS_BUTTONTEXT', 'Search emails');
+define('BS5_DELETE_INACTIVE_RECIPIENTS_NO_ENTRYS_FOUND', 'No "unactivated receivers" older than <b>%s</b> days were found!');

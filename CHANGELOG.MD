@@ -1,6 +1,10 @@
 UNRELEASED
 
 
+
+
+1.2.4 [06.05.2026]
+- neue Funktion im Modul Kundenerinnerung - ältere nicht aktivierte E-Mail-Adressen können einfacher entfernt und die Erinnerungsliste aktualisiert werden
 - Update Templatedateien für Systemmodul "Widerrufsformular"
 - AGI_REDUCE_CART angepasst an Attribut Kombinationen Verwaltung
 - Kategoriedropdown im Suchfeld wird auf kleinen Bildschirmen ausgeblendet
