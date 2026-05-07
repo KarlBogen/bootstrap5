@@ -2,6 +2,9 @@ UNRELEASED
 
 
 
+- Modul Kundenerinnerung - in der Erinnerungsliste wird die Anzahl der Einträge gesplittet
+- Modul Kundenerinnerung - in der Empfängerliste wird die Anzahl der aktuellen Erinnerungen angezeigt
+
 
 1.2.4 [06.05.2026]
 - neue Funktion im Modul Kundenerinnerung - ältere nicht aktivierte E-Mail-Adressen können einfacher entfernt und die Erinnerungsliste aktualisiert werden

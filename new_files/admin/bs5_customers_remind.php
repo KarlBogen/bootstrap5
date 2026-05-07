@@ -18,6 +18,11 @@ require('includes/application_top.php');
 
 if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS == 'true') {
 
+  //display per page
+  $cfg_max_display_results_key = 'MAX_DISPLAY_NEWSLETTER_RECIPIENTS_RESULTS';
+  $page_max_display_results = xtc_cfg_save_max_display_results($cfg_max_display_results_key);
+  $page = (isset($_GET['page']) ? (int)$_GET['page'] : 1);
+
   if (isset($_POST['del_user'])) {
     $usid = $_POST['del_user'];
     xtc_db_query("DELETE FROM " . TABLE_BS5_CUSTOMERS_REMIND . " WHERE remind_id ='" . $usid . "';");
@@ -144,6 +149,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
                                   JOIN " . TABLE_PRODUCTS . " p
                                     WHERE p.products_id = cr.products_id " . $sort;
 
+                    $reminder_split = new splitPageResults($page, $page_max_display_results, $remindsQuery, $remindsQuery_numrows);
                     $customers_remind_query = xtc_db_query($remindsQuery);
                     while ($result = xtc_db_fetch_array($customers_remind_query)) {
                       $customers_reminds[] = $result;
@@ -166,95 +172,101 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
                         echo '<tr class="dataTableRow" onmouseover="this.className=\'dataTableRowOver\';this.style.cursor=\'hand\'" onmouseout="this.className=\'dataTableRow\'" >' . "\n";
                       }
                     ?>
-                      <td class="dataTableContent" colspan="2">
-                        <?php if ($customers_remind['customers_id'] == '0') {
-                          echo $customers_remind['customers_firstname'] . " " . $customers_remind['customers_lastname'] . "<br>";
-                        } else {
-                          echo $customers_remind['customers_firstname'] . " " . $customers_remind['customers_lastname'] . " [" . $customers_remind['customers_id'] . "]<br>";
-                        }
-                        if ($customers_remind['mail_status'] != '1') {
-                          echo $customers_remind['customers_email_address'] . '<span class="colorRed"> (n.a.)</span>';
-                        } else {
-                          echo $customers_remind['customers_email_address'];
-                        } ?>
-                      </td>
-                      <td class="dataTableContent txta-c">
-                        <div class="product_bild"><?php echo xtc_product_thumb_image($customers_remind['products_image'], $customers_remind['products_name'], '', '', $admin_thumbs_size); ?></div>
-                      </td>
-                      <?php if (BS5_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK_STATUS == 'true') { ?>
-                        <td class="dataTableContent txta-l">
-                          <?php if ($customers_remind['mail_status'] != '1') {
-                            echo '&nbsp;';
+                        <td class="dataTableContent" colspan="2">
+                          <?php if ($customers_remind['customers_id'] == '0') {
+                            echo $customers_remind['customers_firstname'] . " " . $customers_remind['customers_lastname'] . "<br>";
                           } else {
-                            echo sprintf(BS5_CUSTOMERS_REMIND_STOCK_INFO, $customers_remind['products_quantity']) . sprintf(BS5_CUSTOMERS_REMIND_MINSTOCK_INFO, $totals[$customers_remind['products_id']]['COUNT'], $totals[$customers_remind['products_id']]['STOCK'], $sendstock);
-                            if ($customers_remind['products_quantity'] >= $customers_remind['customers_st'])
-                              echo '<br><span class="dataTableConfig"><a href="javascript:void(0);" onclick="sendremindmail(this, \'' . $customers_remind['customers_email_address'] . '\');" title="' . LINK_SEND_REMIND . '">' . LINK_SEND_REMIND . '</a>&nbsp;</span>';
+                            echo $customers_remind['customers_firstname'] . " " . $customers_remind['customers_lastname'] . " [" . $customers_remind['customers_id'] . "]<br>";
+                          }
+                          if ($customers_remind['mail_status'] != '1') {
+                            echo $customers_remind['customers_email_address'] . '<span class="colorRed"> (n.a.)</span>';
+                          } else {
+                            echo $customers_remind['customers_email_address'];
                           } ?>
                         </td>
-                      <?php } ?>
-                      <td class="dataTableContent txta-c"><?php echo $customers_remind['customers_st']; ?>&nbsp;</td>
-                      <td class="dataTableContent txta-l"><?php echo $customers_remind['products_name']; ?></td>
-                      <td class="dataTableContent txta-l"><?php echo '<a href="' . xtc_href_link(FILENAME_CATEGORIES . '?pID=' . $customers_remind['products_id']) . '&action=new_product' . '" style="float:left;">' . xtc_image(DIR_WS_ICONS . 'icon_edit.gif', ICON_EDIT) . '</a>'; ?>&nbsp;
-                        <?php
-                        if ($customers_remind['products_model'] != '') {
-                          echo $customers_remind['products_model'];
-                        } else {
-                          echo '&nbsp;';
-                        }
-                        ?>
-                      </td>
-                      <td class="dataTableContent txta-c">
-                        <?php
-                        if ($customers_remind['products_ean'] != '') {
-                          echo $customers_remind['products_ean'];
-                        } else {
-                          echo '&nbsp;';
-                        }
-                        ?>
-                      </td>
-                      <td class="dataTableContent txta-l"><?php echo date('d.m.Y', strtotime($customers_remind['remind_date_added'])); ?></td>
-                      <td class="dataTableContent txta-l">
-                        <?php
-                        echo '<a class="button" href="' . xtc_href_link(FILENAME_MAIL . '?selected_box=tools&action=email&customer=' . $customers_remind['customers_email_address']) . '" style="float:left; height:10px; line-height:10px; margin:0px 2px;" >' . BUTTON_EMAIL . '</a>';
-                        if (ACTIVATE_GIFT_SYSTEM == 'true') {
-                          echo '<a class="button" href="' . xtc_href_link(FILENAME_GV_MAIL . '?action=email&selected_box=tools&cID=' . $customers_remind['customers_id']) . '" style="float:left; height:10px; line-height:10px; margin:0px 2px;" >' . BUTTON_SEND_COUPON . '</a>';
-                        }
-                        if (ACTIVATE_GIFT_SYSTEM == 'true') {
-                          echo '<a class="button" href="' . xtc_href_link(FILENAME_COUPON_ADMIN . '?action=email&cid=1=selected_box=tools&customer=' . $customers_remind['customers_email_address']) . '" style="float:left; height:10px; line-height:10px; margin:0px 2px;" >' . BUTTON_SEND_RABATT . '</a>';
-                        }
-                        ?>
-                      </td>
-                      <td class="dataTableContent txta-c">
-                        <?php echo (xtc_draw_form('del_users', FILENAME_BS5_CUSTOMERS_REMIND)); ?>
-                        <input type="hidden" name="del_user" value="<?php echo $customers_remind["remind_id"] ?> " />
-                        <input style="border:none;" type="image" src="images/icons/cross.gif" alt="<?php echo TABLE_HEADING_DEL; ?>" title="<?php echo TABLE_HEADING_DEL; ?>">
-                        </form>
-                      </td>
-            </tr>
-          <?php
-                    }
-          ?>
-          </table>
-          <table>
-            <tr>
-              <td class="smallText txta-l"><?php echo KD_REG; ?></td>
-            </tr>
-            <tr>
-              <td class="txta-l"><a class="button" style="font-size:10px;" onclick="this.blur();" href="<?php echo xtc_href_link(FILENAME_BS5_CUSTOMERS_REMIND_RECIPIENTS); ?>"><?php echo BS5_BOX_CUSTOMERS_REMIND . ' => ' . BS5_BOX_CUSTOMERS_REMIND_SUB2; ?></a></td>
-            </tr>
-            <tr>
-              <td class="smallText txta-l"><?php echo FOOTER_INFO; ?></td>
+                        <td class="dataTableContent txta-c">
+                          <div class="product_bild"><?php echo xtc_product_thumb_image($customers_remind['products_image'], $customers_remind['products_name'], '', '', $admin_thumbs_size); ?></div>
+                        </td>
+                        <?php if (BS5_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK_STATUS == 'true') { ?>
+                          <td class="dataTableContent txta-l">
+                            <?php if ($customers_remind['mail_status'] != '1') {
+                              echo '&nbsp;';
+                            } else {
+                              echo sprintf(BS5_CUSTOMERS_REMIND_STOCK_INFO, $customers_remind['products_quantity']) . sprintf(BS5_CUSTOMERS_REMIND_MINSTOCK_INFO, $totals[$customers_remind['products_id']]['COUNT'], $totals[$customers_remind['products_id']]['STOCK'], $sendstock);
+                              if ($customers_remind['products_quantity'] >= $customers_remind['customers_st'])
+                                echo '<br><span class="dataTableConfig"><a href="javascript:void(0);" onclick="sendremindmail(this, \'' . $customers_remind['customers_email_address'] . '\');" title="' . LINK_SEND_REMIND . '">' . LINK_SEND_REMIND . '</a>&nbsp;</span>';
+                            } ?>
+                          </td>
+                        <?php } ?>
+                        <td class="dataTableContent txta-c"><?php echo $customers_remind['customers_st']; ?>&nbsp;</td>
+                        <td class="dataTableContent txta-l"><?php echo $customers_remind['products_name']; ?></td>
+                        <td class="dataTableContent txta-l"><?php echo '<a href="' . xtc_href_link(FILENAME_CATEGORIES . '?pID=' . $customers_remind['products_id']) . '&action=new_product' . '" style="float:left;">' . xtc_image(DIR_WS_ICONS . 'icon_edit.gif', ICON_EDIT) . '</a>'; ?>&nbsp;
+                          <?php
+                          if ($customers_remind['products_model'] != '') {
+                            echo $customers_remind['products_model'];
+                          } else {
+                            echo '&nbsp;';
+                          }
+                          ?>
+                        </td>
+                        <td class="dataTableContent txta-c">
+                          <?php
+                          if ($customers_remind['products_ean'] != '') {
+                            echo $customers_remind['products_ean'];
+                          } else {
+                            echo '&nbsp;';
+                          }
+                          ?>
+                        </td>
+                        <td class="dataTableContent txta-l"><?php echo date('d.m.Y', strtotime($customers_remind['remind_date_added'])); ?></td>
+                        <td class="dataTableContent txta-l">
+                          <?php
+                          echo '<a class="button" href="' . xtc_href_link(FILENAME_MAIL . '?selected_box=tools&action=email&customer=' . $customers_remind['customers_email_address']) . '" style="float:left; height:10px; line-height:10px; margin:0px 2px;" >' . BUTTON_EMAIL . '</a>';
+                          if (ACTIVATE_GIFT_SYSTEM == 'true') {
+                            echo '<a class="button" href="' . xtc_href_link(FILENAME_GV_MAIL . '?action=email&selected_box=tools&cID=' . $customers_remind['customers_id']) . '" style="float:left; height:10px; line-height:10px; margin:0px 2px;" >' . BUTTON_SEND_COUPON . '</a>';
+                          }
+                          if (ACTIVATE_GIFT_SYSTEM == 'true') {
+                            echo '<a class="button" href="' . xtc_href_link(FILENAME_COUPON_ADMIN . '?action=email&cid=1=selected_box=tools&customer=' . $customers_remind['customers_email_address']) . '" style="float:left; height:10px; line-height:10px; margin:0px 2px;" >' . BUTTON_SEND_RABATT . '</a>';
+                          }
+                          ?>
+                        </td>
+                        <td class="dataTableContent txta-c">
+                          <?php echo (xtc_draw_form('del_users', FILENAME_BS5_CUSTOMERS_REMIND)); ?>
+                          <input type="hidden" name="del_user" value="<?php echo $customers_remind["remind_id"] ?> " />
+                          <input style="border:none;" type="image" src="images/icons/cross.gif" alt="<?php echo TABLE_HEADING_DEL; ?>" title="<?php echo TABLE_HEADING_DEL; ?>">
+                          </form>
+                        </td>
+                      </tr>
+                      <?php
+                      }
+                      ?>
+                  </table>
+                  <table>
+                    <tr>
+                      <td class="smallText txta-l"><?php echo KD_REG; ?></td>
+                    </tr>
+                    <tr>
+                      <td class="txta-l"><a class="button" style="font-size:10px;" onclick="this.blur();" href="<?php echo xtc_href_link(FILENAME_BS5_CUSTOMERS_REMIND_RECIPIENTS); ?>"><?php echo BS5_BOX_CUSTOMERS_REMIND . ' => ' . BS5_BOX_CUSTOMERS_REMIND_SUB2; ?></a></td>
+                    </tr>
+                    <tr>
+                      <td class="smallText txta-l"><?php echo FOOTER_INFO; ?></td>
+                    </tr>
+                  </table>
+
+                  <div class="clear"></div>
+                  <div class="smallText pdg2 flt-l"><?php echo $reminder_split->display_count($remindsQuery_numrows, $page_max_display_results, $page, TEXT_DISPLAY_NUMBER_OF_CUSTOMERS_REMINDS); ?></div>
+                  <div class="smallText pdg2 flt-r"><?php echo $reminder_split->display_links($remindsQuery_numrows, $page_max_display_results, MAX_DISPLAY_PAGE_LINKS, $page, xtc_get_all_get_params(array('page'))); ?></div>
+                  <?php echo draw_input_per_page($PHP_SELF, $cfg_max_display_results_key, $page_max_display_results); ?>
+
+                </td>
+              <?php
+              }
+              ?>
             </tr>
           </table>
         </td>
-      <?php
-              }
-      ?>
+      <!-- body_text_eof //-->
       </tr>
-    </table>
-    </td>
-    <!-- body_text_eof //-->
-    </tr>
     </table>
     <!-- body_eof //-->
 

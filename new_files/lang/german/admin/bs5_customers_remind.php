@@ -42,3 +42,4 @@ defined('TEXT_SORT_DESC') or define('TEXT_SORT_DESC', 'absteigend');
 define('TEXT_MODULES_NOT_ACTIVATED', '<h4>Das Modul ist nicht aktiviert!<br /><br />
   Sie k&ouml;nnen das Modul aktivieren unter "Erw. Konfiguration -> Bootstrap 5 Template Manager -> BS5 Konfiguration" Tab "Module"!</h4>');
 defined('TEXT_IMAGE_NONEXISTENT') or define('TEXT_IMAGE_NONEXISTENT', 'Kein Bild');
+define('TEXT_DISPLAY_NUMBER_OF_CUSTOMERS_REMINDS', 'Angezeigt werden <b>%d</b> bis <b>%d</b> (von insgesamt <b>%d</b>)');

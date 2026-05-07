@@ -107,6 +107,18 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
                                   " . $where . "
                                   " . $sort;
 
+  $customers_reminds = array();
+  $remindsQuery = "SELECT customers_email_address, count(customers_email_address) as entrys
+                    FROM " . TABLE_BS5_CUSTOMERS_REMIND . "
+                    GROUP BY customers_email_address";
+
+  $customers_remind_query = xtc_db_query($remindsQuery);
+  if (xtc_db_num_rows($customers_remind_query) > 0) {
+    while ($result = xtc_db_fetch_array($customers_remind_query)) {
+      $customers_reminds[$result['customers_email_address']] = $result['entrys'];
+    }
+  }
+
   if (xtc_not_null($action)) {
     switch ($action) {
       case 'remind':
@@ -280,7 +292,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
                         echo '<tr class="dataTableRow" onmouseover="this.className=\'dataTableRowOver\';this.style.cursor=\'pointer\'" onmouseout="this.className=\'dataTableRow\'" onclick="document.location.href=\'' . xtc_href_link(FILENAME_BS5_CUSTOMERS_REMIND_RECIPIENTS, xtc_get_all_get_params(array('action', 'mail')) . 'mail=' . md5($reminder['customers_email_address'])) . '\'">' . "\n";
                       }
                     ?>
-                        <td class="dataTableContent"><?php echo $reminder['customers_email_address']; ?></td>
+                        <td class="dataTableContent"><?php echo $reminder['customers_email_address']; echo !empty($customers_reminds[$reminder['customers_email_address']]) ? '<span class="colorRed"> ('.$customers_reminds[$reminder['customers_email_address']].')</span>' : '<span class="colorRed"> (0)</span>'; ?></td>
                         <td class="dataTableContent"><?php echo $reminder['customers_firstname']; ?></td>
                         <td class="dataTableContent"><?php echo $reminder['customers_lastname']; ?></td>
                         <td class="dataTableContent"><?php echo $reminder['customers_status_name']; ?></td>
@@ -300,6 +312,9 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
                     ?>
                   </table>
                   <table>
+                    <tr>
+                      <td class="smallText txta-l"><?php echo FOOTER_INFO; ?></td>
+                    </tr>
                     <tr>
                       <td class="txta-l"><a class="button" style="font-size:10px;" onclick="this.blur();" href="<?php echo xtc_href_link(FILENAME_BS5_CUSTOMERS_REMIND); ?>"><?php echo BS5_BOX_CUSTOMERS_REMIND . ' => ' . BS5_BOX_CUSTOMERS_REMIND_SUB1; ?></a></td>
                     </tr>

@@ -44,6 +44,7 @@ define('BS5_TEXT_EMAIL_DEL_REMINDER', 'Die E-Mail-Adresse wurde aus der Kundener
 define('TEXT_EMAIL_DEL_ERROR', 'Es ist ein Fehler aufgetreten, die E-Mail-Adresse wurde nicht gel&ouml;scht!');
 define('BS5_TEXT_EMAIL_EXIST_NO_REMINDER', 'Die Opt-in E-Mail wurde erneut versendet.');
 
+define('FOOTER_INFO', 'E-Mail Adresse<span class="colorRed"> (Anzahl der aktuellen Erinnerungen)</span>');
 define('TEXT_DISPLAY_NUMBER_OF_CUSTOMERS_REMIND_RECIPIENTS', 'Angezeigt werden <b>%d</b> bis <b>%d</b> (von insgesamt <b>%d</b> Registrierten Empf&auml;ngern)');
 
 define('BS5_DELETE_INACTIVE_RECIPIENTS_TITLE', 'Nicht aktivierte E-Mail Adressen abmelden und Erinnerungsliste aktualisieren');

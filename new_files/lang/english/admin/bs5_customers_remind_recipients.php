@@ -44,6 +44,7 @@ define('BS5_TEXT_EMAIL_DEL_REMINDER', 'E-Mail address was deleted successfully f
 define('TEXT_EMAIL_DEL_ERROR', 'An Error occured, E-Mail address has not been removed from database!');
 define('BS5_TEXT_EMAIL_EXIST_NO_REMINDER', 'Opt-in E-Mail sent.');
 
+define('FOOTER_INFO', 'E-Mail Address<span class="colorRed"> (Number of current remind entrys)</span>');
 define('TEXT_DISPLAY_NUMBER_OF_CUSTOMERS_REMIND_RECIPIENTS', 'Displaying <b>%d</b> to <b>%d</b> (of <b>%d</b> registered recipients)');
 
 define('BS5_DELETE_INACTIVE_RECIPIENTS_TITLE', 'Unsubscribe inactive email addresses and update reminder list');
