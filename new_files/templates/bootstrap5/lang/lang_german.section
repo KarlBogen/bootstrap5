@@ -84,7 +84,7 @@ checkout_edit_address = 'Adresse &auml;ndern'
 [checkout_success]
 
 [contact_us]
-text_hint = '<i class="fa fa-asterisk"></i> notwendige Informationen'
+text_hint = '<span class="text-danger">*</span> notwendige Informationen'
 
 [cookie_usage]
 

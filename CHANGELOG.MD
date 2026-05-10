@@ -1,7 +1,7 @@
 UNRELEASED
 
 
-
+- Widerrufsformular - Sternchen bei notwendige Informationen fehlte - behoben
 - Modul Kundenerinnerung - in der Erinnerungsliste wird die Anzahl der Einträge gesplittet
 - Modul Kundenerinnerung - in der Empfängerliste wird die Anzahl der aktuellen Erinnerungen angezeigt
 
