@@ -83,8 +83,8 @@ if (!$box_smarty->is_cached(CURRENT_TEMPLATE . '/boxes/box_categories.html', $ca
   }
 
   if (BS5_MANUFACTURERS_LINK == 'true') {
-    $categories_string .= '<li class="liman nav-item level1 category_li">';
-    $categories_string .= '<a class="category_button nav-link border-bottom' . (isset($_GET['manufacturers_id']) ? ' active' : '') . '" role="button" aria-expanded="' . (isset($_GET['manufacturers_id']) ? 'true' : 'false') . '" data-value="man" title="' . TEXT_FILTER_MANUFACTURERS_LABEL . '">';
+    $categories_string .= '<li class="liman nav-item border-bottom level1 category_li">';
+    $categories_string .= '<a class="category_button nav-link' . (isset($_GET['manufacturers_id']) ? ' active' : '') . '" role="button" aria-expanded="' . (isset($_GET['manufacturers_id']) ? 'true' : 'false') . '" data-value="man" title="' . TEXT_FILTER_MANUFACTURERS_LABEL . '">';
     $categories_string .= TEXT_FILTER_MANUFACTURERS_LABEL . '<i class="fa fa-' . (isset($_GET['manufacturers_id']) ? 'chevron-up' : 'chevron-right') . '"></i></a>';
     if (isset($_GET['manufacturers_id'])) $categories_string .= bs5_show_manufacturers();
     $categories_string .= '</li>';

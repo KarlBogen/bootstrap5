@@ -193,8 +193,8 @@ function bs5_xtc_show_category($parent_id = 0, $path = '', $category_tree_array 
           $subcategories_button = '<button type="button" class="category_button focus-ring p-0" title="' . ($link_title != '' ? $link_title : BS5_SHOW_MORE_CATEGORIES) . '" aria-expanded="' . ($in_path ? 'true' : 'false') . '" data-value="' . ($categories['path']) . '"><i class="fa fa-' . ($in_path ? 'chevron-up' : 'chevron-right') . '"></i></button>';
         }
       }
-      $categories_string .= $tab . '<li class="nav-item level' . $level . $subcategories_class . $cat_active . '">';
-      $categories_string .= '<a class="nav-link border-bottom' . $cat_active_parent . $cat_active . '" href="' . $categories['link'] . '" title="' . encode_htmlentities($categories['name']) . '">';
+      $categories_string .= $tab . '<li class="nav-item border-bottom level' . $level . $subcategories_class . $cat_active . '">';
+      $categories_string .= '<a class="nav-link' . $cat_active_parent . $cat_active . '" href="' . $categories['link'] . '" title="' . encode_htmlentities($categories['name']) . '">';
 
       // Kategoriename einrücken
       $space = $sign = '';
@@ -273,8 +273,8 @@ function bs5_show_manufacturers($d_none = false)
       $link = xtc_href_link(FILENAME_DEFAULT, xtc_manufacturer_link($manufacturers['manufacturers_id'], $manufacturers['manufacturers_name']));
       $active = ((isset($_GET['manufacturers_id']) && (int)$_GET['manufacturers_id'] == $manufacturers['manufacturers_id']) ? ' active" aria-current="page' : '');
 
-      $manufacturers_string .= '<li class="nav-item level2">';
-      $manufacturers_string .= '<a class="nav-link border-bottom' . $active . '" href="' . $link . '" title="' . $name . '">&nbsp;&rsaquo;&nbsp;' . $name . '</a>';
+      $manufacturers_string .= '<li class="nav-item border-bottom level2">';
+      $manufacturers_string .= '<a class="nav-link' . $active . '" href="' . $link . '" title="' . $name . '">&nbsp;&rsaquo;&nbsp;' . $name . '</a>';
       $manufacturers_string .= '</li>';
     }
     $manufacturers_string .= '</ul>' . "\n";
