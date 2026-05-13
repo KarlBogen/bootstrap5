@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- "stylesheet.css" entfernt
 - Template "bootstrap5a" - Trennlinie im Kategoriemenü geringfügig verändert
 - Widerrufsformular - Sternchen bei notwendige Informationen fehlte - behoben
 - Modul Kundenerinnerung - in der Erinnerungsliste wird die Anzahl der Einträge gesplittet
