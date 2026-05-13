@@ -80,21 +80,21 @@ Für den Bootstrap Slider - können den Kategorien Banner zugewiesen werden. Zud
 *Im Template Manager gemachte Einstellungen bleiben unverändert.*
 
 ## CSS-Anpassungen
-Bootstrap5 verwendet die Templatedatei "stylesheet.css" nicht.
+Bootstrap5 verwendet die Templatedatei "stylesheet.css" nicht.<br />
 Die wichtigen CSS-Dateien
 - bootstrap.min.css
 - bs5.min.css (wird dynamisch generiert aus bs5.css)
-- tpl_custom.css
-werden im Head-Tag geladen.
-Sollte keine Templatedatei "css/tpl_custom.css" existieren, dann kann diese erstellt werden.
+- tpl_custom.css<br />
+werden im Head-Tag geladen.<br />
+Sollte keine Templatedatei "css/tpl_custom.css" existieren, dann kann diese erstellt werden.<br />
 Damit können updatesicher CSS-Anweisungen überschrieben werden.
 
-Am Ende des Body-Tags werden alle weiteren CSS-Dateien geladen.
+Am Ende des Body-Tags werden alle weiteren CSS-Dateien geladen.<br />
 Um Anweisungen dieser Dateien updatesicher zu überschreiben kann eine Datei "css/custom.css" genutzt werden.
 
 Sobald die CSS-Komprimierung eingeschaltet wird werden die einzelnen CSS-Dateien zusammengefasst
 - im Head-Tag zur "stylesheet.min.css"
-- im Body-Tag zur "tpl_plugins.min.css".
+- im Body-Tag zur "tpl_plugins.min.css".<br />
 Diese Dateien werden dynamisch neu generiert sobald eine zugehörige Datei verändert wurde.
 
 <br /><br />
