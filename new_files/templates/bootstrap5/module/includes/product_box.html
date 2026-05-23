@@ -45,7 +45,7 @@
   <div class="card-footer">
     <div class="lb_shipping small mb-1">
       {if $module_data.PRODUCTS_SHIPPING_NAME}
-        <i class="fa fa-truck-fast me-2"></i>{#text_shippingtime_box#}
+        <i class="fa fa-truck-fast me-2"></i>{#text_shippingtime_box#} 
         {if $module_data.PRODUCTS_SHIPPING_IMAGE}<span class="lb_shipping_image pe-2 display_inline-block"><img class="img-fluid" src="{$module_data.PRODUCTS_SHIPPING_IMAGE}" alt="{$module_data.PRODUCTS_SHIPPING_NAME|onlytext}"></span>{/if}
         {$module_data.PRODUCTS_SHIPPING_NAME_LINK|replace:'<a':'<a tabindex="-1"'}
       {else}

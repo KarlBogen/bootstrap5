@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- Leerzeichen fehlte nach "Lieferzeit:" bei eingeschalteter HTML-Komprimierung
 - "stylesheet.css" entfernt
 - Template "bootstrap5a" - Trennlinie im Kategoriemenü geringfügig verändert
 - Widerrufsformular - Sternchen bei notwendige Informationen fehlte - behoben
