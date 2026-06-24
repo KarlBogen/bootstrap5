@@ -1,6 +1,7 @@
 UNRELEASED
 
-
+- Liefer- und Rechnungsadresse können im Checkout nicht seperat geändert werden
+- JS-Konsoleneintrag bei hc-offcanvas-nav in Bootstrap Modal
 - Leerzeichen fehlte nach "Lieferzeit:" bei eingeschalteter HTML-Komprimierung
 - "stylesheet.css" entfernt
 - Template "bootstrap5a" - Trennlinie im Kategoriemenü geringfügig verändert
