@@ -152,11 +152,11 @@ if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
         if (empty($registred)) {
           $sql_data_array = array(
             'customers_id' => (isset($_SESSION['customer_id']) ? $_SESSION['customer_id'] : '0'),
-            'products_id' => $product->data['products_id'],
-            'products_ean' => $product->data['products_ean'],
-            'products_name' => $product->data['products_name'],
-            'products_model' => $product->data['products_model'],
-            'products_image' => $product->data['products_image'],
+            'products_id' => $products->data['products_id'],
+            'products_ean' => $products->data['products_ean'],
+            'products_name' => $products->data['products_name'],
+            'products_model' => $products->data['products_model'],
+            'products_image' => $products->data['products_image'],
             'customers_gender' => (isset($_SESSION['customer_gender']) ? $_SESSION['customer_gender'] : ''),
             'customers_firstname' => $customers_input_firstname,
             'customers_lastname' => $customers_input_lastname,
@@ -177,18 +177,18 @@ if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
             $create_html_body .= $customers_input_firstname . "  " . $customers_input_lastname;
             if (isset($_SESSION['customer_id'])) $create_html_body .= " [" . $_SESSION['customer_id'] . "]";
             $create_html_body .= "<br>" . BS5_CUSTOMERS_REMIND_EMAIL_1 . "<br><br>";
-            $create_html_body .= HEADER_ARTICLE . ": " . $product->data['products_name'] . "<br>";
-            $create_html_body .= HEADER_MODEL . ": " . $product->data['products_model'] . "<br><br>";
-            $create_html_body .= "Link: " . HTTP_SERVER . DIR_WS_CATALOG . FILENAME_PRODUCT_INFO . "?products_id=" . $product->data['products_id'] . "<br><br>";
+            $create_html_body .= HEADER_ARTICLE . ": " . $products->data['products_name'] . "<br>";
+            $create_html_body .= HEADER_MODEL . ": " . $products->data['products_model'] . "<br><br>";
+            $create_html_body .= "Link: " . HTTP_SERVER . DIR_WS_CATALOG . FILENAME_PRODUCT_INFO . "?products_id=" . $products->data['products_id'] . "<br><br>";
 
             $create_text_body = STORE_NAME . "\n\n";
             $create_text_body .= BS5_CUSTOMERS_REMIND_EMAIL_HEADING . ":\n--------------------\n";
             $create_text_body .= $customers_input_firstname . "  " . $customers_input_lastname;
             if (isset($_SESSION['customer_id'])) $create_html_body .= " [" . $_SESSION['customer_id'] . "]";
             $create_text_body .= "\n" . BS5_CUSTOMERS_REMIND_EMAIL_1 . "\n\n";
-            $create_text_body .= HEADER_ARTICLE . ": " . $product->data['products_name'] . "\n";
-            $create_text_body .= HEADER_MODEL . ": " . $product->data['products_model'] . "\n\n";
-            $create_text_body .= "Link: " . HTTP_SERVER . DIR_WS_CATALOG . FILENAME_PRODUCT_INFO . "?products_id=" . $product->data['products_id'] . "\n\n";
+            $create_text_body .= HEADER_ARTICLE . ": " . $products->data['products_name'] . "\n";
+            $create_text_body .= HEADER_MODEL . ": " . $products->data['products_model'] . "\n\n";
+            $create_text_body .= "Link: " . HTTP_SERVER . DIR_WS_CATALOG . FILENAME_PRODUCT_INFO . "?products_id=" . $products->data['products_id'] . "\n\n";
 
             // EMAIL GENERIEREN
             xtc_php_mail(
@@ -253,7 +253,7 @@ if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
     $smarty->caching = 0;
 
     if (isset($_GET['view'])) {
-      $products_link = xtc_href_link(FILENAME_PRODUCT_INFO, xtc_product_link($product->data['products_id'], $product->data['products_name']));
+      $products_link = xtc_href_link(FILENAME_PRODUCT_INFO, xtc_product_link($products->data['products_id'], $products->data['products_name']));
       $smarty->assign('BUTTON_BACK', '<a href="' . $products_link . '">' . xtc_image_button('button_back.gif', IMAGE_BUTTON_BACK) . '</a>');
       $smarty->assign('full', true);
       $main_content = $smarty->fetch(CURRENT_TEMPLATE . '/module/reminder.html');
