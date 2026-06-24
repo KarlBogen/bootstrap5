@@ -1,5 +1,12 @@
 UNRELEASED
 
+
+
+
+1.2.5 [24.06.2026]
+- Pull requests on GitHub by flth - fix double classes
+- Pull requests on GitHub by flth - fix unitialized variable
+- Pull requests on GitHub by flth - Unify name of variable across all files
 - Liefer- und Rechnungsadresse können im Checkout nicht seperat geändert werden
 - JS-Konsoleneintrag bei hc-offcanvas-nav in Bootstrap Modal
 - Leerzeichen fehlte nach "Lieferzeit:" bei eingeschalteter HTML-Komprimierung
