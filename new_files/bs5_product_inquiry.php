@@ -149,7 +149,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
     // Email bilden
     $create_name = $firstname . ' ' . $lastname;
     $create_subject = BS5_TEXT_PRODUCT_INQUIRY;
-    $products_link = xtc_href_link(FILENAME_PRODUCT_INFO, xtc_product_link($product->data['products_id'], $product->data['products_name']));
+    $products_link = xtc_href_link(FILENAME_PRODUCT_INFO, xtc_product_link($products->data['products_id'], $products->data['products_name']));
 
     $create_html_body = '<h3>' . STORE_NAME . '</h3>';
     $create_html_body .= '<h4>' . BS5_TEXT_PRODUCT_INQUIRY . '</h4>';
@@ -236,7 +236,7 @@ if (DISPLAY_PRIVACY_CHECK == 'true') {
   $smarty->assign('PRIVACY_LINK', $main->getContentLink(2, MORE_INFO, $request_type));
 }
 if (isset($_GET['view'])) {
-  $products_link = xtc_href_link(FILENAME_PRODUCT_INFO, xtc_product_link($product->data['products_id'], $product->data['products_name']));
+  $products_link = xtc_href_link(FILENAME_PRODUCT_INFO, xtc_product_link($products->data['products_id'], $products->data['products_name']));
   $smarty->assign('BUTTON_BACK', '<a href="' . $products_link . '">' . xtc_image_button('button_back.gif', IMAGE_BUTTON_BACK) . '</a>');
   $smarty->assign('full', true);
   $main_content = $smarty->fetch(CURRENT_TEMPLATE . '/module/product_inquiry.html');
