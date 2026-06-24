@@ -1,7 +1,10 @@
 <?php
 
-if (strpos(basename($PHP_SELF), 'checkout') === false 
-    || strpos(basename($PHP_SELF), 'account_checkout_express') !== false
+if ((strpos(basename($PHP_SELF), 'checkout') === false
+    || strpos(basename($PHP_SELF), 'account_checkout_express') !== false)
+    && strpos(basename($PHP_SELF), 'bs5_cheaply_see') === false
+    && strpos(basename($PHP_SELF), 'bs5_customers_remind') === false
+    && strpos(basename($PHP_SELF), 'bs5_product_inquiry') === false
     )
 {
   ?>
