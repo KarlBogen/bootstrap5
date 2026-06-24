@@ -149,7 +149,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
     // Email bilden
     $create_name = $firstname . ' ' . $lastname;
     $create_subject = BS5_TEXT_PRODUCT_INQUIRY;
-    $products_link = xtc_href_link(FILENAME_PRODUCT_INFO, xtc_product_link($product->data['products_id'], $product->data['products_name']));
+    $products_link = xtc_href_link(FILENAME_PRODUCT_INFO, xtc_product_link($products->data['products_id'], $products->data['products_name']));
 
     $create_html_body = '<h3>' . STORE_NAME . '</h3>';
     $create_html_body .= '<h4>' . BS5_TEXT_PRODUCT_INQUIRY . '</h4>';
