@@ -1,6 +1,6 @@
 UNRELEASED
 
-
+- Altcha Captcha wurde bei Modulen "Frage zum Artikel" und "Billiger gesehen" nicht angezeigt - behoben
 
 
 1.2.5 [24.06.2026]
