@@ -1,5 +1,6 @@
 UNRELEASED
 
+- doppelt definierte autocomplete-Attribute bei Adresseingaben entfernt - Danke Stefan (aquacomputer)
 - Altcha Captcha wurde bei Modulen "Frage zum Artikel" und "Billiger gesehen" nicht angezeigt - behoben
 
 

@@ -95,12 +95,12 @@
       <div class="mb-2 stern clearfix">
         <label class="form-label" for="phone">{#text_tel#}</label>
         {if isset($formerrs.telephone)}
-          {$INPUT_TEL|replace:'<input':'<input id="phone" class="form-control is-invalid" aria-describedby="validationTelephoneFeedback" autocomplete="on"'|replace:"type=\"text\"":"type=\"tel\""}
+          {$INPUT_TEL|replace:'<input':'<input id="phone" class="form-control is-invalid" aria-describedby="validationTelephoneFeedback"'|replace:"type=\"text\"":"type=\"tel\""}
           <div id="validationTelephoneFeedback" class="invalid-feedback">
             {$formerrs.telephone}
           </div>
         {else}
-          {$INPUT_TEL|replace:'<input':'<input id="phone" class="form-control" autocomplete="on"'|replace:"type=\"text\"":"type=\"tel\""}
+          {$INPUT_TEL|replace:'<input':'<input id="phone" class="form-control"'|replace:"type=\"text\"":"type=\"tel\""}
         {/if}
       </div>
       {if $fax == '1'}
@@ -122,12 +122,12 @@
           <div class="mb-2 stern clearfix">
             <label class="form-label" for="company">{#text_company#}</label>
             {if isset($formerrs.company)}
-              {$INPUT_COMPANY|replace:'<input':'<input id="company" class="form-control is-invalid" aria-describedby="validationCompanyFeedback" autocomplete="on"'}
+              {$INPUT_COMPANY|replace:'<input':'<input id="company" class="form-control is-invalid" aria-describedby="validationCompanyFeedback"'}
               <div id="validationCompanyFeedback" class="invalid-feedback">
                 {$formerrs.company}
               </div>
             {else}
-              {$INPUT_COMPANY|replace:'<input':'<input id="company" class="form-control" autocomplete="on"'}
+              {$INPUT_COMPANY|replace:'<input':'<input id="company" class="form-control"'}
             {/if}
           </div>
           {if $vat == '1'}
@@ -152,12 +152,12 @@
       <div class="mb-2 stern clearfix">
         <label class="form-label" for="street">{#text_street#}</label>
         {if isset($formerrs.street_address)}
-          {$INPUT_STREET|replace:'<input':'<input id="street" class="form-control is-invalid" aria-describedby="validationStreetFeedback" autocomplete="on"'}
+          {$INPUT_STREET|replace:'<input':'<input id="street" class="form-control is-invalid" aria-describedby="validationStreetFeedback"'}
           <div id="validationStreetFeedback" class="invalid-feedback">
             {$formerrs.street_address}
           </div>
         {else}
-          {$INPUT_STREET|replace:'<input':'<input id="street" class="form-control" autocomplete="on"'}
+          {$INPUT_STREET|replace:'<input':'<input id="street" class="form-control"'}
         {/if}
       </div>
       {if $suburb == '1'}
@@ -197,12 +197,12 @@
       <div class="mb-2 stern clearfix">
         <label class="form-label" for="country">{#text_country#}</label>
         {if isset($formerrs.country)}
-          {$SELECT_COUNTRY|replace:'<select':'<select id="country" class="form-select is-invalid" aria-describedby="validationCountryFeedback" autocomplete="on"'}
+          {$SELECT_COUNTRY|replace:'<select':'<select id="country" class="form-select is-invalid" aria-describedby="validationCountryFeedback"'}
           <div id="validationCountryFeedback" class="invalid-feedback">
             {$formerrs.country}
           </div>
         {else}
-          {$SELECT_COUNTRY|replace:'<select':'<select id="country" class="form-select" autocomplete="on"'}
+          {$SELECT_COUNTRY|replace:'<select':'<select id="country" class="form-select"'}
         {/if}
       </div>
       {if $state == '1'}
