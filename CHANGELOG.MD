@@ -1,8 +1,11 @@
 UNRELEASED
 
+
+1.2.6 [18.08.2026]
+- Kundenerinnerung - neue Funktion - Aktivierungsmail an "nicht aktivierte" Kunden erneut senden
+- Kundenerinnerung - Variablen falsch benannt, dadurch fehlen Einträge in der Erinnerungsliste - behoben
 - doppelt definierte autocomplete-Attribute bei Adresseingaben entfernt - Danke Stefan (aquacomputer)
 - Altcha Captcha wurde bei Modulen "Frage zum Artikel" und "Billiger gesehen" nicht angezeigt - behoben
-
 
 1.2.5 [24.06.2026]
 - Pull requests on GitHub by flth - fix double classes
