@@ -42,6 +42,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
   $navbar_classes =   $bs5->get_navbar_classes();
   $text_classes =      $bs5->get_text_classes();
   $traffic_styles =   $bs5->get_traffic_styles();
+  $activation_remind = $bs5->get_activation_remind();
   $remind_minstock =   $bs5->get_remind_minstock();
 
   // tabs
@@ -109,7 +110,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
         <!-- body_text //-->
         <td class="boxCenter">
           <?php // updateinfo
-          if (!defined('MODULE_BS5_TPL_MANAGER_VERSION') || version_compare(MODULE_BS5_TPL_MANAGER_VERSION, '1.2.5', '<')) {
+          if (!defined('MODULE_BS5_TPL_MANAGER_VERSION') || version_compare(MODULE_BS5_TPL_MANAGER_VERSION, '1.2.6', '<')) {
             echo '<div class="messageStackWarning"><h3>' . TEXT_BS5_TPL_MANAGER_CONFIG_UPDATE_SYSTEMMODULE_WARNING . '<a class="button but_red" href="' . xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=bs5_tpl_manager') . '">Bootstrap 5 Template-Manager</a></h3></div><br />';
           }
           ?>
@@ -717,6 +718,11 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
                         <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_ASAP; ?></td>
                         <td class="dataTableConfig col-middle"><?php echo xtc_cfg_select_option($yes_no_array, $bs5_conf['BS5_CUSTOMERS_REMIND_SENDMAIL_ASAP'], 'BS5_CUSTOMERS_REMIND_SENDMAIL_ASAP'); ?></td>
                         <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_ASAP_INFO; ?></td>
+                      </tr>
+                      <tr>
+                        <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_ACTIVATION_REMIND; ?></td>
+                        <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_CUSTOMERS_REMIND_ACTIVATION_REMIND]', $activation_remind, $bs5_conf['BS5_CUSTOMERS_REMIND_ACTIVATION_REMIND']); ?></td>
+                        <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_ACTIVATION_REMIND_INFO; ?></td>
                       </tr>
                       <tr>
                         <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL; ?></td>

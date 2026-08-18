@@ -31,6 +31,14 @@ function bs5_customers_remind()
 
   xtc_db_connect() or die('Unable to connect to database server!');
 
+  if (
+    !isset($_SESSION['customer_id'])
+    || !isset($_SESSION['customers_status']['customers_status'])
+    || (string)$_SESSION['customers_status']['customers_status'] !== '0'
+  ) {
+    return false;
+  }
+
   $prodId = isset($_REQUEST['prodId']) ? $_REQUEST['prodId'] : '';
   $mail = isset($_REQUEST['Mail']) ? $_REQUEST['Mail'] : '';
 

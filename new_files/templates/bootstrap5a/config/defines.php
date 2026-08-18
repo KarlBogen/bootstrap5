@@ -122,7 +122,14 @@ defined('BS5_CUSTOMERS_REMIND') or define('BS5_CUSTOMERS_REMIND', 'false'); // '
     Die Erinnerungsliste finden Sie im Adminbereich unter "Kunden -> Kundenerinnerungen".
     Ist ein Artikel (in ausreichender Anzahl) wieder auf Lager, bekommt der Kunde automatisch eine Erinnerungsmail mit einem Link, der direkt zum Produkt im Shop führt.
     Link zum Originalmodul: https://www.modified-shop.org/forum/index.php?topic=12813.0 */
-defined('BS5_CUSTOMERS_REMIND_SENDMAIL') or define('BS5_CUSTOMERS_REMIND_SENDMAIL', 'false'); // 'true' = E-Mail an den Shopbetreiber (Kontakt - E-Mail-Adresse) senden, wenn sich ein Kunde in die Erinnerungsliste einträgt?
+defined('BS5_CUSTOMERS_REMIND_DOUBLE_OPT_IN') or define('BS5_CUSTOMERS_REMIND_DOUBLE_OPT_IN', 'true'); // 'true' = Double-Opt-In
+defined('BS5_CUSTOMERS_REMIND_ONLY_REGISTERED') or define('BS5_CUSTOMERS_REMIND_ONLY_REGISTERED', 'false'); // 'false' = Erinnerung nur für angemeldete Kunden?
+defined('BS5_CUSTOMERS_REMIND_PRIVACY_CHECK_REGISTERED') or define('BS5_CUSTOMERS_REMIND_PRIVACY_CHECK_REGISTERED', 'true'); // 'true' = Unterzeichnen des Datenschutzes auch für angemeldete Kunden?
+defined('BS5_CUSTOMERS_REMIND_SENDMAIL_ASAP') or define('BS5_CUSTOMERS_REMIND_SENDMAIL_ASAP', 'false'); // 'false' = Mailversand sofort?
+defined('BS5_CUSTOMERS_REMIND_ACTIVATION_REMIND') or define('BS5_CUSTOMERS_REMIND_ACTIVATION_REMIND', '7'); // '0', '7', '14' oder '21' = Aktivierungsmail an "nicht aktivierte" Kunden erneut senden? "0" = es wird keine erneute Aktivierungsmail versandt "7" = eine erste Aktivierungserinnerung wird versandt, wenn die Anmeldung vor mehr als 7 Tagen war.
+defined('BS5_CUSTOMERS_REMIND_SENDMAIL') or define('BS5_CUSTOMERS_REMIND_SENDMAIL', 'false'); // 'false' = E-Mail an den Shopbetreiber (Kontakt - E-Mail-Adresse) senden, wenn sich ein Kunde in die Erinnerungsliste einträgt?
+defined('BS5_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK_STATUS') or define('BS5_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK_STATUS', 'false'); // 'false' = Soll die Benachrichtigung ab prozentualem Mindestlagerbestand aktiviert werden?
+defined('BS5_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK') or define('BS5_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK', '80'); // '40', '50', '60', '70', ... = Hier können Sie einstellen, ab welchem Verhältnis (Prozent) vom Lagerbestand zu Verfügbarkeitsanfragen, eine Benachrichtigung verschickt werden soll.
 defined('BS5_CHEAPLY_SEE') or define('BS5_CHEAPLY_SEE', 'false'); // 'false' = deaktiviert / 'true' = aktiviert
 defined('BS5_CHEAPLY_SEE_CONTENT_GROUP') or define('BS5_CHEAPLY_SEE_CONTENT_GROUP', '16'); // '' = es wird kein Content angezeigt / Group ID aus Content Manager eintragen
 /* Modul "Billiger gesehen" aktivieren und den Link in der Produktdetailansicht anzeigen!

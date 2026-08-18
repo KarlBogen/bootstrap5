@@ -265,7 +265,21 @@ $lang_array = array(
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_PRIVACY_CHECK_REGISTERED' => 'Customer remind:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_PRIVACY_CHECK_REGISTERED_INFO' => '<strong>Signing privacy notice also for registered customers?</strong><br>Should the privacy notice checkbox also be required for registered customers, set this switch to "Yes".<br>(Only applies if Adv. Configuration -> Additional Modules - Sign privacy notice = "Yes"!)',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_ASAP' => 'Customer remind:',
-  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_ASAP_INFO' => '<strong>Send email immediately?</strong><br>Compare the "Customer Reminder" table with the "Stock" and then <strong>send the email only once a day</strong>, then switch to "No" (recommended setting).<br>If you want to compare the "Customer Reminder" table with the "Stock" at every page load, set this switch to "Yes".',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_ASAP_INFO' => 'To compare the "Customer Reminder" table with the "Stock" and then send the emails we use<br>
+	<a style="color: #e67e22; font-size: 12px; font-weight: bold;" href="'.((function_exists('xtc_href_link')) ? xtc_href_link(FILENAME_SCHEDULED_TASKS) : '#').'">Tools -> Scheduled Tasks</a><strong> -> Task: "Bootstrap 5 - Customer reminder for sold-out products"</strong><br>
+  This scheduled task must be enabled.<br>
+  <u>Settings:</u><br>
+	Automatic sending = switch set to "No" (recommended setting).<br>
+	If you want to compare the "Customer Reminder" table with the "Stock" at every page load = set this switch to "Yes".',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_ACTIVATION_REMIND' => 'Resend activation email to "not activated" customers',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_ACTIVATION_REMIND_INFO' => 'For automated email sending we use<br>
+	<a style="color: #e67e22; font-size: 12px; font-weight: bold;" href="'.((function_exists('xtc_href_link')) ? xtc_href_link(FILENAME_SCHEDULED_TASKS) : '#').'">Tools -> Scheduled Tasks</a><strong> -> Task: "Bootstrap 5 - Customer reminder for sold-out products"</strong><br>
+  This scheduled task must be enabled.<br>
+  <u>Settings:</u><br>
+  Here you can set after how many days "not activated" customers receive another activation email.<br>
+  "0" = no further activation email will be sent.<br>
+  "7" = An <b>first activation reminder</b> is sent if the registration was more than 7 days ago.<br>
+  After double the number of days (in this case, 2 x 7 is 14 days), a <b>second activation reminder</b> is sent.',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL' => 'Customer remind:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_INFO' => 'Send an e-mail to the shop owner (contact - e-mail address) when a customer enters the reminder list?',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK_STATUS' => 'Customer remind:',

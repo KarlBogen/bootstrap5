@@ -24,7 +24,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
   $page = (isset($_GET['page']) ? (int)$_GET['page'] : 1);
 
   if (isset($_POST['del_user'])) {
-    $usid = $_POST['del_user'];
+    $usid = (int)$_POST['del_user'];
     xtc_db_query("DELETE FROM " . TABLE_BS5_CUSTOMERS_REMIND . " WHERE remind_id ='" . $usid . "';");
   }
 

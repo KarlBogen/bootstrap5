@@ -17,14 +17,19 @@
 function cron_bs5_send_customers_remind()
 {
   if (
-    defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true' &&
-    defined('BS5_CUSTOMERS_REMIND_SENDMAIL_ASAP') && BS5_CUSTOMERS_REMIND_SENDMAIL_ASAP != 'true'
+    defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true'
   ) {
     // include needed functions
     require_once(DIR_FS_INC . 'xtc_date_short.inc.php');
 
     include_once(DIR_WS_INCLUDES . 'modules/bs5_customers_remind.php');
-    sendremindmails();
+
+    if (defined('BS5_CUSTOMERS_REMIND_SENDMAIL_ASAP') && BS5_CUSTOMERS_REMIND_SENDMAIL_ASAP != 'true') {
+      sendremindmails();
+    }
+    if (defined('BS5_CUSTOMERS_REMIND_ACTIVATION_REMIND') && BS5_CUSTOMERS_REMIND_ACTIVATION_REMIND != '0') {
+      sendactivationremindmails();
+    }
   }
   return true;
 }

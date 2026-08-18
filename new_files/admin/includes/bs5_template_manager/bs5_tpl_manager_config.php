@@ -461,6 +461,17 @@ class Bs5TplManager
     return $traffic_styles;
   }
 
+  public function get_activation_remind()
+  {
+    $activation_remind = array(
+      array('id' => '0', 'text' => '0'),
+      array('id' => '7', 'text' => '7'),
+      array('id' => '14', 'text' => '14'),
+      array('id' => '21', 'text' => '21'),
+    );
+    return $activation_remind;
+  }
+
   public function get_remind_minstock()
   {
     $remind_minstock = array(

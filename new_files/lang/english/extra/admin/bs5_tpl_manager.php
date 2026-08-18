@@ -21,5 +21,5 @@ define('BS5_CUSTOMERS_REMIND_MINSTOCK_INFO', '<strong> %s</strong> customers are
 define('BS5_CUSTOMERS_REMIND_START_SENDING', 'Send mails');
 define('BS5_CUSTOMERS_REMIND_CONFIRMSEND', 'Are you sure?<br>Do you really want to send the reminders?');
 // geplante Aufgaben
-define('TEXT_HEADING_TASKS_BS5_SEND_CUSTOMERS_REMIND', 'Customer reminder for sold-out products');
+define('TEXT_HEADING_TASKS_BS5_SEND_CUSTOMERS_REMIND', 'Bootstrap 5 - Customer reminder for sold-out products');
 define('TEXT_INFO_TASKS_BS5_SEND_CUSTOMERS_REMIND', 'Send reminder emails to customers!');

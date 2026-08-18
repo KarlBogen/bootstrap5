@@ -25,8 +25,8 @@ class bs5_tpl_manager
 
   public function __construct()
   {
-    $this->version = '1.2.5';
-    // Wichtiger Hinweis: bei Versionsänderung muss die Versionsnummer auch in admin/bs5_tpl_manager_config.php Zeile 112 geändert werden.
+    $this->version = '1.2.6';
+    // Wichtiger Hinweis: bei Versionsänderung muss die Versionsnummer auch in admin/bs5_tpl_manager_config.php Zeile 113 geändert werden.
     // Wichtiger Hinweis: neu hinzugekommene Konstante in "config/config.php" eintragen.
     // if (!defined('MODULE_BS5_TPL_MANAGER_STATUS') || MODULE_BS5_TPL_MANAGER_STATUS != 'true' || !defined('BS5_SHOW_PAYPAL_IN_BOX_CART')) {
     // Damit wird die Fehlermeldung zu einer fehlenden Konstante vermieden!
@@ -35,7 +35,7 @@ class bs5_tpl_manager
     $this->description = '';
     $this->description .= '<a class="button btnbox" style="text-align:center;" href="' . xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=' . $this->code . '&action=edit') . '">' . BUTTON_EDIT . '</a><br />';
     if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && (!defined('MODULE_BS5_TPL_MANAGER_VERSION') || version_compare(MODULE_BS5_TPL_MANAGER_VERSION, $this->version, '<'))) {
-      $this->description .= "<script>$('.main').after('" . sprintf(MODULE_BS5_TPL_MANAGER_VERSION_ERROR, $this->version) . "');</script>";
+      $this->description .= "<script>$('.boxCenter').children('.error_message').css('display', 'none' ); $('.main').after('" . sprintf(MODULE_BS5_TPL_MANAGER_VERSION_ERROR, $this->version) . "');</script>";
       $this->description .= '<a class="button btnbox but_green" style="text-align:center;" onclick="this.blur();" href="' . xtc_href_link(FILENAME_MODULE_EXPORT, 'set=system&module=' . $this->code . '&action=update') . '">Update</a><br /><br />';
     }
     $bs5_tpl = defined('BS5_CURRENT_TEMPLATE') && BS5_CURRENT_TEMPLATE != '' ? BS5_CURRENT_TEMPLATE : 'bootstrap5';
@@ -352,6 +352,7 @@ class bs5_tpl_manager
     $values_config[] = "('BS5_CUSTOMERS_REMIND_ONLY_REGISTERED', 'false')";
     $values_config[] = "('BS5_CUSTOMERS_REMIND_PRIVACY_CHECK_REGISTERED', 'true')";
     $values_config[] = "('BS5_CUSTOMERS_REMIND_SENDMAIL_ASAP', 'false')";
+    $values_config[] = "('BS5_CUSTOMERS_REMIND_ACTIVATION_REMIND', '7')";
     $values_config[] = "('BS5_CUSTOMERS_REMIND_SENDMAIL', 'false')";
     $values_config[] = "('BS5_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK_STATUS', 'false')";
     $values_config[] = "('BS5_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK', '80')";
@@ -757,6 +758,8 @@ class bs5_tpl_manager
         xtc_db_query("ALTER TABLE " . TABLE_ADMIN_ACCESS . " DROP `bs5_banner_manager`");
         xtc_db_query("ALTER TABLE " . TABLE_ADMIN_ACCESS . " DROP `bs5_customers_remind`");
         xtc_db_query("ALTER TABLE " . TABLE_ADMIN_ACCESS . " DROP `bs5_customers_remind_recipients`");
+        //Eintrag in Tabelle geplante Aufgaben
+        xtc_db_query("DELETE FROM " . TABLE_SCHEDULED_TASKS . " WHERE tasks = 'bs5_send_customers_remind'");
         $messageStack->add_session(MODULE_BS5_TPL_MANAGER_INSTALL_TABLE_ENTRY_REMOVED . TABLE_ADMIN_ACCESS, 'success');
       case $x > 2:
         xtc_db_query("DELETE FROM " . TABLE_CONFIGURATION . " WHERE configuration_key in ('" . implode("', '", $this->keys()) . "')");
@@ -847,6 +850,7 @@ class bs5_tpl_manager
       ip_date_added varchar(50) DEFAULT NULL,
       date_confirmed datetime DEFAULT NULL,
       ip_date_confirmed varchar(50) DEFAULT NULL,
+      act_remind int(1) NOT NULL DEFAULT 0,
       PRIMARY KEY (mail_id)
     )");
 
@@ -870,6 +874,12 @@ class bs5_tpl_manager
       xtc_db_query("INSERT INTO `scheduled_tasks` (`time_regularity`, `time_unit`, `status`, `edit`, `tasks`) VALUES (1, 'd', 1, 1, 'bs5_send_customers_remind')");
     }
     xtc_db_query("DROP TABLE IF EXISTS " . TABLE_BS5_SIMULATED_CRON_RECORDS);
+
+    // Spalte für Aktivierungserinnerung hinzufügen
+    $column_exists = xtc_db_num_rows(xtc_db_query("SHOW COLUMNS FROM " . TABLE_BS5_CUSTOMERS_REMIND_RECIPIENTS . " WHERE Field='act_remind'"));
+    if (!$column_exists) {
+      xtc_db_query("ALTER TABLE " . TABLE_BS5_CUSTOMERS_REMIND_RECIPIENTS . " ADD `act_remind` int(1) NOT NULL DEFAULT 0");
+    }
 
     return true;
   }

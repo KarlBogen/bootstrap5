@@ -265,7 +265,21 @@ $lang_array = array(
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_PRIVACY_CHECK_REGISTERED' => 'Kundenerinnerung:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_PRIVACY_CHECK_REGISTERED_INFO' => '<strong>Unterzeichnen des Datenschutzes auch f&uuml;r angemeldete Kunden?</strong><br>Soll die Datenschutz-Checkbox auch Pflichtangabe f&uuml;r angemeldete Kunden sein, dann stellen Sie diesen Schalter auf "Ja".<br>(Gilt nur wenn Erw. Konfiguration -> Zusatzmodule - Unterzeichnen des Datenschutzes = "Ja"!)',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_ASAP' => 'Kundenerinnerung:',
-  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_ASAP_INFO' => '<strong>Mailversand sofort?</strong><br>Abgleich der Tabelle "Kundenerinnerung" mit dem "Lagerbestand" und anschlie&szlig;ender <strong>Mailversand nur einmal t&auml;glich</strong>, dann Schalter auf "Nein" (empfohlene Einstellung).<br>Wenn bei jedem Seitenaufruf die Tabelle "Kundenerinnerung" mit dem "Lagerbestand" abgeglichen werden soll, dann stellen Sie diesen Schalter auf "Ja".',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_ASAP_INFO' => '<strong>Mailversand sofort?</strong><br>Zum Abgleich der Tabelle "Kundenerinnerung" mit dem "Lagerbestand" und anschlie&szlig;endem Mailversand wird<br>
+  <a style="color: #e67e22; font-size: 12px; font-weight: bold;" href="' . ((function_exists('xtc_href_link')) ? xtc_href_link(FILENAME_SCHEDULED_TASKS) : '#') . '">Hilfsprogramme -> Geplante Aufgaben</a><strong> -> Aufgabe: "Bootstrap 5 - Kundenerinnerung bei ausverkauften Artikeln"</strong><br>
+  genutzt, diese geplante Aufgabe muss aktiviert sein.<br>
+  <u>Einstellung:</u><br>
+  Automatischer Versand = Schalter auf "Nein" (empfohlene Einstellung).<br>
+  Wenn bei jedem Seitenaufruf die Tabelle "Kundenerinnerung" mit dem "Lagerbestand" abgeglichen werden soll = Schalter auf "Ja".',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_ACTIVATION_REMIND' => 'Aktivierungsmail an "nicht aktivierte" Kunden erneut senden',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_ACTIVATION_REMIND_INFO' => 'F&uuml;r den automatischen Mailversand wird<br>
+  <a style="color: #e67e22; font-size: 12px; font-weight: bold;" href="' . ((function_exists('xtc_href_link')) ? xtc_href_link(FILENAME_SCHEDULED_TASKS) : '#') . '">Hilfsprogramme -> Geplante Aufgaben</a><strong> -> Aufgabe: "Bootstrap 5 - Kundenerinnerung bei ausverkauften Artikeln"</strong><br>
+  genutzt, diese geplante Aufgabe muss aktiviert sein.<br>
+  <u>Einstellung:</u><br>
+  Hier k&ouml;nnen Sie einstellen, nach wievielen Tagen "nicht aktivierte" Kunden erneut eine Aktivierungsmail erhalten.<br>
+  "0" = es wird keine erneute Aktivierungsmail versandt<br>
+  "7" = eine <b>erste Aktivierungserinnerung</b> wird versandt, wenn die Anmeldung vor mehr als 7 Tagen war.<br>
+  Nach der doppelten Anzahl der Tage (hier 2 x 7 ergibt 14 Tage) wird eine <b>zweite Aktivierungserinnerung</b> versandt.',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL' => 'Kundenerinnerung:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_INFO' => 'E-Mail an den Shopbetreiber (Kontakt - E-Mail-Adresse) senden, wenn sich ein Kunde in die Erinnerungsliste eintr&auml;gt?',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_SENDMAIL_MINSTOCK_STATUS' => 'Kundenerinnerung:',

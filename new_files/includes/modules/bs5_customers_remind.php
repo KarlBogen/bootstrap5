@@ -33,8 +33,8 @@ function sendremindmails($prodId = '', $mail = '')
 {
 
   $and = $where = '';
-  if ($prodId != '') $and = ' AND p.products_id = ' . $prodId;
-  if ($mail != '') $where = " WHERE cr.customers_email_address = '" . $mail . "' ";
+  if ($prodId != '') $and = ' AND p.products_id = ' . (int)$prodId;
+  if ($mail != '') $where = " WHERE cr.customers_email_address = '" . xtc_db_input($mail) . "' ";
 
   $strstockQuery = "SELECT cr.*,
                           p.products_id,
@@ -119,6 +119,62 @@ function sendremindmails($prodId = '', $mail = '')
         $txt_mail, // text-only content
         2
       );
+    }
+  }
+  return true;
+}
+
+function sendactivationremindmails()
+{
+  $act_remind_query = xtc_db_query("SELECT customers_email_address,
+                                           mail_key,
+                                           date_added,
+                                           act_remind
+                                      FROM " . TABLE_BS5_CUSTOMERS_REMIND_RECIPIENTS . "
+                                      WHERE mail_status = 0 AND act_remind < 2");
+  if (xtc_db_num_rows($act_remind_query) > 0) {
+    while ($act_remind = xtc_db_fetch_array($act_remind_query)) {
+
+      if (($act_remind['act_remind'] == 0 && strtotime($act_remind['date_added']) < strtotime('-' . (int)BS5_CUSTOMERS_REMIND_ACTIVATION_REMIND . ' days'))
+        || ($act_remind['act_remind'] == 1 && strtotime($act_remind['date_added']) < strtotime('-' . ((int)BS5_CUSTOMERS_REMIND_ACTIVATION_REMIND * 2) . ' days'))
+      ) {
+        $obj1Smarty = new Smarty();
+
+        $link = xtc_href_link(FILENAME_BS5_CUSTOMERS_REMIND, 'action=activate&language=' . $_SESSION['language_code'] . '&email=' . md5($act_remind['customers_email_address']) . '&key=' . $act_remind['mail_key'], 'NONSSL', false);
+        $obj1Smarty->assign('EMAIL', $act_remind['customers_email_address']);
+        $obj1Smarty->assign('LINK', $link);
+        $obj1Smarty->assign('language', $_SESSION['language']);
+        $obj1Smarty->assign('tpl_path', HTTP_SERVER . DIR_WS_CATALOG . 'templates/' . CURRENT_TEMPLATE . '/');
+        $obj1Smarty->assign('logo_path', HTTP_SERVER . DIR_WS_CATALOG . 'templates/' . CURRENT_TEMPLATE . '/img/');
+
+        $obj1Smarty->caching = 0;
+        $html_mail = $obj1Smarty->fetch(CURRENT_TEMPLATE . '/mail/' . $_SESSION['language'] . '/remind_activate_mail.html');
+        $txt_mail = $obj1Smarty->fetch(CURRENT_TEMPLATE . '/mail/' . $_SESSION['language'] . '/remind_activate_mail.txt');
+
+        if (!defined('BS5_TEXT_EMAIL_SUBJECT_REMINDER')) {
+          require_once(DIR_FS_CATALOG . 'lang/' . $_SESSION['language'] . '/extra/bs5_additional_modules.php');
+        }
+
+        xtc_php_mail(
+          EMAIL_SUPPORT_ADDRESS,
+          EMAIL_SUPPORT_NAME,
+          $act_remind['customers_email_address'],
+          '',
+          '',
+          EMAIL_SUPPORT_REPLY_ADDRESS,
+          EMAIL_SUPPORT_REPLY_ADDRESS_NAME,
+          '',
+          '',
+          STORE_NAME . ' - ' . BS5_TEXT_EMAIL_SUBJECT_REMINDER,
+          $html_mail,
+          $txt_mail,
+          2
+        );
+
+        xtc_db_query("UPDATE " . TABLE_BS5_CUSTOMERS_REMIND_RECIPIENTS . " 
+                         SET act_remind = '" . ($act_remind['act_remind'] + 1) . "'
+                       WHERE customers_email_address = '" . $act_remind['customers_email_address'] . "'");
+      }
     }
   }
   return true;
