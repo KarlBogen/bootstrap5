@@ -1,6 +1,9 @@
 UNRELEASED
 
 
+
+- Modul Widerrufsformular v1.03 - Update der Templatedateien (Hinweis: ohne Smarty Modifier "versioning", weil Plugin nicht in Shopversion 3.3.0 enthalten)
+
 1.2.6 [18.08.2026]
 - Kundenerinnerung - neue Funktion - Aktivierungsmail an "nicht aktivierte" Kunden erneut senden
 - Kundenerinnerung - Variablen falsch benannt, dadurch fehlen Einträge in der Erinnerungsliste - behoben

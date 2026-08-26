@@ -209,7 +209,7 @@
       {if $PRODUCTS_DESCRIPTION != ''}
         <li class="list-group-item py-3">
           <h2 class="h3 detailbox">{#products_desc#}</h2>
-          <div itemprop="description">{$PRODUCTS_DESCRIPTION}</div>
+          <div id="prod_desc" itemprop="description">{$PRODUCTS_DESCRIPTION}</div>
           {if $PRODUCTS_ADDED != ''}<p class="small mt-4">{$PRODUCTS_ADDED}</p>{/if}
         </li>
       {/if}
