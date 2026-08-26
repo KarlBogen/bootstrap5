@@ -1,7 +1,7 @@
 UNRELEASED
 
 
-
+- Update PayPal für ApplePay und GooglePay
 - Modul Widerrufsformular v1.03 - Update der Templatedateien (Hinweis: ohne Smarty Modifier "versioning", weil Plugin nicht in Shopversion 3.3.0 enthalten)
 
 1.2.6 [18.08.2026]

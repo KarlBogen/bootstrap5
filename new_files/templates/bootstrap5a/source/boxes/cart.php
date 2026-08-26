@@ -1,6 +1,6 @@
 <?php
 /* -----------------------------------------------------------------------------------------
-   $Id: cart.php 16425 2025-04-30 11:22:35Z GTB $
+   $Id$
 
    modified eCommerce Shopsoftware
    http://www.modified-shop.org
@@ -64,7 +64,9 @@ if ($_SESSION['cart']->count_contents() > 0) {
   }
 
   if (
-    defined('MODULE_PAYMENT_PAYPAL_SECRET')
+    strpos($PHP_SELF, FILENAME_SHOPPING_CART) === false
+    && strpos(basename($PHP_SELF), 'checkout') === false
+    && defined('MODULE_PAYMENT_PAYPAL_SECRET')
     && MODULE_PAYMENT_PAYPAL_SECRET != ''
     && BS5_SHOW_PAYPAL_IN_BOX_CART == 'true'
     && $any_out_of_stock === false
@@ -80,6 +82,25 @@ if ($_SESSION['cart']->count_contents() > 0) {
       if ($paypal->get_config('MODULE_PAYMENT_' . strtoupper($paypal->code) . '_SHOW_BOX_CART_BNPL') == '1') {
         $box_smarty->assign('paypalbnpl', true);
       }
+    }
+
+    $paypal_applepay = new PayPalPaymentV2('paypalapplepay');
+    if (
+      $paypal_applepay->is_enabled()
+      && $paypal_applepay->get_config('MODULE_PAYMENT_' . strtoupper($paypal_applepay->code) . '_SHOW_BOX_CART') == '1'
+      && (!isset($_SESSION['paypal_instruments'])
+        || (is_array($_SESSION['paypal_instruments']) && in_array('applepay', $_SESSION['paypal_instruments']))
+      )
+    ) {
+      $box_smarty->assign('paypalapplepay', true);
+    }
+
+    $paypal_googlepay = new PayPalPaymentV2('paypalgooglepay');
+    if (
+      $paypal_googlepay->is_enabled()
+      && $paypal_googlepay->get_config('MODULE_PAYMENT_' . strtoupper($paypal_googlepay->code) . '_SHOW_BOX_CART') == '1'
+    ) {
+      $box_smarty->assign('paypalgooglepay', true);
     }
   }
 }
