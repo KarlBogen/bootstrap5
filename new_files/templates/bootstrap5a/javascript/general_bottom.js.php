@@ -60,8 +60,8 @@ ob_start();
 foreach (auto_include(DIR_FS_CATALOG . DIR_TMPL_JS . '/extra/', 'php') as $file) require($file);
 $javascript = ob_get_clean();
 if (COMPRESS_JAVASCRIPT == 'true') {
-  require_once(DIR_TMPL . 'source/external/compactor/compactor.php');
-  $compactor = new BS5_Compactor(array('strip_php_comments' => false, 'compress_css' => false, 'compress_scripts' => true));
+  require_once(DIR_FS_EXTERNAL . 'compactor/compactor.php');
+  $compactor = new Compactor(array('compress_css' => false, 'compress_scripts' => true, 'force_script_line_breaks' => true));
   $javascript = $compactor->squeeze($javascript);
 }
 echo $javascript . PHP_EOL;

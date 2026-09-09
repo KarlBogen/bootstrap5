@@ -37,10 +37,10 @@ $bs5_min = DIR_TMPL_CSS . 'bs5.min.css';
 $bs5_f_time = filemtime(DIR_FS_CATALOG . DIR_TMPL_CSS . 'bs5.css');
 $bs5_min_ts = is_writeable(DIR_FS_CATALOG . $bs5_min) ? filemtime(DIR_FS_CATALOG . $bs5_min) : false;
 if ($bs5_f_time > $bs5_min_ts) {
-  require_once(DIR_TMPL . 'source/external/compactor/compactor.php');
-  $compactor = new BS5_Compactor(array('strip_php_comments' => true, 'compress_css' => true));
+  require_once(DIR_FS_EXTERNAL . 'compactor/compactor.php');
+  $compactor = new Compactor(array('compress_css' => true, 'compress_scripts' => true, 'force_script_line_breaks' => true));
   $compactor->add(DIR_FS_CATALOG . DIR_TMPL_CSS . 'bs5.css');
-  $compactor->save(DIR_FS_CATALOG . $bs5_min, true);
+  $compactor->save(DIR_FS_CATALOG . $bs5_min);
 }
 $css_array[] = DIR_TMPL_CSS . 'bs5.min.css';
 
