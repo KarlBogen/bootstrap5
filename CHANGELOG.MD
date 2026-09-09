@@ -1,8 +1,11 @@
 UNRELEASED
 
-
+- Widerruf in Bestellhistorie hinzugefügt - neu in Shopversion 3.3.1
+- Smarty Modifier "versioning" für logo.gif hinzugefügt - neu in Shopversion 3.3.1
+- Umstellung auf neuen Compactor in Shopversion 3.3.1
 - Update PayPal für ApplePay und GooglePay
 - Modul Widerrufsformular v1.03 - Update der Templatedateien (Hinweis: ohne Smarty Modifier "versioning", weil Plugin nicht in Shopversion 3.3.0 enthalten)
+- kleiner Anpassungen für Shopversion 3.3.1
 
 1.2.6 [18.08.2026]
 - Kundenerinnerung - neue Funktion - Aktivierungsmail an "nicht aktivierte" Kunden erneut senden

@@ -152,15 +152,64 @@
           {$downloads_content}
         {/if}
 
+        {if isset($WITHDRAW_PRODUCTS)}
+          <div class="h4 mt-4">{$smarty.const.TEXT_WITHDRAW_HISTORY_HEADING}</div>
+          <p class="small">{$smarty.const.TEXT_WITHDRAW_HISTORY_INFO}</p>
+          <div class="orderflex">
+            <div class="of_head row border-top border-bottom py-2">
+              <div class="d-flex justify-content-between fw-bold">
+                <div class="col-md-8">{$smarty.const.HEADER_ARTICLE}</div>
+                <div class="col-md-4">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-none d-md-block">{$smarty.const.HEADER_QTY}</div>
+                    <div>{$smarty.const.TEXT_WITHDRAW_HISTORY_DATE}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {foreach name=withdraw item=withdraw_data from=$WITHDRAW_PRODUCTS}
+              <div class="of_prod_row row border-bottom py-2">
+                <div class="col-12 col-md-8 small">
+                  <div class="of_prod fw-bold mb-2">
+                    {$withdraw_data.PRODUCTS_NAME}
+                  </div>
+                  {if $withdraw_data.PRODUCTS_MODEL}
+                    <div class="of_info mb-2">
+                      <div class="of_infoline">{$smarty.const.HEADER_MODEL}: {$withdraw_data.PRODUCTS_MODEL}</div>
+                    </div>
+                  {/if}
+                  {if count($withdraw_data.PRODUCTS_ATTRIBUTES) > 0}
+                    <div class="of_attr mb-2">
+                      {foreach name=inner item=attributes_data from=$withdraw_data.PRODUCTS_ATTRIBUTES}
+                        <div><strong>{$attributes_data.OPTIONS_NAME}</strong>: {$attributes_data.VALUES_NAME}</div>
+                      {/foreach}
+                    </div>
+                  {/if}
+                </div>
+                <div class="col-12 col-md-4">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex align-items-center">
+                      <div class="of_qty_head d-block d-md-none fw-bold small">{$smarty.const.HEADER_QTY}</div>
+                      <div class="of_qty mx-3">{$withdraw_data.PRODUCTS_QUANTITY}</div>
+                    </div>
+                    <div class="of_total small">
+                      {$withdraw_data.DATE_ADDED}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {/foreach}
+          </div>
+        {/if}
       </div>
       <div class="btn_row d-grid gap-2 d-sm-flex justify-content-sm-between mt-3">
         {$BUTTON_PRINT_LAYER|replace:'"iframe':'"iframe btn btn-outline-secondary'|replace:'" />':'">'}
         {$BUTTON_CART|replace:'<a':"<a class=\"btn btn-cart btn-secondary\" title=\"{$smarty.const.IMAGE_BUTTON_IN_CART}\""}
+        {if isset($BUTTON_WITHDRAW)}{$BUTTON_WITHDRAW|replace:'<a':"<a class=\"btn btn-cart btn-secondary\" title=\"{$smarty.const.IMAGE_BUTTON_WITHDRAW}\""}{/if}
         {if isset($BUTTON_CART_EXPRESS)}
           {$BUTTON_CART_EXPRESS|replace:'<a':'<a class="btn btn-outline-secondary"'}
         {/if}
       </div>
     </div>
-
   </div>
 </div>
