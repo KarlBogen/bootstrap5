@@ -22,7 +22,7 @@
             </div>
             <div class="mb-2 stern clearfix">
               <label class="form-label" for="mail">{#text_email#}</label>
-              {$INPUT_EMAIL|replace:'<input':'<input id="mail" class="form-control"'|replace:"type=\"text\"":"type=\"email\""}<span class="inputRequirement">*</span>
+              {$INPUT_EMAIL|replace:'<input':'<input id="mail" class="form-control"'|replace:"type=\"text\"":"type=\"email\""}
             </div>
             <div class="mb-2 stern clearfix">
               <label class="form-label" for="phone">{#text_phone#}</label>
@@ -64,7 +64,7 @@
             {/if}
             <div class="mb-2 stern clearfix">
               <label class="form-label" for="message">{#text_message#}</label>
-              {$INPUT_TEXT|replace:'<textarea':'<textarea id="message" class="form-control"'}<span class="inputRequirement">*</span>
+              {$INPUT_TEXT|replace:'<textarea':'<textarea id="message" class="form-control"'}
             </div>
             {if "SIGN_CONDITIONS_ON_CHECKOUT"|defined}
               <div class="mb-3 p-2 bg-body-tertiary position-relative small clearfix">

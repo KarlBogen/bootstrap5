@@ -607,7 +607,7 @@ h1.heading, .h1.heading {
 .stern .input-group{
   position: unset;
 }
-.inputRequirement {
+.inputRequirement, .inputRequirement_textarea {
   position: absolute;
   top: 0;
   right: 5px;
