@@ -1,4 +1,4 @@
-{if $dl neq ''}
+{if $dl != ''}
   {config_load file="$language/lang_$language.conf" section="downloads_module"}
   {#heading_download#}
   {if $dl|@sizeof > 0}

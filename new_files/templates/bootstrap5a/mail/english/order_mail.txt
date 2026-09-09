@@ -56,7 +56,7 @@ Prod. No. {$order_values.PRODUCTS_MODEL}{$order_values.PRODUCTS_ATTRIBUTES_MODEL
 {if $address_label_payment != $address_label_shipping}
 {if isset($SHIPPING_CLASS) && strpos($SHIPPING_CLASS, 'selfpickup') !== false}Pickup address
 {else}Shipping address
-{/if}
+{/if} 
 ----------------------------------------------------------------------
 {$address_label_shipping}{/if}
 
