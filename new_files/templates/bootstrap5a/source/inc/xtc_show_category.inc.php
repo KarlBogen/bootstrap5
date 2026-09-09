@@ -132,7 +132,7 @@ function xtc_show_category($parent_id = 0, $path = '', $category_tree_array = ar
         }
       }
       $categories_string .= $tab . '<li class="level' . $level . $cat_active . $hasSubs . $li_class_bs5 . '">';
-      $categories_string .= '<a class="' . $a_class_bs5 . $cat_active . $hasSubsClass . '" href="' . $link . '" title="' . encode_htmlentities($categories['name']) . '">';
+      $categories_string .= '<a class="' . $a_class_bs5 . $cat_active . $hasSubsClass . '" href="' . $link . '" title="' . encode_htmlentities(strip_tags($categories['name'])) . '">';
 
       $categories_string .= $categories['name'];
       if (SHOW_COUNTS == 'true') {
@@ -194,7 +194,7 @@ function bs5_xtc_show_category($parent_id = 0, $path = '', $category_tree_array 
         }
       }
       $categories_string .= $tab . '<li class="nav-item border-bottom level' . $level . $subcategories_class . $cat_active . '">';
-      $categories_string .= '<a class="nav-link' . $cat_active_parent . $cat_active . '" href="' . $categories['link'] . '" title="' . encode_htmlentities($categories['name']) . '">';
+      $categories_string .= '<a class="nav-link' . $cat_active_parent . $cat_active . '" href="' . $categories['link'] . '" title="' . encode_htmlentities(strip_tags($categories['name'])) . '">';
 
       // Kategoriename einrücken
       $space = $sign = '';

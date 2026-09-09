@@ -180,9 +180,9 @@ function xtc_show_category($parent_id = 0, $path = '', $category_tree_array = ar
       $bs5_categories_string .= ($bs5_type == 'mega' && $level == 2) ? $tab . '<ul class="navbar-nav flex-column col" data-level="' . $level . '">' : '';
 
       $categories_string .= $tab . '<li id="li' . $categories['id'] . '" class="level' . $level . $cat_active . $hasSubs . $li_class_bs5 . '"' . $hc_cat_active . '>';
-      $categories_string .= '<a class="' . $a_class_bs5 . $cat_active . $hasSubsClass . '" href="' . $link . '" title="' . encode_htmlentities($categories['name']) . '">';
+      $categories_string .= '<a class="' . $a_class_bs5 . $cat_active . $hasSubsClass . '" href="' . $link . '" title="' . encode_htmlentities(strip_tags($categories['name'])) . '">';
       $bs5_categories_string .= $tab . '<li id="li' . $categories['id'] . '" class="level' . $level . $cat_active . $bs5_hasSubs . $li_class_mega . '">';
-      $bs5_categories_string .= '<a class="' . $a_class_mega . $cat_active . $bs5_hasSubsClass . '" href="' . ($href = $btn_role != '' ? $btn_role : $link) . '" title="' . encode_htmlentities($categories['name']) . '">';
+      $bs5_categories_string .= '<a class="' . $a_class_mega . $cat_active . $bs5_hasSubsClass . '" href="' . ($href = $btn_role != '' ? $btn_role : $link) . '" title="' . encode_htmlentities(strip_tags($categories['name'])) . '">';
 
       if ($bs5_type == 'mega' && $level > 1) {
         $sign = '';
@@ -218,14 +218,14 @@ function xtc_show_category($parent_id = 0, $path = '', $category_tree_array = ar
           // show all
           if (BS5_MENUCASE == '1' && $level == 1) {
             $bs5_categories_string .= $tab . '<div class="overview border-bottom w-100 pb-2 mb-2">';
-            $bs5_categories_string .= '<a class="btn btn-outline-secondary" href="' . $link . '" title="' . encode_htmlentities($categories['name']) . '">';
+            $bs5_categories_string .= '<a class="btn btn-outline-secondary" href="' . $link . '" title="' . encode_htmlentities(strip_tags($categories['name'])) . '">';
             $bs5_categories_string .= '<span class="small">' . TEXT_SHOW_CATEGORY . '</span><strong>  ' . $categories['name'];
             $bs5_categories_string .= '</strong><i class="fa fa-circle-right ms-3"></i></a>';
             $bs5_categories_string .= '</div>';
           }
           if (BS5_MENUCASE == '2') {
             $bs5_categories_string .= $tab . '<li class="overview level' . ($level) . $cat_active . '">';
-            $bs5_categories_string .= '<a class="dropdown-item" href="' . $link . '" title="' . encode_htmlentities($categories['name']) . '">';
+            $bs5_categories_string .= '<a class="dropdown-item" href="' . $link . '" title="' . encode_htmlentities(strip_tags($categories['name'])) . '">';
             $bs5_categories_string .= '<i class="fa fa-circle-right me-2"></i><span class="small">' . TEXT_SHOW_CATEGORY . '</span><br />' . $categories['name'];
             $bs5_categories_string .= '</a>';
             $bs5_categories_string .= '</li><li><hr class="dropdown-divider"></li>';
