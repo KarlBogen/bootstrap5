@@ -5,11 +5,6 @@
     <div class="box-heading w-100 navbar-brand border-bottom mb-2">{#heading_content#}</div>
     <ul class="navbar-nav flex-column">
       {$BOX_CONTENT}
-      {if "MODULE_COOKIE_CONSENT_STATUS"|defined && $smarty.const.MODULE_COOKIE_CONSENT_STATUS == 'true'}
-        <li class="nav-item level1">
-          <a class="nav-link" role="button" title="{$smarty.const.TEXT_COOKIE_CONSENT_LABEL_CPC_HEADING}" data-trigger-cookie-consent-panel=""><span class="fa fa-chevron-right me-2"></span>{$smarty.const.TEXT_COOKIE_CONSENT_LABEL_CPC_HEADING}</a>
-        </li>
-      {/if}
     </ul>
   </div>
 {/if}

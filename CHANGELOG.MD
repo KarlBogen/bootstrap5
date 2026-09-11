@@ -1,5 +1,6 @@
 UNRELEASED
 
+- Update OIL.js v1.55
 - Widerruf in Bestellhistorie hinzugefügt - neu in Shopversion 3.3.1
 - Smarty Modifier "versioning" für logo.gif hinzugefügt - neu in Shopversion 3.3.1
 - Umstellung auf neuen Compactor in Shopversion 3.3.1
