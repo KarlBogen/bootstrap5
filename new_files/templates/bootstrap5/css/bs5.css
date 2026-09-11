@@ -245,7 +245,8 @@ input[type=submit].btn-block {
 .resCarousel .card, .listingbox .card, .listingrow.card, .over-hidden {
   overflow: hidden;
 }
-.resCarousel .card > div a:not(.stretched-link), .listingbox .card > div a:not(.stretched-link), .listingrow.card > div a:not(.stretched-link), .over-hidden > div a:not(.stretched-link) {
+.resCarousel .card > div a:not(.stretched-link), .listingbox .card > div a:not(.stretched-link), .listingrow.card > div a:not(.stretched-link), .over-hidden > div a:not(.stretched-link),
+.resCarousel .card > div button:not(.stretched-link), .listingbox .card > div button:not(.stretched-link), .listingrow.card > div button:not(.stretched-link), .over-hidden > div button:not(.stretched-link) {
   z-index: 2;
   position: relative;
 }

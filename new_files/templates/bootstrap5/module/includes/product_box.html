@@ -74,5 +74,6 @@
         <div class="lb_expires_date text-center text-danger small mb-1">{#text_expires_date#} {$module_data.PRODUCTS_PRICE_EXPIRES_DATE|xtc_date_short}</div>
       {/if}
     {/if}
+    {if $module_data.GUARANTEE_LABEL}<div class="guarantee-label-row text-center">{$module_data.GUARANTEE_LABEL|replace:'<button':'<button tabindex="-1"'}</div>{/if}
   </div>
 </div>

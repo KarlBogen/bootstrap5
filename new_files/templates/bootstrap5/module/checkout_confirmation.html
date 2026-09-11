@@ -154,6 +154,12 @@
             <div class="small">{$ORDER_COMMENTS}</div>
           </div>
         {/if}
+        {if $GUARANTEE_NOTICE_BODY != ''}
+          <div class="mb-3">
+            <div class="h6 border-bottom">{$GUARANTEE_NOTICE_TITLE}</div>
+            <div class="small">{$GUARANTEE_NOTICE_BODY|replace:'guarantee-notice__link':'guarantee-notice__link link-secondary small'}</div>
+          </div>
+        {/if}
         {if $IP_LOG == 'true'}
           <div class="small">{#text_ip#}&nbsp;<strong>{$CUSTOMERS_IP}</strong></div>
         {/if}
@@ -219,6 +225,7 @@
                     {/foreach}
                   </div>
                 {/if}
+                {if $data.GUARANTEE_LABEL}<div class="guarantee-label-row">{$data.GUARANTEE_LABEL}</div>{/if}
               </div>
             </div>
           </div>

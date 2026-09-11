@@ -16,7 +16,7 @@
       {if $success_message}<div class="alert alert-success">{$success_message}</div>{/if}
       <div class="contentbox mb-4">
         <div class="h4">{#text_date#} {$ORDER_DATE}</div>
-        <div class="row">
+        <div class="row mb-3">
           {if $DELIVERY_LABEL}
             <div class="col-12 col-sm-6 small">
               <p class="fw-bold my-2">{if isset($SHIPPING_CLASS) && strpos($SHIPPING_CLASS, 'selfpickup') !== false}{#text_pickup_address#}{else}{#text_shipping_address#}{/if}</p>
@@ -57,6 +57,12 @@
                   </table>
                 </div>
               {/foreach}
+            </div>
+          {/if}
+          {if $GUARANTEE_NOTICE_BODY != ''}
+            <div class="col-12 col-sm-6 small">
+              <p class="fw-bold my-2">{$GUARANTEE_NOTICE_TITLE}</p>
+              {$GUARANTEE_NOTICE_BODY}
             </div>
           {/if}
         </div>
@@ -106,6 +112,7 @@
                     {if $order_values.PRODUCTS_SHIPPING_TIME != ''}<div class="of_infoline">{$smarty.const.SHIPPING_TIME} {$order_values.PRODUCTS_SHIPPING_TIME}</div>{/if}
                   </div>
                 {/if}
+                {if $order_values.GUARANTEE_LABEL}<div class="guarantee-label-row">{$order_values.GUARANTEE_LABEL}</div>{/if}
                 {if sizeof($order_values.PRODUCTS_ATTRIBUTES_ARRAY) > 0}
                   <div class="of_attr mb-2">
                     {foreach key=a_data item=attrib_data from=$order_values.PRODUCTS_ATTRIBUTES_ARRAY}

@@ -1,5 +1,7 @@
 UNRELEASED
 
+
+- EU-Gewährleistung und GARAN-Label hinzugefügt
 - Update OIL.js v1.55
 - Widerruf in Bestellhistorie hinzugefügt - neu in Shopversion 3.3.1
 - Smarty Modifier "versioning" für logo.gif hinzugefügt - neu in Shopversion 3.3.1
