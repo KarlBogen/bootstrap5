@@ -27,33 +27,36 @@ if ($_SESSION['customers_status']['customers_status_read_reviews'] == 1) {
   }
 
   $reviews_query = "SELECT " . $product->default_select . ",
-                             r.reviews_id,
-                             r.reviews_rating,
-                             r.customers_name,
-                             r.date_added,
-                             substring(rd.reviews_text, 1, 600) as reviews_text
-                        FROM " . TABLE_REVIEWS . " r
-                        JOIN " . TABLE_REVIEWS_DESCRIPTION . " rd
-                             ON r.reviews_id = rd.reviews_id
-                                AND rd.languages_id = '" . (int)$_SESSION['languages_id'] . "'
-                        JOIN " . TABLE_PRODUCTS . " p
-                             ON p.products_id = r.products_id
-                                " . $product_select . "
-                        JOIN " . TABLE_PRODUCTS_DESCRIPTION . " pd
-                             ON p.products_id = pd.products_id
-                                AND trim(pd.products_name) != ''
-                                AND pd.language_id = '" . (int)$_SESSION['languages_id'] . "'
-                        JOIN " . TABLE_PRODUCTS_TO_CATEGORIES . " p2c
-                             ON p.products_id = p2c.products_id
-                        JOIN " . TABLE_CATEGORIES . " c
-                             ON c.categories_id = p2c.categories_id
+                            r.reviews_id,
+                            r.reviews_rating,
+                            r.customers_name,
+                            r.date_added,
+                            substring(rd.reviews_text, 1, 600) as reviews_text
+                      FROM " . TABLE_REVIEWS . " r
+                      JOIN " . TABLE_REVIEWS_DESCRIPTION . " rd
+                            ON r.reviews_id = rd.reviews_id
+                              AND rd.languages_id = '" . (int)$_SESSION['languages_id'] . "'
+                      JOIN " . TABLE_PRODUCTS . " p
+                            ON p.products_id = r.products_id
+                              " . $product_select . "
+                      JOIN " . TABLE_PRODUCTS_DESCRIPTION . " pd
+                            ON p.products_id = pd.products_id
+                              AND trim(pd.products_name) != ''
+                              AND pd.language_id = '" . (int)$_SESSION['languages_id'] . "'
+                      WHERE p.products_status = '1'
+                            AND r.reviews_status = '1'
+                            " . PRODUCTS_CONDITIONS_P . "
+                        AND EXISTS (
+                              SELECT 1
+                                FROM " . TABLE_PRODUCTS_TO_CATEGORIES . " p2c
+                                JOIN " . TABLE_CATEGORIES . " c
+                                  ON c.categories_id = p2c.categories_id
                                 AND c.categories_status = 1
                                     " . CATEGORIES_CONDITIONS_C . "
-                       WHERE p.products_status = '1'
-                             AND r.reviews_status = '1'
-                             " . PRODUCTS_CONDITIONS_P . "
-                    ORDER BY r.date_added DESC, p.products_id
-                       LIMIT " . MAX_RANDOM_SELECT_REVIEWS;
+                              WHERE p2c.products_id = p.products_id
+                            )
+                  ORDER BY r.date_added DESC, p.products_id
+                      LIMIT " . MAX_RANDOM_SELECT_REVIEWS;
 
   $reviews_query = xtc_db_query($reviews_query);
 

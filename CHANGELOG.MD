@@ -1,6 +1,8 @@
 UNRELEASED
 
 
+- Update verschiedene Templatedateien "source/boxes" zu Shopversion 3.3.1
+- Update Templatedatei xtc_show_category.inc.php zu Shopversion 3.3.1
 - EU-Gewährleistung und GARAN-Label hinzugefügt
 - Update OIL.js v1.55
 - Widerruf in Bestellhistorie hinzugefügt - neu in Shopversion 3.3.1
