@@ -4,6 +4,7 @@
 <div class="shopping_cart">
   <h1 class="h3 bg-h">{#heading_cart#}</h1>
   {if $error_message}<div class="alert alert-danger small">{$error_message}</div>{/if}
+  {if $info_message}<div class="alert alert-info small">{$info_message}</div>{/if}
   {if $cart_empty == true}
     <div class="my-4">
       <div class="alert alert-info mb-4">{#text_empty#}</div>
