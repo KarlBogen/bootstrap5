@@ -1,6 +1,8 @@
 UNRELEASED
 
 
+- BS5-Konfiguration einen Schalter zur Steuerung (Label-Vollbild im Checkout anzeigen - nein, oben oder unten) hinzugefügt
+- noRiddle's Vollbildanzeige "Gesetzliche Gewährleistung" in Bestellbestätigung hinzugefügt (danke dafür)
 - Update verschiedene Templatedateien "source/boxes" zu Shopversion 3.3.1
 - Update Templatedatei xtc_show_category.inc.php zu Shopversion 3.3.1
 - EU-Gewährleistung und GARAN-Label hinzugefügt

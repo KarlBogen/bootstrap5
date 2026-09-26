@@ -461,6 +461,16 @@ class Bs5TplManager
     return $traffic_styles;
   }
 
+  public function get_show_eu_label()
+  {
+    $show_eu_label = array(
+      array('id' => 'none', 'text' => BS5_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT_NONE),
+      array('id' => 'top', 'text' => BS5_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT_TOP),
+      array('id' => 'bottom', 'text' => BS5_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT_BOTTOM),
+    );
+    return $show_eu_label;
+  }
+
   public function get_activation_remind()
   {
     $activation_remind = array(

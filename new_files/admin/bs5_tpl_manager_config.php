@@ -42,6 +42,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
   $navbar_classes =   $bs5->get_navbar_classes();
   $text_classes =      $bs5->get_text_classes();
   $traffic_styles =   $bs5->get_traffic_styles();
+  $show_eu_label = $bs5->get_show_eu_label();
   $activation_remind = $bs5->get_activation_remind();
   $remind_minstock =   $bs5->get_remind_minstock();
 
@@ -678,6 +679,16 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
                         <td class="txta-r" colspan="3" style="border:none;">
                           <input type="submit" class="button" name="submit" value="<?php echo BUTTON_UPDATE; ?>">
                         </td>
+                      </tr>
+                      <tr>
+                        <td class="dataTableConfig" colspan="3">
+                          <h3><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT_HEAD; ?></h3>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="dataTableConfig col-left"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT; ?></td>
+                        <td class="dataTableConfig col-middle"><?php echo xtc_draw_pull_down_menu('configuration[BS5_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT]', $show_eu_label, $bs5_conf['BS5_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT']); ?></td>
+                        <td class="dataTableConfig col-right"><?php echo TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT_INFO; ?></td>
                       </tr>
                       <tr>
                         <td class="dataTableConfig" colspan="3">

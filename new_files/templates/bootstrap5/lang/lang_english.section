@@ -68,6 +68,7 @@ desc_success = 'Thank you for your order'
 [checkout_confirmation]
 order_text_each = 'each'
 text_payment_info_layertext = 'Info'
+heading_ip_address = 'Note'
 
 [checkout_payment]
 checkout_edit_address = 'Change address'

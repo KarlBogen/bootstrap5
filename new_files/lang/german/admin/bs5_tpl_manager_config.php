@@ -246,6 +246,16 @@ $lang_array = array(
   'TEXT_BS5_TPL_MANAGER_CONFIG_PRODBOXES_NAME_LINES_INFO' => '<strong>Einstellung gilt f&uuml;r alle Produktboxen.</strong><br>Anzahl der Zeilen, die der Artikelname maximal belegen soll (0 = auto).',
 
   'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_MODULES' => 'Module',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT_HEAD' => 'Vollbildanzeige "Gesetzliche Gewährleistung" im Checkout:',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT' => 'Gesetzliche Gewährleistung:',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT_INFO' => 'Wie soll das Vollbild "Gesetzliche Gewährleistung" anzeigt werden?<br><br>
+    <strong>Hinweis:</strong><br>
+     Das <strong>Systemmodul "EU-Gewährleistung und GARAN-Label (guarantee_labels)"</strong> muss installiert und aktiviert sein.<br><br>
+     Das Label kann auf der Bestellbestätigungsseite zusätzlich zur modified-Implementation als Vollbild angezeigt werden.<br><br>
+     Link zum Originalmodul: <a href="https://www.modified-shop.org/forum/index.php?topic=44345.0" target=”_blank”>https://www.modified-shop.org/forum/index.php?topic=44345.0</a>',
+  'BS5_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT_NONE' => 'nein',
+  'BS5_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT_TOP' => 'oben',
+  'BS5_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT_BOTTOM' => 'unten',
   'TEXT_BS5_TPL_MANAGER_CONFIG_SENDMAIL_IF_NEW_REVIEW_HEAD' => 'E-Mail bei neuer Produktrezension:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_SENDMAIL_IF_NEW_REVIEW' => 'Produktrezension:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_SENDMAIL_IF_NEW_REVIEW_INFO' => '<strong>Soll eine E-Mail bei einer neuen Produktrezension gesendet werden?</strong><br>Bei "Ja" wird eine E-Mail an die "Kontakt - E-Mail-Adresse" und an die "Kontakt - Weiterleitungs-E-Mail-Adressen" geschickt. Es muss hierf&uuml;r in den E-Mail Optionen das Senden von E-Mails aktiviert sein.',

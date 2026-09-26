@@ -246,13 +246,23 @@ $lang_array = array(
   'TEXT_BS5_TPL_MANAGER_CONFIG_PRODBOXES_NAME_LINES_INFO' => '<strong>Setting applies to all product boxes.</strong><br>Number of lines that the article name should max occupy (0 = auto).',
 
   'TEXT_BS5_TPL_MANAGER_CONFIG_TAB_MODULES' => 'Modules',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT_HEAD' => '"Legal guarantee" full-screen display at checkout:',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT' => 'Legal guarantee:',
+  'TEXT_BS5_TPL_MANAGER_CONFIG_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT_INFO' => 'How should the "Legal guarantee" full-screen view be displayed?<br><br>
+    <strong>Note:</strong><br>
+     The system module <strong>"EU legal guarantee and GARAN label (guarantee_labels)"</strong> must be installed and activated.<br><br>
+     The label can be displayed in full-screen mode on the checkout confirmation page, in addition to the modified implementation.<br><br>
+     Link to the original module: <a href="https://www.modified-shop.org/forum/index.php?topic=44345.0" target=”_blank”>https://www.modified-shop.org/forum/index.php?topic=44345.0</a>',
+  'BS5_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT_NONE' => 'none',
+  'BS5_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT_TOP' => 'top',
+  'BS5_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT_BOTTOM' => 'bottom',
   'TEXT_BS5_TPL_MANAGER_CONFIG_SENDMAIL_IF_NEW_REVIEW_HEAD' => 'Email notification for new product reviews:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_SENDMAIL_IF_NEW_REVIEW' => 'Product reviews:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_SENDMAIL_IF_NEW_REVIEW_INFO' => '<strong>Should an email be sent when a new product review is posted?</strong><br>If "Yes" an eMail will be send to "Contact Us - E-Mail Address" and "Contact Us - Forwarding-To". This only works if send eMails is activated.',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_HEAD' => 'Customer reminder for sold out products:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND' => 'Customer remind:',
   'TEXT_BS5_TPL_MANAGER_CONFIG_CUSTOMERS_REMIND_INFO' => 'Activate Customers Remind!<br>
-    <strong>Hinweis:</strong><br>
+    <strong>Note:</strong><br>
      This module offers your logged customers the possibility to have a reminder e-mail sent as soon as an article (in sufficient number) is back in stock.<br><br>
      As soon as an article is no longer in stock, a button appears on the product detail page, with which the customer can register in the reminder list.
      <strong>The reminder list can be found in the admin area under "Customers -> Customers Remind".</strong><br><br>

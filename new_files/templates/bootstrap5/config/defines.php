@@ -113,6 +113,7 @@ defined('BS5_FOOTER_NAVBAR') or define('BS5_FOOTER_NAVBAR', '');
 defined('BS5_FOOTER_BG') or define('BS5_FOOTER_BG', 'bg-body-tertiary');
 
 // Module
+defined('BS5_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT') or define('BS5_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT', 'bottom'); // 'none' = keine Anzeige / 'top' = oben / 'bottom' = unten - Soll EU-Gewährleistung-Label als Vollbild im Checkout angezeigt werden?
 defined('BS5_SENDMAIL_IF_NEW_REVIEW') or define('BS5_SENDMAIL_IF_NEW_REVIEW', 'false'); // 'false' = deaktiviert / 'true' = aktiviert - E-Mail bei neuer Produktrezension senden
 defined('BS5_CUSTOMERS_REMIND') or define('BS5_CUSTOMERS_REMIND', 'false'); // 'false' = deaktiviert / 'true' = aktiviert
 /* Modul "Kundererinnerung" aktivieren!

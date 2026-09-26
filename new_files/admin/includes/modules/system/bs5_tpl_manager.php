@@ -346,6 +346,7 @@ class bs5_tpl_manager
     $values_config[] = "('BS5_TOP2_BG', 'body-tertiary')";
     $values_config[] = "('BS5_FOOTER_NAVBAR', '')";
     $values_config[] = "('BS5_FOOTER_BG', 'body-tertiary')";
+    $values_config[] = "('BS5_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT', 'bottom')";
     $values_config[] = "('BS5_SENDMAIL_IF_NEW_REVIEW', 'false')";
     $values_config[] = "('BS5_CUSTOMERS_REMIND', 'false')";
     $values_config[] = "('BS5_CUSTOMERS_REMIND_DOUBLE_OPT_IN', 'true')";
@@ -912,12 +913,17 @@ class bs5_tpl_manager
     $dirs_and_files[] = $shop_path . 'bs5_reminder.php';
     // Version 1.1.9
     $dirs_and_files[] = $shop_path . 'templates/bootstrap5/css/icons/fontello-c54745a6.zip';
-    $dirs_and_files[] = $shop_path . 'templates/bootstrap5/css/icons/fontello-c54745a6.zip';
+    $dirs_and_files[] = $shop_path . 'templates/bootstrap5a/css/icons/fontello-c54745a6.zip';
     // Version 1.1.13
     //$dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/bs5_template_manager/scssphp/src';
     //$dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/bs5_template_manager/scssphp/LICENSE.md';
     //$dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/bs5_template_manager/scssphp/README.md';
     //$dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/bs5_template_manager/scssphp/scss.inc.php';
+    // Version 1.2.7
+    $dirs_and_files[] = $shop_path . 'templates/bootstrap5/webfonts';
+    $dirs_and_files[] = $shop_path . 'templates/bootstrap5a/webfonts';
+    $dirs_and_files[] = $shop_path . 'templates/bootstrap5/source/external';
+    $dirs_and_files[] = $shop_path . 'templates/bootstrap5a/source/external';
 
     $tpl_dirs_and_files = array();
     // Beispiel Templatedateien
