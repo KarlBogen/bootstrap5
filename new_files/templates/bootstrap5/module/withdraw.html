@@ -85,7 +85,7 @@
 
     <div class="h4 border-bottom my-3">{$WITHDRAW_INFO}</div>
 
-    {if isset($PRODUCTS) && is_array($PRODUCTS) && count($PRODUCTS) > 0}
+    {if $WITHDRAW_OPEN > 0}
 
       {if $VERIFIED === true}
 
@@ -151,10 +151,6 @@
 
         <p class="py-3">{$TEXT_WITHDRAW_PARTLY}</p>
 
-        {foreach name=aussen item=data from=$HIDDEN_DATA}
-          {$data}
-        {/foreach}
-
       {/if}
 
     {else}
@@ -174,6 +170,14 @@
     </div>
 
     {$FORM_END}
+
+    {if isset($VERIFY_FORM_ACTION)}
+      {$VERIFY_FORM_ACTION}
+        <div class="d-flex justify-content-end mt-3">
+          {$BUTTON_VERIFY}
+        </div>
+      {$FORM_END}
+    {/if}
 
   {elseif $FORM_TYPE == 'success'}
 
