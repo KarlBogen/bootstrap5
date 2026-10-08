@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- Klarna integriert lt. Shopversion 3.3.1
 - Modul Widerrufsformular Templateanpassung Shopversion 3.3.1
 - EU-Gewährleistung und GARAN-Label Mail-Templates aktualisiert
 - BS5-Konfiguration einen Schalter zur Steuerung (Label-Vollbild im Checkout anzeigen - nein, oben oder unten) hinzugefügt

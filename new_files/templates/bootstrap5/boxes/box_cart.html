@@ -101,6 +101,14 @@
             </div>
           {/if}
 
+          {if isset($BUTTON_KLARNA)}
+            <div class="hstack text-secondary justify-content-center">
+              <hr class="w-25"><span class="up small mx-3">{#text_cart_or#}</span>
+              <hr class="w-25">
+            </div>
+            <div class="toggle_action_7">{$BUTTON_KLARNA}</div>
+          {/if}
+
         {else}
           <div class="list-group mb-4">
             <div class="list-group-item list-group-item-light">

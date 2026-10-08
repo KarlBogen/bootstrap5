@@ -165,12 +165,15 @@
               {$ADD_CART_BUTTON|replace:'<button':'<button class="btn btn-cart btn-secondary"'}
               {* Ausblenden der Links, wenn Modul Kundenerinnerung aktiviert und Lagerbestand kleiner 0 ist *}
               {if $PRODUCTS_QUANTITY > 0 || ($PRODUCTS_QUANTITY <= 0 && $smarty.const.BS5_CUSTOMERS_REMIND != 'true')}
-                {if (isset($ADD_CART_BUTTON_EXPRESS)) || $ADD_CART_BUTTON_PAYPAL}
+                {if (isset($ADD_CART_BUTTON_EXPRESS)) || $ADD_CART_BUTTON_PAYPAL || $ADD_CART_BUTTON_KLARNA}
                   {if isset($ADD_CART_BUTTON_EXPRESS) && !$PAYPALPLAN}
                     {$ADD_CART_BUTTON_EXPRESS|replace:'<button':'<button class="btn btn-outline-secondary"'}
                   {/if}
                   {if $ADD_CART_BUTTON_PAYPAL && !$PAYPALPLAN}
                     {$ADD_CART_BUTTON_PAYPAL}
+                  {/if}
+                  {if $ADD_CART_BUTTON_KLARNA && !$PAYPALPLAN}
+                    {$ADD_CART_BUTTON_KLARNA}
                   {/if}
                 {/if}
               {/if}
