@@ -181,6 +181,14 @@ function css_button($image, $alt, $parameters = '', $submit = false)
       // Checkout (Adresse aktualisieren)
       $buttons = array('Text' => $alt, 'iconright' => 'fa fa-arrow-right');
       break;
+    case 'button_withdraw.gif':
+      // Modul Widerrufsformular
+      $buttons = array('Text' => $alt, 'iconleft' => 'fa fa-check');
+      break;
+    case 'button_withdraw_verify.gif':
+      // Modul Widerrufsformular
+      $buttons = array('Text' => $alt, 'iconleft' => 'fa fa-envelope', 'Class' => 'btn btn-secondary');
+      break;
 
     default:
       // default
