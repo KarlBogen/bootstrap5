@@ -54,6 +54,16 @@
           <label class="form-label" for="confirm_email">{#text_confirm_email#}</label>
           {$INPUT_CONFIRM_EMAIL|replace:'<input':'<input id="confirm_email" class="form-control"'|replace:"type=\"text\"":"type=\"email\""}
         </div>
+        {if isset($INPUT_PASSWORD_CURRENT)}
+          <div class="mb-2 stern clearfix">
+            <label class="form-label" for="cur_pw">{#text_password_current#}</label>
+            <div class="input-group">
+              {$INPUT_PASSWORD_CURRENT|replace:'<input':'<input id="cur_pw" class="form-control" aria-describedby="pwHelp"'}
+              <button class="togglePw btn btn-outline-secondary fa fa-eye px-3" type="button" aria-label="{$smarty.const.BS5_TOGGLE_PWFIELD_SHOW}"></button>
+            </div>
+            <div id="pwHelp" class="form-text small">{#text_password_current_note#}</div>
+          </div>
+        {/if}
         <div class="mb-2 stern clearfix">
           <label class="form-label" for="tel">{#text_tel#}</label>
           {$INPUT_TEL|replace:'<input':'<input id="tel" class="form-control"'|replace:"type=\"text\"":"type=\"tel\""}

@@ -8,6 +8,42 @@
   {if $error_message}<div class="alert alert-danger">{$error_message}</div>{/if}
   {if $success_message}<div class="alert alert-info">{$success_message}</div>{/if}
 
+  {if $FORM_EMAIL_VERIFY_RESEND}
+    <div class="row my-4">
+      <div class="col-12 col-md-6">
+        {$FORM_EMAIL_VERIFY_RESEND}
+          <div class="contentbox mb-5">
+            <div class="h5 border-bottom">{#title_email_verify#}</div>
+            <div class="small py-2">{#text_email_verify_resend#}</div>
+            <div class="d-grid d-sm-flex my-3">
+              {$BUTTON_EMAIL_VERIFY_RESEND|replace:'<button':'<button class="btn btn-secondary px-5"'}
+            </div>
+          </div>
+        {$FORM_END}
+      </div>
+
+      <div class="col-12 col-md-6 mb-5">
+        {$FORM_EMAIL_VERIFY_CORRECT}
+          <div class="contentbox">
+            <div class="h5 border-bottom">{#title_email_verify_correct#}</div>
+            <div class="small py-2">{#text_email_verify_correct#}</div>
+            <div class="my-2 stern clearfix">
+              <label class="form-label" for="verify_mail">{#text_email_verify_new#}</label>
+              {$INPUT_EMAIL_VERIFY_NEW|replace:'<input':'<input id="verify_mail" class="form-control"'}<span class="inputRequirement">*</span>
+            </div>
+            <div class="mb-2 stern clearfix">
+              <label class="form-label" for="confirm_mail">{#text_email_verify_confirm#}</label>
+              {$INPUT_EMAIL_VERIFY_CONFIRM|replace:'<input':'<input id="confirm_mail" class="form-control"'}<span class="inputRequirement">*</span>
+            </div>
+            <div class="d-grid d-sm-flex py-3">
+              {$BUTTON_EMAIL_VERIFY_CORRECT|replace:'<button':'<button class="btn btn-secondary px-5"'}
+            </div>
+          </div>
+        {$FORM_END}
+      </div>
+    </div>
+  {/if}
+
   <div class="row my-4">
     <div class="col-12 col-md-6 mb-5">
       <div class="contentbox">

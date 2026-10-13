@@ -119,7 +119,7 @@ function css_button($image, $alt, $parameters = '', $submit = false)
       break;
     case 'button_save.gif':
       // Checkout Bestätigungsseite (Aktualisieren)
-      $buttons = array('Text' => '', 'iconleft' => 'fa fa-floppy-disk', 'Title' => $alt);
+      $buttons = array('Text' => $alt, 'iconleft' => 'fa fa-floppy-disk', 'Title' => $alt);
       break;
     case 'button_search.gif':
       // Erweiterte Suche
