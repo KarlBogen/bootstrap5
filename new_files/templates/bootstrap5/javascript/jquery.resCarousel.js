@@ -61,7 +61,7 @@ function ResCarouselResize() {
 
 function ResCarouselBtn(sel) {
 	var count = $(sel).find('.item').length;
-	if (count < 5){
+	if (count < 6){
         var r = $(sel).width();
     	var itemWidth = $(sel).find('.item').width();
     	var ptn = (count * itemWidth) <= r;

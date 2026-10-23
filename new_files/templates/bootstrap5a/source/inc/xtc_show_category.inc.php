@@ -412,10 +412,11 @@ function bs5_xtc_show_sub_category($open = true)
 // Herstellerlinks (d-none wird für Ajax-Call gebraucht)
 function bs5_show_manufacturers($d_none = false)
 {
+  // a scalar subquery stops at the first match, EXISTS gets materialized as a semi-join
   $manufacturers_query = xtDBquery("SELECT m.*
                                       FROM ".TABLE_MANUFACTURERS." as m
                                       WHERE m.manufacturers_status = 1
-                                        AND EXISTS (
+                                        AND (
                                               SELECT 1
                                                 FROM ".TABLE_PRODUCTS." p
                                                 JOIN ".TABLE_PRODUCTS_DESCRIPTION." pd
@@ -431,7 +432,8 @@ function bs5_show_manufacturers($d_none = false)
                                               WHERE p.manufacturers_id = m.manufacturers_id
                                                 AND p.products_status = '1'
                                                     ".PRODUCTS_CONDITIONS_P."
-                                            )
+                                              LIMIT 1
+                                            ) IS NOT NULL
                                   ORDER BY m.sort_order, m.manufacturers_name ASC");
 
   if (xtc_db_num_rows($manufacturers_query, true) > 0) {
