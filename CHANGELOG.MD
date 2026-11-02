@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- Absolute URL zum Herstellerbild
 - Hersteller Box - SQL-Query stoppt bei erstem Produkttreffer
 - Kunden-E-Mail-Verifizierung - neu in Shopversion 3.3.1
 - Klarna integriert lt. Shopversion 3.3.1

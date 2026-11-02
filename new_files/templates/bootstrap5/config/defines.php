@@ -62,7 +62,7 @@ defined('BS5_CATEGORIESMENU_MAXLEVEL') or define('BS5_CATEGORIESMENU_MAXLEVEL', 
 defined('BS5_MANUFACTURERS_LINK') or define('BS5_MANUFACTURERS_LINK', 'true'); // anzeigen = 'true', nicht anzeigen = 'false'
 defined('BS5_SPECIALS_CATEGORIES') or define('BS5_SPECIALS_CATEGORIES', 'true'); // 'true' zeigt den Link "Angebote" im Kategoriebaum / 'false' zeigt die "Angebote" als separate Box
 defined('BS5_WHATSNEW_CATEGORIES') or define('BS5_WHATSNEW_CATEGORIES', 'true'); // 'true' zeigt den Link "Neue Artikel" im Kategoriebaum / 'false' zeigt die "Neue Artikel" als separate Box
-defined('BS5_WHATSNEW_SPECIALS_UPPERCASE') or define('BS5_WHATSNEW_SPECIALS_UPPERCASE', 'true'); // Links "Angebote" und "Neue Artikel" in GROßBUCHSTABEN anzeigen = true, ansonsten false
+defined('BS5_WHATSNEW_SPECIALS_UPPERCASE') or define('BS5_WHATSNEW_SPECIALS_UPPERCASE', 'false'); // Links "Angebote" und "Neue Artikel" in GROßBUCHSTABEN anzeigen = true, ansonsten false
 defined('BS5_HIDE_EMPTY_CATEGORIES') or define('BS5_HIDE_EMPTY_CATEGORIES', 'false'); // Leere Kategorien ausblenden? - ausblenden = true, ansonsten false
 defined('BS5_CATEGORIESMENU_AJAX_SCROLL') or define('BS5_CATEGORIESMENU_AJAX_SCROLL', 'false'); // Kategoriemenü bei Klick nach oben scrollen = true, ansonsten false
 

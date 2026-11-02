@@ -49,7 +49,7 @@ if (!$box_smarty->is_cached(CURRENT_TEMPLATE . '/boxes/box_manufacturers_carouse
       $box_content[] = array(
         'NAME' => $manufacturers['manufacturers_name'],
         'LINK' => xtc_href_link(FILENAME_DEFAULT, xtc_manufacturer_link($manufacturers['manufacturers_id'], $manufacturers['manufacturers_name'])),
-        'IMAGE' => (($image != '') ? DIR_WS_BASE . $image : ''),
+        'IMAGE' => (($image != '') ? $main->getImageLink($image) : ''),
       );
     }
 
