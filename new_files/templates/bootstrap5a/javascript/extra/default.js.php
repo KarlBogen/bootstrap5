@@ -278,8 +278,17 @@
         });
       }
       <?php if (BS5_USE_VIEWERJS == 'true') { ?>
-        var pd_viewer = document.getElementById('pd_viewer');
-        if (pd_viewer) {
+        // the zoomer in root, root itself or the zoomer around root, e.g. around the big image
+        function imageZoomer(root) {
+          return root.querySelector('#pd_viewer') || (root.closest ? root.closest('#pd_viewer') : null);
+        }
+
+        function initViewer(root) {
+          var pd_viewer = imageZoomer(root);
+          // the product page only has the zoomer when the article has an image
+          if (!pd_viewer) {
+            return;
+          }
           var viewer = new Viewer(pd_viewer, {
             url: 'data-org',
             title: [1, (image, imageData) => `${image.alt}`],
@@ -303,6 +312,23 @@
             },
           });
         }
+
+        // init viewer on DOMContentLoaded
+        initViewer(document);
+
+        // content that a script has inserted into the page
+        document.addEventListener('modified:content-updated', function (event) {
+          initViewer(event.detail.root);
+        });
+
+        // content that a script is about to replace or remove
+        document.addEventListener('modified:before-content-update', function (event) {
+          var pd_viewer = imageZoomer(event.detail.root);
+          if (pd_viewer && pd_viewer.viewer) {
+            pd_viewer.viewer.destroy();
+          }
+        });
+
       <?php } ?>
     });
   <?php } ?>

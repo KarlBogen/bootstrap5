@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- Start "jquery.viewer.js" an Shopversion 3.3.1 angepasst
 - Absolute URL zum Herstellerbild
 - Hersteller Box - SQL-Query stoppt bei erstem Produkttreffer
 - Kunden-E-Mail-Verifizierung - neu in Shopversion 3.3.1

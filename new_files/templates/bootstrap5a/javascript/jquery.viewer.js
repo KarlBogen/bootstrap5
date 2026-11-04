@@ -2719,6 +2719,8 @@
       }
       if (!options.inline) {
         removeListener(element, EVENT_CLICK, this.onStart);
+        // Karl Enter-Taste hinzugefügt
+        removeListener(element, EVENT_KEY_DOWN, this.onElementKeyDown);
       }
       element[NAMESPACE] = undefined;
       return this;
@@ -3062,6 +3064,19 @@
             var target = _ref.target;
             if (target.localName === 'img' && (!isFunction(options.filter) || options.filter.call(_this, target))) {
               _this.view(_this.images.indexOf(target));
+            }
+          });
+          // Karl Enter-Taste hinzugefügt
+          addListener(element, EVENT_KEY_DOWN, this.onElementKeyDown = function (event) {
+            var temptarget = event.target,
+              target = element.getElementsByTagName("img")[0],
+              key = event.key;
+            if (target.localName === 'img' && (key === 'Enter' || key === ' ')) {
+              event.preventDefault();
+              if (!isFunction(options.filter) || options.filter.call(_this, target)) {
+                _this.actionEvent = event;
+                _this.view(_this.images.indexOf(target));
+              }
             }
           });
         }
