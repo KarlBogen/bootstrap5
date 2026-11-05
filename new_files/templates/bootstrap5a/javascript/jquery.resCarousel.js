@@ -14,7 +14,10 @@ function ResCarouselOnInit() {
         ResCarousel(this);
     });
 /* BOF Karl in Produktinfo Bilder tauschen */
-    $(document).on('click', '.swap', function() {
+    $(document).on('click keypress', '.swap', function (e) {
+        if(e.keyCode && e.keyCode !== 13) {
+            return false;
+        }
         var btn = document.querySelector(".rightRs"),
         goto = $(this).data('goto');
         ResCarousel(btn, goto);
