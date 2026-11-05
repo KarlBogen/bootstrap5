@@ -2777,6 +2777,8 @@
       if (this.scrollbarWidth > 0) {
         body.style.paddingRight = this.initialBodyPaddingRight;
       }
+      // Karl setzt focus nach dem Schließen
+      this.element.focus({focusVisible: true });
     },
     shown: function shown() {
       var element = this.element,
