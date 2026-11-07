@@ -163,7 +163,7 @@
             $('#cart_quantity').on('submit', function() {
               var check = attributePriceUpdater.check();
               if (!check) {
-                alert('<div class="alert alert-danger fs-6 p-3">{$smarty.const.BS5_MODULFUX_ATTRIBUTES_ERROR}<\/div>', '{$smarty.const.BS5_MODULFUX_ERROR}');
+                alert('<div class="text-danger">{$smarty.const.BS5_MODULFUX_ATTRIBUTES_ERROR}<\/div>', '{$smarty.const.BS5_MODULFUX_ERROR}');
                 return false;
               }
               return true;

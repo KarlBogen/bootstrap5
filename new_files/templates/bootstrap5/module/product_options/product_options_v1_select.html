@@ -20,7 +20,7 @@
           <div class="col-lg-9">
             <select id="sel_{$smarty.foreach.outer.iteration}" class="form-select" name="id[{$options_data.ID}]" aria-label="{$options_data.NAME}">
               {foreach key=key_data item=item_data from=$options_data.DATA}
-                <option data-attrdata="{$item_data.JSON_ATTRDATA}" value="{$item_data.ID}" {if $item_data.CHECKED == '1'} selected="selected" {/if}>{$item_data.TEXT} {if isset($show_full_price)}&nbsp;&nbsp;|&nbsp;&nbsp;{$item_data.FULL_PRICE}{if $item_data.VPE}&nbsp;({$item_data.VPE}){/if}{elseif $item_data.PRICE != ''}&nbsp;{$item_data.PREFIX}&nbsp;{$item_data.PRICE}{/if}</option>
+                <option data-attrdata="{$item_data.JSON_ATTRDATA}" value="{$item_data.ID}" {if $item_data.CHECKED == '1'} selected="selected" {/if}>{$item_data.TEXT} {if isset($show_full_price) && $item_data.FULL_PRICE}&nbsp;&nbsp;|&nbsp;&nbsp;{$item_data.FULL_PRICE}{if $item_data.VPE}&nbsp;({$item_data.VPE}){/if}{elseif $item_data.PRICE != ''}&nbsp;{$item_data.PREFIX}&nbsp;{$item_data.PRICE}{/if}</option>
                 {if $smarty.const.BS5_TRAFFIC_LIGHTS == 'true' && $smarty.const.BS5_TRAFFIC_LIGHTS_PRODATTRIBUTES != 'false'}
                   {traffic_light stock=$item_data.STOCK modul='attributes' select='ots'}
                 {/if}
@@ -159,7 +159,7 @@
             $('#cart_quantity').on('submit', function() {
               var check = attributePriceUpdater.check();
               if (!check) {
-                alert('<div class="alert alert-danger fs-6 p-3"><p>{$smarty.const.BS5_MODULFUX_ATTRIBUTES_ERROR}<\/p><\/div>', '{$smarty.const.BS5_MODULFUX_ERROR}>');
+                alert('<div class="text-danger">{$smarty.const.BS5_MODULFUX_ATTRIBUTES_ERROR}<\/div>', '{$smarty.const.BS5_MODULFUX_ERROR}');
                 return false;
               }
               return true;

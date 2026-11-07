@@ -176,7 +176,7 @@
 
   function alert(message, title) {
     title = title || "<?php echo TEXT_LINK_TITLE_INFORMATION; ?>";
-    $.alertable.alert('<span id="alertable-title"></span><span id="alertable-content"></span>', {
+    $.alertable.alert('<div id="alertable-title" class="fs-5 border-bottom mb-2"></div><div id="alertable-content" class="fs-6 p-3"></div>', {
       html: true
     });
     $('#alertable-content').html(message);
