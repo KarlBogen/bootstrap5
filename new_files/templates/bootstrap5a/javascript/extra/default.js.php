@@ -289,6 +289,16 @@
           if (!pd_viewer) {
             return;
           }
+          // viewer.js takes the navbar image from image.src, which holds the large image for crawlers
+          pd_viewer.querySelectorAll('img[data-navbar]').forEach(function (image) {
+            Object.defineProperty(image, 'src', {
+              configurable: true,
+              get: function () {
+                return image.getAttribute('data-navbar');
+              },
+            });
+          });
+
           var viewer = new Viewer(pd_viewer, {
             url: 'data-org',
             title: [1, (image, imageData) => `${image.alt}`],

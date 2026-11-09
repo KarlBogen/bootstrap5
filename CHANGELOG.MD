@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- Produktinfoansicht - zusätzliche Bilder hatten keinen src
 - Alert Nachricht verändert
 - Start "jquery.viewer.js" an Shopversion 3.3.1 angepasst
 - Absolute URL zum Herstellerbild
