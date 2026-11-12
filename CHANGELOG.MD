@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- Bestandsprüfung Warenkorbbox
 - Update Bootstrap-Framework von 5.3.8 zu 5.3.9
 - Produktinfoansicht - zusätzliche Bilder hatten keinen src
 - Alert Nachricht verändert
