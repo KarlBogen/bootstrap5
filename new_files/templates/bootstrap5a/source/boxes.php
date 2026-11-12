@@ -99,7 +99,9 @@ if (
   require_once(DIR_FS_BOXES . 'last_viewed.php');
   require_once(DIR_FS_BOXES . 'whats_new.php');
   require_once(DIR_FS_BOXES . 'best_sellers.php');
-  require_once(DIR_FS_BOXES . 'specials.php');
+  if (MAX_RANDOM_SELECT_SPECIALS > 0) {
+    require_once(DIR_FS_BOXES . 'specials.php');
+  }
   require_once(DIR_FS_BOXES . 'xsell.php');
 }
 
@@ -136,11 +138,15 @@ switch ($display_mode) {
       // whats_new
       require_once(DIR_FS_BOXES . 'whats_new.php');
     }
-    if ($_SESSION['customers_status']['customers_status_specials'] == '1' && BS5_STARTPAGE_BOX_SPECIALS == 'true') {
+    if ($_SESSION['customers_status']['customers_status_specials'] == '1' 
+        && BS5_STARTPAGE_BOX_SPECIALS == 'true'
+        && MAX_RANDOM_SELECT_SPECIALS > 0) {
       // specials
       require_once(DIR_FS_BOXES . 'specials.php');
     }
-    if ($_SESSION['customers_status']['customers_status_read_reviews'] == '1' && BS5_STARTPAGE_BOX_REVIEWS == 'true') {
+    if ($_SESSION['customers_status']['customers_status_read_reviews'] == '1' 
+        && BS5_STARTPAGE_BOX_REVIEWS == 'true'
+        && MAX_RANDOM_SELECT_REVIEWS > 0) {
       // reviews
       require_once(DIR_FS_BOXES . 'reviews.php');
     }
