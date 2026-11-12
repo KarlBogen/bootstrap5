@@ -1533,6 +1533,7 @@ $modal-sm:                          300px !default;
 $modal-md:                          500px !default;
 $modal-lg:                          800px !default;
 $modal-xl:                          1140px !default;
+$modal-xxl:                         1320px !default;
 
 $modal-fade-transform:              translate(0, -50px) !default;
 $modal-show-transform:              none !default;
@@ -1749,3 +1750,5 @@ $kbd-bg:                            var(--#{$prefix}body-color) !default;
 $nested-kbd-font-weight:            null !default; // Deprecated in v5.2.0, removing in v6
 
 $pre-color:                         null !default;
+
+@import "variables-dark"; // TODO: can be removed safely in v6, only here to avoid breaking changes in v5.3

@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- Update Bootstrap-Framework von 5.3.8 zu 5.3.9
 - Produktinfoansicht - zusätzliche Bilder hatten keinen src
 - Alert Nachricht verändert
 - Start "jquery.viewer.js" an Shopversion 3.3.1 angepasst

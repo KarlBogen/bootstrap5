@@ -25,7 +25,7 @@ class bs5_tpl_manager
 
   public function __construct()
   {
-    $this->version = '1.2.6';
+    $this->version = '1.2.7';
     // Wichtiger Hinweis: bei Versionsänderung muss die Versionsnummer auch in admin/bs5_tpl_manager_config.php Zeile 113 geändert werden.
     // Wichtiger Hinweis: neu hinzugekommene Konstante in "config/config.php" eintragen.
     // if (!defined('MODULE_BS5_TPL_MANAGER_STATUS') || MODULE_BS5_TPL_MANAGER_STATUS != 'true' || !defined('BS5_SHOW_PAYPAL_IN_BOX_CART')) {
