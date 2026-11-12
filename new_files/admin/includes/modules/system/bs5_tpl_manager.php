@@ -25,7 +25,7 @@ class bs5_tpl_manager
 
   public function __construct()
   {
-    $this->version = '1.2.7';
+    $this->version = '1.2.6';
     // Wichtiger Hinweis: bei Versionsänderung muss die Versionsnummer auch in admin/bs5_tpl_manager_config.php Zeile 113 geändert werden.
     // Wichtiger Hinweis: neu hinzugekommene Konstante in "config/config.php" eintragen.
     // if (!defined('MODULE_BS5_TPL_MANAGER_STATUS') || MODULE_BS5_TPL_MANAGER_STATUS != 'true' || !defined('BS5_SHOW_PAYPAL_IN_BOX_CART')) {
@@ -346,7 +346,6 @@ class bs5_tpl_manager
     $values_config[] = "('BS5_TOP2_BG', 'body-tertiary')";
     $values_config[] = "('BS5_FOOTER_NAVBAR', '')";
     $values_config[] = "('BS5_FOOTER_BG', 'body-tertiary')";
-    $values_config[] = "('BS5_SHOW_FULL_EU_GUARANTEE_LABEL_CHECKOUT', 'bottom')";
     $values_config[] = "('BS5_SENDMAIL_IF_NEW_REVIEW', 'false')";
     $values_config[] = "('BS5_CUSTOMERS_REMIND', 'false')";
     $values_config[] = "('BS5_CUSTOMERS_REMIND_DOUBLE_OPT_IN', 'true')";
@@ -919,11 +918,6 @@ class bs5_tpl_manager
     //$dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/bs5_template_manager/scssphp/LICENSE.md';
     //$dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/bs5_template_manager/scssphp/README.md';
     //$dirs_and_files[] = $shop_path . DIR_ADMIN . 'includes/bs5_template_manager/scssphp/scss.inc.php';
-    // Version 1.2.7
-    $dirs_and_files[] = $shop_path . 'templates/bootstrap5/webfonts';
-    $dirs_and_files[] = $shop_path . 'templates/bootstrap5a/webfonts';
-    $dirs_and_files[] = $shop_path . 'templates/bootstrap5/source/external';
-    $dirs_and_files[] = $shop_path . 'templates/bootstrap5a/source/external';
 
     $tpl_dirs_and_files = array();
     // Beispiel Templatedateien
