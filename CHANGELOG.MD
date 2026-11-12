@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- SSL-Check aus Template entfernt
 - Boxen Bewertungen und Angebote nur anzeigen, wenn Auswahlpool größer 0 ist
 - Bestandsprüfung Warenkorbbox
 - Update Bootstrap-Framework von 5.3.8 zu 5.3.9
