@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- Kundendaten decodiert ausgeben
 - SSL-Check aus Template entfernt
 - Boxen Bewertungen und Angebote nur anzeigen, wenn Auswahlpool größer 0 ist
 - Bestandsprüfung Warenkorbbox

@@ -80,8 +80,8 @@ function sendremindmails($prodId = '', $mail = '')
       $objSmarty->assign('PRODUCTS_NAME', $arrstock['products_name']);
       $objSmarty->assign('PRODUCTS_MODEL', $arrstock['products_model']);
       $objSmarty->assign('CUSTOMERS_GENDER', $arrstock['customers_gender']);
-      $objSmarty->assign('CUSTOMERS_FIRSTNAME', $arrstock['customers_firstname']);
-      $objSmarty->assign('CUSTOMERS_LASTNAME', $arrstock['customers_lastname']);
+      $objSmarty->assign('CUSTOMERS_FIRSTNAME', encode_htmlspecialchars($arrstock['customers_firstname'], ENT_NOQUOTES));
+      $objSmarty->assign('CUSTOMERS_LASTNAME', encode_htmlspecialchars($arrstock['customers_lastname'], ENT_NOQUOTES));
       $objSmarty->assign('MAIL_HEAD1', $arrstock['mail_head1']);
       $objSmarty->assign('CUSTOMERS_LANGUAGE', $arrstock['customers_language']);
       $objSmarty->assign('CUSTOMERS_PRODUCTS_IMAGE', $arrstock['products_image']);
@@ -141,7 +141,7 @@ function sendactivationremindmails()
         $obj1Smarty = new Smarty();
 
         $link = xtc_href_link(FILENAME_BS5_CUSTOMERS_REMIND, 'action=activate&language=' . $_SESSION['language_code'] . '&email=' . md5($act_remind['customers_email_address']) . '&key=' . $act_remind['mail_key'], 'NONSSL', false);
-        $obj1Smarty->assign('EMAIL', $act_remind['customers_email_address']);
+        $obj1Smarty->assign('EMAIL', encode_htmlspecialchars($act_remind['customers_email_address'], ENT_NOQUOTES));
         $obj1Smarty->assign('LINK', $link);
         $obj1Smarty->assign('language', $_SESSION['language']);
         $obj1Smarty->assign('tpl_path', HTTP_SERVER . DIR_WS_CATALOG . 'templates/' . CURRENT_TEMPLATE . '/');

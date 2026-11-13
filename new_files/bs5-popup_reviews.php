@@ -40,11 +40,11 @@ if (xtc_db_num_rows($reviews_query)) {
   while ($reviews = xtc_db_fetch_array($reviews_query)) {
     $langs[] = (int)$reviews['languages_id'];
     $data_reviews[$reviews['reviews_rating']][] = array(
-      'AUTHOR' => $reviews['customers_name'],
+      'AUTHOR' => encode_htmlspecialchars($reviews['customers_name']),
       'DATE' => xtc_date_short($reviews['date_added']),
       'RATING_VOTE' => constant('BS5_AWIDSRATINGBREAKDOWN_LINK_' . $reviews['reviews_rating']),
       'LANG_ID' => (int)$reviews['languages_id'],
-      'TEXT' => nl2br($reviews['reviews_text'])
+      'TEXT' => nl2br(encode_htmlspecialchars($reviews['reviews_text']))
     );
   }
 }

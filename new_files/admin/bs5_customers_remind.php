@@ -174,14 +174,14 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
                     ?>
                         <td class="dataTableContent" colspan="2">
                           <?php if ($customers_remind['customers_id'] == '0') {
-                            echo $customers_remind['customers_firstname'] . " " . $customers_remind['customers_lastname'] . "<br>";
+                            echo encode_htmlspecialchars($customers_remind['customers_firstname'] . " " . $customers_remind['customers_lastname']) . "<br>";
                           } else {
-                            echo $customers_remind['customers_firstname'] . " " . $customers_remind['customers_lastname'] . " [" . $customers_remind['customers_id'] . "]<br>";
+                            echo encode_htmlspecialchars($customers_remind['customers_firstname'] . " " . $customers_remind['customers_lastname']) . " [" . $customers_remind['customers_id'] . "]<br>";
                           }
                           if ($customers_remind['mail_status'] != '1') {
-                            echo $customers_remind['customers_email_address'] . '<span class="colorRed"> (n.a.)</span>';
+                            echo encode_htmlspecialchars($customers_remind['customers_email_address']) . '<span class="colorRed"> (n.a.)</span>';
                           } else {
-                            echo $customers_remind['customers_email_address'];
+                            echo encode_htmlspecialchars($customers_remind['customers_email_address']);
                           } ?>
                         </td>
                         <td class="dataTableContent txta-c">

@@ -196,26 +196,26 @@ if (isset($_POST['action']) && ($_POST['action'] == 'send')) {
     $create_html_body = '<h3>' . STORE_NAME . '</h3>';
     $create_html_body .= '<h4>' . BS5_CHEAPLY_SEE_HEADING_FORMULAR . '</h4>';
     $create_html_body .= $gender . "<br>";
-    $create_html_body .= $create_name . "<br>";
-    $create_html_body .= BS5_EMAIL . $email . "<br><br>";
+    $create_html_body .= encode_htmlspecialchars($create_name, ENT_NOQUOTES) . "<br>";
+    $create_html_body .= BS5_EMAIL . encode_htmlspecialchars($email, ENT_NOQUOTES) . "<br><br>";
     $create_html_body .= BS5_COMPETITORURL . $competitorurl . "<br>";
-    $create_html_body .= BS5_COMPETITORPRICE . $competitorprice . "<br><br>";
+    $create_html_body .= BS5_COMPETITORPRICE . encode_htmlspecialchars($competitorprice, ENT_NOQUOTES) . "<br><br>";
     $create_html_body .= HEADER_ARTICLE . ": " . $products->data['products_name'] . "<br>";
     $create_html_body .= HEADER_MODEL . ": " . $products->data['products_model'] . "<br><br>";
     $create_html_body .= BS5_SUBJECT . $create_subject . "<br><br>";
-    $create_html_body .= nl2br($message_body) . "<br><br>";
+    $create_html_body .= nl2br(encode_htmlspecialchars($message_body, ENT_NOQUOTES)) . "<br><br>";
 
     $create_text_body = STORE_NAME . "\n\n";
     $create_text_body .= BS5_CHEAPLY_SEE_HEADING_FORMULAR . ":\n--------------------\n";
     $create_text_body .= $gender . "\n";
-    $create_text_body .= $create_name . "\n";
-    $create_text_body .= BS5_EMAIL . $email . "\n\n";
+    $create_text_body .= encode_htmlspecialchars($create_name, ENT_NOQUOTES) . "\n";
+    $create_text_body .= BS5_EMAIL . encode_htmlspecialchars($email, ENT_NOQUOTES) . "\n\n";
     $create_text_body .= BS5_COMPETITORURL . $competitorurl . "\n";
-    $create_text_body .= BS5_COMPETITORPRICE . $competitorprice . "\n\n";
+    $create_text_body .= BS5_COMPETITORPRICE . encode_htmlspecialchars($competitorprice, ENT_NOQUOTES) . "\n\n";
     $create_text_body .= HEADER_ARTICLE . ": " . $products->data['products_name'] . "\n";
     $create_text_body .= HEADER_MODEL . ": " . $products->data['products_model'] . "\n\n";
     $create_text_body .= BS5_SUBJECT . $create_subject . "\n\n";
-    $create_text_body .= "\n--------------------\n" . $message_body . "\n\n";
+    $create_text_body .= "\n--------------------\n" . encode_htmlspecialchars($message_body, ENT_NOQUOTES) . "\n\n";
 
     // EMAIL GENERIEREN
     xtc_php_mail(
@@ -291,7 +291,7 @@ if (isset($_GET['view'])) {
   include('includes/application_bottom.php');
 }
 
-function validate_url($url)
+function validate_url(string $url)
 {
   $path = parse_url($url, PHP_URL_PATH);
   $encoded_path = array_map('urlencode', explode('/', $path));

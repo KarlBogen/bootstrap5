@@ -171,10 +171,11 @@ if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
           $smarty->assign('SUCCESS_MESSAGE', '2');
 
           if (defined('BS5_CUSTOMERS_REMIND_SENDMAIL') && BS5_CUSTOMERS_REMIND_SENDMAIL == 'true') {
+            $customers_input_name = $customers_input_firstname . "  " . $customers_input_lastname;
 
             $create_html_body = '<h3>' . STORE_NAME . '</h3>';
             $create_html_body .= '<h4>' . BS5_CUSTOMERS_REMIND_EMAIL_HEADING . '</h4>';
-            $create_html_body .= $customers_input_firstname . "  " . $customers_input_lastname;
+            $create_html_body .= encode_htmlspecialchars($customers_input_name, ENT_NOQUOTES);
             if (isset($_SESSION['customer_id'])) $create_html_body .= " [" . $_SESSION['customer_id'] . "]";
             $create_html_body .= "<br>" . BS5_CUSTOMERS_REMIND_EMAIL_1 . "<br><br>";
             $create_html_body .= HEADER_ARTICLE . ": " . $product->data['products_name'] . "<br>";
@@ -183,7 +184,7 @@ if (defined('BS5_CUSTOMERS_REMIND') && BS5_CUSTOMERS_REMIND == 'true') {
 
             $create_text_body = STORE_NAME . "\n\n";
             $create_text_body .= BS5_CUSTOMERS_REMIND_EMAIL_HEADING . ":\n--------------------\n";
-            $create_text_body .= $customers_input_firstname . "  " . $customers_input_lastname;
+            $create_text_body .= encode_htmlspecialchars($customers_input_name, ENT_NOQUOTES);
             if (isset($_SESSION['customer_id'])) $create_html_body .= " [" . $_SESSION['customer_id'] . "]";
             $create_text_body .= "\n" . BS5_CUSTOMERS_REMIND_EMAIL_1 . "\n\n";
             $create_text_body .= HEADER_ARTICLE . ": " . $product->data['products_name'] . "\n";

@@ -293,8 +293,8 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
                       }
                     ?>
                         <td class="dataTableContent"><?php echo $reminder['customers_email_address']; echo !empty($customers_reminds[$reminder['customers_email_address']]) ? '<span class="colorRed"> ('.$customers_reminds[$reminder['customers_email_address']].')</span>' : '<span class="colorRed"> (0)</span>'; ?></td>
-                        <td class="dataTableContent"><?php echo $reminder['customers_firstname']; ?></td>
-                        <td class="dataTableContent"><?php echo $reminder['customers_lastname']; ?></td>
+                        <td class="dataTableContent"><?php echo encode_htmlspecialchars($reminder['customers_firstname']); ?></td>
+                        <td class="dataTableContent"><?php echo encode_htmlspecialchars($reminder['customers_lastname']); ?></td>
                         <td class="dataTableContent"><?php echo $reminder['customers_status_name']; ?></td>
                         <td class="dataTableContent txta-c"><?php echo xtc_image(DIR_WS_ICONS . (($reminder['mail_status'] == '1') ? 'tick.gif' : (($reminder['mail_status'] == '2') ? 'cross.gif' : 'time_delete.png'))); ?></td>
                         <td class="dataTableContent txta-c"><?php echo xtc_date_short($reminder['date_added']); ?></td>
@@ -446,8 +446,8 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
                     while ($result = xtc_db_fetch_array($delete_mail_query)) {
                       $delete_string .= '<tr>';
                       $delete_string .= ' <td class="dataTableContent">' . $result['customers_email_address'] . '</td>';
-                      $delete_string .= ' <td class="dataTableContent">' . $result['customers_firstname'] . '</td>';
-                      $delete_string .= ' <td class="dataTableContent">' . $result['customers_lastname'] . '</td>';
+                      $delete_string .= ' <td class="dataTableContent">' . encode_htmlspecialchars($result['customers_firstname']) . '</td>';
+                      $delete_string .= ' <td class="dataTableContent">' . encode_htmlspecialchars($result['customers_lastname']) . '</td>';
                       $delete_string .= ' <td class="dataTableContent txta-c">' . xtc_image(DIR_WS_ICONS . ('time_delete.png')) . '</td>';
                       $delete_string .= ' <td class="dataTableContent txta-c">' . xtc_date_short($result['date_added']) . '</td>';
                       $delete_string .= '</tr>';

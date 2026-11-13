@@ -79,7 +79,7 @@ if ($_SESSION['customers_status']['customers_status_read_reviews'] == 1) {
       $box_content[$reviews['reviews_id']]['REVIEWS'] = encode_htmlspecialchars($reviews['reviews_text']);
       $box_content[$reviews['reviews_id']]['REVIEWS_IMAGE'] = $review_image;
       $box_content[$reviews['reviews_id']]['REVIEWS_IMAGE_MICROTAG'] = $review_image_microtag;
-      $box_content[$reviews['reviews_id']]['AUTHOR'] = $reviews['customers_name'];
+      $box_content[$reviews['reviews_id']]['AUTHOR'] = encode_htmlspecialchars($reviews['customers_name']);
       $box_content[$reviews['reviews_id']]['DATE'] = xtc_date_short($reviews['date_added']);
     }
   }
