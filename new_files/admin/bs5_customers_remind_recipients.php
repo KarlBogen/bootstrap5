@@ -292,7 +292,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
                         echo '<tr class="dataTableRow" onmouseover="this.className=\'dataTableRowOver\';this.style.cursor=\'pointer\'" onmouseout="this.className=\'dataTableRow\'" onclick="document.location.href=\'' . xtc_href_link(FILENAME_BS5_CUSTOMERS_REMIND_RECIPIENTS, xtc_get_all_get_params(array('action', 'mail')) . 'mail=' . md5($reminder['customers_email_address'])) . '\'">' . "\n";
                       }
                     ?>
-                        <td class="dataTableContent"><?php echo $reminder['customers_email_address']; echo !empty($customers_reminds[$reminder['customers_email_address']]) ? '<span class="colorRed"> ('.$customers_reminds[$reminder['customers_email_address']].')</span>' : '<span class="colorRed"> (0)</span>'; ?></td>
+                        <td class="dataTableContent"><?php echo encode_htmlspecialchars($reminder['customers_email_address']); echo !empty($customers_reminds[$reminder['customers_email_address']]) ? '<span class="colorRed"> ('.encode_htmlspecialchars($customers_reminds[$reminder['customers_email_address']]).')</span>' : '<span class="colorRed"> (0)</span>'; ?></td>
                         <td class="dataTableContent"><?php echo encode_htmlspecialchars($reminder['customers_firstname']); ?></td>
                         <td class="dataTableContent"><?php echo encode_htmlspecialchars($reminder['customers_lastname']); ?></td>
                         <td class="dataTableContent"><?php echo $reminder['customers_status_name']; ?></td>
@@ -445,7 +445,7 @@ if (defined('MODULE_BS5_TPL_MANAGER_STATUS') && MODULE_BS5_TPL_MANAGER_STATUS ==
 
                     while ($result = xtc_db_fetch_array($delete_mail_query)) {
                       $delete_string .= '<tr>';
-                      $delete_string .= ' <td class="dataTableContent">' . $result['customers_email_address'] . '</td>';
+                      $delete_string .= ' <td class="dataTableContent">' . encode_htmlspecialchars($result['customers_email_address']) . '</td>';
                       $delete_string .= ' <td class="dataTableContent">' . encode_htmlspecialchars($result['customers_firstname']) . '</td>';
                       $delete_string .= ' <td class="dataTableContent">' . encode_htmlspecialchars($result['customers_lastname']) . '</td>';
                       $delete_string .= ' <td class="dataTableContent txta-c">' . xtc_image(DIR_WS_ICONS . ('time_delete.png')) . '</td>';
