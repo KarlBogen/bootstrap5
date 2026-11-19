@@ -19,7 +19,7 @@
     <div class="row mb-3">
       {if $PRODUCTS_IMAGE!=''}
         <div class="col-4">
-          <div class="mb-2"><img class="img-fluid" src="{$PRODUCTS_IMAGE}" alt="{$PRODUCTS_NAME}"></div>
+          <div class="mb-2"><img class="img-fluid" src="{$PRODUCTS_IMAGE}" alt="{$PRODUCTS_NAME|replace:'"':'&quot;'}"></div>
         </div>
       {/if}
       <div class="{if $PRODUCTS_IMAGE!=''}col-8{else}col-12{/if}">

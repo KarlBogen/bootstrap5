@@ -12,7 +12,7 @@
         {$INPUT_KEYWORDS|replace:'<input':'<input id="keywords" class="form-control" aria-describedby="search_help"'}
       </div>
       <div id="search_help" class="form-text">
-        <a href="{$HELP_LINK}" title="{$popup_params.link_title}" class="{$popup_params.link_class}"><i class="fa fa-arrow-right me-2"></i>{#text_help#}</a>
+        <a href="{$HELP_LINK}" title="{$popup_params.link_title|replace:'"':'&quot;'}" class="{$popup_params.link_class}"><i class="fa fa-arrow-right me-2"></i>{#text_help#}</a>
       </div>
     </div>
     <div class="col-md-6">

@@ -25,10 +25,10 @@
           <picture>
             <source media="(max-width:575.98px)" srcset="{$CATEGORIES_IMAGE_MOBILE}" {$sizeimgmob}>
             <source srcset="{$CATEGORIES_IMAGE}">
-            <img class="cat_image lazyload img-fluid" src="{$CATEGORIES_IMAGE}" title="{$CATEGORIES_NAME|onlytext}" alt="{$CATEGORIES_NAME|onlytext}" {$sizeimg}>
+            <img class="cat_image lazyload img-fluid" src="{$CATEGORIES_IMAGE}" title="{$CATEGORIES_NAME|onlytext|replace:'"':'&quot;'}" alt="{$CATEGORIES_NAME|onlytext|replace:'"':'&quot;'}" {$sizeimg}>
           </picture>
         {else}
-          <img class="cat_image lazyload img-fluid" src="{$CATEGORIES_IMAGE}" alt="{$CATEGORIES_NAME|onlytext}" {$sizeimg}>
+          <img class="cat_image lazyload img-fluid" src="{$CATEGORIES_IMAGE}" title="{$CATEGORIES_NAME|onlytext|replace:'"':'&quot;'}" alt="{$CATEGORIES_NAME|onlytext|replace:'"':'&quot;'}" {$sizeimg}>
         {/if}
       </div>
     {/if}

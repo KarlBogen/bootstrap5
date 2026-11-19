@@ -14,15 +14,15 @@
                   {if $categories_data.CATEGORIES_IMAGE != '' || (isset($categories_data.CATEGORIES_IMAGE_LIST) && $categories_data.CATEGORIES_IMAGE_LIST != '')}
                     {if isset($categories_data.CATEGORIES_IMAGE_LIST) && $categories_data.CATEGORIES_IMAGE_LIST != ''}
                       {assign var=sizeimglist value=$categories_data.CATEGORIES_IMAGE_LIST|imgsize}
-                      <img class="lazyload img-fluid d-block mx-auto" data-src="{$categories_data.CATEGORIES_IMAGE_LIST}" alt="{#BS5_catlist_imgalt#}" {$sizeimglist}>
+                      <img class="lazyload img-fluid d-block mx-auto" data-src="{$categories_data.CATEGORIES_IMAGE_LIST}" alt="{$categories_data.CATEGORIES_NAME|onlytext|replace:'"':'&quot;'}" {$sizeimglist}>
                     {else}
                       {assign var=sizeimg value=$categories_data.CATEGORIES_IMAGE|imgsize}
-                      <img class="lazyload img-fluid" data-src="{$categories_data.CATEGORIES_IMAGE}" alt="{#BS5_catlist_imgalt#}" {$sizeimg}>
+                      <img class="lazyload img-fluid" data-src="{$categories_data.CATEGORIES_IMAGE}" alt="{$categories_data.CATEGORIES_NAME|onlytext|replace:'"':'&quot;'}" {$sizeimg}>
                     {/if}
                   {/if}
                 </div>
                 <div class="mt-2">
-                  <a class="stretched-link link-secondary" href="{$categories_data.CATEGORIES_LINK}" title="{$categories_data.CATEGORIES_NAME}">{$categories_data.CATEGORIES_NAME}</a>
+                  <a class="stretched-link link-secondary" href="{$categories_data.CATEGORIES_LINK}" title="{$categories_data.CATEGORIES_NAME|replace:'"':'&quot;'}">{$categories_data.CATEGORIES_NAME}</a>
                   {* <p class="subcat_desc small">{$categories_data.CATEGORIES_DESCRIPTION|onlytext|truncate:55:"...":true}</p> *}
                 </div>
               </div>

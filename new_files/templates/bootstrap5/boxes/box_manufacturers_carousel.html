@@ -17,12 +17,12 @@
                 <div class="card-body">
                   <div class="man_image img_container w-100 mx-auto">
                     <div class="prod_image mb-auto">
-                      <img class="lazyload img-fluid" data-src="{$box_data.IMAGE}" alt="{#BS5_manu_imgalt#}" title="{$box_data.NAME|onlytext}">
+                      <img class="lazyload img-fluid" data-src="{$box_data.IMAGE}" alt="{#BS5_manu_imgalt#}" title="{$box_data.NAME|onlytext|replace:'"':'&quot;'}">
                     </div>
                   </div>
                 </div>
                 <div class="card-footer">
-                  <a class="stretched-link lb_title fs-5 text-secondary-emphasis mb-0 d-block{if $smarty.const.BS5_MANCAROUSEL_NAME_LINES != 0}  line-clamp lc-{$smarty.const.BS5_MANCAROUSEL_NAME_LINES}{/if}" href="{$box_data.LINK}" title="{$box_data.NAME|onlytext}">{$box_data.NAME}</a>
+                  <a class="stretched-link lb_title fs-5 text-secondary-emphasis mb-0 d-block{if $smarty.const.BS5_MANCAROUSEL_NAME_LINES != 0}  line-clamp lc-{$smarty.const.BS5_MANCAROUSEL_NAME_LINES}{/if}" href="{$box_data.LINK}" title="{$box_data.NAME|onlytext|replace:'"':'&quot;'}">{$box_data.NAME}</a>
                 </div>
               </div>
             </div>

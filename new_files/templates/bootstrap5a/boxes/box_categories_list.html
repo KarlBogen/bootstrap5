@@ -17,16 +17,16 @@
                 {if $module_data.CATEGORY_IMAGE != '' || (isset($module_data.CATEGORY_IMAGE_LIST) && $module_data.CATEGORY_IMAGE_LIST != '')}
                   {if isset($module_data.CATEGORY_IMAGE_LIST) && $module_data.CATEGORY_IMAGE_LIST != ''}
                     {assign var=sizeimglist value=$module_data.CATEGORY_IMAGE_LIST|imgsize}
-                    <img class="lazyload img-fluid" data-src="{$module_data.CATEGORY_IMAGE_LIST}" alt="{#BS5_catlist_imgalt#}" title="{$module_data.CATEGORY_NAME|onlytext}" {$sizeimglist}>
+                    <img class="lazyload img-fluid" data-src="{$module_data.CATEGORY_IMAGE_LIST}" alt="{#BS5_catlist_imgalt#}" title="{$module_data.CATEGORY_NAME|onlytext|replace:'"':'&quot;'}" {$sizeimglist}>
                   {else}
                     {assign var=sizeimg value=$module_data.CATEGORY_IMAGE|imgsize}
-                    <img class="lazyload img-fluid" data-src="{$module_data.CATEGORY_IMAGE}" alt="{#BS5_catlist_imgalt#}" title="{$module_data.CATEGORY_NAME|onlytext}" {$sizeimg}>
+                    <img class="lazyload img-fluid" data-src="{$module_data.CATEGORY_IMAGE}" alt="{#BS5_catlist_imgalt#}" title="{$module_data.CATEGORY_NAME|onlytext|replace:'"':'&quot;'}" {$sizeimg}>
                   {/if}
                 {/if}
               </div>
             </div>
             <div class="card-footer">
-              <a class="stretched-link lb_title fs-5 text-secondary-emphasis mb-0 d-block" href="{$module_data.CATEGORY_LINK}" title="{$module_data.CATEGORY_NAME}">{if $module_data.CATEGORY_HEADING_TITLE != ''}{$module_data.CATEGORY_HEADING_TITLE}{else}{$module_data.CATEGORY_NAME}{/if}</a>
+              <a class="stretched-link lb_title fs-5 text-secondary-emphasis mb-0 d-block" href="{$module_data.CATEGORY_LINK}" title="{$module_data.CATEGORY_NAME|replace:'"':'&quot;'}">{if $module_data.CATEGORY_HEADING_TITLE != ''}{$module_data.CATEGORY_HEADING_TITLE}{else}{$module_data.CATEGORY_NAME}{/if}</a>
             </div>
           </div>
         </div>

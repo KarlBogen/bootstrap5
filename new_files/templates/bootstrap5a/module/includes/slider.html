@@ -36,11 +36,11 @@
         <div class="carousel-item{if $smarty.foreach.aussen.first} active{/if}">
           {if $slider.LINK != ''}
             {if isset($slider.IMAGE_SRC_MOBILE) && $slider.IMAGE_SRC_MOBILE != ''}
-              <a class="stretched-link d-block" title="{$slider.IMAGE_TITLE|onlytext}" href="{$slider.LINK}" {$slider.TARGET}></a>
+              <a class="stretched-link d-block" title="{$slider.IMAGE_TITLE|onlytext|replace:'"':'&quot;'}" href="{$slider.LINK}" {$slider.TARGET}></a>
               <picture>
                 <source media="(max-width:575.98px)" srcset="{$slider.IMAGE_SRC_MOBILE}">
                 <source srcset="{$slider.IMAGE_SRC}">
-                <img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
+                <img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext|replace:'"':'&quot;'}" title="{$slider.IMAGE_TITLE|onlytext|replace:'"':'&quot;'}">
               </picture>
               {if $slider.TEXT != ''}
                 <div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
@@ -48,8 +48,8 @@
                 <div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
               {/if}
             {else}
-              <a class="stretched-link d-block" title="{$slider.IMAGE_TITLE|onlytext}" href="{$slider.LINK}" {$slider.TARGET}></a>
-              <img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
+              <a class="stretched-link d-block" title="{$slider.IMAGE_TITLE|onlytext|replace:'"':'&quot;'}" href="{$slider.LINK}" {$slider.TARGET}></a>
+              <img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext|replace:'"':'&quot;'}" title="{$slider.IMAGE_TITLE|onlytext|replace:'"':'&quot;'}">
               {if $slider.TEXT != ''}
                 <div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
               {elseif $smarty.const.BS5_CAROUSEL_TITLE == 'true' && ($slider.IMAGE_TITLE != '' || $slider.TITLE != '')}
@@ -61,7 +61,7 @@
               <picture>
                 <source media="(max-width:575.98px)" srcset="{$slider.IMAGE_SRC_MOBILE}">
                 <source srcset="{$slider.IMAGE_SRC}">
-                <img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
+                <img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext|replace:'"':'&quot;'}" title="{$slider.IMAGE_TITLE|onlytext|replace:'"':'&quot;'}">
               </picture>
               {if $slider.TEXT != ''}
                 <div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
@@ -69,7 +69,7 @@
                 <div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
               {/if}
             {else}
-              <img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
+              <img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext|replace:'"':'&quot;'}" title="{$slider.IMAGE_TITLE|onlytext|replace:'"':'&quot;'}">
               {if $slider.TEXT != ''}
                 <div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
               {elseif $smarty.const.BS5_CAROUSEL_TITLE == 'true' && ($slider.IMAGE_TITLE != '' || $slider.TITLE != '')}
@@ -116,11 +116,11 @@
         <div class="carousel-item active">
           {if $slider.LINK != ''}
             {if isset($slider.IMAGE_SRC_MOBILE) && $slider.IMAGE_SRC_MOBILE != ''}
-              <a class="stretched-link d-block" title="{$slider.IMAGE_TITLE|onlytext}" href="{$slider.LINK}" {$slider.TARGET}></a>
+              <a class="stretched-link d-block" title="{$slider.IMAGE_TITLE|onlytext|replace:'"':'&quot;'}" href="{$slider.LINK}" {$slider.TARGET}></a>
               <picture>
                 <source media="(max-width:575.98px)" srcset="{$slider.IMAGE_SRC_MOBILE}">
                 <source srcset="{$slider.IMAGE_SRC}">
-                <img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
+                <img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext|replace:'"':'&quot;'}" title="{$slider.IMAGE_TITLE|onlytext|replace:'"':'&quot;'}">
               </picture>
               {if $slider.TEXT != ''}
                 <div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
@@ -128,8 +128,8 @@
                 <div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
               {/if}
             {else}
-              <a class="stretched-link d-block" title="{$slider.IMAGE_TITLE|onlytext}" href="{$slider.LINK}" {$slider.TARGET}></a>
-              <img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
+              <a class="stretched-link d-block" title="{$slider.IMAGE_TITLE|onlytext|replace:'"':'&quot;'}" href="{$slider.LINK}" {$slider.TARGET}></a>
+              <img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext|replace:'"':'&quot;'}" title="{$slider.IMAGE_TITLE|onlytext|replace:'"':'&quot;'}">
               {if $slider.TEXT != ''}
                 <div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
               {elseif $smarty.const.BS5_CAROUSEL_TITLE == 'true' && ($slider.IMAGE_TITLE != '' || $slider.TITLE != '')}
@@ -141,7 +141,7 @@
               <picture>
                 <source media="(max-width:575.98px)" srcset="{$slider.IMAGE_SRC_MOBILE}">
                 <source srcset="{$slider.IMAGE_SRC}">
-                <img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
+                <img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext|replace:'"':'&quot;'}" title="{$slider.IMAGE_TITLE|onlytext|replace:'"':'&quot;'}">
               </picture>
               {if $slider.TEXT != ''}
                 <div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
@@ -149,7 +149,7 @@
                 <div class="position-absolute bottom-0 start-0 m-4 z-2 d-none d-sm-block"><span class="text-bg-light text-uppercase bg-opacity-50 rounded p-3">{if $slider.IMAGE_TITLE}{$slider.IMAGE_TITLE|onlytext}{else}{$slider.TITLE}{/if}</span></div>
               {/if}
             {else}
-              <img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext}" title="{$slider.IMAGE_TITLE|onlytext}">
+              <img class="lazyload img-fluid" data-src="{$slider.IMAGE_SRC}" alt="{$slider.IMAGE_ALT|onlytext|replace:'"':'&quot;'}" title="{$slider.IMAGE_TITLE|onlytext|replace:'"':'&quot;'}">
               {if $slider.TEXT != ''}
                 <div class="carousel-caption d-none d-md-block">{$slider.TEXT}</div>
               {elseif $smarty.const.BS5_CAROUSEL_TITLE == 'true' && ($slider.IMAGE_TITLE != '' || $slider.TITLE != '')}

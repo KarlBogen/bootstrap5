@@ -13,7 +13,7 @@
         {if isset($MANUFACTURER) && $MANUFACTURER != ''}
           <div class="pd_manu" itemprop="brand" itemscope itemtype="https://schema.org/Brand">
             {if isset($MANUFACTURER_LINK) && $MANUFACTURER_LINK != ''}
-              <a class="link-body-emphasis" title="{if $MANUFACTURER_TITLE != ''}{$MANUFACTURER_TITLE|onlytext}{else}{$MANUFACTURER|onlytext}{/if}" href="{$MANUFACTURER_LINK}"><span itemprop="name">{if $MANUFACTURER_TITLE != ''}{$MANUFACTURER_TITLE}{else}{$MANUFACTURER}{/if}</span></a>
+              <a class="link-body-emphasis" title="{if $MANUFACTURER_TITLE != ''}{$MANUFACTURER_TITLE|onlytext|replace:'"':'&quot;'}{else}{$MANUFACTURER|onlytext|replace:'"':'&quot;'}{/if}" href="{$MANUFACTURER_LINK}"><span itemprop="name">{if $MANUFACTURER_TITLE != ''}{$MANUFACTURER_TITLE}{else}{$MANUFACTURER}{/if}</span></a>
             {else}
               <span itemprop="name">{if $MANUFACTURER_TITLE != ''}{$MANUFACTURER_TITLE}{else}{$MANUFACTURER}{/if}</span>
             {/if}
@@ -22,7 +22,7 @@
         <h1 class="h3 my-3 bg-h{if isset($MANUFACTURER_IMAGE) && $MANUFACTURER_IMAGE != '' && $smarty.const.BS5_PROD_DETAIL_SHOW_MANUIMAGE == 'true'} manu_image_p{/if}" itemprop="name">{if isset($PRODUCTS_HEADING_TITLE) && $PRODUCTS_HEADING_TITLE != ''}{$PRODUCTS_HEADING_TITLE}{else}{$PRODUCTS_NAME}{/if}</h1>
         {if isset($MANUFACTURER_IMAGE) && $MANUFACTURER_IMAGE != '' && $smarty.const.BS5_PROD_DETAIL_SHOW_MANUIMAGE == 'true'}
           <div class="pd_manu_image position-absolute top-0 end-0">
-            <a class="d-inline-block" title="{$MANUFACTURER|onlytext}" href="{$MANUFACTURER_LINK}"><img class="lazyload img-fluid" data-src="{$MANUFACTURER_IMAGE}" alt="{$MANUFACTURER|onlytext}"></a>
+            <a class="d-inline-block" title="{$MANUFACTURER|onlytext|replace:'"':'&quot;'}" href="{$MANUFACTURER_LINK}"><img class="lazyload img-fluid" data-src="{$MANUFACTURER_IMAGE}" alt="{$MANUFACTURER|onlytext|replace:'"':'&quot;'}"></a>
           </div>
         {/if}
       </div>
@@ -47,9 +47,9 @@
                 </span>&nbsp;({$PRODUCTS_RATING_COUNT}<span class="visually-hidden">&nbsp;{#info_reviews#}</span>)
               </div>
             {/if}
-            <meta itemprop="ratingValue" content="{$PRODUCTS_AVERAGE_RATING}" />
+            <meta itemprop="ratingValue" content="{$PRODUCTS_AVERAGE_RATING|replace:'"':'&quot;'}" />
             <meta itemprop="bestRating" content="5" />
-            <meta itemprop="ratingCount" content="{$PRODUCTS_RATING_COUNT}" />
+            <meta itemprop="ratingCount" content="{$PRODUCTS_RATING_COUNT|replace:'"':'&quot;'}" />
           </div>
         {else}
           <div class="ratings mb-3">
@@ -76,7 +76,7 @@
             <i class="fa fa-truck-fast me-2"></i>
             <span class="small">
               <strong>{#text_shippingtime#} </strong>
-              {if $SHIPPING_IMAGE}<img src="{$SHIPPING_IMAGE}" alt="{$SHIPPING_NAME}" />{/if}
+              {if $SHIPPING_IMAGE}<img src="{$SHIPPING_IMAGE}" alt="{$SHIPPING_NAME|replace:'"':'&quot;'}" />{/if}
               {$SHIPPING_NAME_LINK}
             </span>
           </div>
@@ -94,7 +94,7 @@
               {assign var=sizeimg value=$PRODUCTS_IMAGE|imgsize}
               <div class="item text-center">
                 <picture>
-                  <img class="zoomimg img-thumbnail" data-navbar="{if $smarty.const.PICTURESET_ACTIVE === true}{$PRODUCTS_IMAGE|replace:"info_":"mini_"}{else}{$PRODUCTS_IMAGE|replace:"info_":"thumbnail_"}{/if}" data-org="{$PRODUCTS_IMAGE|replace:"info_":"popup_"}" src="{$PRODUCTS_IMAGE}" alt="{$PRODUCTS_NAME|onlytext}" title="{$PRODUCTS_NAME|onlytext}" itemprop="image" {$sizeimg}>
+                  <img class="zoomimg img-thumbnail" data-navbar="{if $smarty.const.PICTURESET_ACTIVE === true}{$PRODUCTS_IMAGE|replace:"info_":"mini_"}{else}{$PRODUCTS_IMAGE|replace:"info_":"thumbnail_"}{/if}" data-org="{$PRODUCTS_IMAGE|replace:"info_":"popup_"}" src="{$PRODUCTS_IMAGE}" alt="{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" title="{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" itemprop="image" {$sizeimg}>
                 </picture>
               </div>
               {if isset($more_images) && count($more_images) > 0}
@@ -103,7 +103,7 @@
                     {assign var=sizeimg value=$more_images_data.PRODUCTS_IMAGE|imgsize}
                     <div class="item text-center">
                       <picture>
-                        <img class="zoomimg img-thumbnail" loading="lazy" data-navbar="{if $smarty.const.PICTURESET_ACTIVE === true}{$more_images_data.PRODUCTS_IMAGE|replace:"info_":"mini_"}{else}{$more_images_data.PRODUCTS_IMAGE|replace:"info_":"thumbnail_"}{/if}" data-org="{$more_images_data.PRODUCTS_IMAGE|replace:"info_":"popup_"}" src="{$more_images_data.PRODUCTS_IMAGE}" alt="{if $more_images_data.IMAGE_ALT != ''}{$more_images_data.IMAGE_ALT|onlytext}{else}{$PRODUCTS_NAME|onlytext}{/if}" title="{if $more_images_data.IMAGE_TITLE != ''}{$more_images_data.IMAGE_TITLE|onlytext}{else}{$PRODUCTS_NAME|onlytext}{/if}" {$sizeimg}>
+                        <img class="zoomimg img-thumbnail" loading="lazy" data-navbar="{if $smarty.const.PICTURESET_ACTIVE === true}{$more_images_data.PRODUCTS_IMAGE|replace:"info_":"mini_"}{else}{$more_images_data.PRODUCTS_IMAGE|replace:"info_":"thumbnail_"}{/if}" data-org="{$more_images_data.PRODUCTS_IMAGE|replace:"info_":"popup_"}" src="{$more_images_data.PRODUCTS_IMAGE}" alt="{if $more_images_data.IMAGE_ALT != ''}{$more_images_data.IMAGE_ALT|onlytext|replace:'"':'&quot;'}{else}{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}{/if}" title="{if $more_images_data.IMAGE_TITLE != ''}{$more_images_data.IMAGE_TITLE|onlytext|replace:'"':'&quot;'}{else}{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}{/if}" {$sizeimg}>
                       </picture>
                     </div>
                   {/if}
@@ -122,15 +122,15 @@
 
     <div class="pd_content col-md-6 float-md-end ps-md-2 mb-4">
       <div class="pd_offer" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-        <meta itemprop="url" content="{$PRODUCTS_LINK}" />
-        <meta itemprop="priceCurrency" content="{$smarty.session.currency}" />
-        {if $PRODUCTS_EXPIRES_C}<meta itemprop="priceValidUntil" content="{$PRODUCTS_EXPIRES_C}" />{/if}
+        <meta itemprop="url" content="{$PRODUCTS_LINK|replace:'"':'&quot;'}" />
+        <meta itemprop="priceCurrency" content="{$smarty.session.currency|replace:'"':'&quot;'}" />
+        {if $PRODUCTS_EXPIRES_C}<meta itemprop="priceValidUntil" content="{$PRODUCTS_EXPIRES_C|replace:'"':'&quot;'}" />{/if}
         {if $PRODUCTS_QUANTITY <= 0 && $smarty.const.STOCK_CHECK == 'true'}
           <meta itemprop="availability" content="http://schema.org/OutOfStock" />
         {else}
           <meta itemprop="availability" content="http://schema.org/InStock" />
         {/if}
-        {if $PRODUCTS_MANUFACTURERS_MODEL != ''}<meta itemprop="mpn" content="{$PRODUCTS_MANUFACTURERS_MODEL}" />{/if}
+        {if $PRODUCTS_MANUFACTURERS_MODEL != ''}<meta itemprop="mpn" content="{$PRODUCTS_MANUFACTURERS_MODEL|replace:'"':'&quot;'}" />{/if}
         <meta itemprop="itemCondition" content="http://schema.org/NewCondition" />
         <div class="pd_price my-3 py-2 border-info border-top border-bottom text-end" aria-label="{#BS5_price#}">
           {if isset($PRODUCTS_DISCOUNT) && $PRODUCTS_DISCOUNT != ''}<div class="text-danger small mb-1"><strong>{#text_discount#}</strong> {$PRODUCTS_DISCOUNT}</div>{/if}

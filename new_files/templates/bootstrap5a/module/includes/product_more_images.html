@@ -4,9 +4,9 @@
       <div class="col-4 col-sm-3{if $smarty.const.BS5_PROD_DETAIL_FULLCONTENT != 'true'} col-lg-2{/if} mb-2">
         <a role="button" class="swap d-inline-block" tabindex="0" data-goto="0" aria-describedby="zoomtext">
           {if $smarty.const.PICTURESET_ACTIVE === true}
-            <img class="lazyload img-fluid img-thumbnail" data-src="{$PRODUCTS_IMAGE|replace:"info_":"mini_"}" alt="{$PRODUCTS_NAME|onlytext}" title="{$PRODUCTS_NAME|onlytext}">
+            <img class="lazyload img-fluid img-thumbnail" data-src="{$PRODUCTS_IMAGE|replace:"info_":"mini_"}" alt="{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" title="{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}">
           {else}
-            <img class="lazyload img-fluid img-thumbnail" data-src="{$PRODUCTS_IMAGE|replace:"info_":"thumbnail_"}" alt="{$PRODUCTS_NAME|onlytext}" title="{$PRODUCTS_NAME|onlytext}">
+            <img class="lazyload img-fluid img-thumbnail" data-src="{$PRODUCTS_IMAGE|replace:"info_":"thumbnail_"}" alt="{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" title="{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}">
           {/if}
         </a>
       </div>
@@ -15,9 +15,9 @@
           <div class="col-4 col-sm-3{if $smarty.const.BS5_PROD_DETAIL_FULLCONTENT != 'true'} col-lg-2{/if} mb-2">
             <a role="button" class="swap d-inline-block" tabindex="0" data-goto="{$i}" aria-describedby="zoomtext">
               {if $smarty.const.PICTURESET_ACTIVE === true}
-                <img class="lazyload img-fluid img-thumbnail" data-src="{$more_images_data.PRODUCTS_IMAGE|replace:"info_":"mini_"}" alt="{if $more_images_data.IMAGE_ALT != ''}{$more_images_data.IMAGE_ALT|onlytext}{else}{$PRODUCTS_NAME|onlytext}{/if}" title="{if $more_images_data.IMAGE_TITLE != ''}{$more_images_data.IMAGE_TITLE|onlytext}{else}{$PRODUCTS_NAME|onlytext}{/if}">
+                <img class="lazyload img-fluid img-thumbnail" data-src="{$more_images_data.PRODUCTS_IMAGE|replace:"info_":"mini_"}" alt="{if $more_images_data.IMAGE_ALT != ''}{$more_images_data.IMAGE_ALT|onlytext|replace:'"':'&quot;'}{else}{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}{/if}" title="{if $more_images_data.IMAGE_TITLE != ''}{$more_images_data.IMAGE_TITLE|onlytext|replace:'"':'&quot;'}{else}{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}{/if}">
               {else}
-                <img class="lazyload img-fluid img-thumbnail" data-src="{$more_images_data.PRODUCTS_IMAGE|replace:"info_":"thumbnail_"}" alt="{if $more_images_data.IMAGE_ALT != ''}{$more_images_data.IMAGE_ALT|onlytext}{else}{$PRODUCTS_NAME|onlytext}{/if}" title="{if $more_images_data.IMAGE_TITLE != ''}{$more_images_data.IMAGE_TITLE|onlytext}{else}{$PRODUCTS_NAME|onlytext}{/if}">
+                <img class="lazyload img-fluid img-thumbnail" data-src="{$more_images_data.PRODUCTS_IMAGE|replace:"info_":"thumbnail_"}" alt="{if $more_images_data.IMAGE_ALT != ''}{$more_images_data.IMAGE_ALT|onlytext|replace:'"':'&quot;'}{else}{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}{/if}" title="{if $more_images_data.IMAGE_TITLE != ''}{$more_images_data.IMAGE_TITLE|onlytext|replace:'"':'&quot;'}{else}{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}{/if}">
               {/if}
             </a>
           </div>
@@ -32,9 +32,9 @@
         <div class="item text-center">
           <a role="button" class="swap d-inline-block" tabindex="-1" data-goto="0" aria-describedby="zoomtext">
             {if $smarty.const.PICTURESET_ACTIVE === true}
-              <img class="lazyload img-fluid img-thumbnail" data-src="{$PRODUCTS_IMAGE|replace:"info_":"mini_"}" alt="{$PRODUCTS_NAME|onlytext}" title="{$PRODUCTS_NAME|onlytext}">
+              <img class="lazyload img-fluid img-thumbnail" data-src="{$PRODUCTS_IMAGE|replace:"info_":"mini_"}" alt="{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" title="{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}">
             {else}
-              <img class="lazyload img-fluid img-thumbnail" data-src="{$PRODUCTS_IMAGE|replace:"info_":"thumbnail_"}" alt="{$PRODUCTS_NAME|onlytext}" title="{$PRODUCTS_NAME|onlytext}">
+              <img class="lazyload img-fluid img-thumbnail" data-src="{$PRODUCTS_IMAGE|replace:"info_":"thumbnail_"}" alt="{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" title="{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}">
             {/if}
           </a>
         </div>
@@ -43,9 +43,9 @@
             <a role="button" class="swap d-inline-block" tabindex="-1" data-goto="{$i}" aria-describedby="zoomtext">
               {if $more_images_data.PRODUCTS_IMAGE != ''}
                 {if $smarty.const.PICTURESET_ACTIVE === true}
-                  <img class="lazyload img-fluid img-thumbnail" data-src="{$more_images_data.PRODUCTS_IMAGE|replace:"info_":"mini_"}" alt="{if $more_images_data.IMAGE_ALT != ''}{$more_images_data.IMAGE_ALT|onlytext}{else}{$PRODUCTS_NAME|onlytext}{/if}" title="{if $more_images_data.IMAGE_TITLE != ''}{$more_images_data.IMAGE_TITLE|onlytext}{else}{$PRODUCTS_NAME|onlytext}{/if}">
+                  <img class="lazyload img-fluid img-thumbnail" data-src="{$more_images_data.PRODUCTS_IMAGE|replace:"info_":"mini_"}" alt="{if $more_images_data.IMAGE_ALT != ''}{$more_images_data.IMAGE_ALT|onlytext|replace:'"':'&quot;'}{else}{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}{/if}" title="{if $more_images_data.IMAGE_TITLE != ''}{$more_images_data.IMAGE_TITLE|onlytext|replace:'"':'&quot;'}{else}{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}{/if}">
                 {else}
-                  <img class="lazyload img-fluid img-thumbnail" data-src="{$more_images_data.PRODUCTS_IMAGE|replace:"info_":"thumbnail_"}" alt="{if $more_images_data.IMAGE_ALT != ''}{$more_images_data.IMAGE_ALT|onlytext}{else}{$PRODUCTS_NAME|onlytext}{/if}" title="{if $more_images_data.IMAGE_TITLE != ''}{$more_images_data.IMAGE_TITLE|onlytext}{else}{$PRODUCTS_NAME|onlytext}{/if}">
+                  <img class="lazyload img-fluid img-thumbnail" data-src="{$more_images_data.PRODUCTS_IMAGE|replace:"info_":"thumbnail_"}" alt="{if $more_images_data.IMAGE_ALT != ''}{$more_images_data.IMAGE_ALT|onlytext|replace:'"':'&quot;'}{else}{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}{/if}" title="{if $more_images_data.IMAGE_TITLE != ''}{$more_images_data.IMAGE_TITLE|onlytext|replace:'"':'&quot;'}{else}{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}{/if}">
                 {/if}
               {/if}
             </a>

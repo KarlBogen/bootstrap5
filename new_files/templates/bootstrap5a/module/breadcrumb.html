@@ -6,13 +6,13 @@
           <a class="link-secondary" itemprop="item" href="{$breadcrumb.link}">
             <span itemprop="name">{$breadcrumb.title|onlytext}&nbsp;</span>
           </a>
-          <meta itemprop="position" content="{$smarty.foreach.aussen.iteration}" />
+          <meta itemprop="position" content="{$smarty.foreach.aussen.iteration|replace:'"':'&quot;'}" />
         </li>
       {else}
         <li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-          <meta itemprop="item" content="{$breadcrumb.link}" />
+          <meta itemprop="item" content="{$breadcrumb.link|replace:'"':'&quot;'}" />
           <span class="current" itemprop="name">{$breadcrumb.title|onlytext}</span>
-          <meta itemprop="position" content="{$smarty.foreach.aussen.iteration}" />
+          <meta itemprop="position" content="{$smarty.foreach.aussen.iteration|replace:'"':'&quot;'}" />
         </li>
       {/if}
     {/foreach}

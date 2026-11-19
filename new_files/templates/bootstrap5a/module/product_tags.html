@@ -8,17 +8,17 @@
       <div class="row mb-2">
         <div class="col-sm-4 mb-2">
           <span class="fw-bold">{if $module_data.OPTIONS_DESCRIPTION != ''}<abbr title="{$module_data.OPTIONS_DESCRIPTION}">{/if}{$module_data.OPTIONS_NAME}{if $module_data.OPTIONS_DESCRIPTION != ''}</abbr>{/if}</span>:
-          {if $module_data.OPTIONS_CONTENT_LINK != ''}<a class="iframe" title="{$module_data.OPTIONS_NAME|onlytext}" href="{$module_data.OPTIONS_CONTENT_LINK}"><span class="fa fa-circle-info fa-lg ms-2"></span></a>{/if}
+          {if $module_data.OPTIONS_CONTENT_LINK != ''}<a class="iframe" title="{$module_data.OPTIONS_NAME|onlytext|replace:'"':'&quot;'}" href="{$module_data.OPTIONS_CONTENT_LINK}"><span class="fa fa-circle-info fa-lg ms-2"></span></a>{/if}
         </div>
         <div class="col-sm-8 mb-2">
           {foreach name=inner item=item_data from=$module_data.DATA}
             {if $item_data.VALUES_IMAGE != ''}
-              {if $item_data.VALUES_CONTENT_LINK != ''}<a class="iframe" href="{$item_data.VALUES_CONTENT_LINK}" title="{$item_data.VALUES_NAME|onlytext}">{/if}
-                <img class="img-fluid d-inline-block me-2" src="{$item_data.VALUES_IMAGE}" alt="{$item_data.VALUES_NAME|onlytext}" {if $item_data.VALUES_DESCRIPTION != ''} title="{$item_data.VALUES_DESCRIPTION}" {/if} style="height:30px;">
+              {if $item_data.VALUES_CONTENT_LINK != ''}<a class="iframe" href="{$item_data.VALUES_CONTENT_LINK}" title="{$item_data.VALUES_NAME|onlytext|replace:'"':'&quot;'}">{/if}
+                <img class="img-fluid d-inline-block me-2" src="{$item_data.VALUES_IMAGE}" alt="{$item_data.VALUES_NAME|onlytext|replace:'"':'&quot;'}" {if $item_data.VALUES_DESCRIPTION != ''} title="{$item_data.VALUES_DESCRIPTION|replace:'"':'&quot;'}" {/if} style="height:30px;">
                 {if $item_data.VALUES_CONTENT_LINK != ''}</a>{/if}
             {else}
               <span>{if $item_data.VALUES_DESCRIPTION != ''}<abbr title="{$item_data.VALUES_DESCRIPTION}">{/if}{$item_data.VALUES_NAME}{if $module_data.OPTIONS_DESCRIPTION != ''}</abbr>{/if}</span>
-              {if $item_data.VALUES_CONTENT_LINK != ''}<a class="iframe" title="{$item_data.VALUES_NAME|onlytext}" href="{$item_data.VALUES_CONTENT_LINK}"><span class="fa fa-circle-info fa-lg ms-2"></span></a>{/if}
+              {if $item_data.VALUES_CONTENT_LINK != ''}<a class="iframe" title="{$item_data.VALUES_NAME|onlytext|replace:'"':'&quot;'}" href="{$item_data.VALUES_CONTENT_LINK}"><span class="fa fa-circle-info fa-lg ms-2"></span></a>{/if}
             {/if}
             {if !$smarty.foreach.inner.last}<span class="me-2">, </span>{/if}
           {/foreach}

@@ -8,7 +8,7 @@
           <div class="prod_image">
             {if $module_data.PRODUCTS_IMAGE != ''}
               <picture>
-                <img class="lazyload img-fluid" data-src="{$module_data.PRODUCTS_IMAGE}" alt="{$module_data.PRODUCTS_NAME|onlytext}" title="{$module_data.PRODUCTS_NAME|onlytext}">
+                <img class="lazyload img-fluid" data-src="{$module_data.PRODUCTS_IMAGE}" alt="{$module_data.PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" title="{$module_data.PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}">
               </picture>
             {/if}
           </div>
@@ -63,11 +63,11 @@
             {/if}
           </div>
         {/if}
-        {if $module_data.PRODUCTS_SHIPPING_NAME}<div class="lr_shipping mb-2 small"><i class="fa fa-truck-fast me-2"></i>{#text_shippingtime#} {if $module_data.PRODUCTS_SHIPPING_IMAGE}<span class="lb_shipping_image"><img class="img-fluid" src="{$module_data.PRODUCTS_SHIPPING_IMAGE}" alt="{$module_data.PRODUCTS_SHIPPING_NAME|onlytext}"></span>{/if}{$module_data.PRODUCTS_SHIPPING_NAME_LINK}</div>{/if}
+        {if $module_data.PRODUCTS_SHIPPING_NAME}<div class="lr_shipping mb-2 small"><i class="fa fa-truck-fast me-2"></i>{#text_shippingtime#} {if $module_data.PRODUCTS_SHIPPING_IMAGE}<span class="lb_shipping_image"><img class="img-fluid" src="{$module_data.PRODUCTS_SHIPPING_IMAGE}" alt="{$module_data.PRODUCTS_SHIPPING_NAME|onlytext|replace:'"':'&quot;'}"></span>{/if}{$module_data.PRODUCTS_SHIPPING_NAME_LINK}</div>{/if}
         {if $smarty.const.BS5_TRAFFIC_LIGHTS == 'true' && $smarty.const.BS5_TRAFFIC_LIGHTS_PRODLISTING != 'false'}
           <div class="lr_stock mb-2 small">{traffic_light stock=$module_data.PRODUCTS_QUANTITY modul='listing'}</div>
         {/if}
-        <div class="lr_buttons text-center">{if $module_data.PRODUCTS_BUTTON_BUY_NOW || ($module_data.PRODUCTS_FSK18 != '0' && $smarty.const.SHOW_BUTTON_BUY_NOW != 'false')}{$module_data.PRODUCTS_BUTTON_BUY_NOW|replace:'class="add_cart"':'class="add_cart btn btn-cart btn-outline-secondary btn-sm mt-2 me-2" aria-label="buy now"'}{/if}{if $module_data.PRODUCTS_LINK_WISHLIST_NOW}<a class="btn btn-wish btn-outline-secondary btn-sm mt-2 me-2" href="{$module_data.PRODUCTS_LINK_WISHLIST_NOW}" title="{$smarty.const.TEXT_TO_WISHLIST}"><i class="fa fa fa-heart"></i></a>{/if}<a class="stretched-link btn btn-secondary btn-sm mt-2" href="{$module_data.PRODUCTS_LINK}"><i class="fa fa-eye"></i>{$smarty.const.TEXT_INFO_DETAILS}</a></div>
+        <div class="lr_buttons text-center">{if $module_data.PRODUCTS_BUTTON_BUY_NOW || ($module_data.PRODUCTS_FSK18 != '0' && $smarty.const.SHOW_BUTTON_BUY_NOW != 'false')}{$module_data.PRODUCTS_BUTTON_BUY_NOW|replace:'class="add_cart"':'class="add_cart btn btn-cart btn-outline-secondary btn-sm mt-2 me-2" aria-label="buy now"'}{/if}{if $module_data.PRODUCTS_LINK_WISHLIST_NOW}<a class="btn btn-wish btn-outline-secondary btn-sm mt-2 me-2" href="{$module_data.PRODUCTS_LINK_WISHLIST_NOW}" title="{$smarty.const.TEXT_TO_WISHLIST}"><i class="fa fa fa-heart"></i></a>{/if}<a class="stretched-link btn btn-secondary btn-sm mt-2" href="{$module_data.PRODUCTS_LINK}" title="{$module_data.PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}"><i class="fa fa-eye"></i>{$smarty.const.TEXT_INFO_DETAILS}</a></div>
       </div>
     </div>
   </div>

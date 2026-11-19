@@ -7,15 +7,15 @@
   <div id="autocomplete_main" class="row row-cols-1 row-cols-md-2 g-2">
     {foreach item=products_data from=$module_content}
       <div class="col">
-        <a class="text-secondary-emphasis" href="{$products_data.PRODUCTS_LINK}">
+        <a class="text-secondary-emphasis" href="{$products_data.PRODUCTS_LINK}" title="{$products_data.PRODUCTS_NAME|replace:'"':'&quot;'}">
           <div class="img-thumbnail h-100 position-relative">
             <div class="row">
               {if $products_data.PRODUCTS_IMAGE}
                 <div class="autocomplete_image col">
                   {if $smarty.const.PICTURESET_ACTIVE === true}
-                    <img class="lazyload img-fluid" data-src="{$products_data.PRODUCTS_IMAGE|replace:" thumbnail_":"mini_"}" alt="{$products_data.PRODUCTS_NAME|onlytext}" title="{$products_data.PRODUCTS_NAME|onlytext}">
+                    <img class="lazyload img-fluid" data-src="{$products_data.PRODUCTS_IMAGE|replace:" thumbnail_":"mini_"}" alt="{$products_data.PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" title="{$products_data.PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}">
                   {else}
-                    <img class="lazyload img-fluid" data-src="{$products_data.PRODUCTS_IMAGE}" alt="{$products_data.PRODUCTS_NAME|onlytext}" title="{$products_data.PRODUCTS_NAME|onlytext}">
+                    <img class="lazyload img-fluid" data-src="{$products_data.PRODUCTS_IMAGE}" alt="{$products_data.PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" title="{$products_data.PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}">
                   {/if}
                 </div>
               {else}

@@ -11,8 +11,8 @@
   <div class="d-flex flex-wrap flex-md-nowrap gap-4">
     {if $PRODUCTS_IMAGE != ''}
       <div class="col-auto mw-100">
-        <a class="cbimages d-block text-center" title="{$PRODUCTS_NAME|onlytext}" role="button" data-bs-toggle="modal" data-title="{$PRODUCTS_NAME|onlytext}" data-image="{$PRODUCTS_IMAGE}" data-bs-target="#modal">
-          <img class="lazyload img-thumbnail" data-src="{$PRODUCTS_IMAGE|replace:'info_':'thumbnail_'}" alt="{$PRODUCTS_NAME|onlytext}" title="{$PRODUCTS_NAME|onlytext}">
+        <a class="cbimages d-block text-center" title="{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" role="button" data-bs-toggle="modal" data-title="{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" data-image="{$PRODUCTS_IMAGE}" data-bs-target="#modal">
+          <img class="lazyload img-thumbnail" data-src="{$PRODUCTS_IMAGE|replace:'info_':'thumbnail_'}" alt="{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" title="{$PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}">
         </a>
       </div>
     {/if}

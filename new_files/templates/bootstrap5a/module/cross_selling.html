@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="visually-hidden">{#BS5_slider_info#}</div>
-        <div id="csCarousel{$nr}" class="resCarousel position-relative w-100{if $smarty.const.BS5_PRODUCT_INFO_BOX == 'true'} it5" data-items="1-2-3-4-5" data-slide="5" {else}" data-items="1-1-1-1-1" data-slide="1" {/if} data-speed="900" aria-label="{if $products_data.GROUP != ''}{$products_data.GROUP}{else}{#heading_text#}{/if}">
+        <div id="csCarousel{$nr}" class="resCarousel position-relative w-100{if $smarty.const.BS5_PRODUCT_INFO_BOX == 'true'} it5" data-items="1-2-3-4-5" data-slide="5" {else}" data-items="1-1-1-1-1" data-slide="1" {/if} data-speed="900" aria-label="{if $products_data.GROUP != ''}{$products_data.GROUP|replace:'"':'&quot;'}{else}{#heading_text#}{/if}">
       <button type="button" class="resBtn btn btn-light leftRs" tabindex="-1"><i class="fa fa-fw fa-angle-left"></i><span class="visually-hidden">{#BS5_previous#}</span></button>
       <div class="resCarousel-inner py-1" tabindex="-1">
         {foreach key=schluessel item=module_data from=$products_data.PRODUCTS}

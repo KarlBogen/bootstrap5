@@ -80,17 +80,17 @@
                     <div class="prod_image">
                       {if $prod_history_data.PRODUCTS_IMAGE != ''}
                         {if $smarty.const.PICTURESET_ACTIVE === true}
-                          <a title="{$prod_history_data.PRODUCTS_NAME|onlytext}" href="{$prod_history_data.PRODUCTS_LINK}"><img class="lazyload img-fluid" data-src="{$prod_history_data.PRODUCTS_IMAGE|replace:"thumbnail_":"mini_"}" alt="{$prod_history_data.PRODUCTS_NAME|onlytext}" title="{$prod_history_data.PRODUCTS_NAME|onlytext}"></a>
+                          <a title="{$prod_history_data.PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" href="{$prod_history_data.PRODUCTS_LINK}"><img class="lazyload img-fluid" data-src="{$prod_history_data.PRODUCTS_IMAGE|replace:"thumbnail_":"mini_"}" alt="{$prod_history_data.PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" title="{$prod_history_data.PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}"></a>
                         {else}
-                          <a title="{$prod_history_data.PRODUCTS_NAME|onlytext}" href="{$prod_history_data.PRODUCTS_LINK}"><img class="lazyload img-fluid" data-src="{$prod_history_data.PRODUCTS_IMAGE}" alt="{$prod_history_data.PRODUCTS_NAME|onlytext}" title="{$prod_history_data.PRODUCTS_NAME|onlytext}"></a>
+                          <a title="{$prod_history_data.PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" href="{$prod_history_data.PRODUCTS_LINK}"><img class="lazyload img-fluid" data-src="{$prod_history_data.PRODUCTS_IMAGE}" alt="{$prod_history_data.PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" title="{$prod_history_data.PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}"></a>
                         {/if}
-                        <noscript><a title="{$prod_history_data.PRODUCTS_NAME|onlytext}" href="{$prod_history_data.PRODUCTS_LINK}"><img class="lazyload img-fluid" data-src="{$prod_history_data.PRODUCTS_IMAGE}" alt="{$prod_history_data.PRODUCTS_NAME|onlytext}" title="{$prod_history_data.PRODUCTS_NAME|onlytext}"></a></noscript>
+                        <noscript><a title="{$prod_history_data.PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" href="{$prod_history_data.PRODUCTS_LINK}"><img class="lazyload img-fluid" data-src="{$prod_history_data.PRODUCTS_IMAGE}" alt="{$prod_history_data.PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}" title="{$prod_history_data.PRODUCTS_NAME|onlytext|replace:'"':'&quot;'}"></a></noscript>
                       {/if}
                     </div>
                   </div>
                   <div class="col">
-                    <div class="mb-2"><a class="link-secondary" title="{$prod_history_data.PRODUCTS_NAME}" href="{$prod_history_data.PRODUCTS_LINK}">{$prod_history_data.PRODUCTS_NAME}</a></div>
-                    <div><strong>{#text_goto_cat#}</strong> <a class="link-secondary" title="{$prod_history_data.CATEGORIES_NAME}" href="{$prod_history_data.CAT_URL}">{$prod_history_data.CATEGORIES_NAME}</a></div>
+                    <div class="mb-2"><a class="link-secondary" title="{$prod_history_data.PRODUCTS_NAME|replace:'"':'&quot;'}" href="{$prod_history_data.PRODUCTS_LINK}">{$prod_history_data.PRODUCTS_NAME}</a></div>
+                    <div><strong>{#text_goto_cat#}</strong> <a class="link-secondary" title="{$prod_history_data.CATEGORIES_NAME|replace:'"':'&quot;'}" href="{$prod_history_data.CAT_URL}">{$prod_history_data.CATEGORIES_NAME}</a></div>
                   </div>
                 </div>
               </div>

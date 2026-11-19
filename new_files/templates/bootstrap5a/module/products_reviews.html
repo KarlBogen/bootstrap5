@@ -43,7 +43,7 @@
                         <span class="ratings" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
                           <span class="fas empty-stars"></span><span class="fas full-stars" style="width:{math equation = "x * 20" x=$module_data.RATING_VOTE|intval}%"></span>
                           <meta itemprop="worstRating" content="1">
-                          <meta itemprop="ratingValue" content="{$module_data.RATING_VOTE}">
+                          <meta itemprop="ratingValue" content="{$module_data.RATING_VOTE|replace:'"':'&quot;'}">
                           <meta itemprop="bestRating" content="5">
                         </span>
                       {else}
@@ -56,7 +56,7 @@
                   <div class="vr"></div>
                   <div>
                     <span class="fw-bold">{#title_date#}:</span><span class="text-nowrap"> {$module_data.DATE}</span>
-                    <meta itemprop="datePublished" content="{$module_data.DATE}" />
+                    <meta itemprop="datePublished" content="{$module_data.DATE|replace:'"':'&quot;'}" />
                   </div>
                 </div>
                 <div class="card-body" itemprop="description">

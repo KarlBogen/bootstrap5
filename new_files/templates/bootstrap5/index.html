@@ -71,10 +71,10 @@
             </li>
           {/if}
           {if $smarty.const.SPECIALS_EXISTS == 'true'}
-            <li id="lisp" class="nav-item level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false} active{/if}"><a class="nav-link{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false} active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_SPECIALS|xtc_href_link}">{#heading_specials#}</a></li>
+            <li id="lisp" class="nav-item level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false} active{/if}"><a class="nav-link{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false} active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_SPECIALS|xtc_href_link}" title="{#heading_specials#}">{#heading_specials#}</a></li>
           {/if}
           {if $smarty.const.WHATSNEW_EXISTS == 'true'}
-            <li id="liwn" class="nav-item level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false} active{/if}"><a class="nav-link{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false} active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_PRODUCTS_NEW|xtc_href_link}">{#heading_whatsnew#}</a></li>
+            <li id="liwn" class="nav-item level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false} active{/if}"><a class="nav-link{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false} active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_PRODUCTS_NEW|xtc_href_link}" title="{#heading_whatsnew#}">{#heading_whatsnew#}</a></li>
           {/if}
           {if $smarty.const.BS5_ADD_LINK_IN_TOPCATMENU_LAST != ''}
             {assign var=BOX_LINKS value=$smarty.const.BS5_ADD_LINK_IN_TOPCATMENU_LAST|addedLinks}
@@ -101,10 +101,10 @@
         {* ENDE Javascript-Hinweis *}
         <div id="checkout_logobar" class="pt-3 mb-3 border-bottom">
           <div class="d-sm-flex justify-content-between align-items-center mb-3">
-            <img class="img-fluid" src="{$logo_path}" alt="{$store_name}" {$logo_path|imgsize:'templates'}>
+            <img class="img-fluid" src="{$logo_path}" alt="{$store_name|replace:'"':'&quot;'}" {$logo_path|imgsize:'templates'}>
             <div class="col_logo_back my-2 text-end">
               {if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_CHECKOUT_SUCCESS) !== false}
-                <a class="btn btn-outline-secondary btn-sm" href="{$index}" title="{#link_index#} &bull; {$store_name}">{#BS5_back_to_shop#}<i class="fa fa-arrow-right ms-2"></i></a>
+                <a class="btn btn-outline-secondary btn-sm" href="{$index}" title="{#link_index#} &bull; {$store_name|replace:'"':'&quot;'}">{#BS5_back_to_shop#}<i class="fa fa-arrow-right ms-2"></i></a>
               {else}
                 <a class="btn btn-outline-secondary btn-sm" href="{$smarty.const.FILENAME_SHOPPING_CART|xtc_href_link}" title="{#BS5_back_to_cart#}">{#BS5_back_to_cart#}<i class="fa fa-arrow-right ms-2"></i></a>
               {/if}
@@ -331,10 +331,10 @@
             </li>
           {/if}
           {if $smarty.const.SPECIALS_EXISTS == 'true'}
-            <li class="level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false} Selected active{/if}"{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false} data-nav-highlight{/if}><a class="{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false}active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_SPECIALS|xtc_href_link}">{#heading_specials#}</a></li>
+            <li class="level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false} Selected active{/if}"{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false} data-nav-highlight{/if}><a class="{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_SPECIALS) !== false}active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_SPECIALS|xtc_href_link}" title="{#heading_specials#}">{#heading_specials#}</a></li>
           {/if}
           {if $smarty.const.WHATSNEW_EXISTS == 'true'}
-            <li class="level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false} Selected active{/if}"{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false} data-nav-highlight{/if}><a class="{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false}active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_PRODUCTS_NEW|xtc_href_link}">{#heading_whatsnew#}</a></li>
+            <li class="level1{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false} Selected active{/if}"{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false} data-nav-highlight{/if}><a class="{if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_PRODUCTS_NEW) !== false}active{/if}{if $smarty.const.BS5_WHATSNEW_SPECIALS_UPPERCASE == 'true'} up{/if}" href="{$smarty.const.FILENAME_PRODUCTS_NEW|xtc_href_link}" title="{#heading_whatsnew#}">{#heading_whatsnew#}</a></li>
           {/if}
           {if $smarty.const.BS5_ADD_LINK_IN_TOPCATMENU_LAST != ''}
             {assign var=BOX_LINKS value=$smarty.const.BS5_ADD_LINK_IN_TOPCATMENU_LAST|addedLinks}

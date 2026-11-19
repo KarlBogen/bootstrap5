@@ -72,10 +72,10 @@
         {* ENDE Javascript-Hinweis *}
         <div id="checkout_logobar" class="pt-3 mb-3 border-bottom">
           <div class="d-sm-flex justify-content-between align-items-center mb-3">
-            <img class="img-fluid" src="{$logo_path}" alt="{$store_name}" {$logo_path|imgsize:'templates'}>
+            <img class="img-fluid" src="{$logo_path}" alt="{$store_name|replace:'"':'&quot;'}" {$logo_path|imgsize:'templates'}>
             <div class="col_logo_back my-2 text-end">
               {if strpos($smarty.server.PHP_SELF, $smarty.const.FILENAME_CHECKOUT_SUCCESS) !== false}
-                <a class="btn btn-outline-secondary btn-sm" href="{$index}" title="{#link_index#} &bull; {$store_name}">{#BS5_back_to_shop#}<i class="fa fa-arrow-right ms-2"></i></a>
+                <a class="btn btn-outline-secondary btn-sm" href="{$index}" title="{#link_index#} &bull; {$store_name|replace:'"':'&quot;'}">{#BS5_back_to_shop#}<i class="fa fa-arrow-right ms-2"></i></a>
               {else}
                 <a class="btn btn-outline-secondary btn-sm" href="{$smarty.const.FILENAME_SHOPPING_CART|xtc_href_link}" title="{#BS5_back_to_cart#}">{#BS5_back_to_cart#}<i class="fa fa-arrow-right ms-2"></i></a>
               {/if}
