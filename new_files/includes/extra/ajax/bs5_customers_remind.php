@@ -39,8 +39,11 @@ function bs5_customers_remind()
     return false;
   }
 
-  $prodId = isset($_REQUEST['prodId']) ? $_REQUEST['prodId'] : '';
-  $mail = isset($_REQUEST['Mail']) ? $_REQUEST['Mail'] : '';
+  $prodId = (isset($_REQUEST['prodId']) && (int)$_REQUEST['prodId'] > 0) ? (string)(int)$_REQUEST['prodId'] : '';
+  $mail = isset($_REQUEST['Mail']) ? trim((string)$_REQUEST['Mail']) : '';
+  if ($mail !== '' && filter_var($mail, FILTER_VALIDATE_EMAIL) === false) {
+    return false;
+  }
 
   sendremindmails($prodId, $mail);
 

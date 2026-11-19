@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- Ajax-Abfragen zusätzlich sichern
 - Doppelte Anführungszeichen in Template-Textausgaben korrigieren
 - Kundendaten decodiert ausgeben
 - SSL-Check aus Template entfernt

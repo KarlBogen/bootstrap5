@@ -23,7 +23,7 @@ function bs5_get_subcat()
   xtc_db_connect() or die('Unable to connect to database server!');
 
   // get Variables
-  $my_cPath = $_REQUEST['cPath'];
+  $my_cPath = (isset($_REQUEST['cPath']) && $_REQUEST['cPath'] === 'man') ? 'man' : preg_replace('/[^0-9_]/', '', (string)(isset($_REQUEST['cPath']) ? $_REQUEST['cPath'] : ''));
 
   // include needed functions
   require_once(DIR_FS_BOXES_INC . 'xtc_show_category.inc.php');
@@ -86,7 +86,7 @@ function bs5_get_subcat()
 
   if (!empty($category_tree_array)) {
     $categories_string .= '<ul class="navbar-nav flex-column" style="display:none;">';
-    $categories_string .= bs5_xtc_show_category($categories_id, '', $category_tree_array, strip_tags($_REQUEST['title']));
+    $categories_string .= bs5_xtc_show_category($categories_id, '', $category_tree_array, encode_htmlspecialchars(strip_tags($_REQUEST['title'])));
     $categories_string .= '</ul>';
   }
 

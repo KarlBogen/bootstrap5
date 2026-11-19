@@ -29,8 +29,9 @@ function bs5_awids_rating()
   xtc_db_connect() or die('Unable to connect to database server!');
 
   // get Variables
-  $pid = $_REQUEST['pid'];
-  $class = $_REQUEST['class'];
+  $pid = (int)(isset($_REQUEST['pid']) ? $_REQUEST['pid'] : 0);
+  $class = in_array($_REQUEST['class'], array('list', 'prod')) === true ? $_REQUEST['class'] : 'list';
+
   $textclass = $class == 'prod' ? '' : 'small';
 
   $breakdown = array();
@@ -69,14 +70,14 @@ function bs5_awids_rating()
       }
       $average = number_format(($sum_ratings / $sum_reviews), 1, ',', '');
       $average_percent = number_format((100 / 5 * $sum_ratings / $sum_reviews), 0, ',', '');
-    }
 
-    $data = array(
-      'BS5_AWIDS_PRODUCTS_RATINGDATA' => $data_result,
-      'BS5_AWIDS_PRODUCTS_SUM_REVIEWS' => $sum_reviews,
-      'BS5_AWIDS_PRODUCTS_AVERAGE' => $average,
-      'BS5_AWIDS_PRODUCTS_AVERAGE_PERCENT' => $average_percent,
-    );
+      $data = array(
+        'BS5_AWIDS_PRODUCTS_RATINGDATA' => $data_result,
+        'BS5_AWIDS_PRODUCTS_SUM_REVIEWS' => $sum_reviews,
+        'BS5_AWIDS_PRODUCTS_AVERAGE' => $average,
+        'BS5_AWIDS_PRODUCTS_AVERAGE_PERCENT' => $average_percent,
+      );
+    }
   }
 
   // prepare layout data
