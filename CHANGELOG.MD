@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- Sitzungscookie bei jeder Anmeldung erneuern
 - Ajax-Abfragen zusätzlich sichern
 - Doppelte Anführungszeichen in Template-Textausgaben korrigieren
 - Kundendaten decodiert ausgeben
