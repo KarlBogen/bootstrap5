@@ -1,6 +1,7 @@
 UNRELEASED
 
 
+- Gutscheincode nur einmal gutschreiben
 - Sitzungscookie bei jeder Anmeldung erneuern
 - Ajax-Abfragen zusätzlich sichern
 - Doppelte Anführungszeichen in Template-Textausgaben korrigieren
